@@ -1,0 +1,30 @@
+{
+  "name": "comp2800-dtc-12",
+  "version": "1.0.0",
+  "description": "- working on UI of application\r - home screen\r - buttons \r - responsiveness\r - foot navigation\r - hamburger menu integration\r - signup/login options etc\r     - this will link to new pages\r - working on server integration with database MongoDB",
+  "main": "server.js",
+  "scripts": {
+    "dev": "nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bradmasy/COMP2800-DTC-12.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bradmasy/COMP2800-DTC-12/issues"
+  },
+  "homepage": "https://github.com/bradmasy/COMP2800-DTC-12#readme",
+  "dependencies": {
+    "ejs": "^3.1.7",
+    "express": "^4.18.1",
+    "jquery": "^3.6.0",
+    "mongoose": "^6.3.1",
+    "mysql": "^2.18.1",
+    "node": "^17.7.2",
+    "nodemon": "^2.0.16",
+    "path": "^0.12.7"
+  }
+}

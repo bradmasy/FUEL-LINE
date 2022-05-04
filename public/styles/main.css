@@ -1,0 +1,399 @@
+/*Fonts*/
+@font-face {
+  font-family: "indie-flower";
+  src: url("../fonts/IndieFlower-Regular.ttf");
+}
+@font-face {
+  font-family: "jost-variable";
+  src: url("../fonts/Jost-VariableFont_wght.ttf");
+}
+@font-face {
+  font-family: "righteous-reg";
+  src: url("../fonts/Righteous-Regular.ttf");
+}
+/* Colors*/
+/*Mixins*/
+/**
+ * SASS STYLE-SHEET FOR INDEX.HTML
+ *
+ * @name: Bradley Masciotra.
+ * @version: 1.0
+ */
+html {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  font-family: "jost-variable";
+}
+html body {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  padding: 0%;
+  margin: 0%;
+  justify-content: center;
+}
+html body header {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 10%;
+  background-color: #FF912C;
+}
+html body header #space {
+  display: flex;
+  width: 33%;
+}
+html body header #header-logo-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 33%;
+  height: 100%;
+}
+html body header #hamburger {
+  display: flex;
+  justify-content: right;
+  width: 33.3%;
+  height: 100%;
+}
+html body header #hamburger #ham-menu:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.9);
+  transition: 0.3s;
+}
+html body header #hamburger #ham-menu {
+  display: flex;
+  height: 100%;
+}
+html body #content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: white;
+  height: 80%;
+  width: 100%;
+}
+html body #content .row-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: 30%;
+}
+html body #content .row-container #main-logo {
+  display: flex;
+  margin-top: 5%;
+  height: 80%;
+  width: 20%;
+}
+html body #content #welcome-txt {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 20%;
+  width: 100%;
+}
+html body #content #welcome-txt #name {
+  display: flex;
+  justify-content: center;
+  height: 75%;
+}
+html body #content #welcome-txt #name #centre-name {
+  display: flex;
+  flex-direction: column;
+}
+html body #content #welcome-txt #name #centre-name p {
+  display: flex;
+  font-size: 5vh;
+}
+html body #content #welcome-txt #centre-txt {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: 25%;
+}
+html body #content #welcome-txt #centre-txt #message {
+  display: flex;
+  text-align: center;
+  font-size: 1.5vh;
+}
+html body #content #signup-login {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 30%;
+  width: 100%;
+}
+html body #content #signup-login #form-align {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: 80%;
+  width: 100%;
+}
+html body #content #signup-login #form-align #form {
+  display: flex;
+  height: 100%;
+  width: 80%;
+  border-radius: 15px 15px 15px 15px;
+}
+html body #content #signup-login #form-align #form #button-columns {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+html body #content #signup-login #form-align #form #button-columns .button-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 25%;
+  margin: 1%;
+}
+html body #content #signup-login #form-align #form #button-columns .button-container .main-button:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.9);
+  transition: 0.3s;
+}
+html body #content #signup-login #form-align #form #button-columns .button-container .main-button {
+  border-radius: 40px;
+  padding-right: 10%;
+  padding-left: 10%;
+  background-color: #FF912C;
+  font-family: "jost-variable";
+  font-size: 1vh;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  border: none;
+  font-weight: bold;
+}
+html body footer {
+  width: 100%;
+  height: 10%;
+  background-color: #FF912C;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+html body footer #navigation-buttons {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+html body footer #navigation-buttons .nav-buttons:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.9);
+  transition: 0.3s;
+}
+html body footer #navigation-buttons .nav-buttons {
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+  height: 100%;
+  justify-content: center;
+}
+html body footer #navigation-buttons .nav-buttons .hover-button {
+  display: flex;
+  flex-direction: column;
+  height: 70%;
+  width: 100%;
+}
+html body footer #navigation-buttons .nav-buttons .hover-button .button-img {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 75%;
+}
+html body footer #navigation-buttons .nav-buttons .hover-button .button-title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  height: 25%;
+}
+html body footer #navigation-buttons .nav-buttons .hover-button .button-title p {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  font-family: "jost-variable";
+  font-size: 1.25vh;
+}
+
+html {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  font-family: "jost-variable";
+}
+html body {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  padding: 0%;
+  margin: 0%;
+  justify-content: center;
+  /*------------------------------------SIGNUP-PAGE----------------------------------------------*/
+}
+html body header {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 10%;
+  background-color: #FF912C;
+}
+html body header #space {
+  display: flex;
+  width: 33%;
+}
+html body header #header-logo-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 33%;
+  height: 100%;
+}
+html body header #hamburger {
+  display: flex;
+  justify-content: right;
+  width: 33.3%;
+  height: 100%;
+}
+html body header #hamburger #ham-menu:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.9);
+  transition: 0.3s;
+}
+html body header #hamburger #ham-menu {
+  display: flex;
+  height: 100%;
+}
+html body #signup-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: white;
+  height: 80%;
+  width: 100%;
+}
+html body #signup-page #signup-statement {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  text-align: center;
+  font-size: 2em;
+  font-weight: bold;
+  height: 20%;
+}
+html body #signup-page #img-container {
+  display: flex;
+  flex-direction: column;
+  height: 10%;
+  width: 100%;
+}
+html body #signup-page #img-container #main-img {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  height: 70%;
+}
+html body #signup-page #img-container #main-img #signup-logo {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: 100%;
+}
+html body #signup-page #greet {
+  display: flex;
+  justify-content: center;
+  height: 10%;
+}
+html body #signup-page #signup-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 60%;
+}
+html body #signup-page #signup-form #signup-form-align {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 80%;
+  width: 100%;
+}
+html body #signup-page #signup-form #signup-form-align .input-buttons {
+  display: flex;
+  justify-content: center;
+  height: 10%;
+  width: 100%;
+  outline: none;
+}
+html body #signup-page #signup-form #signup-form-align .input-buttons .input-fields:focus {
+  border: none;
+  outline: none;
+}
+html body #signup-page #signup-form #signup-form-align .input-buttons .input-fields {
+  display: flex;
+  text-align: center;
+  border: none;
+  font-weight: bold;
+  border-radius: 40px;
+  width: 50%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8), 2px 3px 8px 0 #ffb877;
+}
+html body #signup-page #signup-form #signup-form-align .input-buttons #show-me {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+html body #signup-page #signup-form #signup-form-align .input-buttons #show-me #center {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+html body #signup-page #signup-form #signup-form-align .input-buttons #show-me #center div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+html body #signup-page #signup-form #signup-form-align .input-buttons #show-me #center div #show {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+html body #signup-page #signup-form #signup-form-align .input-buttons #confirm {
+  display: flex;
+  width: 40%;
+}
+html body #signup-page #signup-form #signup-form-align .input-buttons #confirm div {
+  display: flex;
+  justify-content: center;
+  width: 50%;
+  height: 100%;
+}
+html body #signup-page #signup-form #signup-form-align .input-buttons #confirm div button:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.9);
+  transition: 0.3s;
+}
+html body #signup-page #signup-form #signup-form-align .input-buttons #confirm div button {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  font-weight: bold;
+  border-radius: 40px;
+  background-color: #ffb877;
+  width: 60%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+}
+
+/* Fuel Line Style Sheet
+ *
+ * @name: Bradley Masciotra
+ * @version:1.0
+ */
+/*SASS Compiling Sheets*/

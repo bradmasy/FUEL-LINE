@@ -1,0 +1,32 @@
+/*Mixins*/
+
+@use "../colors/colors.scss";
+
+@mixin full_dimensions {
+    height: 100%;
+}
+
+@mixin header_footer_styles {
+    width: 100%;
+    height: 10%;
+    background-color: colors.$main-color;
+}
+
+@mixin flex_styles_cl {
+    display: flex;
+    flex-direction: column;
+}
+
+@mixin flex_styles_rw {
+    display: flex;
+    flex-direction: row;
+}
+
+@mixin rounded-border {
+    border-radius: 15px 15px 15px 15px;
+}
+
+@mixin hover-styles {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.9);
+    transition: 0.3s;
+}
