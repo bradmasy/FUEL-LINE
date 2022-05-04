@@ -29,6 +29,7 @@ app.get("/signup.ejs", function(req,res){
 
 
 
+
 /**getting the id from the url */
 
 // app.get("/profile/:id",function(req,res){

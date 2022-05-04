@@ -33,25 +33,21 @@
 //     }
 // })
 
-
-
 const $signupButton = $("#signup");
-const $homeButton = $("#home-button");
+const $homeButton   = $("#home-button");
 
 $signupButton.mouseleave(function(){
   
 })
 
 $signupButton.click( function(){
-    //window.location.href = "../signup.html"
+    window.location.href = "../signup.html"
 })
+
 
 $homeButton.on("click", function(){
-    // window.location.href = "../index.html"
+    window.location.href = "../index.html"
 })
-
-
-console.log($signupButton);
 
 function setup()
 {
