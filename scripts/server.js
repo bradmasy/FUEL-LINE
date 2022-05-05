@@ -14,6 +14,9 @@ let schema        = mongoose.schema;
 let User          = require("./userModel");
 let db            = mongoose.connection;
 const qs          = require("querystring");
+var multer        = require('multer');
+var upload        = multer();
+
 
 app.set('views', "../views/");
 app.set("view engine","ejs");
@@ -27,6 +30,7 @@ let users = {
 app.use(session({secret:"shhhh", saveUninitialized:true, resave:true}));
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.static("../public/"));
+
 app.use("../public/styles/",express.static("../public/styles/"));
 app.use("../public/images/",express.static("../public/images/"));
 app.use("../public/scripts/",express.static("../public/scripts/"));
@@ -56,19 +60,18 @@ app.listen(5000, (err) => {
  */
 
 //-------------------------------GET---------------------------------------------
-app.get("/", function(req,res){ // homepage
-    res.render("index");
-})
+// app.get("/", function(req,res){ // homepage
+//     res.render("index");
+// })
 
-app.get("/login", (req,res) => {
+// app.get("/login", (req,res) => {
 
-    res.render("login");
-})
+//     res.render("login");
+// })
 
-app.get("/signup", function(req,res){
-    res.render("signup");
-})
-
+// app.get("/signup", function(req,res){
+//     res.render("signup");
+// })
 
 
 //------------------------------POST----------------------------------------------
@@ -78,29 +81,8 @@ app.use(bodyParser.urlencoded({
     extended:true
 }))
 app.use(bodyParser.json());
+
 app.post("/login", (req,res) => {
-
-
-
-
-
-
-    // console.log("response made, response: " + res);
-    // console.log("request made, response: " + req);
-
-    // console.log(res)
-
-    // let form = "";
-
-    // req.on("data", (data) => {
-    //     form += data;
-    // })
-
-    // req.on("end", () => {
-    //     let post = qs.parse(form);
-    //     console.log(post);
-    // })
-  
 })
 
 
@@ -146,14 +128,6 @@ app.post("/login", (req,res) => {
 //         res.send("Error");
 //     }
 // })
-
-
-
-
-
-
-
-
 
 
 
