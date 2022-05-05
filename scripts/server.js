@@ -109,9 +109,21 @@ app.get("/signup", function(req,res){
 //     }
 // })
 
+/**This post gets the users from the data */
 
-
-
+app.post("/displayUsersToAdmin", function (req, res) {
+    console.log("req. has been recieved");
+    console.log(req.body.username);
+  
+    userModel.find({ name: req.body.username }, function (err, users) {
+      if (err) {
+        console.log("Error " + err);
+      } else {
+        console.log("Data " + users);
+      }
+      res.send(users);
+    });
+  });
 
 
 
