@@ -13,6 +13,7 @@ const bodyParser  = require("body-parser");
 let schema        = mongoose.schema;
 let User          = require("./userModel");
 let db            = mongoose.connection;
+const qs          = require("querystring");
 
 app.set('views', "../views/");
 app.set("view engine","ejs");
@@ -31,6 +32,7 @@ app.use("../public/images/",express.static("../public/images/"));
 app.use("../public/scripts/",express.static("../public/scripts/"));
 
 
+
 /*------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
 /**
@@ -39,12 +41,10 @@ app.use("../public/scripts/",express.static("../public/scripts/"));
 
  mongoose.connect("mongodb://localhost:27017/Fuel_Line"); // our database on local host, not yet on server...
 
-
  db.once("open",function(){
      console.log("connection successful");
  })
  
-
 /*------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
 app.listen(5000, (err) => {
@@ -55,6 +55,7 @@ app.listen(5000, (err) => {
  * Routes
  */
 
+//-------------------------------GET---------------------------------------------
 app.get("/", function(req,res){ // homepage
     res.render("index");
 })
@@ -67,6 +68,43 @@ app.get("/login", (req,res) => {
 app.get("/signup", function(req,res){
     res.render("signup");
 })
+
+
+
+//------------------------------POST----------------------------------------------
+
+
+app.use(bodyParser.urlencoded({
+    extended:true
+}))
+app.use(bodyParser.json());
+app.post("/login", (req,res) => {
+
+
+
+
+
+
+    // console.log("response made, response: " + res);
+    // console.log("request made, response: " + req);
+
+    // console.log(res)
+
+    // let form = "";
+
+    // req.on("data", (data) => {
+    //     form += data;
+    // })
+
+    // req.on("end", () => {
+    //     let post = qs.parse(form);
+    //     console.log(post);
+    // })
+  
+})
+
+
+
 
 // app.get("/logout", (req,res) => {
     
