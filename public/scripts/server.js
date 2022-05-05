@@ -34,7 +34,6 @@ app.use("/images/",express.static("../public/images/"));
 app.use("/scripts/",express.static("../public/scripts/"));
 
 
-
 /*------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
 /**
@@ -51,24 +50,6 @@ app.use("/scripts/",express.static("../public/scripts/"));
 
 app.listen(5000, (err) => {
     if(err) console.log(err);
-})
-
-/**
- * Routes
- */
-
-//-------------------------------GET---------------------------------------------
-
-
-
-
-//------------------------------POST----------------------------------------------
-
-app.post("/login", (req,res) => {
-    console.log("request made, response: " + res);
-    res.send("yo");
-
-  
 })
 
 
