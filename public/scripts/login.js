@@ -18,6 +18,11 @@ function getUserData()
 // })
 
 
+function proceedToHome(data){
+    console.log("successful login")
+}
+
+
 function attemptLogin() {
     console.log("attemptLogin" + "got called!");
     console.log($("#userInput").val());
@@ -30,7 +35,7 @@ function attemptLogin() {
         lowerWeight: $("#userInput").val(),
         higherWeight: $("#passInput").val(),
       },
-      success: process_res,
+      success: proceedToHome,
     });
     resetPage();
     $("#filters").show();
