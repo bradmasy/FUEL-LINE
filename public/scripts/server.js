@@ -28,6 +28,7 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.static("../public"));
 app.use("/", indexRoute);
 app.use("/signup",signupRoute);
+app.use("/login",loginRoute);
 app.use("/styles/",express.static("../styles/main.css"));
 app.use("/images/",express.static("../public/images/"));
 app.use("/scripts/",express.static("../public/scripts/"));
