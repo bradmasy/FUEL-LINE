@@ -1,10 +1,51 @@
-// homepage
-// executed first when the serve is initiated
+const express    = require("express");
+const app        = express();
+const path       = require("path");
+const https      = require("https");
+const mongoose   = require("mongoose");
+const bodyParser = require("body-parser");
+let schema       = mongoose.schema;
+let User         = require("./userModel");
 
-const express = require("express");
-const app     = express();
-const path    = require("path");
-const https   = require("https");
+app.set("view engine","ejs");
+app.use(bodyParser.urlencoded({extended:true}));
+app.use(express.static("public"));
+
+mongoose.connect("mongodb://localhost:27017/Fuel_Line");
+
+let db = mongoose.connection;
+
+db.once("open",function(){
+    console.log("connection successful");
+})
+
+
+//let user = new User({username:"", password:""});
+
+// user.save(function(err){
+//     if(err){
+//         console.log(err);
+//     }
+//     else{
+//         console.log("user is saved");
+//     }
+// })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 app.set('views', "../views/");
 app.set("view engine","ejs");

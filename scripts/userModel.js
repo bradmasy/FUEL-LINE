@@ -1,7 +1,7 @@
 /**
  * Defines the User Schema for the User.
  * 
- * @name: Bradley Masciotra
+ * @name: Bradley Masciotra, Gary
  * @version: 1.0
  * @copyright: Fuel Line Solutions Corp.
  */
@@ -11,7 +11,8 @@ let Schema   = mongoose.Schema;
 
 let userSchema = new Schema({
     username: String,
-    password: String
+    password: String,
+    email: String
 })
 
 
