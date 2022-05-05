@@ -74,16 +74,7 @@ app.post("/login", (req,res) => {
 
 
 
-// app.get("/logout", (req,res) => {
-    
-//     db.connection.close();
-//     if(db.connection.close == true)
-//     {
-//         console.log("bye bye");
-//     }
-// })
 
-// routes
 
 
 // app.get("/", (req,res,next) => {
@@ -116,7 +107,28 @@ app.post("/login", (req,res) => {
 // })
 
 
+app.post("/attemptLogin", function (req, res) {
+    console.log("req. has been received");
+  
+    userModel.find({
+      $and: [
+        { username: req.body.username },
+        { password: req.body.password },
+      ],
+      
+    },
+    function (err, users) {
+      if (err) {
+        console.log("Error " + err);
+      } else {
+        console.log("Data " + users);
+      }
+      res.send(users);
+    }
+    
+    );
 
+  });
 
 
 
