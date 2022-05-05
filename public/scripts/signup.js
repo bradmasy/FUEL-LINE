@@ -7,10 +7,10 @@
  * Constant Variables
  */
 
-const $backButton = $("#back-button");
-const $confirmButton = $("#confirm-button");
-const $userPassword = $("#user-pass");
-const $showPasswordBox = $("#show");
+const $backButton        = $("#back-button");
+const $confirmButton     = $("#confirm-button");
+const $userPassword      = $("#user-pass");
+const $showPasswordBox   = $("#show");
 const $showPasswordTitle = $("#pass-title");
 
 
@@ -33,7 +33,8 @@ $backButton.on("click", () => {
 })
 
 $confirmButton.on("click", ()=> {
-    alert("confirm");
+    // alert("confirm");
+    console.log("hi");
 })
 
 /**
