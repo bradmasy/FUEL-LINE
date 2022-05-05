@@ -28,7 +28,7 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.static("../public"));
 app.use("/", indexRoute);
 app.use("/signup",signupRoute);
-app.use("/login",loginRoute);
+// app.use("/login",loginRoute);
 app.use("/styles/",express.static("../styles/main.css"));
 app.use("/images/",express.static("../public/images/"));
 app.use("/scripts/",express.static("../public/scripts/"));
@@ -50,6 +50,41 @@ app.use("/scripts/",express.static("../public/scripts/"));
 
 app.listen(5000, (err) => {
     if(err) console.log(err);
+})
+
+
+
+// routes
+
+app.get("/login", (req,res) => {
+
+  res.render("login");
+})
+
+
+app.post("/", (req,res) => {
+  console.log("request made, response: " + res);
+  res.send("successful");
+
+  userModel.find({
+    $and: [
+      { username: req.body.username },
+      { password: req.body.password },
+    ],
+    
+  },
+  function (err, users) {
+    if (err) {
+      console.log("Error " + err);
+    } else {
+      console.log("Data " + users);
+    }
+    res.send(users);
+  }
+  
+  );
+
+
 })
 
 
@@ -88,28 +123,28 @@ app.listen(5000, (err) => {
 // })
 
 
-app.post("/attemptLogin", function (req, res) {
-    console.log("req. has been received");
+// app.post("/attemptLogin", function (req, res) {
+//     console.log("req. has been received");
   
-    userModel.find({
-      $and: [
-        { username: req.body.username },
-        { password: req.body.password },
-      ],
+//     userModel.find({
+//       $and: [
+//         { username: req.body.username },
+//         { password: req.body.password },
+//       ],
       
-    },
-    function (err, users) {
-      if (err) {
-        console.log("Error " + err);
-      } else {
-        console.log("Data " + users);
-      }
-      res.send(users);
-    }
+//     },
+//     function (err, users) {
+//       if (err) {
+//         console.log("Error " + err);
+//       } else {
+//         console.log("Data " + users);
+//       }
+//       res.send(users);
+//     }c
     
-    );
+//     );
 
-  });
+//   });
 
 
 

@@ -25,15 +25,15 @@ function proceedToHome(data){
 
 function attemptLogin() {
     console.log("attemptLogin" + "got called!");
-    console.log($("#userInput").val());
+    console.log($("#username-log").val());
     console.log($("#passInput").val());
     $.ajax({
       url: "http://localhost:5000/attemptLogin",
     //   url: "https://radiant-anchorage-93970.herokuapp.com/findUnicornByWeight",
       type: "POST",
       data: {
-        lowerWeight: $("#userInput").val(),
-        higherWeight: $("#passInput").val(),
+        username: $("#username-log").val(),
+        password: $("#passInput").val(),
       },
       success: proceedToHome,
     });

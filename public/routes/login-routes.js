@@ -10,7 +10,7 @@ router.get("/", (req,res) => {
 
 router.post("/", (req,res) => {
     console.log("request made, response: " + res);
-    res.send("yo");
+    res.send("successful");
 })
 
 module.exports = router;
