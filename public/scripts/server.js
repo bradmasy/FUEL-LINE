@@ -13,6 +13,9 @@ const bodyParser  = require("body-parser");
 let schema        = mongoose.schema;
 let User          = require("./userModel");
 let db            = mongoose.connection;
+const indexRoute  = require("../routes/index-routes");
+const loginRoute  = require("../routes/login-routes");
+const signupRoute = require("../routes/signup-routes");
 
 console.log(__dirname);
 
@@ -20,14 +23,11 @@ app.set('views', "../views/");
 app.set("view engine","ejs");
 app.set("signup","../views/signup.ejs");
 
-let users = {
-    "user1" :"pass1",
-    "user2":"pass2"
-}
-
 app.use(session({secret:"shhhh", saveUninitialized:true, resave:true}));
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.static("../public"));
+app.use("/", indexRoute);
+app.use("/signup",signupRoute);
 app.use("/styles/",express.static("../styles/main.css"));
 app.use("/images/",express.static("../public/images/"));
 app.use("/scripts/",express.static("../public/scripts/"));
@@ -57,18 +57,7 @@ app.listen(5000, (err) => {
  */
 
 //-------------------------------GET---------------------------------------------
-app.get("/", function(req,res){ // homepage
-    res.render("index");
-})
 
-app.get("/login", (req,res) => {
-
-    res.render("login");
-})
-
-app.get("/signup", function(req,res){
-    res.render("signup");
-})
 
 
 
