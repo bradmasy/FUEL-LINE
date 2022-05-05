@@ -39,7 +39,17 @@ app.use("/scripts/",express.static("../public/scripts/"));
  * Database Connection
  */
 
- mongoose.connect("mongodb://localhost:27017/Fuel_Line"); // our database on local host, not yet on server...
+
+ 
+ mongoose.connect(
+  "mongodb+srv://fuel_line_2022:fuel@cluster0.vcuj9.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  }
+);
+
+//  mongoose.connect("mongodb://localhost:27017/Fuel_Line"); // our database on local host, not yet on server...
 
  db.once("open",function(){
      console.log("connection successful");
