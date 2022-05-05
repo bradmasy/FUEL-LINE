@@ -13,10 +13,9 @@ function getUserData()
 }
 
 
-$loginButton.on("click", () => {
-    console.log("working");
-    getUserData();
-})
+// $loginButton.on("click", () => {
+//     attemptLogin();
+// })
 
 
 function attemptLogin() {
