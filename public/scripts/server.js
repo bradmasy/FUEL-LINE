@@ -17,8 +17,6 @@ const indexRoute  = require("../routes/index-routes");
 const loginRoute  = require("../routes/login-routes");
 const signupRoute = require("../routes/signup-routes");
 
-console.log(__dirname);
-
 app.set('views', "../views/");
 app.set("view engine","ejs");
 app.set("signup","../views/signup.ejs");
@@ -29,6 +27,7 @@ app.use(express.static("../public"));
 app.use("/", indexRoute);
 app.use("/signup",signupRoute);
 // app.use("/login",loginRoute);
+
 app.use("/styles/",express.static("../styles/main.css"));
 app.use("/images/",express.static("../public/images/"));
 app.use("/scripts/",express.static("../public/scripts/"));
@@ -53,42 +52,14 @@ app.listen(5000, (err) => {
 })
 
 
+app.post("/api/user",(req,res) => {
 
-// routes
-
-app.get("/login", (req,res) => {
-
-  res.render("login");
+  let saveUser = new userModel(req.body);
+  saveUser.save((error,saveUser) => {
+    if(error) throw error
+    res.json(saveUser)
+  })
 })
-
-
-app.post("/", (req,res) => {
-  console.log("request made, response: " + res);
-  res.send("successful");
-
-  userModel.find({
-    $and: [
-      { username: req.body.username },
-      { password: req.body.password },
-    ],
-    
-  },
-  function (err, users) {
-    if (err) {
-      console.log("Error " + err);
-    } else {
-      console.log("Data " + users);
-    }
-    res.send(users);
-  }
-  
-  );
-
-
-})
-
-
-
 
 
 
@@ -123,28 +94,34 @@ app.post("/", (req,res) => {
 // })
 
 
-// app.post("/attemptLogin", function (req, res) {
-//     console.log("req. has been received");
-  
-//     userModel.find({
-//       $and: [
-//         { username: req.body.username },
-//         { password: req.body.password },
-//       ],
-      
-//     },
-//     function (err, users) {
-//       if (err) {
-//         console.log("Error " + err);
-//       } else {
-//         console.log("Data " + users);
-//       }
-//       res.send(users);
-//     }c
-    
-//     );
+app.get("/login", (req,res) => {
 
-//   });
+  res.render("login");
+})
+
+
+app.post("/login", function (req, res) {
+    console.log("req. has been received");
+      
+    userModel.find({
+      $and: [
+        { username: req.body.username },
+        { password: req.body.password },
+      ],
+      
+    },
+    function (err, users) {
+      if (err) {
+        console.log("Error " + err);
+      } else {
+        console.log("Data " + users);
+      }
+      res.send(users);
+    }
+    
+    );
+
+  });
 
 
 
