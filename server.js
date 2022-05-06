@@ -6,7 +6,6 @@ const app = express();
 app.set("view engine", "ejs");
 const https = require("https");
 
-
 app.listen(process.env.PORT || 5000, function (err) {
   if (err) console.log(err);
 });
@@ -30,26 +29,17 @@ mongoose.connect(
 
 //  mongoose.connect("mongodb://localhost:27017/Fuel_Line"); // our database on local host, not yet on server...
 
+const userSchema = new mongoose.Schema({
+  username: String,
+  passwordt: String,
+});
+const userModel = mongoose.model("users", userSchema);
 
-
-  const userSchema = new mongoose.Schema({
-    username: String,
-    passwordt: String,
-  });
-  const userModel = mongoose.model("users", userSchema);
- 
 /*------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
-
-
-
-
 
 app.get("/login", function (req, res) {
   res.sendFile(__dirname + "/public/login.html");
 });
-
-
-
 
 // app.get("/profile/:id", function (req, res) {
 //   // console.log(req);
@@ -107,21 +97,15 @@ app.post("/attemptLogin", function (req, res) {
 
 console.log("Server Running");
 
-
-
 /*------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
 /**
  * Database Connection
  */
 
-
- 
- app.post("/displayUsersToAdmin", function (req, res) {
+app.post("/displayUsersToAdmin", function (req, res) {
   console.log("req. has been recieved");
-  console.log(req.body.username);
-
-  userModel.find({ name: req.body.username }, function (err, users) {
+  userModel.find({}, function (err, users) {
     if (err) {
       console.log("Error " + err);
     } else {

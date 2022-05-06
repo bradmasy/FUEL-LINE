@@ -39,17 +39,18 @@ function displayUsersToAdmin() {
   // this function calls server.js to get the users in the database, then passes off data to populate_users
   console.log("displayUsersToAdmin got called");
   url = "http://localhost:5000/displayUsersToAdmin";
-  data = username;
-  $.get(url, function (data) {
-    success: populate_users;
+  $.ajax({
+    // url: "http://localhost:5000/findUnicornByWeight",
+    url: "http://localhost:5000/displayUsersToAdmin",
+    type: "POST",
+    success: populate_users,
   });
-  resetPage();
-  $("#filters").show();
+
 }
 
 function setup() {
   console.log("document ready");
-  displayUsersToAdmin;
+  displayUsersToAdmin();
 }
 
 $(document).ready(setup);
