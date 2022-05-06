@@ -1,5 +1,40 @@
+/**
+ * Constant Variables
+ */
+const $showPasswordBox   = $("#show-pass-box");
+const $showPasswordTitle = $("#pass-label");
+const $userPassword      = $("#password_log");
 
-let isAdmin = false;
+/**
+ * Let Variables
+ */
+let passwordVisible = false; // for revealing the password.
+let isAdmin = false; // for enabling admin login
+
+
+
+/**
+ * Turns function handlers on for show password.
+ */
+ function showPassword()
+ {
+     $showPasswordBox.on("click",() => {
+ 
+         if(!passwordVisible)
+         {
+             $showPasswordTitle.html("Hide Password");
+             $userPassword.attr("type","text");
+             passwordVisible = true;
+         }
+         else
+         {
+             $showPasswordTitle.html("Show Password");
+             $userPassword.attr("type","password");
+             passwordVisible = false;
+         }
+     })
+ }
+
 
 function proceedToHome(data){
     console.log(data)
@@ -33,6 +68,7 @@ function attemptLogin() {
 function setup() {
     console.log("login.js loaded")
     $("#submit-button").on("click", attemptLogin);
+    showPassword();
  
   }
   
