@@ -54,11 +54,6 @@ let isAdmin = false; // for enabling admin login
      })
  }
 
-<<<<<<< HEAD
-function proceedToHome() {
-  console.log("successful login");
-  window.location.href = "/success.html";
-=======
 
 function proceedToHome(data){
     console.log(data)
@@ -70,7 +65,6 @@ function proceedToHome(data){
     } else {
       window.location.href ="/success.html"
     }
->>>>>>> Ethan_Success_Page
 }
 
 function checkUserExists(data) {
@@ -100,13 +94,6 @@ function attemptLogin() {
 }
 
 function setup() {
-<<<<<<< HEAD
-  console.log("login.js loaded");
-  $("#submit-button").on("click", attemptLogin);
-}
-
-$(document).ready(setup);
-=======
     console.log("login.js loaded")
     $("#submit-button").on("click", attemptLogin);
     showPassword();
@@ -114,4 +101,3 @@ $(document).ready(setup);
   }
   
   $(document).ready(setup);
->>>>>>> Ethan_Success_Page
