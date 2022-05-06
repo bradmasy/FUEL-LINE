@@ -75,7 +75,12 @@ app.get("/login", function (req, res) {
 //   });
 // });
 
+
+// sets the default for the server to use as the public directory
+// redirects to index if no other parameters are given
 app.use(express.static("./public"));
+
+
 
 app.post("/attemptLogin", function (req, res) {
   console.log("req. has been received");
