@@ -131,7 +131,7 @@ html body #content #signup-login #form-align {
   height: 80%;
   width: 100%;
 }
-html body #content #signup-login #form-align #form {
+html body #content #signup-login #form-align #form  {
   display: flex;
   height: 100%;
   width: 80%;
