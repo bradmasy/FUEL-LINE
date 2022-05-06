@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--Sets the width of the page is the devices widtth-->
-    <link rel="stylesheet" href="/styles/main.css">;
-    <script src="/public/scripts/jquery-3.6.0.min.js" defer></script>
-    <script src="/public/scripts/index.js" defer></script>
+    <link rel="stylesheet" href="styles/main.css">;
+    <script src="/scripts/jquery-3.6.0.min.js" defer></script>
+    <script src="/scripts/admin_users_view.js" defer></script>
 </head>
 
 <body>
@@ -29,33 +29,8 @@
 
     <!--Main-->
     <main id="content">
-        <div class="row-container">
-            <img id="main-logo" src="images/logo/cropped-logo.png">
-        </div>
-        <div id="welcome-txt">
-            <div id="name">
-                <div id="centre-name">
-                    <p>Fuel Line</p>
-                </div>
-            </div>
-            <div id="centre-txt">
-                <p id="message">We get you where you need to go for <span style="color: orange">&nbspless</span></p>
-            </div>
-        </div>
-        <div id="signup-login">
-            <div id="form-align">
-                <div id="form">
-                    <div id="button-columns">
-                        <div class="button-container">
-                            <button class="main-button">Login</button>
-                        </div>
-                        <div class="button-container">
-                            <button class="main-button" id="signup" method="GET"  >Signup</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <!--Needs to call server.js to get content-->
+        <div id="users_table"></div>
     </main>
 
     <!--Footer-->

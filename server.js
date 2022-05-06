@@ -6,7 +6,6 @@ const app = express();
 app.set("view engine", "ejs");
 const https = require("https");
 
-
 app.listen(process.env.PORT || 5000, function (err) {
   if (err) console.log(err);
 });
@@ -30,22 +29,17 @@ mongoose.connect(
 
 //  mongoose.connect("mongodb://localhost:27017/Fuel_Line"); // our database on local host, not yet on server...
 
+const userSchema = new mongoose.Schema({
+  username: String,
+  passwordt: String,
+});
+const userModel = mongoose.model("users", userSchema);
 
-
-  const userSchema = new mongoose.Schema({
-    username: String,
-    passwordt: String,
-  });
-  const userModel = mongoose.model("users", userSchema);
- 
 /*------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
-
 
 app.get("/login", function (req, res) {
   res.sendFile(__dirname + "/public/login.html");
 });
-
-
 
 // app.get("/profile/:id", function (req, res) {
 //   // console.log(req);
@@ -81,6 +75,8 @@ app.get("/login", function (req, res) {
 //   });
 // });
 
+// sets the default for the server to use as the public directory
+// redirects to index if no other parameters are given
 app.use(express.static("./public"));
 
 app.post("/attemptLogin", function (req, res) {
@@ -103,13 +99,20 @@ app.post("/attemptLogin", function (req, res) {
 
 console.log("Server Running");
 
-
-
 /*------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
 /**
  * Database Connection
  */
 
-
- 
+app.post("/displayUsersToAdmin", function (req, res) {
+  console.log("req. has been recieved");
+  userModel.find({}, function (err, users) {
+    if (err) {
+      console.log("Error " + err);
+    } else {
+      console.log("Data " + users);
+    }
+    res.send(users);
+  });
+});
