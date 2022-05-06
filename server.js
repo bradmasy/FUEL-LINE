@@ -46,84 +46,58 @@ app.get("/login", function (req, res) {
   res.sendFile(__dirname + "/public/login.html");
 });
 
-// if(req.session.authenticated){
-//   console.log("here");
-//   res.send(`hello ${users}`);
-  
-// }
+function checkUserExists(data) {
+ 
+  let valid = true;
 
-// app.get("/profile/:id", function (req, res) {
-//   // console.log(req);
+  if (data.length === 0) {
+    valid = false;
+  } 
 
-//   const url = `https://pokeapi.co/api/v2/pokemon/${req.params.id}`;
+  return valid;
+}
 
-//   data = " ";
-//   https.get(url, function (https_res) {
-//     https_res.on("data", function (chunk) {
-//       data += chunk;
-//     });
-
-//     https_res.on("end", function () {
-//       // console.log(JSON.parse(data))
-//       data = JSON.parse(data);
-
-//       // console.log(data)
-
-//       tmp = data.stats
-//         .filter((obj_) => {
-//           return obj_.stat.name == "hp";
-//         })
-//         .map((obj_2) => {
-//           return obj_2.base_stat;
-//         });
-
-//       res.render("profile.ejs", {
-//         id: req.params.id,
-//         name: data.name,
-//         hp: tmp[0],
-//       });
-//     });
-//   });
-// });
-
-
-function initiateSession(req,user)
+function initiateSession(req,users)
 {
-  req.session.authenticated = true; // user gets authenticated.
-  req.session.user          = user; // setting the user as the sessions user.
-  res.send("authenticated");
+  if(checkUserExists(users)){
+    req.session.authenticated = true; // user gets authenticated.
+    req.session.user          = users; 
+    console.log(`welcome ${users[0].username}`);
 
+    // res.redirect("/public/index.html");
+    
+  }
+  else
+  {
+    req.session.authenticated = false;
+    console.log(`invalid user`);
+  }
 }
 
 app.use(express.static("./public"));
 
 app.post("/attemptLogin", function (req, res) {
   console.log("req. has been received");
-  console.log(req.body);
+  
   userModel.find(
     {
       $and: [{ username: req.body.username }, { password: req.body.password }],
     },
     function (err, users) {
-      if (err) {
+      if (err) 
+      {
         console.log("Error " + err);
+        req.session.authenticated = false; // user gets authenticated.
+        console.log("FAIL");
       } 
-      else{
-        console.log("here");
-
-        initiateSession(req,users);
+      else 
+      {
+        initiateSession(req, users);    
       }
-
-
-     
-      console.log(users);
-   //   res.send(users);
-
     }
   );
 });
 
-console.log("Server Running");
 
 /*------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
@@ -144,3 +118,6 @@ console.log("Server Running");
     res.send(users);
   });
 });
+
+console.log("Server Running");
+

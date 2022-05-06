@@ -1,5 +1,15 @@
 function proceedToHome(data){
-    console.log("successful login")
+    console.log("user found")
+}
+
+function checkUserExists(data) {
+  
+  if (data.length === 0) {
+    console.log("User not found!");
+    alert("User not found");
+  } else {
+    proceedToHome();
+  }
 }
 
 function attemptLogin() {
