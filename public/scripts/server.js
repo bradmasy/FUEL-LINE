@@ -21,7 +21,8 @@ app.set('views', "../views/");
 app.set("view engine","ejs");
 app.set("signup","../views/signup.ejs");
 
-app.use(session({secret:"shhhh", saveUninitialized:true, resave:true}));
+//app.use(session({secret:"shhhh", saveUninitialized:true, resave:true}));
+app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.static("../public"));
 app.use("/", indexRoute);
@@ -38,8 +39,6 @@ app.use("/scripts/",express.static("../public/scripts/"));
 /**
  * Database Connection
  */
-
-
  
  mongoose.connect(
   "mongodb+srv://fuel_line_2022:fuel@cluster0.vcuj9.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
@@ -110,27 +109,36 @@ app.get("/login", (req,res) => {
 })
 
 
-app.post("/login", function (req, res) {
+app.post("/login/user", function (req, res) {
     console.log("req. has been received");
-      
+    console.log(req.body);
     userModel.find({
       $and: [
         { username: req.body.username },
         { password: req.body.password },
       ],
-      
     },
+  
     function (err, users) {
       if (err) {
         console.log("Error " + err);
       } else {
         console.log("Data " + users);
       }
-      res.send(users);
+      //let userAmount = users.length;
+
+      // for(let i = 0; i < userAmount; i++)
+      // {
+      //   let user = users[i];
+      //   if(user.id == )
+      // }
+    //  console.log(userAmount);
+     // res.send(users[0]._id);
     }
     
     );
 
+    res.render("index");
   });
 
 

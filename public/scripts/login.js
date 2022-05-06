@@ -33,7 +33,7 @@ function attemptLogin() {
       type: "POST",
       data: {
         username: $("#username-log").val(),
-        password: $("#passInput").val(),
+        password: $("#password-log").val(),
       },
       success: proceedToHome,
     });
