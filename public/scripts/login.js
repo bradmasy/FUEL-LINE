@@ -70,12 +70,16 @@ function setup() {
 $(document).ready(setup);
 =======
 
-
+let isAdmin = false;
 
 function proceedToHome(data){
     console.log(data)
     console.log("successful login")
-    window.location.href ="/admin_user_views.html"
+    if (isAdmin) {
+      window.location.href ="/admin_user_views.html"
+    } else {
+      window.location.href ="/success.html"
+    }
 }
 
 
