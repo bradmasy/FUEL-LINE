@@ -2,7 +2,6 @@
  * signup.JS for the signup page
  */
 
-
 /**
  * Constant Variables
  */

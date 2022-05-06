@@ -200,6 +200,7 @@ html {
 
                     }
                 }
+
                 #submit {
                     display: flex;
                     justify-content: center;
@@ -209,9 +210,7 @@ html {
                         @include mixin.hover-styles();
                     }
 
-
                     #submit-button {
-
                         display: flex;
                         flex-direction: column;
                         justify-content: center;

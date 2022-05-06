@@ -9,7 +9,7 @@
     <script src="/scripts/jquery-3.6.0.min.js"></script>
     <!-- <script src="./scripts/index.js" defer></script> -->
     <script src="/scripts/login.js"></script>
-</head>   
+</head>
 
 <body>
     <!--Header-->
@@ -47,11 +47,12 @@
         <div id="space">
 
         </div>
-            <div  id="user-container">
+        <div id="form">
+            <div id="user-container">
                 <input class="input-fields" placeholder="username" id="username_log">
             </div>
             <div id="pass-container">
-                <input class="input-fields" type ="password" placeholder ="password" id="password_log">
+                <input class="input-fields" type="password" placeholder="password" id="password_log">
             </div>
             <div id="check-boxes">
                 <div id="make-admin">
@@ -60,21 +61,24 @@
                     </div>
                     <label>Admin?</label>
                 </div>
+
                 <div id="show-pass">
                     <div>
-                        <input type="checkbox">
+                        <input value ="show-pass-box" type="checkbox" id="show-pass-box">
                     </div>
-                    <label>Show Password</label>
+                    <label id="pass-label">Show Password</label>
                 </div>
             </div>
             <div id="submit">
-                <button id="submit_button">Login</button> <!--POST REQ NEEDED-->
+                <button id="submit-button">Login</button>
+                <!--POST REQ NEEDED-->
             </div>
-            <!-- <form action="" method="post">
+        </div>
+        <!-- <form action="" method="post">
             <input type="submit" name="upvote" value="Upvote" />
         </form> -->
 
-        
+
     </main>
     <!--Footer-->
     <footer>

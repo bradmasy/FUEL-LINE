@@ -5,7 +5,7 @@ const express = require("express");
 const app = express();
 app.set("view engine", "ejs");
 const https = require("https");
-
+const signupRoute = require("./routes/signup-routes");
 
 app.listen(process.env.PORT || 5000, function (err) {
   if (err) console.log(err);
@@ -48,6 +48,9 @@ app.get("/login", function (req, res) {
   res.sendFile(__dirname + "/public/login.html");
 });
 
+app.get("/signup", function(req,res){
+  res.sendFile(__dirname + "/public/signup.html");
+});
 
 
 
