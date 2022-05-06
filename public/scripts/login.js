@@ -1,21 +1,4 @@
 
-const $loginButton = $("#submit-button");
-let $userInput     = $("#username-log");
-let $passInput     = $("#password-log");
-
-console.log($userInput);
-function getUserData()
-{
-    let username = $userInput.val();
-    let password = $passInput.val(); 
-    console.log(username);
-    console.log(password);
-}
-
-
-// $loginButton.on("click", () => {
-//     attemptLogin();
-// })
 
 
 function proceedToHome(data){
@@ -25,25 +8,25 @@ function proceedToHome(data){
 
 function attemptLogin() {
     console.log("attemptLogin" + "got called!");
-    console.log($("#username-log").val());
-    console.log($("#passInput").val());
+    console.log($("#username_log").val());
+    console.log($("#password_log").val());
     $.ajax({
       url: "http://localhost:5000/attemptLogin",
     //   url: "https://radiant-anchorage-93970.herokuapp.com/findUnicornByWeight",
       type: "POST",
       data: {
-        username: $("#username-log").val(),
-        password: $("#passInput").val(),
+        username: $("#username_log").val(),
+        password: $("#password_log").val(),
       },
       success: proceedToHome,
     });
-    resetPage();
-    $("#filters").show();
+    // resetPage();
   }
 
 
 function setup() {
-    $("submit-button").on("click", attemptLogin);
+    console.log("login.js loaded")
+    $("#submit_button").on("click", attemptLogin);
  
   }
   

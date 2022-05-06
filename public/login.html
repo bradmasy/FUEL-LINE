@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--Sets the width of the page is the devices widtth-->
     <link rel="stylesheet" href="/styles/main.css">
-    <script src="./scripts/jquery-3.6.0.min.js" defer></script>
+    <script src="/scripts/jquery-3.6.0.min.js"></script>
     <!-- <script src="./scripts/index.js" defer></script> -->
-    <script src="./scripts/signup.js" defer></script>
-</head>
+    <script src="/scripts/login.js"></script>
+</head>   
 
 <body>
     <!--Header-->
@@ -29,14 +29,14 @@
     </nav>
 
     <!--Main-->
-    <main id="signup-page">
-        <div id="signup-statement">
-            <p>Create Your Fuel Line <br>Account</p>
+    <main id="login-page">
+        <div id="statement">
+            <p>Login To Your Fuel Line <br>Account</p>
         </div>
 
         <div id="img-container">
             <div id="main-img">
-                <img id="signup-logo" src="./images/logo/cropped-logo.png">
+                <img id="logo" src="./images/logo/cropped-logo.png">
             </div>
         </div>
 
@@ -44,43 +44,37 @@
             <p>Please Enter Your Information Below...</p>
         </div>
 
-        <div id="signup-form">
-            <div id="signup-form-align">
-                <div class="input-buttons">
-                    <input class="input-fields" placeholder="Username" id="username">
-                </div>
-                <div class="input-buttons">
-                    <input class="input-fields" placeholder="Email">
-                </div>
-                <div class="input-buttons">
-                    <input id ="user-pass" class="input-fields" placeholder="Password" type="password">
-                </div>
-                <div class="input-buttons">
-                    <input class="input-fields" placeholder="Confirm Password" type="password">
-                </div>
-                <div class="input-buttons">
-                    <div id="show-me">
-                        <div id="center">
-                            <div>
-                                <input id="show" type="checkbox" value="show">
-                            </div>
-                            <label id="pass-title">Show Password</label>
-                        </div>
+        <div id="space">
+
+        </div>
+            <div  id="user-container">
+                <input class="input-fields" placeholder="username" id="username_log">
+            </div>
+            <div id="pass-container">
+                <input class="input-fields" type ="password" placeholder ="password" id="password_log">
+            </div>
+            <div id="check-boxes">
+                <div id="make-admin">
+                    <div>
+                        <input type="checkbox" id="admin-check">
                     </div>
+                    <label>Admin?</label>
                 </div>
-                <div class="input-buttons">
-                    <div id="confirm">
-                        <div>
-                            <button id="back-button">Back</button>
-                        </div>
-                        <div>
-                            <button id="confirm-button">Confirm</button>
-                        </div>
+                <div id="show-pass">
+                    <div>
+                        <input type="checkbox">
                     </div>
-                   
+                    <label>Show Password</label>
                 </div>
             </div>
-        </div>
+            <div id="submit">
+                <button id="submit_button">Login</button> <!--POST REQ NEEDED-->
+            </div>
+            <!-- <form action="" method="post">
+            <input type="submit" name="upvote" value="Upvote" />
+        </form> -->
+
+        
     </main>
     <!--Footer-->
     <footer>

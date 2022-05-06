@@ -5,16 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--Sets the width of the page is the devices widtth-->
-    <link rel="stylesheet" href="main.css">
-    <script src="./scripts/jquery-3.6.0.min.js" defer></script>
-    <!-- <script src="./scripts/index.js" defer></script> -->
-    <script src="./scripts/login.js" defer></script>
+    <link rel="stylesheet" href="/styles/main.css">
+    <script src="./scripts/jquery-3.6.0.min.js"></script>
+    <script src="./scripts/index.js"></script>
 </head>
 
 <body>
     <!--Header-->
     <header>
         <div id="space">
+
         </div>
         <div id="header-logo-container">
             <img id="header-logo" src="./images/Untitled design (7).png">
@@ -29,54 +29,36 @@
     </nav>
 
     <!--Main-->
-    <main id="login-page">
-        <div id="statement">
-            <p>Login To Your Fuel Line <br>Account</p>
+    <main id="content">
+        <div class="row-container">
+            <img id="main-logo" src="./images/logo/cropped-logo.png">
         </div>
-
-        <div id="img-container">
-            <div id="main-img">
-                <img id="logo" src="./images/logo/cropped-logo.png">
-            </div>
-        </div>
-
-        <div id="greet">
-            <p>Please Enter Your Information Below...</p>
-        </div>
-
-        <div id="space">
-
-        </div>
-        <form id="form" method="POST" >
-            <div  id="user-container">
-                <input class="input-fields" placeholder="username" id="username-log">
-            </div>
-            <div id="pass-container">
-                <input class="input-fields" type ="password" placeholder ="password" id="password-log">
-            </div>
-            <div id="check-boxes">
-                <div id="make-admin">
-                    <div>
-                        <input type="checkbox" id="admin-check">
-                    </div>
-                    <label>Admin?</label>
-                </div>
-                <div id="show-pass">
-                    <div>
-                        <input type="checkbox">
-                    </div>
-                    <label>Show Password</label>
+        <div id="welcome-txt">
+            <div id="name">
+                <div id="centre-name">
+                    <p>Fuel Line</p>
                 </div>
             </div>
-            <div id="submit">
-                <button id="submit-button">Login</button> <!--POST REQ NEEDED-->
+            <div id="centre-txt">
+                <p id="message">We get you where you need to go for <span style="color: orange">&nbspless</span></p>
             </div>
-            <!-- <form action="" method="post">
-            <input type="submit" name="upvote" value="Upvote" />
-        </form> -->
-    </form>
-        
+        </div>
+        <div id="signup-login">
+            <div id="form-align">
+                <div id="form">
+                    <div id="button-columns">
+                        <div class="button-container">
+                            <button class="main-button">Login</button>
+                        </div>
+                        <div class="button-container">
+                            <button class="main-button" id="signup">Signup</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
+
     <!--Footer-->
     <footer>
         <div id="navigation-buttons">
