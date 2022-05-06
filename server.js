@@ -7,6 +7,7 @@ const https      = require("https");
 const bodyparser = require("body-parser");
 const mongoose   = require("mongoose");
 const session    = require("express-session");
+const { use } = require("express/lib/application");
 
 app.set("view engine", "ejs");
 
@@ -32,8 +33,6 @@ mongoose.connect(
 
 //  mongoose.connect("mongodb://localhost:27017/Fuel_Line"); // our database on local host, not yet on server...
 
-
-
   const userSchema = new mongoose.Schema({
     username: String,
     passwordt: String,
@@ -46,8 +45,11 @@ app.get("/login", function (req, res) {
   res.sendFile(__dirname + "/public/login.html");
 });
 
-
-
+// if(req.session.authenticated){
+//   console.log("here");
+//   res.send(`hello ${users}`);
+  
+// }
 
 // app.get("/profile/:id", function (req, res) {
 //   // console.log(req);
@@ -95,19 +97,21 @@ app.post("/attemptLogin", function (req, res) {
     function (err, users) {
       if (err) {
         console.log("Error " + err);
-      } else {
-        console.log("Data " + users);
+      } 
+      else{
+        console.log("here");
       }
+
+
+     
       console.log(users);
-      res.send(users);
-      res.render()
+   //   res.send(users);
+
     }
   );
 });
 
 console.log("Server Running");
-
-
 
 /*------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
