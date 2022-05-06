@@ -34,7 +34,7 @@ $backButton.on("click", () => {
 
 $confirmButton.on("click", ()=> {
     // alert("confirm");
-    console.log("hi");
+    window.location.href = "../success.html"
 })
 
 /**
