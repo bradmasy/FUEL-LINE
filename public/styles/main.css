@@ -34,6 +34,9 @@ html body {
   margin: 0%;
   justify-content: center;
 }
+html body a {
+  text-decoration: none;
+}
 html body header {
   display: flex;
   flex-direction: row;
