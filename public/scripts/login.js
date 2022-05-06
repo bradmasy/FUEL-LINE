@@ -2,12 +2,14 @@
 
 
 function proceedToHome(data){
+    console.log(data)
     console.log("successful login")
+    window.location.href ="/admin_user_views.html"
 }
 
 
 function attemptLogin() {
-    console.log("attemptLogin" + "got called!");
+    console.log("attemptLogin" + "got called!"); 
     console.log($("#username_log").val());
     console.log($("#password_log").val());
     $.ajax({
@@ -26,7 +28,7 @@ function attemptLogin() {
 
 function setup() {
     console.log("login.js loaded")
-    $("#submit_button").on("click", attemptLogin);
+    $("#submit-button").on("click", attemptLogin);
  
   }
   
