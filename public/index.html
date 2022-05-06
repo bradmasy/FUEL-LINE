@@ -7,14 +7,14 @@
     <!--Sets the width of the page is the devices widtth-->
     <link rel="stylesheet" href="/styles/main.css">
     <script src="./scripts/jquery-3.6.0.min.js" defer></script>
-    <!-- <script src="./scripts/index.js" defer></script> -->
-    <script src="./scripts/signup.js" defer></script>
+    <script src="./scripts/index.js" defer></script>
 </head>
 
 <body>
     <!--Header-->
     <header>
         <div id="space">
+
         </div>
         <div id="header-logo-container">
             <img id="header-logo" src="./images/Untitled design (7).png">
@@ -29,59 +29,36 @@
     </nav>
 
     <!--Main-->
-    <main id="signup-page">
-        <div id="signup-statement">
-            <p>Create Your Fuel Line <br>Account</p>
+    <main id="content">
+        <div class="row-container">
+            <img id="main-logo" src="./images/logo/cropped-logo.png">
         </div>
-
-        <div id="img-container">
-            <div id="main-img">
-                <img id="signup-logo" src="./images/logo/cropped-logo.png">
+        <div id="welcome-txt">
+            <div id="name">
+                <div id="centre-name">
+                    <p>Fuel Line</p>
+                </div>
+            </div>
+            <div id="centre-txt">
+                <p id="message">We get you where you need to go for <span style="color: orange">&nbspless</span></p>
             </div>
         </div>
-
-        <div id="greet">
-            <p>Please Enter Your Information Below...</p>
-        </div>
-
-        <div id="signup-form">
-            <div id="signup-form-align">
-                <div class="input-buttons">
-                    <input class="input-fields" placeholder="Username" id="username">
-                </div>
-                <div class="input-buttons">
-                    <input class="input-fields" placeholder="Email">
-                </div>
-                <div class="input-buttons">
-                    <input id ="user-pass" class="input-fields" placeholder="Password" type="password">
-                </div>
-                <div class="input-buttons">
-                    <input class="input-fields" placeholder="Confirm Password" type="password">
-                </div>
-                <div class="input-buttons">
-                    <div id="show-me">
-                        <div id="center">
-                            <div>
-                                <input id="show" type="checkbox" value="show">
-                            </div>
-                            <label id="pass-title">Show Password</label>
+        <div id="signup-login">
+            <div id="form-align">
+                <div id="form">
+                    <div id="button-columns">
+                        <div class="button-container">
+                            <button class="main-button" onclick="window.location.href='/login.html'">Login</button>
+                        </div>
+                        <div class="button-container">
+                            <button class="main-button" id="signup" onclick="window.location.href='/signup.html'">Signup</button>
                         </div>
                     </div>
-                </div>
-                <div class="input-buttons">
-                    <div id="confirm">
-                        <div>
-                            <button id="back-button">Back</button>
-                        </div>
-                        <div>
-                            <button id="confirm-button">Confirm</button>
-                        </div>
-                    </div>
-                   
                 </div>
             </div>
         </div>
     </main>
+
     <!--Footer-->
     <footer>
         <div id="navigation-buttons">

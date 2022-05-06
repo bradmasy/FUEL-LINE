@@ -1,0 +1,234 @@
+@use "../typography/fonts.scss";
+@use "../mixins/mixin.scss";
+@use "../pages/index.scss";
+@use "../colors/colors.scss";
+@use "../components/buttons.scss";
+
+html {
+    @include mixin.flex_styles_cl();
+
+    height: 100%;
+    font-family: fonts.$main-font;
+
+    body {
+        @include mixin.flex_styles_cl();
+
+        height: 100%;
+        width: 100%;
+        padding: 0%;
+        margin: 0%;
+        justify-content: center;
+
+        header {
+            @include mixin.flex_styles_rw();
+            @include mixin.header_footer_styles();
+
+            #space {
+                display: flex;
+                width: 33%;
+            }
+
+            #header-logo-container {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                width: 33%;
+                height: 100%;
+
+                #header-logo {}
+
+            }
+
+            #hamburger {
+                display: flex;
+                justify-content: right;
+                width: 33.3%;
+                height: 100%;
+                //  border: solid 1px red;
+
+
+                #ham-menu:hover {
+                    @include mixin.hover-styles();
+                }
+
+                #ham-menu {
+                    display: flex;
+                    height: 100%;
+                }
+
+
+            }
+
+        }
+
+        #login-page {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            width: 100%;
+
+            #statement {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                text-align: center;
+                font-size: 2em;
+                font-weight: bold;
+                height: 20%;
+            }
+
+            #img-container {
+                display: flex;
+                flex-direction: column;
+                height: 10%;
+                width: 100%;
+
+                #main-img {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: center;
+                    width: 100%;
+                    height: 70%;
+
+                    #logo {
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: center;
+                        height: 100%;
+                    }
+                }
+            }
+
+            #greet {
+                display: flex;
+                justify-content: center;
+                height: 10%;
+            }
+
+            #space {
+                display: flex;
+                height: 10%;
+            }
+
+            #form {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+                height: 40%;
+                width: 100%;
+
+                #user-container {
+                    display: flex;
+                    justify-content: center;
+                    width: 100%;
+                    height: 15%;
+
+                    .input-fields:focus {
+                        border: none;
+                        outline: none;
+                    }
+                    .input-fields {
+                        display: flex;
+                        text-align: center;
+                        border: none;
+                        font-weight: bold;
+                        border-radius: 40px;
+                        width: 50%;
+                        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8), 2px 3px 8px 0 #ffb877;
+                    }
+                }
+
+                #pass-container {
+                    display: flex;
+                    justify-content: center;
+                    width: 100%;
+                    height: 15%;
+
+                    .input-fields:focus {
+                        border: none;
+                        outline: none;
+                    }
+                    .input-fields {
+                        display: flex;
+                        text-align: center;
+                        border: none;
+                        font-weight: bold;
+                        border-radius: 40px;
+                        width: 50%;
+                        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8), 2px 3px 8px 0 #ffb877;
+                    }
+                }
+
+                #check-boxes {
+                    display: flex;
+                    width: 100%;
+                    height: 30%;
+                    justify-content: center;
+
+                    #make-admin{
+                        display: flex;
+                        width: 50%;
+                        justify-content: center;
+
+                        div{
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                        }
+                        label {
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                        }
+
+                    }
+                    #show-pass {
+                        display: flex;
+                        width: 50%;
+                        justify-content: center;
+                        div {
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                        }
+                        label {
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                        }
+
+
+                    }
+                }
+                #submit {
+                    display: flex;
+                    justify-content: center;
+                    height: 15%;
+
+                    #submit-button:hover {
+                        @include mixin.hover-styles();
+                    }
+
+
+                    #submit-button {
+
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+                        border: none;
+                        height: 100%;
+                        font-weight: bold;
+                        border-radius: 40px;
+                        background-color: colors.$secondary-color;
+                        width: 20%;
+                        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4); //, 2px 3px 8px 0 #ffb877;
+
+
+                    }
+
+                }
+            }
+        }
+    }
+}
