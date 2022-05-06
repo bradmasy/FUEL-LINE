@@ -10,8 +10,10 @@
 const $backButton        = $("#back-button");
 const $confirmButton     = $("#confirm-button");
 const $userPassword      = $("#user-pass");
+const $confirmPassword   = $("#confirm-pass");
 const $showPasswordBox   = $("#show");
 const $showPasswordTitle = $("#pass-title");
+
 
 
 /**
@@ -34,7 +36,7 @@ $backButton.on("click", () => {
 
 $confirmButton.on("click", ()=> {
     // alert("confirm");
-    console.log("hi");
+    window.location.href = "../success.html"
 })
 
 /**
@@ -48,12 +50,14 @@ function showPassword()
         {
             $showPasswordTitle.html("Hide Password");
             $userPassword.attr("type","text");
+            $confirmPassword.attr("type","text");
             passwordVisible = true;
         }
         else
         {
             $showPasswordTitle.html("Show Password");
             $userPassword.attr("type","password");
+            $confirmPassword.attr("type","password");
             passwordVisible = false;
         }
     })
