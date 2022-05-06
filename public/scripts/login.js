@@ -1,6 +1,7 @@
 /**
  * Constant Variables
  */
+const $showAdminBox      = $("#admin-check");
 const $showPasswordBox   = $("#show-pass-box");
 const $showPasswordTitle = $("#pass-label");
 const $userPassword      = $("#password_log");
@@ -12,6 +13,24 @@ let passwordVisible = false; // for revealing the password.
 let isAdmin = false; // for enabling admin login
 
 
+
+/**
+ * Turns function handlers on for admin.
+ */
+ function adminLogin()
+ {
+     $showAdminBox.on("click",() => {
+ 
+         if(!isAdmin)
+         {
+            isAdmin = true;
+         }
+         else
+         {
+             isAdmin = false;
+         }
+     })
+ }
 
 /**
  * Turns function handlers on for show password.
@@ -39,6 +58,8 @@ let isAdmin = false; // for enabling admin login
 function proceedToHome(data){
     console.log(data)
     console.log("successful login")
+    console.log(isAdmin)
+    console.log(passwordVisible) 
     if (isAdmin) {
       window.location.href ="/admin_user_views.html"
     } else {
@@ -69,7 +90,7 @@ function setup() {
     console.log("login.js loaded")
     $("#submit-button").on("click", attemptLogin);
     showPassword();
- 
+    adminLogin();
   }
   
   $(document).ready(setup);
