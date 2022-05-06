@@ -5,11 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--Sets the width of the page is the devices widtth-->
-    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="main.css">
     <script src="./scripts/jquery-3.6.0.min.js" defer></script>
     <!-- <script src="./scripts/index.js" defer></script> -->
-    <script src="./scripts/signup.js" defer></script>
-</head>
+    <script src="/public/scripts/login.js"></script>
+</head>   
 
 <body>
     <!--Header-->
@@ -31,7 +31,7 @@
     <!--Main-->
     <main id="login-page">
         <div id="statement">
-            <p>Create Your Fuel Line <br>Account</p>
+            <p>Login To Your Fuel Line <br>Account</p>
         </div>
 
         <div id="img-container">
@@ -43,9 +43,37 @@
         <div id="greet">
             <p>Please Enter Your Information Below...</p>
         </div>
-        <div id="form">
+
+        <div id="space">
 
         </div>
+            <div  id="user-container">
+                <input class="input-fields" placeholder="username" id="username_log">
+            </div>
+            <div id="pass-container">
+                <input class="input-fields" type ="password" placeholder ="password" id="password_log">
+            </div>
+            <div id="check-boxes">
+                <div id="make-admin">
+                    <div>
+                        <input type="checkbox" id="admin-check">
+                    </div>
+                    <label>Admin?</label>
+                </div>
+                <div id="show-pass">
+                    <div>
+                        <input type="checkbox">
+                    </div>
+                    <label>Show Password</label>
+                </div>
+            </div>
+            <div id="submit">
+                <button id="submit-button">Login</button> <!--POST REQ NEEDED-->
+            </div>
+            <!-- <form action="" method="post">
+            <input type="submit" name="upvote" value="Upvote" />
+        </form> -->
+
         
     </main>
     <!--Footer-->

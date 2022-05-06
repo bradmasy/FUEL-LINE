@@ -17,8 +17,31 @@
     - this will link to new pages
 - working on server integration with database MongoDB
 
+
+### Wednesday May 5th 2022
+
 ## Carson:
 -Branch: Carson_Server_Configuration
+
+## Brad:
+- Branch: Brad_Signup_Page
+    - constructed signup front end
+    - wrote js to grab data to plug into user
+    - regex for validation functions
+- Branch: Carson_Server_Configuration
+    - Connected MongoDB Local to server and app.
+
+
+### Thursday May 5th 2022
+
+## Brad:
+- Branch: Carson_Server_Configuration
+    - working on backend scripts for sessions
+    - working on rendering EJS files for routes
+    - # need to work on correct routes through buttons
+        - routes work correctly, not when buttons are clicked
+- Branch: Brad_Signup_Page
+    - working on front end layout and alighnment
 
 # Ideas:
 
