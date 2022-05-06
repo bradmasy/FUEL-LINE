@@ -5,10 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--Sets the width of the page is the devices widtth-->
-    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="./styles/main.css">
     <script src="./scripts/jquery-3.6.0.min.js" defer></script>
     <!-- <script src="./scripts/index.js" defer></script> -->
     <script src="./scripts/signup.js" defer></script>
+    <script src="./scripts/userObject.js" defer></script>
+    <script src="./scripts/validations.js" defer></script>
 </head>
 
 <body>
@@ -50,13 +52,13 @@
                     <input class="input-fields" placeholder="Username" id="username">
                 </div>
                 <div class="input-buttons">
-                    <input class="input-fields" placeholder="Email">
+                    <input class="input-fields" id="email" placeholder="Email">
                 </div>
                 <div class="input-buttons">
                     <input id ="user-pass" class="input-fields" placeholder="Password" type="password">
                 </div>
                 <div class="input-buttons">
-                    <input class="input-fields" placeholder="Confirm Password" type="password">
+                    <input id="confirm-pass" class="input-fields" placeholder="Confirm Password" type="password">
                 </div>
                 <div class="input-buttons">
                     <div id="show-me">
@@ -77,7 +79,6 @@
                             <button id="confirm-button">Confirm</button>
                         </div>
                     </div>
-                   
                 </div>
             </div>
         </div>
