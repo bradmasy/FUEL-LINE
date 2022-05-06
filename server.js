@@ -8,6 +8,7 @@ const bodyparser = require("body-parser");
 const mongoose   = require("mongoose");
 const session    = require("express-session");
 const { use } = require("express/lib/application");
+const res = require("express/lib/response");
 
 app.set("view engine", "ejs");
 
@@ -85,6 +86,15 @@ app.get("/login", function (req, res) {
 //   });
 // });
 
+
+function initiateSession(req,user)
+{
+  req.session.authenticated = true; // user gets authenticated.
+  req.session.user          = user; // setting the user as the sessions user.
+  res.send("authenticated");
+
+}
+
 app.use(express.static("./public"));
 
 app.post("/attemptLogin", function (req, res) {
@@ -100,6 +110,8 @@ app.post("/attemptLogin", function (req, res) {
       } 
       else{
         console.log("here");
+
+        initiateSession(req,users);
       }
 
 

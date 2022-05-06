@@ -8,17 +8,15 @@ function attemptLogin() {
     console.log($("#password_log").val());
     $.ajax({
       url: "http://localhost:5000/attemptLogin",
-    //   url: "https://radiant-anchorage-93970.herokuapp.com/findUnicornByWeight",
-      type: "POST",
-      data: {
-        username: $("#username_log").val(),
-        password: $("#password_log").val(),
-      },
-      success: proceedToHome,
-    });
-    // resetPage();
-  }
-
+    type: "POST",
+    data: {
+      username: $("#username_log").val(),
+      password: $("#password_log").val(),
+    },
+    success: checkUserExists,
+  });
+  // resetPage();
+}
 
 function setup() {
     console.log("login.js loaded")
