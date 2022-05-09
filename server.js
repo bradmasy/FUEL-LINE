@@ -5,9 +5,9 @@
 // executed first when the serve is initiated
 
 const express = require("express");
-const app = express();
+const app     = express();
 app.set("view engine", "ejs");
-const https = require("https");
+const https    = require("https");
 const session  = require("express-session");
 app.use(session({secret:"shhhh", saveUninitialized:true, resave:true}));
 
@@ -48,7 +48,6 @@ app.get("/login", function (req, res) {
   res.sendFile(__dirname + "/public/login.html");
 });
 
-app.use(express.static("./public"));
 
 function checkUserExists(data) {
   if (data.length === 0) {
@@ -65,7 +64,7 @@ app.get("/signup", function (req, res) {
 
 app.get("/success", function (req, res) {
   console.log("success");
-  res.render(__dirname + "/views/success.ejs");
+  res.render("success");
 });
 
 app.get("/profile", function(req,res){
@@ -313,4 +312,6 @@ app.get("/logout", (req,res) => {
 // app.use(express.static("./public"));
 
 
+
 console.log("Server Running");
+app.use(express.static("./public"));
