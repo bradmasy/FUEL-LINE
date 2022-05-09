@@ -65,6 +65,10 @@ app.get("/signup", function (req, res) {
   res.sendFile(__dirname + "/public/signup.html");
 });
 
+app.get("/success", function (req, res) {
+  res.sendFile(__dirname + "/public/success.html");
+});
+
 
 function initiateSession(req,users)
 {
@@ -89,12 +93,8 @@ app.post("/attemptLogin", function (req, res) {
     },
     function (err, users) {
       if (err) {
-        console.log("Error " + err);
-        console.log("Error " + err);
         req.session.authenticated = false; // user gets authenticated.
-        console.log("FAIL");
       } else {
-        console.log("Data " + users);
         initiateSession(req, users);    
       }
       res.send(users);
