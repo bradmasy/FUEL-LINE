@@ -1,28 +1,28 @@
+
+
+
 // homepage
 // executed first when the serve is initiated
 
-const express    = require("express");
-const app        = express();
-const https      = require("https");
-const bodyparser = require("body-parser");
-const mongoose   = require("mongoose");
-const session    = require("express-session");
-const res = require("express/lib/response");
-app.use(express.urlencoded({extended:false}));
-
+const express = require("express");
+const app = express();
 app.set("view engine", "ejs");
-//process.env.PORT ||
-app.listen( 4000, function (err) {
+const https = require("https");
+const session  = require("express-session");
+app.use(session({secret:"shhhh", saveUninitialized:true, resave:true}));
+
+app.listen(process.env.PORT || 5000, function (err) {
   if (err) console.log(err);
 });
 
+const bodyparser = require("body-parser");
 app.use(
   bodyparser.urlencoded({
     extended: true,
   })
 );
 
-app.use(session({secret:"shhhh", saveUninitialized:true, resave:true}));
+const mongoose = require("mongoose");
 
 mongoose.connect(
   "mongodb+srv://fuel_line_2022:fuel@cluster0.vcuj9.mongodb.net/FuelLineDTC12?retryWrites=true&w=majority",
@@ -34,29 +34,69 @@ mongoose.connect(
 
 //  mongoose.connect("mongodb://localhost:27017/Fuel_Line"); // our database on local host, not yet on server...
 
-  const userSchema = new mongoose.Schema({
-    username: String,
-    passwordt: String,
-  });
-  const userModel = mongoose.model("users", userSchema);
- 
+const userSchema = new mongoose.Schema({
+  username: String,
+  password: String,
+  email: String,
+  admin: Boolean,
+});
+const userModel = mongoose.model("users", userSchema);
+
 /*------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
 app.get("/login", function (req, res) {
-  res.render("login");
+  res.sendFile(__dirname + "/public/login.html");
 });
 
+// app.get("/profile/:id", function (req, res) {
+//   // console.log(req);
+
+//   const url = `https://pokeapi.co/api/v2/pokemon/${req.params.id}`;
+
+//   data = " ";
+//   https.get(url, function (https_res) {
+//     https_res.on("data", function (chunk) {
+//       data += chunk;
+//     });
+
+//     https_res.on("end", function () {
+//       // console.log(JSON.parse(data))
+//       data = JSON.parse(data);
+
+//       // console.log(data)
+
+//       tmp = data.stats
+//         .filter((obj_) => {
+//           return obj_.stat.name == "hp";
+//         })
+//         .map((obj_2) => {
+//           return obj_2.base_stat;
+//         });
+
+//       res.render("profile.ejs", {
+//         id: req.params.id,
+//         name: data.name,
+//         hp: tmp[0],
+//       });
+//     });
+//   });
+// });
+
+// sets the default for the server to use as the public directory
+// redirects to index if no other parameters are given
+app.use(express.static("./public"));
+
+
+
 function checkUserExists(data) {
- 
-  let valid = true;
-
   if (data.length === 0) {
-    valid = false;
-  } 
-
-  return valid;
+    console.log("User not found!");
+    alert("User not found");
+  } else {
+    return true;
+    //proceedToHome();
+  }
 }
-
 function initiateSession(req,users)
 {
   if(checkUserExists(users)){
@@ -71,35 +111,26 @@ function initiateSession(req,users)
     console.log(`invalid user`);
   }
 }
-
-app.get("/attemptLogin",(req,res) =>{
-  console.log("fucking hell");
-})
-
 app.post("/attemptLogin", function (req, res) {
   console.log("req. has been received");
-  res.send("hi");
-  console.log(req.body.username);
-   //res.redirect("/attemptLogin");
-  // console.log("this far");
-  // userModel.find(
-  //   {
-  //     $and: [{ username: req.body.username }, { password: req.body.password }],
-  //   },
-  //   function (err, users) {
-  //     if (err) 
-  //     {
-  //       console.log("Error " + err);
-  //       req.session.authenticated = false; // user gets authenticated.
-  //       console.log("FAIL");
-  //      /// maybe do http req here
-  //     } 
-  //     else 
-  //     {
-  //       initiateSession(req, users);    
-  //     }
-  //   }
-  // );
+  console.log(req.body);
+  userModel.find(
+    {
+      $and: [{ username: req.body.username }, { password: req.body.password }],
+    },
+    function (err, users) {
+      if (err) {
+        console.log("Error " + err);
+        console.log("Error " + err);
+        req.session.authenticated = false; // user gets authenticated.
+        console.log("FAIL");
+      } else {
+        console.log("Data " + users);
+        initiateSession(req, users);    
+      }
+      res.send(users);
+    }
+  );
 });
 
 
@@ -109,11 +140,9 @@ app.post("/attemptLogin", function (req, res) {
  * Database Connection
  */
 
- app.post("/displayUsersToAdmin", function (req, res) {
+app.post("/displayUsersToAdmin", function (req, res) {
   console.log("req. has been recieved");
-  console.log(req.body.username);
-
-  userModel.find({ name: req.body.username }, function (err, users) {
+  userModel.find({}, function (err, users) {
     if (err) {
       console.log("Error " + err);
     } else {
@@ -123,5 +152,187 @@ app.post("/attemptLogin", function (req, res) {
   });
 });
 
+
+app.post("/attemptSignup", function (req, res) {
+  console.log("req. has been received");
+  console.log("attemptSignup called in server");
+  userModel.insertMany({
+    username: req.body.username,
+    password: req.body.password,
+    email: req.body.email,
+    admin: req.body.admin
+  }, function (err, users) {
+    if (err) {
+      console.log("Error " + err);
+    } else {
+      console.log("Data " + users);
+    }
+    res.send(users);
+  });
+});
+
+
+
+
+// // homepage
+// // executed first when the serve is initiated
+
+// const express    = require("express");
+// const app        = express();
+// const https      = require("https");
+// const bodyparser = require("body-parser");
+// const mongoose   = require("mongoose");
+// const session    = require("express-session");
+// const res = require("express/lib/response");
+// app.use(express.urlencoded({extended:false}));
+
+// app.set("view engine", "ejs");
+// //process.env.PORT ||
+// app.listen( 4000, function (err) {
+//   if (err) console.log(err);
+// });
+
+// app.use(
+//   bodyparser.urlencoded({
+//     extended: true,
+//   })
+// );
+
+// app.use(session({secret:"shhhh", saveUninitialized:true, resave:true}));
+
+// mongoose.connect(
+//   "mongodb+srv://fuel_line_2022:fuel@cluster0.vcuj9.mongodb.net/FuelLineDTC12?retryWrites=true&w=majority",
+//   {
+//     useNewUrlParser: true,
+//     useUnifiedTopology: true,
+//   }
+// );
+
+// //  mongoose.connect("mongodb://localhost:27017/Fuel_Line"); // our database on local host, not yet on server...
+
+// const userSchema = new mongoose.Schema({
+//   username: String,
+//   password: String,
+//   email: String,
+//   admin: Boolean,
+// });
+// const userModel = mongoose.model("users", userSchema);
+
+// /*------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+// app.get("/login", function (req, res) {
+//   res.render("login");
+// });
+
+// function checkUserExists(data) {
+ 
+//   let valid = true;
+
+//   if (data.length === 0) {
+//     valid = false;
+//   } 
+
+//   return valid;
+// }
+
+// function initiateSession(req,users)
+// {
+//   if(checkUserExists(users)){
+//     req.session.authenticated = true; // user gets authenticated.
+//     req.session.user          = users; 
+//     console.log(`welcome ${users[0].username}`);
+    
+//   }
+//   else
+//   {
+//     req.session.authenticated = false;
+//     console.log(`invalid user`);
+//   }
+// }
+
+// app.get("/attemptLogin",(req,res) =>{
+// })
+
+// app.get("/logout.html", (req,res) => {
+//   console.log("req made");
+//   if(req.session){
+//     req.session.destroy((err) => {
+//       res.status(400).send("Unable to log out")
+//     });
+//   }
+//   else {
+//     console.log("logged out");
+//   }
+// })
+
+// app.post("/attemptLogin", function (req, res) {
+//   console.log("req. has been received");
+  
+//   // res.redirect("/attemptLogin");
+//   //console.log("this far");
+//   // userModel.find(
+//   //   {
+//   //     $and: [{ username: req.body.username }, { password: req.body.password }],
+//   //   },
+//   //   function (err, users) {
+//   //     if (err) 
+//   //     {
+//   //       console.log("Error " + err);
+//   //       req.session.authenticated = false; // user gets authenticated.
+//   //       console.log("FAIL");
+//   //     } 
+//   //     else 
+//   //     {
+//   //       initiateSession(req, users);    
+//   //     }
+//   //   }
+//   // );
+// });
+
+
+// /*------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+// /**
+//  * Database Connection
+//  */
+
+//  app.post("/displayUsersToAdmin", function (req, res) {
+//   console.log("req. has been recieved");
+//   console.log(req.body.username);
+
+//   userModel.find({ name: req.body.username }, function (err, users) {
+//     if (err) {
+//       console.log("Error " + err);
+//     } else {
+//       console.log("Data " + users);
+//     }
+//     res.send(users);
+//   });
+// });
+// app.get("/login", function (req, res) {
+//   res.sendFile(__dirname + "/public/login.html");
+// });
+
+// app.post("/attemptSignup", function (req, res) {
+//   console.log("req. has been received");
+//   console.log("attemptSignup called in server");
+//   userModel.insertMany({
+//     username: req.body.username,
+//     password: req.body.password,
+//     email: req.body.email,
+//     admin: req.body.admin
+//   }, function (err, users) {
+//     if (err) {
+//       console.log("Error " + err);
+//     } else {
+//       console.log("Data " + users);
+//     }
+//     res.send(users);
+//   });
+// });
+
+// console.log("Server Running");
+// app.use(express.static("./public"));
+
+
 console.log("Server Running");
-app.use(express.static("./public"));
