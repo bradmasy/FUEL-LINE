@@ -63,7 +63,7 @@ function proceedToHome(data){
     if (isAdmin) {
       window.location.href ="/admin_user_views.html"
     } else {
-      window.location.href ="/success.html"
+      window.location.href ="/success"
     }
 }
 

@@ -11,7 +11,7 @@ const https = require("https");
 const session  = require("express-session");
 app.use(session({secret:"shhhh", saveUninitialized:true, resave:true}));
 
-app.listen(process.env.PORT || 5000, function (err) {
+app.listen(process.env.PORT || 8000, function (err) {
   if (err) console.log(err);
 });
 
@@ -53,7 +53,6 @@ app.use(express.static("./public"));
 function checkUserExists(data) {
   if (data.length === 0) {
     console.log("User not found!");
-    alert("User not found");
   } else {
     return true;
     //proceedToHome();
@@ -61,12 +60,17 @@ function checkUserExists(data) {
 }
 
 app.get("/signup", function (req, res) {
-  res.sendFile(__dirname + "/public/signup.html");
+  res.render("signup");
 });
 
 app.get("/success", function (req, res) {
-  res.sendFile(__dirname + "/public/success.html");
+  console.log("success");
+  res.render(__dirname + "/views/success.ejs");
 });
+
+app.get("/profile", function(req,res){
+  res.render("profile");
+})
 
 
 function initiateSession(req,users)
@@ -138,12 +142,13 @@ app.get("/logout", (req,res) => {
 
   if(req.session){
     delete req.session;
+    console.log("logged out");
     // req.session.destroy((err) => {
     //  // res.status(400).send("Unable to log out")
     // });
   }
   else {
-    console.log("logged out");
+  
   }
 })
 
