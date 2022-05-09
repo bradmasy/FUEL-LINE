@@ -31,7 +31,9 @@ mongoose.connect(
 
 const userSchema = new mongoose.Schema({
   username: String,
-  passwordt: String,
+  password: String,
+  email: String,
+  admin: Boolean,
 });
 const userModel = mongoose.model("users", userSchema);
 
@@ -108,6 +110,25 @@ console.log("Server Running");
 app.post("/displayUsersToAdmin", function (req, res) {
   console.log("req. has been recieved");
   userModel.find({}, function (err, users) {
+    if (err) {
+      console.log("Error " + err);
+    } else {
+      console.log("Data " + users);
+    }
+    res.send(users);
+  });
+});
+
+
+app.post("/attemptSignup", function (req, res) {
+  console.log("req. has been received");
+  console.log("attemptSignup called in server");
+  userModel.insertMany({
+    username: req.body.username,
+    password: req.body.password,
+    email: req.body.email,
+    admin: req.body.admin
+  }, function (err, users) {
     if (err) {
       console.log("Error " + err);
     } else {
