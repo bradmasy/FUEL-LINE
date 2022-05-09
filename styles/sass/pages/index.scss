@@ -74,7 +74,7 @@ html {
             display: flex;
             flex-direction: column;
             justify-content: center;
-            background-color: white;
+            background-color: rgb(255, 255, 255);
             height: 80%;
             width: 100%;
 
@@ -88,8 +88,8 @@ html {
                 #main-logo {
                     display: flex;
                     margin-top: 5%;
-                    height: 80%;
-                    width: 20%;
+                    width: auto;
+                    contain: content;
                 }
             }
 

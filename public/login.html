@@ -4,11 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!--Sets the width of the page is the devices widtth-->
-    <link rel="stylesheet" href="/styles/main.css" />
+    <link rel="stylesheet" href="./styles/main.css">
     <script src="/scripts/jquery-3.6.0.min.js"></script>
     <!-- <script src="./scripts/index.js" defer></script> -->
-    <script src="/scripts/login.js"></script>
-  </head>
+    <script src="/scripts/login.js" defer></script>
+</head>
 
   <body>
     <!--Header-->
@@ -26,21 +26,28 @@
 
     <!--Main-->
     <main id="login-page">
-      <div id="statement">
-        <p>Login To Your Fuel Line <br />Account</p>
+      <div id="statement-container">
+        <div id="statement">
+          <p>Login To Your Fuel Line <br />Account</p>
+        </div>
       </div>
-
+      
       <div id="img-container">
         <div id="main-img">
           <img id="logo" src="./images/logo/cropped-logo.png" />
         </div>
       </div>
 
-      <div id="greet">
-        <p>Please Enter Your Information Below...</p>
+      <div id="space"></div>
+
+      <div>
+        <div id="greet-container">
+          <div id="greet">
+            <p>Please Enter Your Information Below...</p>
+          </div>
+        </div>
       </div>
 
-      <div id="space"></div>
 
       <div id="form">
         <div id="user-container">
