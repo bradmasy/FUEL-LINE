@@ -5,11 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--Sets the width of the page is the devices widtth-->
-    <link rel="stylesheet" href="main.css">
-    <script src="/public/scripts/jquery-3.6.0.min.js" defer></script>
+    <link rel="stylesheet" href="styles/main.css">
+    <script src="/scripts/jquery-3.6.0.min.js" defer></script>
     <!-- <script src="./scripts/index.js" defer></script> -->
-    <script src="/public/scripts/login.js" defer></script>
-</head>   
+    <script src="/scripts/login.js" defer></script>
+</head>
 
 <body>
     <!--Header-->
@@ -47,11 +47,13 @@
         <div id="space">
 
         </div>
-            <div  id="user-container">
+        <div id="form">
+
+            <div id="user-container">
                 <input class="input-fields" placeholder="username" id="username_log">
             </div>
             <div id="pass-container">
-                <input class="input-fields" type ="password" placeholder ="password" id="password_log">
+                <input class="input-fields" type="password" placeholder="password" id="password_log">
             </div>
             <div id="check-boxes">
                 <div id="make-admin">
@@ -68,13 +70,14 @@
                 </div>
             </div>
             <div id="submit">
-                <button id="submit-button" >Login</button> <!--POST REQ NEEDED-->
+                <button id="submit-button">Login</button>
+                <!--POST REQ NEEDED-->
             </div>
             <!-- <form action="" method="post">
-            <input type="submit" name="upvote" value="Upvote" />
-        </form> -->
+            <input type="submit" name="upvote" value="Upvote" />-->
+        </div>
 
-        
+
     </main>
     <!--Footer-->
     <footer>

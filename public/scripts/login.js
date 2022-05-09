@@ -1,9 +1,10 @@
 function proceedToHome(data){
     console.log("user found")
+  //  window.location.href = "/views/admin_user_views.ejs"
 }
 
 function checkUserExists(data) {
-  
+  console.log("here");
   if (data.length === 0) {
     console.log("User not found!");
     alert("User not found");
@@ -17,7 +18,7 @@ function attemptLogin() {
     console.log($("#username_log").val());
     console.log($("#password_log").val());
     $.ajax({
-      url: "http://localhost:5000/attemptLogin",
+      url: "/attemptLogin",
     type: "POST",
     data: {
       username: $("#username_log").val(),
@@ -30,7 +31,10 @@ function attemptLogin() {
 
 function setup() {
     console.log("login.js loaded")
-    $("#submit-button").on("click", attemptLogin);
+    $("#submit-button").on("click", ()=>{
+      console.log("here");
+      attemptLogin();
+    });
  
   }
   

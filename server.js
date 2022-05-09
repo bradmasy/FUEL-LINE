@@ -7,12 +7,12 @@ const https      = require("https");
 const bodyparser = require("body-parser");
 const mongoose   = require("mongoose");
 const session    = require("express-session");
-const { use } = require("express/lib/application");
 const res = require("express/lib/response");
+app.use(express.urlencoded({extended:false}));
 
 app.set("view engine", "ejs");
-
-app.listen(process.env.PORT || 5000, function (err) {
+//process.env.PORT ||
+app.listen( 4000, function (err) {
   if (err) console.log(err);
 });
 
@@ -43,7 +43,7 @@ mongoose.connect(
 /*------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
 app.get("/login", function (req, res) {
-  res.sendFile(__dirname + "/public/login.html");
+  res.render("login");
 });
 
 function checkUserExists(data) {
@@ -63,8 +63,6 @@ function initiateSession(req,users)
     req.session.authenticated = true; // user gets authenticated.
     req.session.user          = users; 
     console.log(`welcome ${users[0].username}`);
-
-    // res.redirect("/public/index.html");
     
   }
   else
@@ -74,28 +72,34 @@ function initiateSession(req,users)
   }
 }
 
-app.use(express.static("./public"));
+app.get("/attemptLogin",(req,res) =>{
+  console.log("fucking hell");
+})
 
 app.post("/attemptLogin", function (req, res) {
   console.log("req. has been received");
-  
-  userModel.find(
-    {
-      $and: [{ username: req.body.username }, { password: req.body.password }],
-    },
-    function (err, users) {
-      if (err) 
-      {
-        console.log("Error " + err);
-        req.session.authenticated = false; // user gets authenticated.
-        console.log("FAIL");
-      } 
-      else 
-      {
-        initiateSession(req, users);    
-      }
-    }
-  );
+  res.send("hi");
+  console.log(req.body.username);
+   //res.redirect("/attemptLogin");
+  // console.log("this far");
+  // userModel.find(
+  //   {
+  //     $and: [{ username: req.body.username }, { password: req.body.password }],
+  //   },
+  //   function (err, users) {
+  //     if (err) 
+  //     {
+  //       console.log("Error " + err);
+  //       req.session.authenticated = false; // user gets authenticated.
+  //       console.log("FAIL");
+  //      /// maybe do http req here
+  //     } 
+  //     else 
+  //     {
+  //       initiateSession(req, users);    
+  //     }
+  //   }
+  // );
 });
 
 
@@ -120,4 +124,4 @@ app.post("/attemptLogin", function (req, res) {
 });
 
 console.log("Server Running");
-
+app.use(express.static("./public"));
