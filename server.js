@@ -60,7 +60,6 @@ function checkUserExists(data) {
   }
 }
 
-
 app.get("/signup", function (req, res) {
   res.sendFile(__dirname + "/public/signup.html");
 });
