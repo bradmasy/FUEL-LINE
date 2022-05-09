@@ -1,0 +1,49 @@
+html {
+    @include mixin.flex_styles_cl();
+
+    height: 100%;
+    width: 100%;
+    font-family: fonts.$main-font;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    padding: 0%;
+
+    body {
+        @include mixin.flex_styles_cl();
+
+        height: 100%;
+        width: 100%;
+        padding: 0%;
+        margin: 0%;
+        justify-content: center;
+        overflow-y: hidden;
+        overflow-x: hidden;
+
+        header {
+            @include mixin.flex_styles_rw();
+            @include mixin.header_footer_styles();
+
+            #space {
+                display: flex;
+                width: 33%;
+            }
+
+            #header-logo-container {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                width: 33%;
+                height: 100%;
+
+                #header-logo {}
+
+            }
+
+
+        }
+
+        #profile-page {
+            
+        }
+    }
+}
