@@ -14,7 +14,11 @@ html {
     @include mixin.flex_styles_cl();
 
     height: 100%;
+    width:100%;
     font-family: fonts.$main-font;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    padding:0%;
 
     body {
         @include mixin.flex_styles_cl();
@@ -24,6 +28,8 @@ html {
         padding: 0%;
         margin: 0%;
         justify-content: center;
+        overflow-y: hidden;
+        overflow-x: hidden;
 
         header {
             @include mixin.flex_styles_rw();
@@ -162,10 +168,17 @@ html {
                                     @include mixin.hover-styles();
                                 }
 
+                                .main-button:focus {
+                                    transform: scale(1.1);
+                                    transition: .1s;
+                                    background-color: colors.$main-color;
+                                }
+
                                 .main-button {
                                     border-radius: 40px;
                                     padding-right: 10%;
                                     padding-left: 10%;
+                                    color: black;
                                     background-color: colors.$main-color;
                                     font-family: fonts.$main-font;
                                     font-size: 1vh;
@@ -190,6 +203,13 @@ html {
                 display: flex;
                 width: 100%;
                 height: 100%;
+                text-decoration: none;
+
+                .nav-buttons:active {
+                    transform: scale(.9);
+                    transition: .1s;
+                    background-color: colors.$main-color;
+                }
 
                 .nav-buttons:hover {
                     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.9);
