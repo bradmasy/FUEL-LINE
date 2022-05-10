@@ -16,11 +16,12 @@ $homeButton.on("click", function(){
     window.location.href = "/index"
 })
 
-$("#profile").on("click",() =>{
-    console.log("clicked");
-    // window.location.href = "/profile";
+$signupButton.click( function(){
+    window.location.href = "/signup"
+})
 
-    window.location.href = "/profile.html";
+$homeButton.on("click", function(){
+    window.location.href = "/index"
 })
 
 

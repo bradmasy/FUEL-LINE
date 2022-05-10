@@ -80,7 +80,7 @@ html {
             #img-container {
                 display: flex;
                 flex-direction: column;
-                height: 10%;
+                height: 50%;
                 width: 100%;
 
                 #main-img {
@@ -94,6 +94,7 @@ html {
                         flex-direction: row;
                         justify-content: center;
                         height: 100%;
+                        width: auto;
                     }
                 }
             }
@@ -127,6 +128,7 @@ html {
                         border: none;
                         outline: none;
                     }
+
                     .input-fields {
                         display: flex;
                         text-align: center;
@@ -148,6 +150,7 @@ html {
                         border: none;
                         outline: none;
                     }
+
                     .input-fields {
                         display: flex;
                         text-align: center;
@@ -161,20 +164,22 @@ html {
 
                 #check-boxes {
                     display: flex;
+                    flex-direction: row;
                     width: 100%;
                     height: 30%;
                     justify-content: center;
 
-                    #make-admin{
+                    #make-admin {
                         display: flex;
                         width: 50%;
                         justify-content: center;
 
-                        div{
+                        div {
                             display: flex;
                             flex-direction: column;
                             justify-content: center;
                         }
+
                         label {
                             display: flex;
                             flex-direction: column;
@@ -182,15 +187,18 @@ html {
                         }
 
                     }
+
                     #show-pass {
                         display: flex;
                         width: 50%;
                         justify-content: center;
+
                         div {
                             display: flex;
                             flex-direction: column;
                             justify-content: center;
                         }
+
                         label {
                             display: flex;
                             flex-direction: column;
@@ -200,6 +208,7 @@ html {
 
                     }
                 }
+
                 #submit {
                     display: flex;
                     justify-content: center;
@@ -209,9 +218,7 @@ html {
                         @include mixin.hover-styles();
                     }
 
-
                     #submit-button {
-
                         display: flex;
                         flex-direction: column;
                         justify-content: center;
@@ -223,8 +230,6 @@ html {
                         background-color: colors.$secondary-color;
                         width: 20%;
                         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4); //, 2px 3px 8px 0 #ffb877;
-
-
                     }
 
                 }

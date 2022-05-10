@@ -6,11 +6,14 @@
  * Constant Variables
  */
 
-const $backButton = $("#back-button");
-const $confirmButton = $("#confirm-button");
-const $userPassword = $("#user-pass");
-const $showPasswordBox = $("#show");
+const $backButton        = $("#back-button");
+const $confirmButton     = $("#confirm-button");
+const $confirmPassword   = $("#password2");
+const $userPassword      = $("#password1");
+const $showPasswordBox   = $("#show");
 const $showPasswordTitle = $("#pass-title");
+
+
 
 /**
  * Let Variables
@@ -30,31 +33,35 @@ $backButton.on("click", () => {
   window.location.href = "../index.html";
 });
 
-$confirmButton.on("click", () => {
-  // alert("confirm");
-  console.log("hi");
-});
+
 
 /**
  * Turns function handlers on for show password.
  */
-function showPassword() {
-  $showPasswordBox.on("click", () => {
-    if (!passwordVisible) {
-      $showPasswordTitle.html("Hide Password");
-      $userPassword.attr("type", "text");
-      passwordVisible = true;
-    } else {
-      $showPasswordTitle.html("Show Password");
-      $userPassword.attr("type", "password");
-      passwordVisible = false;
-    }
-  });
+function showPassword()
+{
+    $showPasswordBox.on("click",() => {
+
+        if(!passwordVisible)
+        {
+            $showPasswordTitle.html("Hide Password");
+            $userPassword.attr("type","text");
+            $confirmPassword.attr("type","text");
+            passwordVisible = true;
+        }
+        else
+        {
+            $showPasswordTitle.html("Show Password");
+            $userPassword.attr("type","password");
+            $confirmPassword.attr("type","password");
+            passwordVisible = false;
+        }
+    })
 }
 
 function proceedToHome() {
   console.log("successful Signup");
-  window.location.href = "/success.html";
+  window.location.href = "/success";
 }
 
 function checkUserExists(data) {
@@ -79,7 +86,7 @@ function attemptSignup() {
 
   if ($("#password1").val() === $("#password2").val()) {
     $.ajax({
-      url: "http://localhost:5000/attemptSignup",
+      url: "/attemptSignup",
       //   url: "https://radiant-anchorage-93970.herokuapp.com/findUnicornByWeight",
       type: "POST",
       data: {
@@ -99,7 +106,7 @@ function attemptSignup() {
 function setup() {
   console.log("document ready");
   showPassword();
-  $confirmButton.on("click", attemptSignup);
+  $("#confirm-button").on("click", attemptSignup);
 }
 
 $(document).ready(setup);

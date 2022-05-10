@@ -13,27 +13,6 @@
 }
 /* Colors*/
 /*Mixins*/
-.input-buttons {
-  display: flex;
-  justify-content: center;
-  height: 10%;
-  width: 100%;
-  outline: none;
-}
-.input-buttons .input-fields:focus {
-  border: none;
-  outline: none;
-}
-.input-buttons .input-fields {
-  display: flex;
-  text-align: center;
-  border: none;
-  font-weight: bold;
-  border-radius: 40px;
-  width: 50%;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8), 2px 3px 8px 0 #ffb877;
-}
-
 /**
  * SASS STYLE-SHEET FOR INDEX.HTML
  *
@@ -77,7 +56,7 @@ html body header #header-logo-container {
   flex-direction: row;
   justify-content: center;
   width: 33%;
-  height: 100%;
+  height: 50%;
 }
 html body header #hamburger {
   display: flex;
@@ -105,15 +84,13 @@ html body #content .row-container {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  height: 50%;
+  height: 30%;
 }
 html body #content .row-container #main-logo {
   display: flex;
   margin-top: 5%;
-  height: auto;
-  width: 25%;
-  -o-object-fit: contain;
-     object-fit: contain;
+  width: auto;
+  contain: content;
 }
 html body #content #welcome-txt {
   display: flex;
@@ -330,7 +307,7 @@ html body #signup-page #signup-statement {
 html body #signup-page #img-container {
   display: flex;
   flex-direction: column;
-  height: 50%;
+  height: 10%;
   width: 100%;
 }
 html body #signup-page #img-container #main-img {
@@ -344,7 +321,6 @@ html body #signup-page #img-container #main-img #signup-logo {
   flex-direction: row;
   justify-content: center;
   height: 100%;
-  width: a;
 }
 html body #signup-page #greet {
   display: flex;
@@ -434,64 +410,28 @@ html body #signup-page #signup-form #signup-form-align .input-buttons #confirm d
   background-color: #ffb877;
   width: 60%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+<<<<<<< HEAD:public/main.css
 }
-html body footer {
-  width: 100%;
+
+.input-buttons {
+  display: flex;
+  justify-content: center;
   height: 10%;
-  background-color: #FF912C;
-  display: flex;
-  flex-direction: row;
   width: 100%;
+  outline: none;
 }
-html body footer #navigation-buttons {
+.input-buttons .input-fields:focus {
+  border: none;
+  outline: none;
+}
+.input-buttons .input-fields {
   display: flex;
-  width: 100%;
-  height: 100%;
-  text-decoration: none;
-}
-html body footer #navigation-buttons .nav-buttons:active {
-  transform: scale(0.9);
-  transition: 0.1s;
-  background-color: #FF912C;
-}
-html body footer #navigation-buttons .nav-buttons:hover {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.9);
-  transition: 0.3s;
-}
-html body footer #navigation-buttons .nav-buttons {
-  display: flex;
-  flex-direction: column;
-  width: 25%;
-  height: 100%;
-  justify-content: center;
-}
-html body footer #navigation-buttons .nav-buttons .hover-button {
-  display: flex;
-  flex-direction: column;
-  height: 70%;
-  width: 100%;
-}
-html body footer #navigation-buttons .nav-buttons .hover-button .button-img {
-  display: flex;
-  justify-content: center;
-  height: 75%;
-}
-html body footer #navigation-buttons .nav-buttons .hover-button .button-title {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   text-align: center;
-  width: 100%;
-  height: 25%;
-}
-html body footer #navigation-buttons .nav-buttons .hover-button .button-title p {
-  display: flex;
-  justify-content: center;
-  text-align: center;
-  width: 100%;
-  height: 100%;
-  font-family: "jost-variable";
-  font-size: 1.25vh;
+  border: none;
+  font-weight: bold;
+  border-radius: 40px;
+  width: 50%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8), 2px 3px 8px 0 #ffb877;
 }
 
 html {
@@ -559,7 +499,7 @@ html body #login-page #statement {
 html body #login-page #img-container {
   display: flex;
   flex-direction: column;
-  height: 50%;
+  height: 10%;
   width: 100%;
 }
 html body #login-page #img-container #main-img {
@@ -573,7 +513,6 @@ html body #login-page #img-container #main-img #logo {
   flex-direction: row;
   justify-content: center;
   height: 100%;
-  width: auto;
 }
 html body #login-page #greet {
   display: flex;
@@ -632,7 +571,6 @@ html body #login-page #form #pass-container .input-fields {
 }
 html body #login-page #form #check-boxes {
   display: flex;
-  flex-direction: row;
   width: 100%;
   height: 30%;
   justify-content: center;
@@ -690,211 +628,12 @@ html body #login-page #form #submit #submit-button {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
 }
 
-html {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  width: 100%;
-  font-family: "jost-variable";
-  overflow-x: hidden;
-  overflow-y: hidden;
-  padding: 0%;
-}
-html body {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  width: 100%;
-  padding: 0%;
-  margin: 0%;
-  justify-content: center;
-  overflow-y: hidden;
-  overflow-x: hidden;
-}
-html body header {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  height: 10%;
-  background-color: #FF912C;
-}
-html body header #space {
-  display: flex;
-  width: 33%;
-}
-html body header #header-logo-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  width: 33%;
-  height: 100%;
-}
-html body #profile-page {
-  display: flex;
-  width: 100%;
-  height: 80%;
-}
-html body #profile-page #user-profile-x {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  height: 100%;
-  width: 100%;
-}
-html body #profile-page #user-profile-x #user-profile-y {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  height: 95%;
-  width: 100%;
-}
-html body #profile-page #user-profile-x #user-profile-y #user-div {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 100%;
-  width: 95%;
-  background-color: #b1b1b1;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
-  border-radius: 15px 15px 15px 15px;
-}
-html body #profile-page #user-profile-x #user-profile-y #user-div #picture-div-x {
-  display: flex;
-  justify-content: center;
-  height: 40%;
-  width: 100%;
-  overflow: hidden;
-}
-html body #profile-page #user-profile-x #user-profile-y #user-div #picture-div-x #semi-circle {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-  background-color: #ffb877;
-  transform: rotate(30deg);
-  border-bottom-right-radius: 300px;
-  border-top-right-radius: 150px;
-  border-top-left-radius: 15px;
-  position: relative;
-}
-html body #profile-page #user-profile-x #user-profile-y #user-div #picture-div-x #semi-circle #picture-div-y {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  height: 100%;
-  width: 50%;
-}
-html body #profile-page #user-profile-x #user-profile-y #user-div #picture-div-x #semi-circle #picture-div-y #img-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-  transform: rotate(-30deg);
-}
-html body #profile-page #user-profile-x #user-profile-y #user-div #picture-div-x #semi-circle #picture-div-y #img-container div {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  height: 80%;
-  justify-content: center;
-}
-html body #profile-page #user-profile-x #user-profile-y #user-div #picture-div-x #semi-circle #picture-div-y #img-container div img {
-  display: flex;
-  justify-content: center;
-  border-radius: 50%;
-  height: 100%;
-  width: 80%;
-  border: solid #b1b1b1 3px;
-}
-html body #profile-page #user-profile-x #user-profile-y #user-div #info-div {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  height: 50%;
-  width: 100%;
-}
-html body #profile-page #user-profile-x #user-profile-y #user-div #info-div #name {
-  font-size: 2em;
-  justify-content: center;
-  text-align: center;
-}
-html body #profile-page #user-profile-x #user-profile-y #user-div #info-div .info-title {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  font-size: 1em;
-  font-weight: bold;
-  height: 10%;
-}
-html body #profile-page #user-profile-x #user-profile-y #user-div #info-div .info-items {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  height: 15%;
-}
-html body #profile-page #user-profile-x #user-profile-y #user-div #info-div .info-items .label {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  font-size: 1em;
-  font-weight: bold;
-  width: 25%;
-  margin-left: 2%;
-}
-html body #profile-page #user-profile-x #user-profile-y #user-div #info-div .info-items .info {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  font-size: 1em;
-  width: 75%;
-}
-html body #profile-page #user-profile-x #user-profile-y #user-div #extra-div {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  height: 10%;
-  width: 100%;
-}
-html body #profile-page #user-profile-x #user-profile-y #user-div #extra-div #button-x-axis {
-  display: flex;
-  width: 100%;
-  height: 40%;
-  flex-direction: row;
-  justify-content: center;
-}
-html body #profile-page #user-profile-x #user-profile-y #user-div #extra-div #button-x-axis button:active {
-  border: none;
-  outline: none;
-}
-html body #profile-page #user-profile-x #user-profile-y #user-div #extra-div #button-x-axis button {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  text-align: row;
-  height: 100%;
-  width: 45%;
-  font-size: 1em;
-  font-family: "jost-variable";
-  outline: none;
-  border-radius: 40px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
-  border: none;
-  outline: none;
-}
-html body #profile-page #user-profile-x #user-profile-y #user-div #stats-link {
-  display: flex;
-  justify-content: center;
-  height: 15%;
-}
-html body #profile-page #user-profile-x #user-profile-y #user-div #stats-link #stats-link:hover {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.9);
-  transition: 0.3s;
-}
-
 /* Fuel Line Style Sheet
  *
  * @name: Bradley Masciotra
  * @version:1.0
  */
 /*SASS Compiling Sheets*/
+=======
+}/*# sourceMappingURL=signup.css.map */
+>>>>>>> 97854b63c2f06c4c05534150ecc33eaec02e17a2:styles/sass/pages/signup.css

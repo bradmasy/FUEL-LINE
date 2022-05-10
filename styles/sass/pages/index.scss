@@ -82,14 +82,15 @@ html {
                 display: flex;
                 flex-direction: row;
                 justify-content: center;
-                height: 30%;
-
+                height: 50%;
+                
 
                 #main-logo {
                     display: flex;
                     margin-top: 5%;
-                    width: auto;
-                    contain: content;
+                    height: auto;
+                    width: 25%;
+                    object-fit: contain;
                 }
             }
 

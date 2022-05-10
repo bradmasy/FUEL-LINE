@@ -1,10 +1,15 @@
+
+
+
 // homepage
 // executed first when the serve is initiated
 
 const express = require("express");
-const app = express();
+const app     = express();
 app.set("view engine", "ejs");
-const https = require("https");
+const https    = require("https");
+const session  = require("express-session");
+app.use(session({secret:"shhhh", saveUninitialized:true, resave:true}));
 
 app.listen(process.env.PORT || 7000, function (err) {
   if (err) console.log(err);
@@ -39,47 +44,62 @@ const userModel = mongoose.model("users", userSchema);
 
 /*------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
-app.get("/login", function (req, res) {
-  res.sendFile(__dirname + "/public/login.html");
+
+
+
+
+function checkUserExists(data) {
+  if (data.length === 0) {
+    console.log("User not found!");
+  } else {
+    return true;
+    //proceedToHome();
+  }
+}
+
+app.get("/", function (req, res) {
+  res.render("index");
 });
 
-// app.get("/profile/:id", function (req, res) {
-//   // console.log(req);
+app.get("/login", function (req, res) {
+  res.render("login");
+});
 
-//   const url = `https://pokeapi.co/api/v2/pokemon/${req.params.id}`;
+app.get("/signup", function (req, res) {
+  res.render("signup");
+});
 
-//   data = " ";
-//   https.get(url, function (https_res) {
-//     https_res.on("data", function (chunk) {
-//       data += chunk;
-//     });
+app.get("/success", function (req, res) {
+  console.log("success");
+  res.render("success");
+});
 
-//     https_res.on("end", function () {
-//       // console.log(JSON.parse(data))
-//       data = JSON.parse(data);
+app.get("/profile", function(req,res){
+  res.render("profile");
+})
 
-//       // console.log(data)
+app.get("/admin_user_views", function(req,res){
+  res.render("admin_user_views");
+})
 
-//       tmp = data.stats
-//         .filter((obj_) => {
-//           return obj_.stat.name == "hp";
-//         })
-//         .map((obj_2) => {
-//           return obj_2.base_stat;
-//         });
+app.get("/logout", function(req,res){
+  res.render("logout");
+})
 
-//       res.render("profile.ejs", {
-//         id: req.params.id,
-//         name: data.name,
-//         hp: tmp[0],
-//       });
-//     });
-//   });
-// });
 
-// sets the default for the server to use as the public directory
-// redirects to index if no other parameters are given
-app.use(express.static("./public"));
+function initiateSession(req,users)
+{
+  if(checkUserExists(users)){
+    req.session.authenticated = true; // user gets authenticated.
+    req.session.user          = users; 
+    console.log(`welcome ${users[0].username}`);
+  }
+  else
+  {
+    req.session.authenticated = false;
+    console.log(`invalid user`);
+  }
+}
 
 app.post("/attemptLogin", function (req, res) {
   console.log("req. has been received");
@@ -90,22 +110,14 @@ app.post("/attemptLogin", function (req, res) {
     },
     function (err, users) {
       if (err) {
-        console.log("Error " + err);
+        req.session.authenticated = false; // user gets authenticated.
       } else {
-        console.log("Data " + users);
+        initiateSession(req, users);    
       }
       res.send(users);
     }
   );
 });
-
-console.log("Server Running");
-
-/*------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
-
-/**
- * Database Connection
- */
 
 app.post("/displayUsersToAdmin", function (req, res) {
   console.log("req. has been recieved");
@@ -118,7 +130,6 @@ app.post("/displayUsersToAdmin", function (req, res) {
     res.send(users);
   });
 });
-
 
 app.post("/attemptSignup", function (req, res) {
   console.log("req. has been received");
@@ -137,3 +148,27 @@ app.post("/attemptSignup", function (req, res) {
     res.send(users);
   });
 });
+
+
+app.get("/logout", (req,res) => {
+  console.log("req made");
+  res.sendFile(__dirname + "/public/logout.html");
+
+  if(req.session){
+    delete req.session;
+    console.log("logged out");
+    // req.session.destroy((err) => {
+    //  // res.status(400).send("Unable to log out")
+    // });
+  }
+  else {
+  
+  }
+})
+
+
+
+
+
+console.log("Server Running");
+app.use(express.static("./public"));

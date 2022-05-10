@@ -78,7 +78,7 @@ html {
             #img-container {
                 display: flex;
                 flex-direction: column;
-                height: 10%;
+                height: 50%;
                 width: 100%;
 
                 #main-img {
@@ -92,6 +92,7 @@ html {
                         flex-direction: row;
                         justify-content: center;
                         height: 100%;
+                        width: a;
                     }
                 }
             }
