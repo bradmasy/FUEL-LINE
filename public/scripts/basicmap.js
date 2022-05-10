@@ -11,18 +11,22 @@ function getLocation() {
 function showPosition(position) {
     coords.innerHTML = "Latitude: " + position.coords.latitude + 
   "<br>Longitude: " + position.coords.longitude;
+  initMap(position.coords.latitude, position.coords.longitude)
 }
 
 document.getElementById("track-button").onclick = function() {
-    getLocation()};
+    getLocation()
+    
+};
 
 // Initialize and add the map
-function initMap() {
+function initMap(latitude, longitude) {
     // The location of vancouver
-    const vancouver = { lat: 49.283, lng: -123.121 };
+    // const vancouver = { lat: 49.2835025, lng:  -123.1154588 };
+    const vancouver = { lat: latitude, lng:  longitude };
     // The map, centered on vancouver (please work)
     const map = new google.maps.Map(document.getElementById("map"), {
-      zoom: 12,
+      zoom: 14,
       center: vancouver,
     });
   }
@@ -32,4 +36,4 @@ function initMap() {
 
 
   
-window.initMap = initMap;
+// window.initMap = initMap(49.2835025, -123.1154588);
