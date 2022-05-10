@@ -55,25 +55,31 @@ let isAdmin = false; // for enabling admin login
  }
 
 
-function proceedToHome(data){
-    console.log(data)
-    console.log("successful login")
-    console.log(isAdmin)
-    console.log(passwordVisible) 
-    if (isAdmin) {
-      window.location.href ="/admin_user_views.html"
-    } else {
-      window.location.href ="/success"
-    }
-}
+// function proceedToHome(data){
+//     console.log(data)
+//     console.log("successful login")
+//     console.log(isAdmin)
+//     console.log(passwordVisible) 
+//     if (isAdmin) {
+//       window.location.href ="/admin_user_views.html"
+//     } else {
+//       window.location.href ="/success"
+//     }
+// }
 
 function checkUserExists(data) {
-  console.log("here");
+  console.log(data);
+  console.log(data[0].admin)
   if (data.length === 0) {
     console.log("User not found!");
     alert("User not found");
-  } else {
-    proceedToHome();
+  } 
+  if (data[0].admin == true) {
+    console.log("admin login")
+    window.location.href ="/admin_user_views"
+  }
+  else {
+    window.location.href ="/success"
   }
 }
 

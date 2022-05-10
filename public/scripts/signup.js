@@ -61,7 +61,7 @@ function showPassword()
 
 function proceedToHome() {
   console.log("successful Signup");
-  window.location.href = "/success.html";
+  window.location.href = "/success";
 }
 
 function checkUserExists(data) {
@@ -86,7 +86,7 @@ function attemptSignup() {
 
   if ($("#password1").val() === $("#password2").val()) {
     $.ajax({
-      url: "http://localhost:5000/attemptSignup",
+      url: "/attemptSignup",
       //   url: "https://radiant-anchorage-93970.herokuapp.com/findUnicornByWeight",
       type: "POST",
       data: {
@@ -106,7 +106,7 @@ function attemptSignup() {
 function setup() {
   console.log("document ready");
   showPassword();
-  $confirmButton.on("click", attemptSignup);
+  $("#confirm-button").on("click", attemptSignup);
 }
 
 $(document).ready(setup);
