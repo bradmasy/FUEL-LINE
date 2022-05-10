@@ -212,8 +212,13 @@ html {
                                         @include mixin.button-active();
                                     }
 
+                                    button:hover {
+
+                                    }
+
                                     button {
-                                    @include mixin.button-styles();
+                                        @include mixin.button-styles();
+
                                    }
 
                                 
