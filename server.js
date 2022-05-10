@@ -86,6 +86,10 @@ app.get("/logout", function(req,res){
   res.render("logout");
 })
 
+app.get("/map", function(req,res){
+  res.render("map");
+})
+
 
 function initiateSession(req,users)
 {
