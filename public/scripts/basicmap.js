@@ -1,3 +1,21 @@
+var coords = document.getElementById("coordinates");
+
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } else { 
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
+
+function showPosition(position) {
+    coords.innerHTML = "Latitude: " + position.coords.latitude + 
+  "<br>Longitude: " + position.coords.longitude;
+}
+
+document.getElementById("track-button").onclick = function() {
+    getLocation()};
+
 // Initialize and add the map
 function initMap() {
     // The location of vancouver
@@ -8,5 +26,10 @@ function initMap() {
       center: vancouver,
     });
   }
+
+
   
-  window.initMap = initMap;
+
+
+  
+window.initMap = initMap;
