@@ -1,3 +1,8 @@
+@use "../typography/fonts.scss";
+@use "../mixins/mixin.scss";
+@use "../pages/index.scss";
+@use "../colors/colors.scss";
+
 html {
     @include mixin.flex_styles_cl();
 
@@ -41,9 +46,38 @@ html {
 
 
         }
+        
 
         #profile-page {
-            
+            display: flex;
+            width: 100%;
+            height: 80%;
+
+            #user-profile-x {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                height: 100%;
+                width: 100%;
+                
+                #user-profile-y {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: center;
+                    height: 80%;
+                    width: 100%;
+
+                    #user-div {
+                        display: flex;
+                        justify-content: center;
+                        height: 100%;
+                        width: 80%;
+                        background-color: colors.$secondary-color;
+                        border-radius: 15px 15px 15px 15px;
+
+                    }
+                }
+            }
         }
     }
 }
