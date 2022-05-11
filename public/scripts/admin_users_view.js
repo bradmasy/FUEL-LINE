@@ -7,10 +7,10 @@ function populate_users(data) {
   received_data = data;
   console.log(data);
 
-  result = "";
+  result = "<div id='user_table'>";
 
   for (i = 0; i < data.length; i++) {
-    result += "<table>";
+    result += "<table style='overflow-x: auto; display: block;'>";
     result += "<tr>";
 
     for (field in data[i]) {
@@ -21,7 +21,7 @@ function populate_users(data) {
     result += "</tr>";
     result += "<tr>";
     for (field in data[i]) {
-      result += "<td>";
+      result += "<td style='overflow: hidden; text-overflow: ellipsis; word-wrap: break-word;'>";
 
       result += data[i][field];
 
@@ -30,6 +30,7 @@ function populate_users(data) {
 
     result += "<tr>";
     result += "</table>";
+    result += "</div>"
   }
 
   $("#users_table").html(result);
