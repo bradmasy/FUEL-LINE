@@ -18,6 +18,8 @@ function getUserInfo() {
   });
 }
 
+
+
 function setup() {
   console.log("document ready");
   getUserInfo();
