@@ -182,10 +182,12 @@ html {
         }
 
         footer {
-            @include mixin.header_footer_styles();
+            @include mixin.footer_styles();
             display: flex;
             flex-direction: row;
             width: 100%;
+            background-color: white !important;
+            border: solid 0.5px lightgray;
 
             #navigation-buttons {
                 display: flex;
@@ -193,8 +195,14 @@ html {
                 height: 100%;
 
                 .nav-buttons:hover {
-                    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.9);
+                    // box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.9);
                     transition: 0.3s;
+                    background-color: #FF912C;
+
+                    .nav-buttons:active {
+                        // box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.9);
+                        background-color: #FF912C;
+                    }
                 }
 
                 .nav-buttons {
