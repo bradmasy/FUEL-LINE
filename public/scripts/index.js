@@ -43,11 +43,11 @@ $signupButton.mouseleave(function(){
 })
 
 $signupButton.click( function(){
-    // window.location.href = "../signup.html"
+    window.location.href = "/map"
 })
 
 $homeButton.on("click", function(){
-    window.location.href = "../index.html"
+    window.location.href = "/index"
 })
 
 

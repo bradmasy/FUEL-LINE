@@ -55,34 +55,40 @@ let isAdmin = false; // for enabling admin login
  }
 
 
-function proceedToHome(data){
-    console.log(data)
-    console.log("successful login")
-    console.log(isAdmin)
-    console.log(passwordVisible) 
-    if (isAdmin) {
-      window.location.href ="/admin_user_views.html"
-    } else {
-      window.location.href ="/success.html"
-    }
-}
+// function proceedToHome(data){
+//     console.log(data)
+//     console.log("successful login")
+//     console.log(isAdmin)
+//     console.log(passwordVisible) 
+//     if (isAdmin) {
+//       window.location.href ="/admin_user_views.html"
+//     } else {
+//       window.location.href ="/success"
+//     }
+// }
 
 function checkUserExists(data) {
+  console.log(data);
+  console.log(data[0].admin)
   if (data.length === 0) {
     console.log("User not found!");
     alert("User not found");
-  } else {
-    proceedToHome();
+  } 
+  if (data[0].admin == true) {
+    console.log("admin login")
+    window.location.href ="/admin_user_views"
+  }
+  else {
+    window.location.href ="/success"
   }
 }
 
 function attemptLogin() {
-  console.log("attemptLogin" + "got called!");
-  console.log($("#username_log").val());
-  console.log($("#password_log").val());
-  $.ajax({
-    url: "http://localhost:5000/attemptLogin",
-    //   url: "https://radiant-anchorage-93970.herokuapp.com/findUnicornByWeight",
+    console.log("attemptLogin" + "got called!");
+    console.log($("#username_log").val());
+    console.log($("#password_log").val());
+    $.ajax({
+      url: "/attemptLogin",
     type: "POST",
     data: {
       username: $("#username_log").val(),
