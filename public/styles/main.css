@@ -183,6 +183,9 @@ html body footer #navigation-buttons {
   width: 100%;
   height: 100%;
 }
+html body footer #navigation-buttons .nav-buttons:focus {
+  background-color: #FF912C;
+}
 html body footer #navigation-buttons .nav-buttons:hover {
   transition: 0.3s;
   background-color: #FF912C;
