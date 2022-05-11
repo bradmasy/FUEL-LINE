@@ -1,17 +1,17 @@
-
-
-
 // homepage
 // executed first when the serve is initiated
 
-const express = require("express");
-const app     = express();
-app.set("view engine", "ejs");
+const express  = require("express");
+const app      = express();
 const https    = require("https");
 const session  = require("express-session");
-app.use(session({secret:"shhhh", saveUninitialized:true, resave:true}));
+const mongoose = require("mongoose");
 
-app.listen(process.env.PORT || 7000, function (err) {
+
+app.use(session({secret:"shhhh", saveUninitialized:true, resave:true}));
+app.set("view engine", "ejs");
+
+app.listen(process.env.PORT || 5000, function (err) {
   if (err) console.log(err);
 });
 
@@ -21,8 +21,6 @@ app.use(
     extended: true,
   })
 );
-
-const mongoose = require("mongoose");
 
 mongoose.connect(
   "mongodb+srv://fuel_line_2022:fuel@cluster0.vcuj9.mongodb.net/FuelLineDTC12?retryWrites=true&w=majority",
@@ -86,6 +84,12 @@ app.get("/logout", function(req,res){
   res.render("logout");
 })
 
+
+// delete this after
+
+app.get("/map", function (req,res) {
+  res.render("map");
+})
 
 function initiateSession(req,users)
 {

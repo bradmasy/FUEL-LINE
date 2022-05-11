@@ -1,0 +1,156 @@
+@use "../typography/fonts.scss";
+@use "../mixins/mixin.scss";
+@use "../components/buttons.scss";
+@use "../colors/colors.scss";
+
+html {
+    @include mixin.flex_styles_cl();
+
+    height: 100%;
+    width: 100%;
+    font-family: fonts.$main-font;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    padding: 0%;
+
+    body{
+        @include mixin.flex_styles_cl();
+
+        height: 100%;
+        width: 100%;
+        padding: 0%;
+        margin: 0%;
+        justify-content: center;
+        overflow-y: hidden;
+        overflow-x: hidden;
+
+        
+        header {
+            @include mixin.flex_styles_rw();
+            @include mixin.header_footer_styles();
+
+            #space {
+                display: flex;
+                width: 33%;
+            }
+
+            #header-logo-container {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                width: 33%;
+                height: 100%;
+
+                #header-logo 
+                {
+                    width: 30%;
+                    object-fit: contain;
+                }
+
+            }
+
+            #hamburger {
+                display: flex;
+                justify-content: right;
+                width: 33.3%;
+                height: 100%;
+                //  border: solid 1px red;
+
+
+                #ham-menu:hover {
+                    @include mixin.hover-styles();
+                }
+
+                #ham-menu {
+                    display: flex;
+                    height: 100%;
+                }
+            }
+        }
+
+
+        footer {
+            @include mixin.header_footer_styles();
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+
+            #navigation-buttons {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                width: 100%;
+                height: 100%;
+                text-decoration: none;
+
+                .nav-buttons:active {
+                    transform: scale(.9);
+                    transition: .1s;
+                    background-color: colors.$main-color;
+                }
+
+                .nav-buttons:hover {
+                    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.9);
+                    transition: 0.3s;
+                }
+               
+                .nav-buttons {
+                    display: flex;
+                    flex-direction: column;
+                    width: 25%;
+                    height: 100%;
+                
+
+                    .top-bar {
+                        display: flex;
+                        width: 100%;
+                        height:5%;
+                        background-color: black;
+                    }
+    
+
+                    .hover-button {
+                        display: flex;
+                        flex-direction: column;
+                        height: 95%;
+                        width: 100%;
+
+                        .button-img {
+                            display: flex;
+                            justify-content: center;
+                            width :100%;
+                            height:70%;
+
+                            
+                            img {
+                                width:30%;
+                            //    height: 100%;
+                                object-fit: contain;
+                            }
+
+                        }
+
+                        .button-title {
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            text-align: center;
+                            width: 100%;
+                            height: 10%;
+
+                            p {
+                                display: flex;
+                                justify-content: center;
+                                text-align: center;
+                                width: 100%;
+                                height: 100%;
+                                font-family: "jost-variable";
+                                font-size: 1.25vh;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

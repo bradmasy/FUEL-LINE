@@ -5,9 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--Sets the width of the page is the devices widtth-->
-    <link rel="stylesheet" href="/styles/main.css">;
+    <link rel="stylesheet" href="/styles/main.css">
     <script src="/scripts/jquery-3.6.0.min.js" defer></script>
-    <script src="/scripts/index.js" defer></script>
+    <script src="/scripts/handlers/footer-buttons.js" defer></script>
+    <script src="/scripts/profile.js" defer></script>
 </head>
 
 <body>
@@ -75,23 +76,8 @@
                     <div id="extra-div">
                         <div id="button-x-axis">
 
-                            <!--window.location.href = "/statistics" -->
-                            <button class="input-buttons" type="stats-link">Monthly Statistics</button>
+                            <button class="input-buttons" type="stats-link" id="stats-button">Statistics</button>
 
-
-
-
-                            <!-- <div class="info-items" id="gas-use">
-                                <p>Gas Usage</p>
-                            </div>
-
-                            <div class="info-items" id="expense-use">
-                                <p>Expenses</p>
-                            </div>
-
-                            <div class="info-items" id="distance-driven">
-                                <p>Miles Driven</p>
-                            </div> -->
                         </div>
                     </div>
                 </div>
@@ -107,6 +93,8 @@
         <div id="navigation-buttons">
             <!--Home Button-->
             <div class="nav-buttons">
+                <div class="top-bar">
+                </div>
                 <div class="hover-button" id="home-button">
                     <div class="button-img">
                         <img src="images/buttons/home-button.png">
@@ -118,7 +106,10 @@
             </div>
             <!--Favorites Button-->
             <div class="nav-buttons">
+                <div class="top-bar">
+                </div>
                 <div class="hover-button">
+                    
                     <div class="button-img">
                         <img src="images/buttons/favorites-button.png">
                     </div>
@@ -128,7 +119,9 @@
                 </div>
             </div>
             <!--User Button-->
-            <div class="nav-buttons">
+            <div class="nav-buttons" id="profile-button">
+                <div class="top-bar">
+                </div>
                 <div class="hover-button">
                     <div class="button-img">
                         <img src="images/buttons/user-button.png">
@@ -138,15 +131,17 @@
                     </div>
                 </div>
             </div>
-            <!--Gas Button-->
-            <div class="nav-buttons">
+            <!--Map Button-->
+            <div class="nav-buttons"  id="map-button">
+                <div class="top-bar">
+                </div>
                 <div class="hover-button">
                     <div class="button-img">
-                        <img src="images/buttons/gas-button-alt.png">
-                    </div>
-                    <div class="button-title">
-                        <p>find Gas</p>
-                    </div>
+                        <img src="./images/buttons/map.png" />
+                      </div>
+                      <div class="button-title">
+                        <p>Map</p>
+                      </div>
                 </div>
             </div>
         </div>
