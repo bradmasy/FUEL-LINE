@@ -18,9 +18,9 @@ function setup()
     for(let i = 0; i < 4; i++)
     {
         let $element = $($topBars[i]);
-        if(i != 2)
+        if(i == 2)
         {
-            $element.css("background-color","#FF912C");
+            $element.css("background-color","black");
 
         }
         console.log($element);
