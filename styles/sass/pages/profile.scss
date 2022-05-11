@@ -168,7 +168,7 @@ html {
                             display: flex;
                             flex-direction: column;
                             justify-content: center;
-                            height: 10%;
+                            height: 15%;
                             width: 100%;
 
 
@@ -179,31 +179,39 @@ html {
                                 flex-direction: row;
                                 justify-content: center;
 
-
                                     button:active {
                                         @include mixin.button-active();
                                     }
 
                                     button:hover {
+                                        @include mixin.hover-styles();
 
                                     }
 
                                     button {
+                                        display: flex;
+                                        flex-direction: column;
+                                        justify-content: center;
+                                        text-align: center;
                                         @include mixin.button-styles();
-
+                                        width:30% !important;
+                                        color:black;
+                                        margin: auto;
+                                        font-size: 1.5em;
                                    }
 
                                 
                             }
                         }
 
-                        #stats-link {
+                        #stats-button {
                             display: flex;
+                            flex-direction: column;
                             justify-content: center;
                             height: 15%;
 
 
-                            #stats-link:hover {
+                            #stats-button:hover {
                                 @include mixin.hover-styles();
                             }
                         }

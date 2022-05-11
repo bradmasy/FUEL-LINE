@@ -864,7 +864,7 @@ html body #profile-page #user-profile-x #user-profile-y #user-div #extra-div {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 10%;
+  height: 15%;
   width: 100%;
 }
 html body #profile-page #user-profile-x #user-profile-y #user-div #extra-div #button-x-axis {
@@ -878,7 +878,15 @@ html body #profile-page #user-profile-x #user-profile-y #user-div #extra-div #bu
   border: none;
   outline: none;
 }
+html body #profile-page #user-profile-x #user-profile-y #user-div #extra-div #button-x-axis button:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.9);
+  transition: 0.3s;
+}
 html body #profile-page #user-profile-x #user-profile-y #user-div #extra-div #button-x-axis button {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -892,13 +900,18 @@ html body #profile-page #user-profile-x #user-profile-y #user-div #extra-div #bu
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
   border: none;
   outline: none;
+  width: 30% !important;
+  color: black;
+  margin: auto;
+  font-size: 1.5em;
 }
-html body #profile-page #user-profile-x #user-profile-y #user-div #stats-link {
+html body #profile-page #user-profile-x #user-profile-y #user-div #stats-button {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   height: 15%;
 }
-html body #profile-page #user-profile-x #user-profile-y #user-div #stats-link #stats-link:hover {
+html body #profile-page #user-profile-x #user-profile-y #user-div #stats-button #stats-button:hover {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.9);
   transition: 0.3s;
 }
