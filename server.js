@@ -1,6 +1,6 @@
 // homepage
 // executed first when the serve is initiated
-
+var currentUser;
 const express  = require("express");
 const app      = express();
 const https    = require("https");
@@ -49,7 +49,9 @@ const userModel = mongoose.model("users", userSchema);
 function checkUserExists(data) {
   if (data.length === 0) {
     console.log("User not found!");
+    return false
   } else {
+    currentUser = data;
     return true;
     //proceedToHome();
   }
@@ -89,10 +91,9 @@ app.get("/map", function(req,res){
 })
 
 
-// delete this after
 
-app.get("/map", function (req,res) {
-  res.render("map");
+app.get("/statistics", function (req,res) {
+  res.render("statistics");
 })
 
 function initiateSession(req,users)
@@ -100,6 +101,7 @@ function initiateSession(req,users)
   if(checkUserExists(users)){
     req.session.authenticated = true; // user gets authenticated.
     req.session.user          = users; 
+
     console.log(`welcome ${users[0].username}`);
   }
   else
@@ -174,7 +176,14 @@ app.get("/logout", (req,res) => {
   }
 })
 
-
+app.get("/getUserInfo", function (req, res) {
+  if (req.session.user == 0) {
+  res.render("index")
+  }
+  else {
+    res.send(req.session.user)
+  }
+});
 
 
 
