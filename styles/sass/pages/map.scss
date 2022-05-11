@@ -1,0 +1,109 @@
+@use "../typography/fonts.scss";
+@use "../mixins/mixin.scss";
+@use "../pages/index.scss";
+@use "../colors/colors.scss";
+@use "../components/page-setup.scss";
+
+html {
+    body {
+        #map-page {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            width: 100%;
+            height: 80%;
+            // border: solid black 3px;
+
+            #map-x-axis {
+                display: flex;
+                justify-content: center;
+                height: 90%;
+                border: solid blue 3px;
+
+                #map-y-axis {
+                    // display: flex;
+                    // width: 90%;
+                    // flex-direction: column;
+                    // justify-content: center;
+                    // border: solid red 3px;;
+                    @include mixin.profile-page-container();
+
+                    #map-section {
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        height: 60%;
+
+                        #map-section-x {
+                            display: flex;
+                            flex-direction: row;
+                            justify-content: center;
+                            height: 90%;
+                            width: 100%;
+
+                            #map-section-y {
+                                display: flex;
+                                height: 100%;
+                                width: 90%;
+                                background-color: white;
+                                border-radius: 15px 15px 15px 15px;
+                                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .4);
+
+
+                            }
+                        }
+                    }
+
+                    #main-content-area {
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-around;
+                        width: 100%;
+                        height: 40%;
+
+                        #user-display {
+                            display: flex;
+                            justify-content: center;
+                            height: 40%;
+                            width: 100%;
+                        }
+
+                        #user-location {
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            height: 40%;
+                            width: 100%;
+                            border: solid purple 2px;
+
+                            #button-div {
+                                display: flex;
+                                justify-content: center;
+                                border: solid pink 2px;
+                                width: 100%;
+                                height: 50%;
+
+
+                                #button-x-axis {
+                                    display: flex;
+                                    flex-direction: column;
+                                    border: solid green 2px;
+                                    justify-content: center;
+
+                                    #button-y-div {
+                                        border: solid orange 2px;
+
+                                    }
+                                }
+                            }
+
+                        }
+
+
+                    }
+
+                }
+            }
+        }
+    }
+}
