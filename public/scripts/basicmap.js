@@ -32,6 +32,14 @@ function initMap(latitude, longitude) {
   }
 
 
+function setup()
+{
+  
+}
+
+
+$(document).ready(setup)
+
   
 
 
