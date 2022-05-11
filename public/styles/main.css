@@ -904,6 +904,7 @@ html body #profile-page #user-profile-x #user-profile-y #user-div #extra-div #bu
   color: black;
   margin: auto;
   font-size: 1.5em;
+  padding: 0px;
 }
 html body #profile-page #user-profile-x #user-profile-y #user-div #stats-button {
   display: flex;
