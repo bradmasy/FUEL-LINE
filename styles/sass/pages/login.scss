@@ -3,63 +3,16 @@
 @use "../pages/index.scss";
 @use "../colors/colors.scss";
 @use "../components/buttons.scss";
+@use "../components/page-setup.scss";
+
 
 html {
-    @include mixin.flex_styles_cl();
-
-    height: 100%;
-    font-family: fonts.$main-font;
+    
 
     body {
-        @include mixin.flex_styles_cl();
+   
 
-        height: 100%;
-        width: 100%;
-        padding: 0%;
-        margin: 0%;
-        justify-content: center;
-
-        header {
-            @include mixin.flex_styles_rw();
-            @include mixin.header_footer_styles();
-
-            #space {
-                display: flex;
-                width: 33%;
-            }
-
-            #header-logo-container {
-                display: flex;
-                flex-direction: row;
-                justify-content: center;
-                width: 33%;
-                height: 100%;
-
-                #header-logo {}
-
-            }
-
-            #hamburger {
-                display: flex;
-                justify-content: right;
-                width: 33.3%;
-                height: 100%;
-                //  border: solid 1px red;
-
-
-                #ham-menu:hover {
-                    @include mixin.hover-styles();
-                }
-
-                #ham-menu {
-                    display: flex;
-                    height: 100%;
-                }
-
-
-            }
-
-        }
+  
 
         #login-page {
             display: flex;
