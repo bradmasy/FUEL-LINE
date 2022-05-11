@@ -168,7 +168,7 @@ html {
                             display: flex;
                             flex-direction: column;
                             justify-content: center;
-                            height: 15%;
+                            height: 17%;
                             width: 100%;
 
 
@@ -178,6 +178,16 @@ html {
                                 height: 40%;
                                 flex-direction: row;
                                 justify-content: center;
+                                // border:solid black 2px;
+
+                                #button-y-axis {
+                                    display: flex;
+                                    flex-direction: column;
+                                    justify-content: center;
+                                    // border:solid green 2px;
+                                    width:30%;
+                                    
+
 
                                     button:active {
                                         @include mixin.button-active();
@@ -194,14 +204,14 @@ html {
                                         justify-content: center;
                                         text-align: center;
                                         @include mixin.button-styles();
-                                        width:30% !important;
+                                        width:100% !important;
+                                        height: 90%;
                                         color:black;
                                         margin: auto;
-                                        font-size: 1.5em;
+                                        font-size: 2.5vh;
                                         padding:0px;
                                    }
-
-                                
+                                }
                             }
                         }
 
@@ -210,7 +220,6 @@ html {
                             flex-direction: column;
                             justify-content: center;
                             height: 15%;
-
 
                             #stats-button:hover {
                                 @include mixin.hover-styles();
@@ -222,5 +231,4 @@ html {
             }
         }
     }
-
 }
