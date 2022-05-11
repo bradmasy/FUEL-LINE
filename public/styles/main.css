@@ -98,8 +98,8 @@ html body footer {
   display: flex;
   flex-direction: row;
   width: 100%;
+  height: 10%;
   background-color: white;
-  border: 0.5px solid lightgray;
 }
 html body footer #navigation-buttons {
   display: flex;
