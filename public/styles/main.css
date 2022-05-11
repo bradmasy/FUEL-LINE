@@ -337,6 +337,9 @@ html body #statistics-page #main-container-x #main-container-y #content #graph-c
   width: 80%;
   height: 100%;
 }
+html body #statistics-page #main-container-x #main-container-y #content #graph-container #graph img {
+  width: 80%;
+}
 html body #statistics-page #main-container-x #main-container-y #content #buttons {
   display: flex;
   flex-direction: column;
@@ -363,7 +366,7 @@ html body #statistics-page #main-container-x #main-container-y #content #buttons
 }
 html body #statistics-page #main-container-x #main-container-y #content #buttons #display {
   display: flex;
-  height: 15%;
+  height: 20%;
   width: 100%;
 }
 html body #statistics-page #main-container-x #main-container-y #content #buttons #display #back-x {
@@ -403,6 +406,7 @@ html body #statistics-page #main-container-x #main-container-y #content #buttons
   outline: none;
   background-color: #FF912C;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+  color: black;
 }
 html body #statistics-page #main-container-x #main-container-y #content #buttons #display #period {
   display: flex;

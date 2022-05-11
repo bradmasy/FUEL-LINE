@@ -64,6 +64,10 @@ html {
                                 justify-content: center;
                                 width: 80%;
                                 height: 100%;
+
+                                img{
+                                    width: 80%;
+                                }
                             }
                         }
 
@@ -96,7 +100,7 @@ html {
 
                             #display {
                                 display: flex;
-                                height: 15%;
+                                height: 20%;
                                 width: 100%;
 
                                 #back-x {
@@ -123,6 +127,7 @@ html {
                                             @include mixin.button-styles();
                                             background-color: colors.$main-color;
                                             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .4);
+                                            color:black;
 
                                         }
                                     }                                   
