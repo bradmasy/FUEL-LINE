@@ -15,5 +15,6 @@ $("#profile-button").on("click", ()=>{
 })
 
 $("#home-button").on("click", ()=>{
+    console.log("clicked");
     window.location.href ="/";
 })

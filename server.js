@@ -43,7 +43,11 @@ const userModel = mongoose.model("users", userSchema);
 /*------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
 
+//delete after
 
+app.get("/statistics", (req,res)=>{
+  res.render("statistics");
+})
 
 
 function checkUserExists(data) {

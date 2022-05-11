@@ -46,14 +46,7 @@ html {
                     width: 100%;
 
                     #user-div {
-                        display: flex;
-                        flex-direction: column;
-                        justify-content: space-between;
-                        height: 100%;
-                        width: 95%;
-                        background-color: #b1b1b1;
-                        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .4);
-                        border-radius: 15px 15px 15px 15px;
+                        @include mixin.profile-page-container();
                         //gap: 2%;
 
                         #picture-div-x {

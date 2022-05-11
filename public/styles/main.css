@@ -284,6 +284,155 @@ html body #content #signup-login #form-align #form #button-columns .button-conta
   border: none;
 }
 
+html body #statistics-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 80%;
+  width: 100%;
+}
+html body #statistics-page #main-container-x {
+  display: flex;
+  justify-content: center;
+  height: 90%;
+}
+html body #statistics-page #main-container-x #main-container-y {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  width: 95%;
+  background-color: #b1b1b1;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+  border-radius: 15px 15px 15px 15px;
+}
+html body #statistics-page #main-container-x #main-container-y #total-spent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: 20%;
+  font-size: 4vh;
+}
+html body #statistics-page #main-container-x #main-container-y #total-spent p {
+  text-align: center;
+}
+html body #statistics-page #main-container-x #main-container-y #content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 80%;
+  background-color: #b1b1b1;
+}
+html body #statistics-page #main-container-x #main-container-y #content #graph-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  height: 60%;
+}
+html body #statistics-page #main-container-x #main-container-y #content #graph-container #graph {
+  display: flex;
+  justify-content: center;
+  width: 80%;
+  height: 100%;
+}
+html body #statistics-page #main-container-x #main-container-y #content #buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 40%;
+  width: 100%;
+}
+html body #statistics-page #main-container-x #main-container-y #content #buttons .info {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 20%;
+}
+html body #statistics-page #main-container-x #main-container-y #content #buttons .info div {
+  display: flex;
+  justify-content: center;
+  width: 80%;
+}
+html body #statistics-page #main-container-x #main-container-y #content #buttons .info div p {
+  display: flex;
+  justify-content: center;
+  width: 50%;
+  text-align: center;
+}
+html body #statistics-page #main-container-x #main-container-y #content #buttons #display {
+  display: flex;
+  height: 15%;
+  width: 100%;
+}
+html body #statistics-page #main-container-x #main-container-y #content #buttons #display #back-x {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 50%;
+  height: 100%;
+}
+html body #statistics-page #main-container-x #main-container-y #content #buttons #display #back-x #back-y {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: 80%;
+  width: 100%;
+}
+html body #statistics-page #main-container-x #main-container-y #content #buttons #display #back-x #back-y button:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.9);
+  transition: 0.3s;
+}
+html body #statistics-page #main-container-x #main-container-y #content #buttons #display #back-x #back-y button {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  text-align: center;
+  height: 100%;
+  width: 45%;
+  font-size: 1em;
+  font-family: "jost-variable";
+  outline: none;
+  border-radius: 40px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+  border: none;
+  outline: none;
+  background-color: #FF912C;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+}
+html body #statistics-page #main-container-x #main-container-y #content #buttons #display #period {
+  display: flex;
+  justify-content: center;
+  width: 50%;
+}
+html body #statistics-page #main-container-x #main-container-y #content #buttons #display #period #period-x {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 50%;
+  height: 100%;
+}
+html body #statistics-page #main-container-x #main-container-y #content #buttons #display #period #period-x #period-y {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: 80%;
+  width: 100%;
+}
+html body #statistics-page #main-container-x #main-container-y #content #buttons #display #period #period-x #period-y select {
+  border-radius: 40px;
+  padding-right: 2%;
+  padding-left: 2%;
+  font-family: "jost-variable";
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+  outline: none;
+  border: none;
+}
+
 html body {
   /*------------------------------------SIGNUP-PAGE----------------------------------------------*/
 }
@@ -726,7 +875,7 @@ html body #profile-page #user-profile-x #user-profile-y #user-div #extra-div #bu
   display: flex;
   flex-direction: row;
   justify-content: center;
-  text-align: row;
+  text-align: center;
   height: 100%;
   width: 45%;
   font-size: 1em;
