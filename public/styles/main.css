@@ -69,14 +69,16 @@ html body header #space {
 html body header #header-logo-container {
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  width: 33%;
+  justify-content: right;
+  width: auto;
   height: 100%;
+  float: right;
 }
 html body header #header-logo-container #header-logo {
   width: 30%;
   -o-object-fit: contain;
      object-fit: contain;
+  float: right;
 }
 html body header #hamburger {
   display: flex;
