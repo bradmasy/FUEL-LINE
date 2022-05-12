@@ -942,6 +942,47 @@ html body #map-page #map-x-axis #map-y-axis #map-section {
   justify-content: center;
   height: 60%;
 }
+html body #map-page #info {
+  display: flex;
+  height: 20%;
+  border: solid black 3px;
+  background-color: #b1b1b1;
+}
+html body #map-page #info #map-info {
+  display: flex;
+  width: 60%;
+  border: solid 2px purple;
+}
+html body #map-page #info #location {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  border: solid green 2px;
+}
+html body #map-page #info #location #location-button-container {
+  display: flex;
+  justify-content: center;
+  height: 50%;
+  width: 100%;
+  border: solid yellow 2px;
+}
+html body #map-page #info #location #location-button-container #location-button {
+  display: flex;
+  height: 80%;
+  width: 50%;
+}
+html body #map-page #info #location #extra-button-container {
+  display: flex;
+  justify-content: center;
+  height: 50%;
+  width: 100%;
+  border: solid yellow 2px;
+}
+html body #map-page #info #location #extra-button-container #extra-button {
+  display: flex;
+  height: 80%;
+  width: 50%;
+}
 
 /* Fuel Line Style Sheet
  *

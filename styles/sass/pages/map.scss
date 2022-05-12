@@ -36,7 +36,58 @@ html {
                     
                     }
 
+
               
+
+                }
+            }
+
+            
+            #info {
+                display: flex;
+                height: 20%;
+                border:solid black 3px;
+                background-color: colors.$main-grey;
+
+                #map-info {
+                    display:flex;
+                    width: 60%;
+                    border:solid 2px purple;
+                }
+
+                #location {
+                    display: flex;
+                    flex-direction: column;
+                    width:40%;
+                    border:solid green 2px;
+                    
+                    #location-button-container {
+                        display: flex;
+                        justify-content: center;
+                        height: 50%;
+                        width: 100%;
+                        border: solid yellow 2px;
+
+                        #location-button {
+                            display: flex;
+                            height: 80%;
+                            width: 50%;
+                        }
+
+                    }
+                    #extra-button-container {
+                        display: flex;
+                        justify-content: center;
+                        height: 50%;
+                        width: 100%;
+                        border: solid yellow 2px;
+
+                        #extra-button {
+                            display: flex;
+                            height: 80%;
+                            width: 50%;
+                        }
+                    }
 
                 }
             }

@@ -1,4 +1,4 @@
-var coords = document.getElementById("coordinates");
+// var coords = document.getElementById("coordinates");
 
 function getLocation() {
   if (navigator.geolocation) {
@@ -8,11 +8,11 @@ function getLocation() {
   }
 }
 
-// function showPosition(position) {
-//     coords.innerHTML = "Latitude: " + position.coords.latitude + 
-//   "<br>Longitude: " + position.coords.longitude;
-//   initMap(position.coords.latitude, position.coords.longitude)
-// }
+function showPosition(position) {
+    coords.innerHTML = "Latitude: " + position.coords.latitude + 
+  "<br>Longitude: " + position.coords.longitude;
+  initMap(position.coords.latitude, position.coords.longitude)
+}
 
 // document.getElementById("track-button").onclick = function() {
 //     getLocation()
@@ -25,13 +25,13 @@ function initMap() {
     const vancouver = { lat: 49.2835025, lng:  -123.1154588 };
     // const vancouver = { lat: latitude, lng:  longitude };
     // The map, centered on vancouver (please work)
-    const map = new google.maps.Map(document.getElementById("map-section"), {
+    const map = new google.maps.Map(document.getElementById("map"), {
       zoom: 14,
       center: vancouver,
     });
   }
 
- window.initMap = initMap(49.2835025, -123.1154588);
+// window.initMap = initMap(49.2835025, -123.1154588);
 
 function setup()
 {
@@ -52,7 +52,7 @@ function setup()
         getLocation()
     })
 
-    // initMap();
+    initMap();
 }
 
 $(document).ready(setup);

@@ -8,7 +8,7 @@
   <script src="/scripts/handlers/footer-buttons.js" defer></script>
   <script src="/scripts/maps.js" defer></script>
   <script src="https://polyfill.io/v3/polyfill.min.js?features=default" defer></script>
-  <script type="module" src="./scripts/basicmap.js" defer></script>
+  <script type="module" src="./scripts/map.js" defer></script>
   <!-- <script
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBE5NVWlFtuddGJGJxUiAS7Po3_jQePuts&callback=initMap&v=weekly"
     defer></script> -->
@@ -36,12 +36,25 @@
 
           
         </div>
+      
        
       </div>
-
-
       </div>
+      <div id="info">
+        <div id="map-info">
 
+        </div>
+          <div id="location">
+            <div id="location-button-container">
+              <button id="location-button">Get Location</button>
+            </div>
+            <div id="extra-button-container">
+              <button id="extra-button">extra </button>
+
+            </div>
+
+          </div>
+      </div>
 
 
     </div>
