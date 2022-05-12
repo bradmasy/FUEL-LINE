@@ -15,6 +15,7 @@ function initMap() {
 
   function setup()
   {
+    initMap();
       let $topBars =  $(".top-bar");
       // $topBars[3].css("background-color","black");
       for(let i = 0; i < 4; i++)
