@@ -1,4 +1,4 @@
-var coords = document.getElementById("coordinates");
+// var coords = document.getElementById("coordinates");
 
 function getLocation() {
   if (navigator.geolocation) {
@@ -14,29 +14,26 @@ function showPosition(position) {
   initMap(position.coords.latitude, position.coords.longitude)
 }
 
-// document.getElementById("track-button").onclick = function() {
-//     getLocation()
-    
-// };
-
 // Initialize and add the map
-function initMap(latitude, longitude) {
-    // The location of vancouver
-    // const vancouver = { lat: 49.2835025, lng:  -123.1154588 };
-    const vancouver = { lat: latitude, lng:  longitude };
-    // The map, centered on vancouver (please work)
-    const map = new google.maps.Map(document.getElementById("map"), {
-      zoom: 14,
-      center: vancouver,
-    });
-  }
+// function initMap(latitude, longitude) {
+//     const vancouver = { lat: latitude, lng:  longitude };
+//     const map = new google.maps.Map(document.getElementById("map"), {
+//       zoom: 14,
+//       center: vancouver,
+//     });
+//   }
 
-// window.initMap = initMap(49.2835025, -123.1154588);
 
+var map;
+function initMap() {
+  map = new google.maps.Map(document.getElementById('map'), {
+    center: {lat: -34.397, lng: 150.644},
+    zoom: 8
+  });
+}
 function setup()
 {
     let $topBars =  $(".top-bar");
-    // $topBars[3].css("background-color","black");
     for(let i = 0; i < 4; i++)
     {
         let $element = $($topBars[i]);

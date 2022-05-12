@@ -18,27 +18,122 @@ html {
                 display: flex;
                 justify-content: center;
                 height: 80%;
-                border: solid blue 3px;
+                width:100%;
 
                 #map-y-axis {
-                    // display: flex;
-                    // width: 90%;
-                    // flex-direction: column;
-                    // justify-content: center;
-                    // border: solid red 3px;;
-                    
+ 
+                    width:100%;
+                    height: 100%;
+
+
+
                     #map-section {
                         display: flex;
                         flex-direction: column;
                         justify-content: center;
-                        height: 60%;
-
-                    
+                        height: 100%;
+                        width:100%;
                     }
-
-              
-
                 }
+            }
+
+            #info {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-around;
+                height: 20%;
+                background-color: colors.$main-grey;
+
+                #map-info {
+                    display: flex;
+                    justify-content: space-around;
+                    flex-direction: column;
+                    width: 50%;
+                    // border: solid 2px purple;
+
+                    .info-container {
+                        display: flex;
+                        width:100%;
+                        // border:solid black 1px;
+                        height: 20%;
+
+                        div:nth-child(1){
+                            display: flex;
+                            font-weight: bold;
+                            width: 75%;
+                            // border: solid purple 1px;
+                        }
+                        
+                        div:nth-child(2){
+                            display: flex;
+                            width: 25%;
+                            // border: solid purple 1px;
+                        }
+                    }
+                }
+
+                #location {
+                    display: flex;
+                    flex-direction: column;
+                    width: 40%;
+                    // border: solid green 2px;
+
+                    .button-container {
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        height: 50%;
+                        width: 100%;
+
+                        .centre {
+                            display: flex;
+                            justify-content: center;
+                            width: 100%;
+                            height: 50%;
+                            font-family: fonts.$main-font;
+
+                            .buttons:hover {
+                                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.9);
+                                transition: 0.3s;
+                            }
+
+                            .buttons {
+                                display: flex;
+                                justify-content: center;
+                                height: 100%;
+                                width: 50%;
+                                display: table-cell;
+                                vertical-align: middle;
+                                padding: 1%;
+                                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+                                font-family: fonts.$main-font;
+                                border-radius: 40px;
+                                outline: none;
+                                border: none;
+                                background-color: colors.$main-color;
+                            }
+
+                            // #extra-button {
+                            //     display: flex;
+                            //     justify-content: center;
+                            //     height: 100%;
+                            //     width: 50%;
+                            //     display: table-cell;
+                            //     vertical-align: middle;
+                            //     padding: 1%;
+                            //     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8), 2px 3px 8px 0 black;
+                            //     font-family: fonts.$main-font;
+
+
+                            // }
+
+
+                        }
+                    }
+                }
+
+
+
             }
         }
     }

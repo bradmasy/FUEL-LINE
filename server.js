@@ -88,11 +88,15 @@ app.get("/logout", function(req,res){
 })
 
 app.get("/map", function(req,res){
+<<<<<<< HEAD
   res.render("map");
 })
 
 app.get("/statistics", function (req,res) {
   res.render("statistics");
+=======
+  res.render("map-copy-styles");
+>>>>>>> Brad_Map_Page
 })
 
 function initiateSession(req,users)
