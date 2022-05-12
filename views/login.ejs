@@ -6,8 +6,9 @@
     <!--Sets the width of the page is the devices widtth-->
     <link rel="stylesheet" href="./styles/main.css" />
     <script src="/scripts/jquery-3.6.0.min.js"></script>
-    <!-- <script src="./scripts/index.js" defer></script> -->
     <script src="/scripts/login.js" defer></script>
+    <script src="/scripts/login.js" defer></script>
+    <script src="/scripts/handlers/footer-buttons.js"></script>
   </head>
 
   <body>
@@ -16,9 +17,6 @@
       <div id="space"></div>
       <div id="header-logo-container">
         <img id="header-logo" src="./images/Untitled design (7).png" />
-      </div>
-      <div id="hamburger">
-        <img id="ham-menu" src="./images/hamburger-menu.png" />
       </div>
     </header>
     <!--Navigation-->
@@ -30,17 +28,19 @@
         <p>Login To Your Fuel Line <br />Account</p>
       </div>
 
-      <div id="img-container">
-        <div id="main-img">
-          <img id="logo" src="./images/logo/cropped-logo.png" />
+        <div id="img-container">
+            <div id="main-img">
+                <img id="logo" src="./images/logo/cropped-logo.png">
+            </div>
+        </div>
+
+        <div id="greet-container">
+            <div id="greet">
+              <p>Please Enter Your Information Below</p>
+            </div>
         </div>
       </div>
 
-      <div id="greet">
-        <p>Please Enter Your Information Below...</p>
-      </div>
-
-      <div id="space">
         <!--Here for layout reasons-->
       </div>
       <div id="form">
@@ -59,6 +59,7 @@
             id="password_log"
           />
         </div>
+        <div id="space"></div>
         <div id="check-boxes">
           <div id="show-pass">
             <div>
@@ -67,11 +68,15 @@
             <label id="pass-label">Show Password</label>
           </div>
         </div>
+        <div id="space"></div>
 
         <div id="submit">
           <button id="submit-button">Login</button>
         </div>
       </div>
+      <div id="space"></div>
+      <div id="space"></div>
+
     </main>
     <!--Footer-->
     <footer>
@@ -113,10 +118,10 @@
         <div class="nav-buttons">
           <div class="hover-button">
             <div class="button-img">
-              <img src="./images/buttons/gas-button-alt.png" />
+              <img src="./images/buttons/map.png" />
             </div>
             <div class="button-title">
-              <p>find Gas</p>
+              <p>Map</p>
             </div>
           </div>
         </div>

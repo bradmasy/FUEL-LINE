@@ -1,61 +1,62 @@
-// const express    = require("express");
-// const app        = express();
-// const mongoose   = require("mongoose");
-// const bodyParser = require("body-parser");
-// let schema       = mongoose.schema;
-// let USER         = require("./userModel");
-// const { $where } = require("./userModel");
-
-// const { createPublicKey } = require("crypto");
-
-// app.set("view engine","ejs");
-// app.use(bodyParser.urlencoded({extended:true}));
-// app.use(express.static("public"));
-
-
-// mongoose.connect("mongodb://localhost:27017/Fuel_Line");
-
-// let db = mongoose.connection;
-
-// db.once("open",function(){
-//     console.log("connection successful");
-// })
-
-
-// let user = new USER({username:"ken",password:"password"});
-
-// user.save(function(err){
-//     if(err){
-//         console.log(err);
-//     }
-//     else{
-//         console.log("user is saved");
-//     }
-// })
+const $profileButton = $("#profile");
+const $signupButton  = $("#signup");
+const $homeButton    = $("#home-button");
 
 
 
-const $signupButton = $("#signup");
-const $homeButton = $("#home-button");
-
-$signupButton.mouseleave(function(){
-  
-})
-
-$signupButton.click( function(){
-    window.location.href = "/map"
+$signupButton.on("click", function(){
 })
 
 $homeButton.on("click", function(){
     window.location.href = "/index"
 })
 
+$("#map-button").on("click", () => {
+    console.log("map clicked");
+    window.location.href = "/map";
+})
 
-console.log($signupButton);
+$("#profile-button").on("click", ()=>{
+    window.location.href = "/profile";
+})
 
 function setup()
 {
     console.log("document ready");
+    
+    let $topBars =  $(".top-bar");
+    
+    for(let i = 0; i < 4; i++)
+    {
+        let $element = $($topBars[i]);
+        if(i == 0)
+        {
+            $element.css("background-color","black");
+
+        }
+        console.log($element);
+    }
+
+    $signupButton.on("click", function(){
+    })
+    
+    $homeButton.on("click", function(){
+        window.location.href = "/index"
+    })
+    
+    $("#map-button").on("click", () => {
+        console.log("map clicked");
+        window.location.href = "/map";
+    })
+    
+    $("#profile-button").on("click", ()=>{
+        window.location.href = "/profile";
+    })
+    
+
+
+
 }
 
 $(document).ready(setup);
+

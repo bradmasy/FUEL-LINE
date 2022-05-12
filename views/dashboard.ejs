@@ -8,8 +8,23 @@
     <link rel="stylesheet" href="/styles/main.css">
     <script src="/scripts/jquery-3.6.0.min.js" defer></script>
     <script src="/scripts/handlers/footer-buttons.js" defer></script>
-    <script src="/scripts/profile.js" defer></script>
     <script src="/public/scripts/handlers/footer-buttons.js"></script>
+
+    <style>
+
+progress {
+    border: none;
+    }
+    
+    progress::-webkit-progress-value {
+    background: orange;
+    }
+    
+    progress::-webkit-progress-bar {
+    background: lightgray;
+    }
+                       
+    </style>
 </head>
 
 <body>
@@ -45,28 +60,22 @@
                     </div>
                     <div id="info-div">
                         <div class="info-title" id="name">
+                            <!-- user taken from database -->
+                            <p>Welcome, User</p>
                         </div>
-                        <div class="info-items" id="efficiency">
-                            <p class="label">email:</p>
-                            <p class="info" id="email"></p>
-                        </div>
-
-                        <div class="info-items" id="vehicle">
-                            <p class="label">Home Address:</p>
-                            <p class="info" id="address">Vancouver, British Columbia, Canada</p>
-                        </div>
-                        <div class="info-items" id="efficiency">
-                            <p class="label">Default Fuel Efficiency</p>
-                            <p class="info" id="fuel-efficiency">9L/KM</p>
+                        <!-- value and max taken from database  -->
+                        <div class="info-items" id="barContainer">
+                            <p class="label">Gas Usage:</p>
+                            <progress value="40" max="130"></p>
                         </div>
 
-                        <div class="info-items" id="efficiency">
-                            <p class="label">etc:</p>
-                            <p class="info">etc</p>
+                        <div class="info-items" id="barContainer">
+                            <p class="label">Gas Cost:</p>
+                            <progress value="95" max="250"></p>
                         </div>
-                        <div class="info-items" id="efficiency">
-                            <p class="label">etc</p>
-                            <p class="info">etc</p>
+                        <div class="info-items" id="barContainer">
+                            <p class="label">Distance Drivenen:</p>
+                            <progress value="40" max="130"></p>
                         </div>
 
                     </div>
@@ -79,7 +88,6 @@
 
                         </div>
                     </div>
-
                 </div>
 
             </div>

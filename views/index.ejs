@@ -7,117 +7,117 @@
     <link rel="stylesheet" href="./styles/main.css" />
     <script src="./scripts/jquery-3.6.0.min.js"></script>
     <script src="./scripts/index.js"></script>
+    <script src="/scripts/handlers/footer-buttons.js"></script>
   </head>
 
-  <body>
-    <!--Header-->
-    <header>
-      <div id="space"></div>
-      <div id="header-logo-container">
-        <img id="header-logo" src="./images/Untitled design (7).png" />
-      </div>
-      <div id="hamburger">
-        <img id="ham-menu" src="./images/hamburger-menu.png" />
-      </div>
-    </header>
-    <!--Navigation-->
-    <nav></nav>
 
-    <!--Main-->
-    <main id="content">
-      <div class="row-container">
-        <img id="main-logo" src="./images/logo/cropped-logo.png" />
-      </div>
-      <div id="welcome-txt">
-        <div id="name">
-          <div id="centre-name">
-            <p>Fuel Line</p>
-          </div>
-        </div>
-        <div id="centre-txt">
-          <p id="message">
-            We get you where you need to go for
-            <span style="color: orange">&nbspless</span>
-          </p>
-        </div>
-      </div>
-      <div id="signup-login">
-        <div id="form-align">
-          <div id="form">
-            <div id="button-columns">
-              <div class="button-container">
-                <button
-                  class="main-button"
-                  onclick="window.location.href='/login'"
-                >
-                  Login
-                </button>
-              </div>
-              <div class="button-container">
-                <button
-                  class="main-button"
-                  id="signup"
-                  onclick="window.location.href='/signup'"
-                >
-                  Signup
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </main>
 
-    <!--Footer-->
-    <footer>
-      <div id="navigation-buttons">
-        <!--Home Button-->
-        <div class="nav-buttons">
-          <div class="hover-button" id="home-button">
-            <div class="button-img">
-              <img src="./images/buttons/home-button.png" />
-            </div>
-            <div class="button-title">
-              <p>Home</p>
-            </div>
-          </div>
+<body>
+  <!--Header-->
+  <header>
+    <div id="header-logo-container">
+      <img id="header-logo" src="./images/Untitled design (7).png" />
+    </div>
+  </header>
+  <!--Navigation-->
+
+  <!--Main-->
+  <main id="content">
+    <div class="row-container">
+      <img id="main-logo" src="./images/logo/hdlogo1.png" />
+    </div>
+    <div id="welcome-txt">
+      <div id="name">
+        <div id="centre-name">
+          <p>Fuel Line</p>
         </div>
-        <!--Favorites Button-->
-        <div class="nav-buttons">
-          <div class="hover-button">
-            <div class="button-img">
-              <img src="./images/buttons/favorites-button.png" />
+      </div>
+      <div id="centre-txt">
+        <p id="message">
+          We get you where you need to go for
+          <span style="color: orange">&nbspless</span>
+        </p>
+      </div>
+    </div>
+    <div id="signup-login">
+      <div id="form-align">
+        <div id="form">
+          <div id="button-columns">
+            <div class="button-container">
+              <button class="main-button" onclick="window.location.href='/login'">
+                Login
+              </button>
             </div>
-            <div class="button-title">
-              <p>Favorites</p>
-            </div>
-          </div>
-        </div>
-        <!--User Button-->
-        <div class="nav-buttons">
-          <div class="hover-button">
-            <div class="button-img">
-              <img src="./images/buttons/user-button.png" />
-            </div>
-            <div class="button-title">
-              <p>Your Profile</p>
-            </div>
-          </div>
-        </div>
-        <!--Gas Button-->
-        <div class="nav-buttons">
-          <div class="hover-button">
-            <div class="button-img">
-              <img src="./images/buttons/gas-button-alt.png" />
-            </div>
-            <div class="button-title">
-              <p>find Gas</p>
+            <div class="button-container">
+              <button class="main-button" id="signup" onclick="window.location.href='/map'">
+                Signup
+              </button>
             </div>
           </div>
         </div>
       </div>
-    </footer>
+    </div>
+  </main>
 
-    <!--END OF BODY-->
-  </body>
+  <!--Footer-->
+  <footer>
+    <div id="navigation-buttons">
+      <!--Home Button-->
+      <div class="nav-buttons">
+        <div class="top-bar">
+        </div>
+        <div class="hover-button" id="home-button">
+          <div class="button-img">
+            <img src="./images/buttons/house-logo.png" />
+          </div>
+          <div class="button-title">
+            <p>Home</p>
+          </div>
+        </div>
+      </div>
+      <!--Favorites Button-->
+      <div class="nav-buttons">
+        <div class="top-bar">
+        </div>
+        <div class="hover-button">
+          <div class="button-img">
+            <img src="./images/buttons/favorites-button.png" />
+          </div>
+          <div class="button-title">
+            <p>Favorites</p>
+          </div>
+        </div>
+      </div>
+      <!--User Button-->
+      <div class="nav-buttons" id="profile-button">
+        <div class="top-bar">
+        </div>
+        <div class="hover-button">
+          <div class="button-img">
+            <img src="./images/buttons/user-button.png" />
+          </div>
+          <div class="button-title">
+            <p>Profile</p>
+          </div>
+        </div>
+      </div>
+      <!--Map Button-->
+      <div class="nav-buttons" id="map-button" >
+        <div class="top-bar">
+        </div>
+        <div class="hover-button">
+          <div class="button-img">
+            <img src="./images/buttons/map.png" />
+          </div>
+          <div class="button-title">
+            <p>Map</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!--END OF BODY-->
+</body>
+
 </html>

@@ -1,0 +1,172 @@
+
+<head>
+  <title></title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--Sets the width of the page is the devices widtth-->
+  <link rel="stylesheet" href="/styles/main.css">
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=default" defer></script>
+  <script src="/scripts/jquery-3.6.0.min.js" defer></script>
+  <script src="/scripts/handlers/footer-buttons.js" defer></script>
+  <!-- <script src="/scripts/maps.js" defer></script> -->
+  <script type="module" src="/scripts/basicmap.js" defer></script>
+  <script async
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBE5NVWlFtuddGJGJxUiAS7Po3_jQePuts&callback=initMap">
+</script>
+
+ 
+</head>
+
+<body>
+  <!--Header-->
+  <header>
+    <div id="space">
+    </div>
+    <div id="header-logo-container">
+      <img id="header-logo" src="images/Untitled design (7).png">
+    </div>
+  </header>
+
+  <!--Main-->
+  <main id="map-page">
+
+    <div id="map-x-axis">
+      <div id="map-y-axis">
+        <div id="map-section">
+          <!--Actual Map Rendering-->
+
+        
+
+
+        </div>
+
+
+      </div>
+    </div>
+    <div id="info">
+      <div id="map-info">
+        <div class="info-container">
+          <div>
+            Distance:
+          </div>
+          <div>
+            <span>13.2KM</span>
+          </div>
+        </div>
+        <div class="info-container">
+          <div>
+            Amount Spent:
+          </div>
+          <div>
+            <span>0.49$</span>
+          </div>
+        </div>
+
+        <div class="info-container">
+          <div>
+            Distance:
+          </div>
+          <div>
+            <span>0.3KM</span>
+          </div>
+        </div>
+        <div class="info-container">
+          <div>
+            Total Budget:
+          </div>
+          <div>
+            <span>256.92$</span>
+          </div>
+        </div>
+      </div>
+      <div id="location">
+        <div class="button-container">
+          <div class="centre">
+            <button class="buttons" id="track-button">Get Location</button>
+          </div>
+        </div>
+        <div class="button-container">
+          <div class="centre">
+            <button class="buttons">Extra </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    <!--The div element for the map -->
+    <!-- <div id="map">
+
+    </div>
+
+    <button id="track-button">Find Me!</button>
+
+    <p id="coordinates"></p> -->
+
+  </main>
+    <!--Footer-->
+    <footer>
+        <div id="navigation-buttons">
+          <!--Home Button-->
+          <div class="nav-buttons">
+            <div class="top-bar">
+            </div>
+            <div class="hover-button" id="home-button">
+              <div class="button-img">
+                <img src="images/buttons/home-button.png">
+              </div>
+              <div class="button-title">
+                <p>Home</p>
+              </div>
+            </div>
+          </div>
+          <!--Favorites Button-->
+          <div class="nav-buttons">
+            <div class="top-bar">
+            </div>
+            <div class="hover-button">
+              <div class="button-img">
+                <img src="images/buttons/favorites-button.png">
+              </div>
+              <div class="button-title">
+                <p>Favorites</p>
+              </div>
+            </div>
+          </div>
+          <!--User Button-->
+          <div class="nav-buttons" id="profile-button">
+            <div class="top-bar">
+            </div>
+            <div class="hover-button">
+              <div class="button-img">
+                <img src="images/buttons/user-button.png">
+              </div>
+              <div class="button-title" id="profile">
+                <p>Your Profile</p>
+              </div>
+            </div>
+          </div>
+          <!--Map Button-->
+          <div class="nav-buttons" id="map-button">
+            <div class="top-bar">
+            </div>
+            <div class="hover-button">
+              <div class="button-img">
+                <img src="images/buttons/map.png">
+              </div>
+              <div class="button-title">
+                <p>Map</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+      <!-- <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBE5NVWlFtuddGJGJxUiAS7Po3_jQePuts&callback=initMap&v=weekly"
+        defer></script> -->
+      <!--END OF BODY-->
+
+ 
+    </body>
+    
+    </html>
