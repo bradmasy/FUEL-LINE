@@ -1,0 +1,208 @@
+<html>
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Sets the width of the page is the devices widtth-->
+    <link rel="stylesheet" href="/styles/main.css">
+    <script src="/scripts/jquery-3.6.0.min.js" defer></script>
+    <script src="/scripts/handlers/footer-buttons.js" defer></script>
+    <script src="/scripts/profile.js" defer></script>
+    <script src="/public/scripts/handlers/footer-buttons.js"></script>
+    <!-- <style>
+
+        #subheading {
+            font-weight: bold;
+            margin-left: 2%;
+        }
+
+        * {box-sizing:border-box}
+        
+        
+        .container {
+          margin-left: 2%;
+          width: 90%;
+          background-color: #ddd; 
+        }
+        
+        .stats {
+          text-align: left; 
+          padding-top: 3px; 
+          padding-bottom: 3px; 
+          color: white; 
+        }
+        
+        .budget {width: 80%; background-color: #ff8818;}
+        .gas-usage {width: 52%; background-color: #ff8818;} 
+        .distance-driven {width: 60%; background-color: #ff8818;} 
+
+        
+        </style> -->
+
+    <style>
+        .tempBar {
+            margin-left: 2%;
+            padding-top: 3px;
+            padding-bottom: 3px;
+            width: 80%;
+            display: inline-flex;
+        }
+
+    </style>
+
+</head>
+
+<body>
+    <!--Header-->
+    <header>
+        <div id="space">
+
+        </div>
+        <div id="header-logo-container">
+            <img id="header-logo" src="images/Untitled design (7).png">
+        </div>
+    </header>
+    <!--Navigation-->
+    <nav>
+    </nav>
+
+    <!--Main-->
+    <main id="dashboard-page">
+        <div id="user-profile-x">
+            <div id="user-profile-y">
+                <div id="user-div">
+                    <!--User Profile Box-->
+                    <div id="picture-div-x">
+                        <div id="semi-circle">
+                            <div id="picture-div-y">
+                                <div id="img-container">
+                                    <div>
+                                        <img src="./images/profile2.jpg">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div id="info-div">
+                        <div id="user">
+                            <h2>Welcome, User</h2>
+                        </div>
+                        <label for="tempBar">Fuel Usage</label>
+                        <div class="fuel-track">
+                            <!--value: from database, max: from database-->
+                            <progress id="tempBar" value= "50" min="0" max ="100"></div>
+                        </div>
+
+                    </div>
+                    
+                    <!-- <div id="info-div">
+                        <div id="user">
+                            <h2>Welcome, User</h2>
+                        </div>
+
+                        <div id="subheading">
+                            <p>Budget</p>
+                        </div>
+                        <div class="container">
+                          <div class="budget">80% (160/200 CAD)</div>
+                        </div>
+                        
+                        <div id="subheading">
+                            <p>Fuel Consumption</p>
+                        </div>
+                        <div class="container">
+                          <div class="gas-usage">52%</div>
+                        </div>
+                        
+                        <div id="subheading">
+                            <p>Distance Driven</p>
+                        </div>
+                        <div class="container">
+                          <div class="distance-driven">60%</div>
+                        </div>
+
+                    </div> -->
+
+
+                    <div id="extra-div">
+                        <div id="button-x-axis">
+                            <div id="button-y-axis">
+                                <button class="input-buttons" type="stats-link" id="stats-button">Statistics</button>
+                            </div>
+
+                        </div>
+                    </div>
+                    
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <!--Footer-->
+    <footer>
+        <div id="navigation-buttons">
+            <!--Home Button-->
+            <div class="nav-buttons">
+                <div class="top-bar">
+                </div>
+                <div class="hover-button" id="home-button">
+                    <div class="button-img">
+                        <img src="images/buttons/home-button.png">
+                    </div>
+                    <div class="button-title">
+                        <p>Home</p>
+                    </div>
+                </div>
+            </div>
+            <!--Favorites Button-->
+            <div class="nav-buttons">
+                <div class="top-bar">
+                </div>
+                <div class="hover-button">
+                    
+                    <div class="button-img">
+                        <img src="images/buttons/favorites-button.png">
+                    </div>
+                    <div class="button-title">
+                        <p>Favorites</p>
+                    </div>
+                </div>
+            </div>
+            <!--User Button-->
+            <div class="nav-buttons" id="profile-button">
+                <div class="top-bar">
+                </div>
+                <div class="hover-button">
+                    <div class="button-img">
+                        <img src="images/buttons/user-button.png">
+                    </div>
+                    <div class="button-title" id="profile">
+                        <p>Your Profile</p>
+                    </div>
+                </div>
+            </div>
+            <!--Map Button-->
+            <div class="nav-buttons"  id="map-button">
+                <div class="top-bar">
+                </div>
+                <div class="hover-button">
+                    <div class="button-img">
+                        <img src="./images/buttons/map.png" />
+                      </div>
+                      <div class="button-title">
+                        <p>Map</p>
+                      </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!--END OF BODY-->
+</body>
+
+</html>

@@ -88,6 +88,10 @@ app.get("/logout", function(req,res){
   res.render("logout");
 })
 
+app.get("/dashboard", function(req,res){
+  res.render("dashboard");
+})
+
 app.get("/map", function(req,res){
   res.render("map");
 })

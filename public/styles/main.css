@@ -72,13 +72,11 @@ html body header #header-logo-container {
   justify-content: right;
   width: auto;
   height: 100%;
-  float: right;
 }
 html body header #header-logo-container #header-logo {
   width: 30%;
   -o-object-fit: contain;
      object-fit: contain;
-  float: right;
 }
 html body header #hamburger {
   display: flex;

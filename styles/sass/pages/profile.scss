@@ -47,7 +47,6 @@ html {
 
                     #user-div {
                         @include mixin.profile-page-container();
-                        //gap: 2%;
 
                         #picture-div-x {
                             display: flex;
