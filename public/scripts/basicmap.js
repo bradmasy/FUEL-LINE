@@ -26,11 +26,19 @@ function initMap(latitude, longitude) {
     const vancouver = { lat: latitude, lng:  longitude };
     // The map, centered on vancouver (please work)
     const map = new google.maps.Map(document.getElementById("map"), {
-      zoom: 14,
+      zoom: 6,
       center: vancouver,
     });
   }
 
+
+function setup()
+{
+  
+}
+
+
+$(document).ready(setup)
 
   
 
