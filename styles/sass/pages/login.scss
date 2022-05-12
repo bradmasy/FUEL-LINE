@@ -26,7 +26,6 @@ html {
                 justify-content: center;
                 text-align: center;
                 font-size: 2em;
-                font-weight: bold;
                 height: 20%;
             }
 
@@ -113,7 +112,8 @@ html {
                         font-weight: bold;
                         border-radius: 40px;
                         width: 50%;
-                        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8), 2px 3px 8px 0 #ffb877;
+                        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8);
+                        // 2px 3px 8px 0 #ffb877;
                     }
                 }
 
@@ -180,6 +180,8 @@ html {
                         align-items: center;
                         border: none;
                         height: 100%;
+                        padding:2%;
+                        color:black;
                         font-weight: bold;
                         border-radius: 40px;
                         background-color: colors.$secondary-color;

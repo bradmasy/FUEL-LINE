@@ -579,7 +579,6 @@ html body #login-page #statement {
   justify-content: center;
   text-align: center;
   font-size: 2em;
-  font-weight: bold;
   height: 20%;
 }
 html body #login-page #img-container {
@@ -655,7 +654,7 @@ html body #login-page #form #pass-container .input-fields {
   font-weight: bold;
   border-radius: 40px;
   width: 50%;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8), 2px 3px 8px 0 #ffb877;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8);
 }
 html body #login-page #form #check-boxes {
   display: flex;
@@ -710,6 +709,8 @@ html body #login-page #form #submit #submit-button {
   align-items: center;
   border: none;
   height: 100%;
+  padding: 2%;
+  color: black;
   font-weight: bold;
   border-radius: 40px;
   background-color: #ffb877;
