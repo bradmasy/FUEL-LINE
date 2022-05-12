@@ -8,11 +8,11 @@ function getLocation() {
   }
 }
 
-function showPosition(position) {
-    coords.innerHTML = "Latitude: " + position.coords.latitude + 
-  "<br>Longitude: " + position.coords.longitude;
-  initMap(position.coords.latitude, position.coords.longitude)
-}
+// function showPosition(position) {
+//     coords.innerHTML = "Latitude: " + position.coords.latitude + 
+//   "<br>Longitude: " + position.coords.longitude;
+//   initMap(position.coords.latitude, position.coords.longitude)
+// }
 
 // document.getElementById("track-button").onclick = function() {
 //     getLocation()
@@ -20,23 +20,23 @@ function showPosition(position) {
 // };
 
 // Initialize and add the map
-function initMap(latitude, longitude) {
+function initMap() {
     // The location of vancouver
-    // const vancouver = { lat: 49.2835025, lng:  -123.1154588 };
-    const vancouver = { lat: latitude, lng:  longitude };
+    const vancouver = { lat: 49.2835025, lng:  -123.1154588 };
+    // const vancouver = { lat: latitude, lng:  longitude };
     // The map, centered on vancouver (please work)
-    const map = new google.maps.Map(document.getElementById("map"), {
+    const map = new google.maps.Map(document.getElementById("map-section"), {
       zoom: 14,
       center: vancouver,
     });
   }
 
-// window.initMap = initMap(49.2835025, -123.1154588);
+ window.initMap = initMap(49.2835025, -123.1154588);
 
 function setup()
 {
     let $topBars =  $(".top-bar");
-    // $topBars[3].css("background-color","black");
+
     for(let i = 0; i < 4; i++)
     {
         let $element = $($topBars[i]);
@@ -51,6 +51,8 @@ function setup()
     $("#track-button").on("click", () => {
         getLocation()
     })
+
+    // initMap();
 }
 
 $(document).ready(setup);

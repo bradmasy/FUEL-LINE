@@ -927,83 +927,20 @@ html body #profile-page #user-profile-x #user-profile-y #user-div #stats-button 
 html body #map-page {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   width: 100%;
   height: 80%;
 }
 html body #map-page #map-x-axis {
   display: flex;
   justify-content: center;
-  height: 90%;
+  height: 80%;
   border: solid blue 3px;
-}
-html body #map-page #map-x-axis #map-y-axis {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 100%;
-  width: 90%;
-  background-color: #b1b1b1;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
-  border-radius: 15px 15px 15px 15px;
 }
 html body #map-page #map-x-axis #map-y-axis #map-section {
   display: flex;
   flex-direction: column;
   justify-content: center;
   height: 60%;
-}
-html body #map-page #map-x-axis #map-y-axis #map-section #map-section-x {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  height: 90%;
-  width: 100%;
-}
-html body #map-page #map-x-axis #map-y-axis #map-section #map-section-x #map-section-y {
-  display: flex;
-  height: 100%;
-  width: 90%;
-  background-color: white;
-  border-radius: 15px 15px 15px 15px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
-}
-html body #map-page #map-x-axis #map-y-axis #main-content-area {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  width: 100%;
-  height: 40%;
-}
-html body #map-page #map-x-axis #map-y-axis #main-content-area #user-display {
-  display: flex;
-  justify-content: center;
-  height: 40%;
-  width: 100%;
-}
-html body #map-page #map-x-axis #map-y-axis #main-content-area #user-location {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  height: 40%;
-  width: 100%;
-  border: solid purple 2px;
-}
-html body #map-page #map-x-axis #map-y-axis #main-content-area #user-location #button-div {
-  display: flex;
-  justify-content: center;
-  border: solid pink 2px;
-  width: 100%;
-  height: 50%;
-}
-html body #map-page #map-x-axis #map-y-axis #main-content-area #user-location #button-div #button-x-axis {
-  display: flex;
-  flex-direction: column;
-  border: solid green 2px;
-  justify-content: center;
-}
-html body #map-page #map-x-axis #map-y-axis #main-content-area #user-location #button-div #button-x-axis #button-y-div {
-  border: solid orange 2px;
 }
 
 /* Fuel Line Style Sheet

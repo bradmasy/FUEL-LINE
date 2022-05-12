@@ -29,7 +29,6 @@ function setup()
     $("#stats-button").on("click", ()=>{
         window.location.href = "/statistics";
     })
-
 }
 
 $(document).ready(setup);

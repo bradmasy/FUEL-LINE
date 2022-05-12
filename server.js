@@ -49,7 +49,6 @@ app.get("/statistics", (req,res)=>{
   res.render("statistics");
 })
 
-
 function checkUserExists(data) {
   if (data.length === 0) {
     console.log("User not found!");
