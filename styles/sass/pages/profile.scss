@@ -46,14 +46,7 @@ html {
                     width: 100%;
 
                     #user-div {
-                        display: flex;
-                        flex-direction: column;
-                        justify-content: space-between;
-                        height: 100%;
-                        width: 95%;
-                        background-color: #b1b1b1;
-                        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .4);
-                        border-radius: 15px 15px 15px 15px;
+                        @include mixin.profile-page-container();
                         //gap: 2%;
 
                         #picture-div-x {
@@ -175,7 +168,7 @@ html {
                             display: flex;
                             flex-direction: column;
                             justify-content: center;
-                            height: 10%;
+                            height: 17%;
                             width: 100%;
 
 
@@ -185,6 +178,15 @@ html {
                                 height: 40%;
                                 flex-direction: row;
                                 justify-content: center;
+                                // border:solid black 2px;
+
+                                #button-y-axis {
+                                    display: flex;
+                                    flex-direction: column;
+                                    justify-content: center;
+                                    // border:solid green 2px;
+                                    width:30%;
+                                    
 
 
                                     button:active {
@@ -192,25 +194,34 @@ html {
                                     }
 
                                     button:hover {
+                                        @include mixin.hover-styles();
 
                                     }
 
                                     button {
+                                        display: flex;
+                                        flex-direction: column;
+                                        justify-content: center;
+                                        text-align: center;
                                         @include mixin.button-styles();
-
+                                        width:100% !important;
+                                        height: 90%;
+                                        color:black;
+                                        margin: auto;
+                                        font-size: 2.5vh;
+                                        padding:0px;
                                    }
-
-                                
+                                }
                             }
                         }
 
-                        #stats-link {
+                        #stats-button {
                             display: flex;
+                            flex-direction: column;
                             justify-content: center;
                             height: 15%;
 
-
-                            #stats-link:hover {
+                            #stats-button:hover {
                                 @include mixin.hover-styles();
                             }
                         }
@@ -220,5 +231,4 @@ html {
             }
         }
     }
-
 }

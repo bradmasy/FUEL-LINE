@@ -14,10 +14,10 @@ function showPosition(position) {
   initMap(position.coords.latitude, position.coords.longitude)
 }
 
-document.getElementById("track-button").onclick = function() {
-    getLocation()
+// document.getElementById("track-button").onclick = function() {
+//     getLocation()
     
-};
+// };
 
 // Initialize and add the map
 function initMap(latitude, longitude) {
@@ -31,26 +31,26 @@ function initMap(latitude, longitude) {
     });
   }
 
+// window.initMap = initMap(49.2835025, -123.1154588);
 
-  function setup()
-  {
-      let $topBars =  $(".top-bar");
-      // $topBars[3].css("background-color","black");
-      for(let i = 0; i < 4; i++)
-      {
-          let $element = $($topBars[i]);
-          if(i == 3)
-          {
-              $element.css("background-color","black");
-  
-          }
-          console.log($element);
-      }
-  
+function setup()
+{
+    let $topBars =  $(".top-bar");
+    // $topBars[3].css("background-color","black");
+    for(let i = 0; i < 4; i++)
+    {
+        let $element = $($topBars[i]);
+        if(i == 3)
+        {
+            $element.css("background-color","black");
 
-  }
-  
-  $(document).ready(setup);
+        }
+        console.log($element);
+    }
 
+    $("#track-button").on("click", () => {
+        getLocation()
+    })
+}
 
-  
+$(document).ready(setup);

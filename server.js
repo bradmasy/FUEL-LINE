@@ -43,9 +43,20 @@ const userModel = mongoose.model("users", userSchema);
 /*------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
 
+//delete after
 
+app.get("/statistics", (req,res)=>{
+  res.render("statistics");
+})
 
-// routes 
+function checkUserExists(data) {
+  if (data.length === 0) {
+    console.log("User not found!");
+  } else {
+    return true;
+    //proceedToHome();
+  }
+}
 
 app.get("/", function (req, res) {
   res.render("index");

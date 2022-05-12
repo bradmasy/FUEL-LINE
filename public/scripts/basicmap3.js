@@ -23,7 +23,7 @@ document.getElementById("track-button").onclick = function() {
 function initMap(latitude, longitude) {
     // The location of vancouver
     // const vancouver = { lat: 49.2835025, lng:  -123.1154588 };
-    const vancouver = { lat: latitude, lng:  longitude };
+    const vancouver = { lat: 0, lng:  0 };
     // The map, centered on vancouver (please work)
     const map = new google.maps.Map(document.getElementById("map"), {
       zoom: 14,
@@ -47,10 +47,14 @@ function initMap(latitude, longitude) {
           console.log($element);
       }
   
-
+      $("#track-button").on("click", () => {
+          getLocation()
+      })
   }
   
   $(document).ready(setup);
 
-
   
+
+
+  window.initMap = initMap;

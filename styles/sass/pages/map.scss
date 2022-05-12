@@ -1,0 +1,45 @@
+@use "../typography/fonts.scss";
+@use "../mixins/mixin.scss";
+@use "../pages/index.scss";
+@use "../colors/colors.scss";
+@use "../components/page-setup.scss";
+
+html {
+    body {
+        #map-page {
+            display: flex;
+            flex-direction: column;
+            // justify-content: center;
+            width: 100%;
+            height: 80%;
+            // border: solid black 3px;
+
+            #map-x-axis {
+                display: flex;
+                justify-content: center;
+                height: 80%;
+                border: solid blue 3px;
+
+                #map-y-axis {
+                    // display: flex;
+                    // width: 90%;
+                    // flex-direction: column;
+                    // justify-content: center;
+                    // border: solid red 3px;;
+                    
+                    #map-section {
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        height: 60%;
+
+                    
+                    }
+
+              
+
+                }
+            }
+        }
+    }
+}

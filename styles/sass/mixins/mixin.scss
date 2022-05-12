@@ -43,7 +43,7 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
-    text-align: row;
+    text-align: center;
     height: 100%;
     width: 45%;
     font-size: 1em;
@@ -60,3 +60,15 @@
     border: none;
     outline: none;
 }
+
+@mixin profile-page-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    width: 90%;
+    background-color: #b1b1b1;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .4);
+    border-radius: 15px 15px 15px 15px;
+}
+

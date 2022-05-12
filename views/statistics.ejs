@@ -5,16 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--Sets the width of the page is the devices widtth-->
-    <link rel="stylesheet" href="/styles/main.css">;
+    <link rel="stylesheet" href="/styles/main.css">
     <script src="/scripts/jquery-3.6.0.min.js" defer></script>
+    <script src="/scripts/handlers/footer-buttons.js" defer></script>
+    <script src="/scripts/statistics.js" defer></script>
     <script src="/scripts/index.js" defer></script>
+    <script src="/scripts/handlers/footer-buttons.js"></script>
 </head>
 
 <body>
     <!--Header-->
     <header>
         <div id="space">
-
         </div>
         <div id="header-logo-container">
             <img id="header-logo" src="images/Untitled design (7).png">
@@ -22,11 +24,68 @@
     </header>
     <!--Navigation-->
     <nav>
+
     </nav>
 
     <!--Main-->
     <main id="statistics-page">
-       
+        <div id="main-container-x">
+            <div id="main-container-y">
+
+                <!--Main User Content-->
+                <div id ="total-spent">
+                    
+                    <p> Saved:<br>324.34$</p>
+                </div>
+
+                <div id="content">
+                    <!--Column 1-->
+                    <div id="graph-container">
+                        <div id="graph">
+                            <img src="./images/Growth-graph.png">
+                        </div>
+
+                    </div>
+                    <!--Column 2-->
+                    <div id="buttons">
+                        <div class="info">
+                            <div>
+                                <p>Monthly:$$$</p>
+                                <p>Daily:$$$</p>
+                            </div>
+                        </div>
+                        <div class="info">
+                            <div>
+                                <p>Year:$$$</p>
+                                <p>Percent:$$$</p>
+                            </div>
+                        </div>
+                        <div class="info">
+
+                        </div>
+                        <div id="display">
+                            <div id="back-x">
+                                <div id="back-y">
+                                    <button id="back-button">Back</button>
+                                </div>
+                            </div>
+                            <div id="period">
+                                <div id="period-x">
+                                    <div id="period-y">
+                                        <select>
+                                            <option value="none" selected="disabled" hidden>Time Period</option>
+                                            <option>Day</option>
+                                            <option>Month</option>
+                                            <option>Year</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
 
     <!--Footer-->
@@ -34,6 +93,8 @@
         <div id="navigation-buttons">
             <!--Home Button-->
             <div class="nav-buttons">
+                <div class="top-bar">
+                </div>
                 <div class="hover-button" id="home-button">
                     <div class="button-img">
                         <img src="images/buttons/home-button.png">
@@ -45,6 +106,8 @@
             </div>
             <!--Favorites Button-->
             <div class="nav-buttons">
+                <div class="top-bar">
+                </div>
                 <div class="hover-button">
                     <div class="button-img">
                         <img src="images/buttons/favorites-button.png">
@@ -55,7 +118,9 @@
                 </div>
             </div>
             <!--User Button-->
-            <div class="nav-buttons">
+            <div class="nav-buttons" id="profile-button">
+                <div class="top-bar">
+                </div>
                 <div class="hover-button">
                     <div class="button-img">
                         <img src="images/buttons/user-button.png">
@@ -65,14 +130,16 @@
                     </div>
                 </div>
             </div>
-            <!--Gas Button-->
-            <div class="nav-buttons">
+            <!--Map Button-->
+            <div class="nav-buttons"  id="map-button">
+                <div class="top-bar">
+                </div>
                 <div class="hover-button">
                     <div class="button-img">
-                        <img src="images/buttons/gas-button-alt.png">
+                        <img src="images/buttons/map.png">
                     </div>
                     <div class="button-title">
-                        <p>find Gas</p>
+                        <p>Map</p>
                     </div>
                 </div>
             </div>
