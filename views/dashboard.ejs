@@ -8,49 +8,23 @@
     <link rel="stylesheet" href="/styles/main.css">
     <script src="/scripts/jquery-3.6.0.min.js" defer></script>
     <script src="/scripts/handlers/footer-buttons.js" defer></script>
-    <script src="/scripts/profile.js" defer></script>
     <script src="/public/scripts/handlers/footer-buttons.js"></script>
-    <!-- <style>
-
-        #subheading {
-            font-weight: bold;
-            margin-left: 2%;
-        }
-
-        * {box-sizing:border-box}
-        
-        
-        .container {
-          margin-left: 2%;
-          width: 90%;
-          background-color: #ddd; 
-        }
-        
-        .stats {
-          text-align: left; 
-          padding-top: 3px; 
-          padding-bottom: 3px; 
-          color: white; 
-        }
-        
-        .budget {width: 80%; background-color: #ff8818;}
-        .gas-usage {width: 52%; background-color: #ff8818;} 
-        .distance-driven {width: 60%; background-color: #ff8818;} 
-
-        
-        </style> -->
 
     <style>
-        .tempBar {
-            margin-left: 2%;
-            padding-top: 3px;
-            padding-bottom: 3px;
-            width: 80%;
-            display: inline-flex;
-        }
 
+progress {
+    border: none;
+    }
+    
+    progress::-webkit-progress-value {
+    background: orange;
+    }
+    
+    progress::-webkit-progress-bar {
+    background: lightgray;
+    }
+                       
     </style>
-
 </head>
 
 <body>
@@ -68,7 +42,7 @@
     </nav>
 
     <!--Main-->
-    <main id="dashboard-page">
+    <main id="profile-page">
         <div id="user-profile-x">
             <div id="user-profile-y">
                 <div id="user-div">
@@ -84,47 +58,27 @@
                             </div>
                         </div>
                     </div>
-                    
                     <div id="info-div">
-                        <div id="user">
-                            <h2>Welcome, User</h2>
+                        <div class="info-title" id="name">
+                            <!-- user taken from database -->
+                            <p>Welcome, User</p>
                         </div>
-                        <label for="tempBar">Fuel Usage</label>
-                        <div class="fuel-track">
-                            <!--value: from database, max: from database-->
-                            <progress id="tempBar" value= "50" min="0" max ="100"></div>
+                        <!-- value and max taken from database  -->
+                        <div class="info-items" id="barContainer">
+                            <p class="label">Gas Usage:</p>
+                            <progress value="40" max="130"></p>
+                        </div>
+
+                        <div class="info-items" id="barContainer">
+                            <p class="label">Gas Cost:</p>
+                            <progress value="95" max="250"></p>
+                        </div>
+                        <div class="info-items" id="barContainer">
+                            <p class="label">Distance Drivenen:</p>
+                            <progress value="40" max="130"></p>
                         </div>
 
                     </div>
-                    
-                    <!-- <div id="info-div">
-                        <div id="user">
-                            <h2>Welcome, User</h2>
-                        </div>
-
-                        <div id="subheading">
-                            <p>Budget</p>
-                        </div>
-                        <div class="container">
-                          <div class="budget">80% (160/200 CAD)</div>
-                        </div>
-                        
-                        <div id="subheading">
-                            <p>Fuel Consumption</p>
-                        </div>
-                        <div class="container">
-                          <div class="gas-usage">52%</div>
-                        </div>
-                        
-                        <div id="subheading">
-                            <p>Distance Driven</p>
-                        </div>
-                        <div class="container">
-                          <div class="distance-driven">60%</div>
-                        </div>
-
-                    </div> -->
-
 
                     <div id="extra-div">
                         <div id="button-x-axis">
@@ -134,7 +88,6 @@
 
                         </div>
                     </div>
-                    
                 </div>
 
             </div>
