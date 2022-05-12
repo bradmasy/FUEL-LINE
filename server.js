@@ -88,15 +88,7 @@ app.get("/logout", function(req,res){
 })
 
 app.get("/map", function(req,res){
-<<<<<<< HEAD
-  res.render("map");
-})
-
-app.get("/statistics", function (req,res) {
-  res.render("statistics");
-=======
   res.render("map-copy-styles");
->>>>>>> Brad_Map_Page
 })
 
 function initiateSession(req,users)
@@ -106,12 +98,14 @@ function initiateSession(req,users)
     req.session.authenticated = true; // user gets authenticated.
     req.session.user          = users; 
 
+
     console.log(`welcome ${users[0].username}`);
   }
   else
   {
     req.session.authenticated = false;
     console.log(`invalid user`);
+    
   }
 }
 
