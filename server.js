@@ -1,6 +1,6 @@
 // homepage
 // executed first when the serve is initiated
-
+var currentUser;
 const express  = require("express");
 const app      = express();
 const https    = require("https");
@@ -49,7 +49,6 @@ app.get("/statistics", (req,res)=>{
   res.render("statistics");
 })
 
-
 function checkUserExists(data) {
   if (data.length === 0) {
     console.log("User not found!");
@@ -93,21 +92,24 @@ app.get("/dashboard", function(req,res){
 })
 
 app.get("/map", function(req,res){
+<<<<<<< HEAD
   res.render("map");
 })
 
-
-// delete this after
-
-app.get("/map", function (req,res) {
-  res.render("map");
+app.get("/statistics", function (req,res) {
+  res.render("statistics");
+=======
+  res.render("map-copy-styles");
+>>>>>>> Brad_Map_Page
 })
 
 function initiateSession(req,users)
+//initiates a session
 {
   if(checkUserExists(users)){
     req.session.authenticated = true; // user gets authenticated.
     req.session.user          = users; 
+
     console.log(`welcome ${users[0].username}`);
   }
   else
@@ -117,7 +119,19 @@ function initiateSession(req,users)
   }
 }
 
+function checkUserExists(data) {
+  if (data.length === 0) {
+    console.log("User not found!");
+    return false
+  } else {
+    currentUser = data;
+    return true;
+    //proceedToHome();
+  }
+}
+
 app.post("/attemptLogin", function (req, res) {
+  //checks if entered information matches an existing user in database
   console.log("req. has been received");
   console.log(req.body);
   userModel.find(
@@ -136,6 +150,7 @@ app.post("/attemptLogin", function (req, res) {
 });
 
 app.post("/displayUsersToAdmin", function (req, res) {
+  //sends all users in database
   console.log("req. has been recieved");
   userModel.find({}, function (err, users) {
     if (err) {
@@ -148,6 +163,7 @@ app.post("/displayUsersToAdmin", function (req, res) {
 });
 
 app.post("/attemptSignup", function (req, res) {
+  //adds user to users database
   console.log("req. has been received");
   console.log("attemptSignup called in server");
   userModel.insertMany({
@@ -167,6 +183,7 @@ app.post("/attemptSignup", function (req, res) {
 
 
 app.get("/logout", (req,res) => {
+  // logs the user out of session
   console.log("req made");
   res.sendFile(__dirname + "/public/logout.html");
 
@@ -182,7 +199,15 @@ app.get("/logout", (req,res) => {
   }
 })
 
-
+app.get("/getUserInfo", function (req, res) {
+  //sends the current session user info to the client
+  if (req.session.user == 0) {
+  res.render("index")
+  }
+  else {
+    res.send(req.session.user)
+  }
+});
 
 
 
