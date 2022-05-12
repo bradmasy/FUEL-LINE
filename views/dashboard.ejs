@@ -1,0 +1,161 @@
+<html>
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Sets the width of the page is the devices widtth-->
+    <link rel="stylesheet" href="/styles/main.css">
+    <script src="/scripts/jquery-3.6.0.min.js" defer></script>
+    <script src="/scripts/handlers/footer-buttons.js" defer></script>
+    <script src="/public/scripts/handlers/footer-buttons.js"></script>
+
+    <style>
+
+    progress {
+    border: none;
+    }
+    
+    progress::-webkit-progress-value {
+    background: orange;
+    }
+    
+    progress::-webkit-progress-bar {
+    background: lightgray;
+    }
+                       
+    </style>
+</head>
+
+<body>
+    <!--Header-->
+    <header>
+        <div id="space">
+
+        </div>
+        <div id="header-logo-container">
+            <img id="header-logo" src="images/Untitled design (7).png">
+        </div>
+    </header>
+    <!--Navigation-->
+    <nav>
+    </nav>
+
+    <!--Main-->
+    <main id="profile-page">
+        <div id="user-profile-x">
+            <div id="user-profile-y">
+                <div id="user-div">
+                    <!--User Profile Box-->
+                    <div id="picture-div-x">
+                        <div id="semi-circle">
+                            <div id="picture-div-y">
+                                <div id="img-container">
+                                    <div>
+                                        <img src="./images/profile2.jpg">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="info-div">
+                        <div class="info-title" id="name">
+                            <!-- user taken from database -->
+                            <p>Welcome, User</p>
+                        </div>
+                        <!-- value and max taken from database  -->
+                        <div class="info-items" id="barContainer">
+                            <p class="label">Gas Usage:</p>
+                            <progress value="40" max="130"></p>
+                        </div>
+
+                        <div class="info-items" id="barContainer">
+                            <p class="label">Gas Cost:</p>
+                            <progress value="95" max="250"></p>
+                        </div>
+                        <div class="info-items" id="barContainer">
+                            <p class="label">Distance Drivenen:</p>
+                            <progress value="40" max="130"></p>
+                        </div>
+
+                    </div>
+
+                    <div id="extra-div">
+                        <div id="button-x-axis">
+                            <div id="button-y-axis">
+                                <button class="input-buttons" type="stats-link" id="stats-button">Statistics</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <!--Footer-->
+    <footer>
+        <div id="navigation-buttons">
+            <!--Home Button-->
+            <div class="nav-buttons">
+                <div class="top-bar">
+                </div>
+                <div class="hover-button" id="home-button">
+                    <div class="button-img">
+                        <img src="images/buttons/home-button.png">
+                    </div>
+                    <div class="button-title">
+                        <p>Home</p>
+                    </div>
+                </div>
+            </div>
+            <!--Favorites Button-->
+            <div class="nav-buttons">
+                <div class="top-bar">
+                </div>
+                <div class="hover-button">
+                    
+                    <div class="button-img">
+                        <img src="images/buttons/favorites-button.png">
+                    </div>
+                    <div class="button-title">
+                        <p>Favorites</p>
+                    </div>
+                </div>
+            </div>
+            <!--User Button-->
+            <div class="nav-buttons" id="profile-button">
+                <div class="top-bar">
+                </div>
+                <div class="hover-button">
+                    <div class="button-img">
+                        <img src="images/buttons/user-button.png">
+                    </div>
+                    <div class="button-title" id="profile">
+                        <p>Your Profile</p>
+                    </div>
+                </div>
+            </div>
+            <!--Map Button-->
+            <div class="nav-buttons"  id="map-button">
+                <div class="top-bar">
+                </div>
+                <div class="hover-button">
+                    <div class="button-img">
+                        <img src="./images/buttons/map.png" />
+                      </div>
+                      <div class="button-title">
+                        <p>Map</p>
+                      </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!--END OF BODY-->
+</body>
+
+</html>
