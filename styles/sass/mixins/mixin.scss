@@ -1,6 +1,7 @@
 /*Mixins*/
 
 @use "../colors/colors.scss";
+@use "../typography/fonts.scss";
 
 @mixin full_dimensions {
     height: 100%;

@@ -922,6 +922,36 @@ html body #profile-page #user-profile-x #user-profile-y #user-div #stats-button 
   transition: 0.3s;
 }
 
+html body #dashboard-page {
+  display: flex;
+  width: 100%;
+  height: 80%;
+}
+html body #dashboard-page #user-profile-x {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+html body #dashboard-page #user-profile-x #user-profile-y {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: 95%;
+  width: 100%;
+}
+html body #dashboard-page #user-profile-x #user-profile-y #user-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  width: 90%;
+  background-color: #b1b1b1;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+  border-radius: 15px 15px 15px 15px;
+}
+
 html body #map-page {
   display: flex;
   flex-direction: column;
@@ -962,15 +992,18 @@ html body #map-page #info #map-info .info-container {
   display: flex;
   width: 100%;
   height: 20%;
+  font-size: 1.5vh;
 }
 html body #map-page #info #map-info .info-container div:nth-child(1) {
   display: flex;
   font-weight: bold;
   width: 75%;
+  border: solid purple 1px;
 }
 html body #map-page #info #map-info .info-container div:nth-child(2) {
   display: flex;
   width: 25%;
+  border: solid purple 1px;
 }
 html body #map-page #info #location {
   display: flex;
@@ -986,9 +1019,9 @@ html body #map-page #info #location .button-container {
 }
 html body #map-page #info #location .button-container .centre {
   display: flex;
-  justify-content: center;
+  justify-content: right;
   width: 100%;
-  height: 50%;
+  height: 60%;
   font-family: "jost-variable";
 }
 html body #map-page #info #location .button-container .centre .buttons:hover {
@@ -999,9 +1032,10 @@ html body #map-page #info #location .button-container .centre .buttons {
   display: flex;
   justify-content: center;
   height: 100%;
-  width: 50%;
+  width: 60%;
   display: table-cell;
   vertical-align: middle;
+  color: black;
   padding: 1%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
   font-family: "jost-variable";
