@@ -88,14 +88,7 @@ app.get("/logout", function(req,res){
 })
 
 app.get("/map", function(req,res){
-  res.render("map");
-})
-
-
-// delete this after
-
-app.get("/map", function (req,res) {
-  res.render("map");
+  res.render("map-copy-styles");
 })
 
 function initiateSession(req,users)

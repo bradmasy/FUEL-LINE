@@ -14,29 +14,26 @@ function showPosition(position) {
   initMap(position.coords.latitude, position.coords.longitude)
 }
 
-// document.getElementById("track-button").onclick = function() {
-//     getLocation()
-    
-// };
-
 // Initialize and add the map
+// function initMap(latitude, longitude) {
+//     const vancouver = { lat: latitude, lng:  longitude };
+//     const map = new google.maps.Map(document.getElementById("map"), {
+//       zoom: 14,
+//       center: vancouver,
+//     });
+//   }
+
+
+var map;
 function initMap() {
-    // The location of vancouver
-    const vancouver = { lat: 49.2835025, lng:  -123.1154588 };
-    // const vancouver = { lat: latitude, lng:  longitude };
-    // The map, centered on vancouver (please work)
-    const map = new google.maps.Map(document.getElementById("map"), {
-      zoom: 14,
-      center: vancouver,
-    });
-  }
-
-// window.initMap = initMap(49.2835025, -123.1154588);
-
+  map = new google.maps.Map(document.getElementById('map'), {
+    center: {lat: -34.397, lng: 150.644},
+    zoom: 8
+  });
+}
 function setup()
 {
     let $topBars =  $(".top-bar");
-
     for(let i = 0; i < 4; i++)
     {
         let $element = $($topBars[i]);
@@ -51,8 +48,6 @@ function setup()
     $("#track-button").on("click", () => {
         getLocation()
     })
-
-    initMap();
 }
 
 $(document).ready(setup);
