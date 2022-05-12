@@ -934,7 +934,6 @@ html body #map-page #map-x-axis {
   display: flex;
   justify-content: center;
   height: 80%;
-  border: solid blue 3px;
 }
 html body #map-page #map-x-axis #map-y-axis #map-section {
   display: flex;
@@ -944,44 +943,68 @@ html body #map-page #map-x-axis #map-y-axis #map-section {
 }
 html body #map-page #info {
   display: flex;
+  flex-direction: row;
+  justify-content: space-around;
   height: 20%;
-  border: solid black 3px;
   background-color: #b1b1b1;
 }
 html body #map-page #info #map-info {
   display: flex;
-  width: 60%;
-  border: solid 2px purple;
+  justify-content: space-around;
+  flex-direction: column;
+  width: 50%;
+}
+html body #map-page #info #map-info .info-container {
+  display: flex;
+  width: 100%;
+  height: 20%;
+}
+html body #map-page #info #map-info .info-container div:nth-child(1) {
+  display: flex;
+  font-weight: bold;
+  width: 75%;
+}
+html body #map-page #info #map-info .info-container div:nth-child(2) {
+  display: flex;
+  width: 25%;
 }
 html body #map-page #info #location {
   display: flex;
   flex-direction: column;
   width: 40%;
-  border: solid green 2px;
 }
-html body #map-page #info #location #location-button-container {
+html body #map-page #info #location .button-container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   height: 50%;
   width: 100%;
-  border: solid yellow 2px;
 }
-html body #map-page #info #location #location-button-container #location-button {
-  display: flex;
-  height: 80%;
-  width: 50%;
-}
-html body #map-page #info #location #extra-button-container {
+html body #map-page #info #location .button-container .centre {
   display: flex;
   justify-content: center;
-  height: 50%;
   width: 100%;
-  border: solid yellow 2px;
+  height: 50%;
+  font-family: "jost-variable";
 }
-html body #map-page #info #location #extra-button-container #extra-button {
+html body #map-page #info #location .button-container .centre .buttons:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.9);
+  transition: 0.3s;
+}
+html body #map-page #info #location .button-container .centre .buttons {
   display: flex;
-  height: 80%;
+  justify-content: center;
+  height: 100%;
   width: 50%;
+  display: table-cell;
+  vertical-align: middle;
+  padding: 1%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+  font-family: "jost-variable";
+  border-radius: 40px;
+  outline: none;
+  border: none;
+  background-color: #FF912C;
 }
 
 /* Fuel Line Style Sheet
