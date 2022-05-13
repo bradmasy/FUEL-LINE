@@ -37,6 +37,7 @@
 html {
   display: flex;
   flex-direction: column;
+  -webkit-appearance: none;
   height: 100%;
   width: 100%;
   font-family: "jost-variable";
@@ -58,38 +59,19 @@ html body {
 html body header {
   display: flex;
   flex-direction: row;
+  display: flex;
+  justify-content: right;
   width: 100%;
   height: 10%;
   background-color: #FF912C;
-}
-html body header #space {
-  display: flex;
-  width: 33%;
+  justify-content: right;
 }
 html body header #header-logo-container {
+  -webkit-appearance: none;
   display: flex;
   flex-direction: row;
   justify-content: right;
-  width: auto;
-  height: 100%;
-}
-html body header #header-logo-container #header-logo {
-  width: 30%;
-  -o-object-fit: contain;
-     object-fit: contain;
-}
-html body header #hamburger {
-  display: flex;
-  justify-content: right;
-  width: 33.3%;
-  height: 100%;
-}
-html body header #hamburger #ham-menu:hover {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.9);
-  transition: 0.3s;
-}
-html body header #hamburger #ham-menu {
-  display: flex;
+  width: 100%;
   height: 100%;
 }
 html body footer {
@@ -172,7 +154,6 @@ html body footer #navigation-buttons .nav-buttons .hover-button .button-title p 
 html body #content {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
   background-color: rgb(255, 255, 255);
   height: 80%;
   width: 100%;
@@ -206,12 +187,8 @@ html body #content #welcome-txt #name {
 html body #content #welcome-txt #name #centre-name {
   display: flex;
   flex-direction: column;
-  height: 80%;
-}
-html body #content #welcome-txt #name #centre-name p {
-  display: flex;
-  font-size: 5vh;
   height: 100%;
+  font-size: 5vh;
 }
 html body #content #welcome-txt #centre-txt {
   display: flex;
@@ -575,41 +552,22 @@ html body #login-page {
 }
 html body #login-page #statement {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   text-align: center;
   font-size: 2em;
-  font-weight: bold;
   height: 20%;
+  margin-top: 20%;
 }
-html body #login-page #img-container {
-  display: flex;
-  flex-direction: column;
-  height: 50%;
-  width: 100%;
-}
-html body #login-page #img-container #main-img {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  width: 100%;
-}
-html body #login-page #img-container #main-img #logo {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  height: 100%;
-  width: auto;
-}
-html body #login-page #greet {
+html body #login-page #greet-container {
   display: flex;
   justify-content: center;
   height: 10%;
-  margin-top: 15%;
+  margin-top: 5%;
 }
-html body #login-page #space {
+html body #login-page #greet-container #greet {
   display: flex;
-  height: 10%;
+  justify-content: center;
 }
 html body #login-page #form {
   display: flex;
@@ -622,52 +580,70 @@ html body #login-page #form #user-container {
   display: flex;
   justify-content: center;
   width: 100%;
-  height: 25%;
+  height: 15%;
   margin-bottom: 2%;
 }
 html body #login-page #form #user-container .input-fields:focus {
   border: none;
   outline: none;
+  -webkit-appearance: none;
+}
+html body #login-page #form #user-container .input-fields:hover {
+  cursor: pointer;
+  box-shadow: 0 4px 8px 0 rgb(0, 0, 0), 2px 3px 8px 0 #ffb877;
+  transition: 0.3s;
 }
 html body #login-page #form #user-container .input-fields {
   display: flex;
   text-align: center;
   border: none;
-  font-weight: bold;
   border-radius: 40px;
+  font-size: 2vh;
   width: 50%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8), 2px 3px 8px 0 #ffb877;
+  -webkit-appearance: none;
+  font-family: "jost-variable";
 }
 html body #login-page #form #pass-container {
   display: flex;
   justify-content: center;
   width: 100%;
-  height: 25%;
+  height: 15%;
 }
 html body #login-page #form #pass-container .input-fields:focus {
   border: none;
   outline: none;
+  -webkit-appearance: none;
+}
+html body #login-page #form #pass-container .input-fields:hover {
+  cursor: pointer;
+  box-shadow: 0 4px 8px 0 rgb(0, 0, 0), 2px 3px 8px 0 #ffb877;
+  transition: 0.3s;
 }
 html body #login-page #form #pass-container .input-fields {
   display: flex;
   text-align: center;
   border: none;
-  font-weight: bold;
   border-radius: 40px;
+  font-size: 2vh;
   width: 50%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8), 2px 3px 8px 0 #ffb877;
+  -webkit-appearance: none;
+  font-family: "jost-variable";
 }
 html body #login-page #form #check-boxes {
   display: flex;
   flex-direction: row;
   width: 100%;
-  height: 30%;
+  height: 10%;
+  margin-top: 5%;
+  margin-bottom: 5%;
   justify-content: center;
 }
 html body #login-page #form #check-boxes #make-admin {
   display: flex;
   width: 50%;
-  justify-content: center;
+  justify-content: space-around;
 }
 html body #login-page #form #check-boxes #make-admin div {
   display: flex;
@@ -681,8 +657,11 @@ html body #login-page #form #check-boxes #make-admin label {
 }
 html body #login-page #form #check-boxes #show-pass {
   display: flex;
-  width: 50%;
-  justify-content: center;
+  width: 30%;
+  justify-content: space-around;
+}
+html body #login-page #form #check-boxes #show-pass div input:hover {
+  cursor: pointer;
 }
 html body #login-page #form #check-boxes #show-pass div {
   display: flex;
@@ -694,27 +673,64 @@ html body #login-page #form #check-boxes #show-pass label {
   flex-direction: column;
   justify-content: center;
 }
-html body #login-page #form #submit {
+html body #login-page #form #buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 50%;
+  gap: 10%;
+}
+html body #login-page #form #buttons #submit {
   display: flex;
   justify-content: center;
-  height: 15%;
+  height: 45%;
 }
-html body #login-page #form #submit #submit-button:hover {
+html body #login-page #form #buttons #submit #submit-button:hover {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.9);
   transition: 0.3s;
+  cursor: pointer;
 }
-html body #login-page #form #submit #submit-button {
+html body #login-page #form #buttons #submit #submit-button {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: none;
-  height: 100%;
-  font-weight: bold;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   border-radius: 40px;
-  background-color: #ffb877;
-  width: 20%;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+  padding-right: 8%;
+  padding-left: 8%;
+  color: black;
+  background-color: #FF912C;
+  font-family: "jost-variable";
+  font-size: 2vh;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  border: none;
+}
+html body #login-page #form #buttons #back {
+  display: flex;
+  justify-content: center;
+  height: 45%;
+}
+html body #login-page #form #buttons #back #back-button:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.9);
+  transition: 0.3s;
+  cursor: pointer;
+}
+html body #login-page #form #buttons #back #back-button {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 40px;
+  padding-right: 8%;
+  padding-left: 8%;
+  color: black;
+  background-color: #FF912C;
+  font-family: "jost-variable";
+  font-size: 2vh;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  border: none;
 }
 
 html {
@@ -1201,6 +1217,7 @@ html body #map-page #info #location {
   display: flex;
   flex-direction: column;
   width: 40%;
+  border: solid green 2px;
 }
 html body #map-page #info #location .button-container {
   display: flex;

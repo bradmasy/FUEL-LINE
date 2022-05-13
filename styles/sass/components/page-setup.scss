@@ -5,7 +5,7 @@
 
 html {
     @include mixin.flex_styles_cl();
-
+    -webkit-appearance: none;
     height: 100%;
     width: 100%;
     font-family: fonts.$main-font;
@@ -28,46 +28,28 @@ html {
         header {
             @include mixin.flex_styles_rw();
             @include mixin.header_footer_styles();
-
-            #space {
-                display: flex;
-                width: 33%;
-            }
-
+            justify-content: right;
+            
             #header-logo-container {
+                -webkit-appearance: none;
+
                 display: flex;
                 flex-direction: row;
                 justify-content: right;
-                width: auto;
+                width: 100%;
                 height: 100%;
 
 
-                #header-logo 
-                {
-                    width: 30%;
-                    object-fit: contain;
-
-                }
+                // #header-logo 
+                // {
+                //     width: 30%;
+                //     object-fit: contain;
+                //     -webkit-appearance: none;
+                //     border:solid black 2px;
+                // }
 
             }
 
-            #hamburger {
-                display: flex;
-                justify-content: right;
-                width: 33.3%;
-                height: 100%;
-                //  border: solid 1px red;
-
-
-                #ham-menu:hover {
-                    @include mixin.hover-styles();
-                }
-
-                #ham-menu {
-                    display: flex;
-                    height: 100%;
-                }
-            }
         }
 
 
