@@ -62,35 +62,17 @@ html body header {
   height: 10%;
   background-color: #FF912C;
 }
-html body header #space {
-  display: flex;
-  width: 33%;
-}
 html body header #header-logo-container {
   display: flex;
   flex-direction: row;
   justify-content: right;
-  width: auto;
+  width: 100%;
   height: 100%;
 }
 html body header #header-logo-container #header-logo {
   width: 30%;
   -o-object-fit: contain;
      object-fit: contain;
-}
-html body header #hamburger {
-  display: flex;
-  justify-content: right;
-  width: 33.3%;
-  height: 100%;
-}
-html body header #hamburger #ham-menu:hover {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.9);
-  transition: 0.3s;
-}
-html body header #hamburger #ham-menu {
-  display: flex;
-  height: 100%;
 }
 html body footer {
   display: flex;
@@ -599,7 +581,6 @@ html body #login-page #img-container #main-img #logo {
   flex-direction: row;
   justify-content: center;
   height: 100%;
-  width: auto;
 }
 html body #login-page #greet {
   display: flex;
@@ -628,6 +609,7 @@ html body #login-page #form #user-container {
 html body #login-page #form #user-container .input-fields:focus {
   border: none;
   outline: none;
+  -webkit-appearance: none;
 }
 html body #login-page #form #user-container .input-fields {
   display: flex;
@@ -637,6 +619,7 @@ html body #login-page #form #user-container .input-fields {
   border-radius: 40px;
   width: 50%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8), 2px 3px 8px 0 #ffb877;
+  -webkit-appearance: none;
 }
 html body #login-page #form #pass-container {
   display: flex;
@@ -647,6 +630,7 @@ html body #login-page #form #pass-container {
 html body #login-page #form #pass-container .input-fields:focus {
   border: none;
   outline: none;
+  -webkit-appearance: none;
 }
 html body #login-page #form #pass-container .input-fields {
   display: flex;
@@ -656,6 +640,7 @@ html body #login-page #form #pass-container .input-fields {
   border-radius: 40px;
   width: 50%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8), 2px 3px 8px 0 #ffb877;
+  -webkit-appearance: none;
 }
 html body #login-page #form #check-boxes {
   display: flex;
@@ -697,7 +682,7 @@ html body #login-page #form #check-boxes #show-pass label {
 html body #login-page #form #submit {
   display: flex;
   justify-content: center;
-  height: 15%;
+  height: 35%;
 }
 html body #login-page #form #submit #submit-button:hover {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.9);
@@ -708,13 +693,18 @@ html body #login-page #form #submit #submit-button {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: none;
   height: 100%;
-  font-weight: bold;
-  border-radius: 40px;
-  background-color: #ffb877;
   width: 20%;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 40px;
+  padding-right: 10%;
+  padding-left: 10%;
+  color: black;
+  background-color: #FF912C;
+  font-family: "jost-variable";
+  font-size: 2vh;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  border: none;
 }
 
 html {
@@ -1009,6 +999,7 @@ html body #map-page #info #location {
   display: flex;
   flex-direction: column;
   width: 40%;
+  border: solid green 2px;
 }
 html body #map-page #info #location .button-container {
   display: flex;

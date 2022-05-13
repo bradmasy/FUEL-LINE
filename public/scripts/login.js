@@ -55,18 +55,6 @@ let isAdmin = false; // for enabling admin login
  }
 
 
-// function proceedToHome(data){
-//     console.log(data)
-//     console.log("successful login")
-//     console.log(isAdmin)
-//     console.log(passwordVisible) 
-//     if (isAdmin) {
-//       window.location.href ="/admin_user_views.html"
-//     } else {
-//       window.location.href ="/success"
-//     }
-// }
-
 function checkUserExists(data) {
   console.log(data);
   console.log(data[0].admin)
