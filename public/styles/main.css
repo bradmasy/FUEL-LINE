@@ -188,7 +188,7 @@ html body #content #welcome-txt #name #centre-name {
   display: flex;
   flex-direction: column;
   height: 100%;
-  font-size: 5vh;
+  font-size: 2vh;
 }
 html body #content #welcome-txt #centre-txt {
   display: flex;
