@@ -83,9 +83,9 @@ app.get("/admin_user_views", function(req,res){
   res.render("admin_user_views");
 })
 
-app.get("/logout", function(req,res){
-  res.render("logout");
-})
+// app.get("/logout", function(req,res){
+//   res.render("logout");
+// })
 
 app.get("/dashboard", function(req,res){
   res.render("dashboard");
@@ -184,12 +184,13 @@ app.get("/logout", (req,res) => {
   if(req.session){
     delete req.session;
     console.log("logged out");
+    res.render("index");
     // req.session.destroy((err) => {
     //  // res.status(400).send("Unable to log out")
     // });
   }
   else {
-  
+    res.render("index");
   }
 })
 
