@@ -431,9 +431,8 @@ html body #signup-page #signup-statement {
   justify-content: center;
   text-align: center;
   font-size: 2em;
-  font-weight: bold;
   height: 20%;
-  margin-top: 1%;
+  margin-top: 10%;
 }
 html body #signup-page #img-container {
   display: flex;
@@ -452,7 +451,6 @@ html body #signup-page #img-container #main-img #signup-logo {
   flex-direction: row;
   justify-content: center;
   height: 100%;
-  width: a;
 }
 html body #signup-page #greet {
   display: flex;
@@ -469,7 +467,6 @@ html body #signup-page #signup-form {
 html body #signup-page #signup-form #signup-form-align {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
   height: 80%;
   width: 100%;
 }
@@ -539,9 +536,10 @@ html body #signup-page #signup-form #signup-form-align .input-buttons #confirm d
   border: none;
   font-weight: bold;
   border-radius: 40px;
-  background-color: #ffb877;
+  background-color: #FF912C;
   width: 60%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+  color: black;
 }
 
 html body #login-page {
@@ -1165,6 +1163,31 @@ html body #map-page {
   flex-direction: column;
   width: 100%;
   height: 80%;
+}
+html body #map-page .controls {
+  margin-top: 10px;
+  border: 1px solid transparent;
+  border-radius: 2px 0 0 2px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  height: 32px;
+  outline: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+html body #map-page #origin-input,
+html body #map-page #destination-input {
+  background-color: #fff;
+  font-family: Roboto;
+  font-size: 15px;
+  font-weight: 300;
+  margin-left: 12px;
+  padding: 0 11px 0 13px;
+  text-overflow: ellipsis;
+  width: 200px;
+}
+html body #map-page #origin-input:focus,
+html body #map-page #destination-input:focus {
+  border-color: #4d90fe;
 }
 html body #map-page #map-x-axis {
   display: flex;

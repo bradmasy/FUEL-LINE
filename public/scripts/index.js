@@ -45,7 +45,6 @@ function setup()
     })
     
     $("#map-button").on("click", () => {
-        console.log("map clicked");
         window.location.href = "/map";
     })
     
