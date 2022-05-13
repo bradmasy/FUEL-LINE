@@ -2,12 +2,13 @@
 // executed first when the serve is initiated
 var currentUser;
 const express  = require("express");
+var cors = require('cors')
 const app      = express();
 const https    = require("https");
 const session  = require("express-session");
 const mongoose = require("mongoose");
 
-
+app.use(cors())
 app.use(session({secret:"shhhh", saveUninitialized:true, resave:true}));
 app.set("view engine", "ejs");
 
@@ -59,6 +60,10 @@ function checkUserExists(data) {
 }
 
 app.get("/", function (req, res) {
+  res.render("index");
+});
+
+app.get("/index", function (req, res) {
   res.render("index");
 });
 

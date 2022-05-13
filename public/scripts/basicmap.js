@@ -13,11 +13,12 @@ let map;
 Object.defineProperty(exports, "__esModule", { value: true });
 function initMap() {
   map = new google.maps.Map(document.getElementById("map-section"), {
-    center: { lat: -34.397, lng: 150.644 },
-    zoom: 8,
+    center: { lat: 49.2835025, lng:  -123.1154588 },
+    zoom: 14,
     mapTypeControl: false,
     scaleControl: false,
     zoomControl: true,
+    fullscreenControl: false,
     });
     new AutocompleteDirectionsHandler(map);
 }

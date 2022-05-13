@@ -162,7 +162,7 @@ html body #content .row-container {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  height: 20%;
+  height: 50%;
 }
 html body #content .row-container #main-logo {
   display: flex;
