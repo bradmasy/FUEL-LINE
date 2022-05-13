@@ -110,7 +110,7 @@ function setup() {
             $element.css("background-color","black");
 
         }
-        console.log($element);
+        
     }
 
     $signupButton.on("click", function(){

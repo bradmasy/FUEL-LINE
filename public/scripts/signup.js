@@ -14,7 +14,6 @@ const $showPasswordBox   = $("#show");
 const $showPasswordTitle = $("#pass-title");
 
 
-
 /**
  * Let Variables
  */
@@ -30,7 +29,7 @@ let passwordVisible = false; // for revealing the password.
  */
 
 $backButton.on("click", () => {
-  window.location.href = "../index.html";
+  window.location.href = "/";
 });
 
 
@@ -104,7 +103,21 @@ function attemptSignup() {
 }
 
 function setup() {
-  console.log("document ready");
+
+
+  let $topBars =  $(".top-bar");
+    
+  for(let i = 0; i < 4; i++)
+  {
+      let $element = $($topBars[i]);
+      if(i == 0)
+      {
+          $element.css("background-color","black");
+
+      }
+      
+  }
+
   showPassword();
   $("#confirm-button").on("click", attemptSignup);
 }
