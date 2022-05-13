@@ -8,67 +8,18 @@
 @use "../typography/fonts.scss";
 @use "../mixins/mixin.scss";
 @use "../colors/colors.scss";
+@use "../components/page-setup.scss";
 
 
 html {
-    @include mixin.flex_styles_cl();
-
-    height: 100%;
-    font-family: fonts.$main-font;
 
     body {
-        @include mixin.flex_styles_cl();
-
-        height: 100%;
-        width: 100%;
-        padding: 0%;
-        margin: 0%;
-        justify-content: center;
-
-        header {
-            @include mixin.flex_styles_rw();
-            @include mixin.header_footer_styles();
-
-            #space {
-                display: flex;
-                width: 33%;
-            }
-
-            #header-logo-container {
-                display: flex;
-                flex-direction: row;
-                justify-content: center;
-                width: 33%;
-                height: 100%;
-
-                #header-logo {}
-
-            }
-
-            #hamburger {
-                display: flex;
-                justify-content: right;
-                width: 33.3%;
-                height: 100%;
-                //  border: solid 1px red;
-
-
-                #ham-menu:hover {
-                    @include mixin.hover-styles();
-                }
-
-                #ham-menu {
-                    display: flex;
-                    height: 100%;
-                }
-            }
-        }
 
         #content {
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            background-color: white;
+            // justify-content: space-around;
+            background-color: rgb(255, 255, 255);
             height: 80%;
             width: 100%;
 
@@ -76,14 +27,18 @@ html {
                 display: flex;
                 flex-direction: row;
                 justify-content: center;
-                height: 30%;
+                height: 20%;
+                // border: solid black 2px;
+
+                margin-top: 20%;
+
 
 
                 #main-logo {
                     display: flex;
-                    margin-top: 5%;
-                    height: 80%;
-                    width: 20%;
+                    height: auto;
+                    width: 25%;
+                    object-fit: contain;
                 }
             }
 
@@ -91,22 +46,20 @@ html {
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
-                height: 20%;
+                height: 15%;
                 width: 100%;
+                // border: solid black 2px;
 
                 #name {
                     display: flex;
                     justify-content: center;
-                    height: 75%;
+                    height: 50%;
 
                     #centre-name {
                         display: flex;
                         flex-direction: column;
-
-                        p {
-                            display: flex;
-                            font-size: 5vh;
-                        }
+                        height: 100%;
+                        font-size: 5vh;
                     }
                 }
 
@@ -114,12 +67,17 @@ html {
                     display: flex;
                     flex-direction: row;
                     justify-content: center;
-                    height: 25%;
+                    height: 20%;
+                    width: 100%;
 
                     #message {
                         display: flex;
                         text-align: center;
-                        font-size: 1.5vh;
+                        font-size: 2vh;
+                        height: 95%;
+                        justify-content: center;
+                        width: 90%;
+                        // border: solid green 2px;
                     }
                 }
             }
@@ -130,6 +88,7 @@ html {
                 justify-content: center;
                 height: 30%;
                 width: 100%;
+                // border: solid black 2px;
 
                 #form-align {
                     display: flex;
@@ -155,86 +114,33 @@ html {
                                 display: flex;
                                 justify-content: center;
                                 width: 100%;
-                                height: 25%;
+                                height: 35%;
                                 margin: 1%;
 
                                 .main-button:hover {
                                     @include mixin.hover-styles();
                                 }
 
+                                .main-button:focus {
+                                    transform: scale(1.1);
+                                    transition: .1s;
+                                    background-color: colors.$main-color;
+                                }
+
                                 .main-button {
                                     border-radius: 40px;
                                     padding-right: 10%;
                                     padding-left: 10%;
+                                    color: black;
                                     background-color: colors.$main-color;
                                     font-family: fonts.$main-font;
-                                    font-size: 1vh;
+                                    font-size: 2vh;
                                     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
                                     border: none;
-                                    font-weight: bold;
                                 }
                             }
                         }
-                    }
-                }
-            }
-        }
 
-        footer {
-            @include mixin.header_footer_styles();
-            display: flex;
-            flex-direction: row;
-            width: 100%;
-
-            #navigation-buttons {
-                display: flex;
-                width: 100%;
-                height: 100%;
-
-                .nav-buttons:hover {
-                    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.9);
-                    transition: 0.3s;
-                }
-
-                .nav-buttons {
-                    display: flex;
-                    flex-direction: column;
-                    width: 25%;
-                    height: 100%;
-                    justify-content: center;
-
-                    .hover-button {
-                        display: flex;
-                        flex-direction: column;
-                        height: 70%;
-                        width: 100%;
-
-                        .button-img {
-                            display: flex;
-                            justify-content: center;
-                            width: 100%;
-                            height: 75%;
-                        }
-
-                        .button-title {
-                            display: flex;
-                            flex-direction: column;
-                            justify-content: center;
-                            text-align: center;
-                            width: 100%;
-                            height: 25%;
-
-                            p {
-                                display: flex;
-                                justify-content: center;
-                                text-align: center;
-                                width: 100%;
-                                height: 100%;
-                                font-family: "jost-variable";
-                                font-size: 1.25vh;
-
-                            }
-                        }
                     }
                 }
             }

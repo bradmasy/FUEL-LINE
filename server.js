@@ -1,10 +1,16 @@
 // homepage
 // executed first when the serve is initiated
+var currentUser;
+const express  = require("express");
+var cors = require('cors')
+const app      = express();
+const https    = require("https");
+const session  = require("express-session");
+const mongoose = require("mongoose");
 
-const express = require("express");
-const app = express();
+app.use(cors())
+app.use(session({secret:"shhhh", saveUninitialized:true, resave:true}));
 app.set("view engine", "ejs");
-const https = require("https");
 
 app.listen(process.env.PORT || 5000, function (err) {
   if (err) console.log(err);
@@ -16,8 +22,6 @@ app.use(
     extended: true,
   })
 );
-
-const mongoose = require("mongoose");
 
 mongoose.connect(
   "mongodb+srv://fuel_line_2022:fuel@cluster0.vcuj9.mongodb.net/FuelLineDTC12?retryWrites=true&w=majority",
@@ -39,49 +43,94 @@ const userModel = mongoose.model("users", userSchema);
 
 /*------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
-app.get("/login", function (req, res) {
-  res.sendFile(__dirname + "/public/login.html");
+
+//delete after
+
+app.get("/statistics", (req,res)=>{
+  res.render("statistics");
+})
+
+function checkUserExists(data) {
+  if (data.length === 0) {
+    console.log("User not found!");
+  } else {
+    return true;
+    //proceedToHome();
+  }
+}
+
+app.get("/", function (req, res) {
+  res.render("index");
 });
 
-// app.get("/profile/:id", function (req, res) {
-//   // console.log(req);
+app.get("/index", function (req, res) {
+  res.render("index");
+});
 
-//   const url = `https://pokeapi.co/api/v2/pokemon/${req.params.id}`;
+app.get("/login", function (req, res) {
+  res.render("login");
+});
 
-//   data = " ";
-//   https.get(url, function (https_res) {
-//     https_res.on("data", function (chunk) {
-//       data += chunk;
-//     });
+app.get("/signup", function (req, res) {
+  res.render("signup");
+});
 
-//     https_res.on("end", function () {
-//       // console.log(JSON.parse(data))
-//       data = JSON.parse(data);
+app.get("/success", function (req, res) {
+  console.log("success");
+  res.render("success");
+});
 
-//       // console.log(data)
+app.get("/profile", function(req,res){
+  res.render("profile");
+})
 
-//       tmp = data.stats
-//         .filter((obj_) => {
-//           return obj_.stat.name == "hp";
-//         })
-//         .map((obj_2) => {
-//           return obj_2.base_stat;
-//         });
+app.get("/admin_user_views", function(req,res){
+  res.render("admin_user_views");
+})
 
-//       res.render("profile.ejs", {
-//         id: req.params.id,
-//         name: data.name,
-//         hp: tmp[0],
-//       });
-//     });
-//   });
-// });
+// app.get("/logout", function(req,res){
+//   res.render("logout");
+// })
 
-// sets the default for the server to use as the public directory
-// redirects to index if no other parameters are given
-app.use(express.static("./public"));
+app.get("/dashboard", function(req,res){
+  res.render("dashboard");
+})
+
+app.get("/map", function(req,res){
+  res.render("map-copy-styles");
+})
+
+function initiateSession(req,users)
+//initiates a session
+{
+  if(checkUserExists(users)){
+    req.session.authenticated = true; // user gets authenticated.
+    req.session.user          = users; 
+
+
+    console.log(`welcome ${users[0].username}`);
+  }
+  else
+  {
+    req.session.authenticated = false;
+    console.log(`invalid user`);
+    
+  }
+}
+
+function checkUserExists(data) {
+  if (data.length === 0) {
+    console.log("User not found!");
+    return false
+  } else {
+    currentUser = data;
+    return true;
+    //proceedToHome();
+  }
+}
 
 app.post("/attemptLogin", function (req, res) {
+  //checks if entered information matches an existing user in database
   console.log("req. has been received");
   console.log(req.body);
   userModel.find(
@@ -90,24 +139,17 @@ app.post("/attemptLogin", function (req, res) {
     },
     function (err, users) {
       if (err) {
-        console.log("Error " + err);
+        req.session.authenticated = false; // user gets authenticated.
       } else {
-        console.log("Data " + users);
+        initiateSession(req, users);    
       }
       res.send(users);
     }
   );
 });
 
-console.log("Server Running");
-
-/*------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
-
-/**
- * Database Connection
- */
-
 app.post("/displayUsersToAdmin", function (req, res) {
+  //sends all users in database
   console.log("req. has been recieved");
   userModel.find({}, function (err, users) {
     if (err) {
@@ -119,8 +161,8 @@ app.post("/displayUsersToAdmin", function (req, res) {
   });
 });
 
-
 app.post("/attemptSignup", function (req, res) {
+  //adds user to users database
   console.log("req. has been received");
   console.log("attemptSignup called in server");
   userModel.insertMany({
@@ -137,3 +179,47 @@ app.post("/attemptSignup", function (req, res) {
     res.send(users);
   });
 });
+
+
+app.get("/logout", (req,res) => {
+  // logs the user out of session
+  console.log("req made");
+  res.sendFile(__dirname + "/public/logout.html");
+
+  if(req.session){
+    delete req.session;
+    console.log("logged out");
+    res.render("index");
+    // req.session.destroy((err) => {
+    //  // res.status(400).send("Unable to log out")
+    // });
+  }
+  else {
+    res.render("index");
+  }
+})
+
+app.get("/getUserInfo", function (req, res) {
+  //sends the current session user info to the client
+  if (req.session.user == 0) {
+  res.render("index")
+  }
+  else {
+    res.send(req.session.user)
+  }
+});
+
+app.get("/dashboard", function (req, res) {
+  //sends the current session user info to the client
+  if (req.session.user == 1) {
+  res.render("dashboard")
+  }
+  else {
+    res.send(req.session.user)
+  }
+});
+
+
+
+console.log("Server Running");
+app.use(express.static("./public"));

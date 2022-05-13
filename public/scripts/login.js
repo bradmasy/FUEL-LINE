@@ -5,6 +5,9 @@ const $showAdminBox      = $("#admin-check");
 const $showPasswordBox   = $("#show-pass-box");
 const $showPasswordTitle = $("#pass-label");
 const $userPassword      = $("#password_log");
+const $profileButton = $("#profile");
+const $signupButton  = $("#signup");
+const $homeButton    = $("#home-button");
 
 /**
  * Let Variables
@@ -55,34 +58,28 @@ let isAdmin = false; // for enabling admin login
  }
 
 
-function proceedToHome(data){
-    console.log(data)
-    console.log("successful login")
-    console.log(isAdmin)
-    console.log(passwordVisible) 
-    if (isAdmin) {
-      window.location.href ="/admin_user_views.html"
-    } else {
-      window.location.href ="/success.html"
-    }
-}
-
 function checkUserExists(data) {
+  console.log(data);
+  console.log(data[0].admin)
   if (data.length === 0) {
     console.log("User not found!");
     alert("User not found");
-  } else {
-    proceedToHome();
+  } 
+  if (data[0].admin == true) {
+    console.log("admin login")
+    window.location.href ="/admin_user_views"
+  }
+  else {
+    window.location.href ="/success"
   }
 }
 
 function attemptLogin() {
-  console.log("attemptLogin" + "got called!");
-  console.log($("#username_log").val());
-  console.log($("#password_log").val());
-  $.ajax({
-    url: "http://localhost:5000/attemptLogin",
-    //   url: "https://radiant-anchorage-93970.herokuapp.com/findUnicornByWeight",
+    console.log("attemptLogin" + "got called!");
+    console.log($("#username_log").val());
+    console.log($("#password_log").val());
+    $.ajax({
+      url: "/attemptLogin",
     type: "POST",
     data: {
       username: $("#username_log").val(),
@@ -98,6 +95,43 @@ function setup() {
     $("#submit-button").on("click", attemptLogin);
     showPassword();
     adminLogin();
+
+
+
+
+
+    let $topBars =  $(".top-bar");
+    
+    for(let i = 0; i < 4; i++)
+    {
+        let $element = $($topBars[i]);
+        if(i == 0)
+        {
+            $element.css("background-color","black");
+
+        }
+        
+    }
+
+    $signupButton.on("click", function(){
+    })
+    
+    $homeButton.on("click", function(){
+        window.location.href = "/"
+    })
+    
+    $("#back-button").on("click", ()=> {
+      window.location.href = "/";
+    })
+    $("#map-button").on("click", () => {
+        console.log("map clicked");
+        window.location.href = "/map";
+    })
+    
+    $("#profile-button").on("click", ()=>{
+        window.location.href = "/profile";
+    })
+    
   }
   
   $(document).ready(setup);
