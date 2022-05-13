@@ -97,6 +97,7 @@ window.initMap = initMap;
 
 
 function calculate_costs(){
+  jQuery("#result").empty();
     console.log("calculate costs got called")
     console.log($("#distance").val())
     var distance = parseInt($("#distance").val());
