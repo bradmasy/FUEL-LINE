@@ -420,7 +420,6 @@ html body {
 html body #signup-page {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   background-color: white;
   height: 80%;
   width: 100%;
@@ -432,12 +431,13 @@ html body #signup-page #signup-statement {
   text-align: center;
   font-size: 2em;
   height: 15%;
-  margin-top: 20%;
+  margin-top: 10%;
 }
 html body #signup-page #greet {
   display: flex;
   justify-content: center;
   height: 5%;
+  margin-top: 5%;
 }
 html body #signup-page #signup-form {
   display: flex;
@@ -454,18 +454,21 @@ html body #signup-page #signup-form #signup-form-align {
 html body #signup-page #signup-form #signup-form-align .input-buttons {
   display: flex;
   justify-content: center;
-  height: 10%;
+  height: 20%;
   width: 100%;
   outline: none;
   margin-top: 3%;
+  -webkit-appearance: none;
 }
 html body #signup-page #signup-form #signup-form-align .input-buttons .input-fields:focus {
   border: none;
   outline: none;
+  -webkit-appearance: none;
 }
 html body #signup-page #signup-form #signup-form-align .input-buttons .input-fields {
   display: flex;
   text-align: center;
+  -webkit-appearance: none;
   border: none;
   font-weight: bold;
   border-radius: 40px;
@@ -517,7 +520,7 @@ html body #signup-page #signup-form #signup-form-align .input-buttons #confirm d
   font-family: "jost-variable";
   border-radius: 40px;
   background-color: #FF912C;
-  width: 70%;
+  width: 90%;
   padding-left: 10%;
   padding-right: 10%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
