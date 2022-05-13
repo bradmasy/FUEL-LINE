@@ -156,15 +156,16 @@ html {
 
                                 progress {
                                     border: none;
-                                    }
+                                }
                                     
-                                    progress::-webkit-progress-value {
-                                    background: orange;
-                                    }
-                                    
-                                    progress::-webkit-progress-bar {
-                                    background: lightgray;
-                                    }
+                                progress::-webkit-progress-value {
+                                background: orange;
+                                }
+                                
+                                progress::-webkit-progress-bar {
+                                background: lightgray;
+                                }
+                                
                                        
 
                               //  border: solid green 3px;
