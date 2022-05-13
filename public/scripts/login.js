@@ -5,6 +5,9 @@ const $showAdminBox      = $("#admin-check");
 const $showPasswordBox   = $("#show-pass-box");
 const $showPasswordTitle = $("#pass-label");
 const $userPassword      = $("#password_log");
+const $profileButton = $("#profile");
+const $signupButton  = $("#signup");
+const $homeButton    = $("#home-button");
 
 /**
  * Let Variables
@@ -92,6 +95,43 @@ function setup() {
     $("#submit-button").on("click", attemptLogin);
     showPassword();
     adminLogin();
+
+
+
+
+
+    let $topBars =  $(".top-bar");
+    
+    for(let i = 0; i < 4; i++)
+    {
+        let $element = $($topBars[i]);
+        if(i == 0)
+        {
+            $element.css("background-color","black");
+
+        }
+        console.log($element);
+    }
+
+    $signupButton.on("click", function(){
+    })
+    
+    $homeButton.on("click", function(){
+        window.location.href = "/"
+    })
+    
+    $("#back-button").on("click", ()=> {
+      window.location.href = "/";
+    })
+    $("#map-button").on("click", () => {
+        console.log("map clicked");
+        window.location.href = "/map";
+    })
+    
+    $("#profile-button").on("click", ()=>{
+        window.location.href = "/profile";
+    })
+    
   }
   
   $(document).ready(setup);
