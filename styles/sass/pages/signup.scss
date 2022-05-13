@@ -65,8 +65,8 @@ html {
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
-                height: 60%;
-                margin-top: 15%;
+                height: 60%;    
+                border:solid purple 2px;
 
                 #signup-form-align {
                     display: flex;
@@ -74,8 +74,6 @@ html {
                     // justify-content: ;
                     height: 80%;
                     width: 100%;
-
-
 
                     .input-buttons {
                         display: flex;

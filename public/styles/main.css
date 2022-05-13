@@ -162,7 +162,7 @@ html body #content .row-container {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  height: 50%;
+  height: 20%;
 }
 html body #content .row-container #main-logo {
   display: flex;
@@ -462,7 +462,7 @@ html body #signup-page #signup-form {
   flex-direction: column;
   justify-content: center;
   height: 60%;
-  margin-top: 15%;
+  border: solid purple 2px;
 }
 html body #signup-page #signup-form #signup-form-align {
   display: flex;
