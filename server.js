@@ -35,11 +35,7 @@ const userSchema = new mongoose.Schema({
   password: String,
   email: String,
   admin: Boolean,
-  trips: {
-    origin: String,
-    destination: String,
-    distance: Number
-  }
+  trips: [Object]
 });
 
 const userModel = mongoose.model("users", userSchema);
@@ -79,25 +75,46 @@ app.post("/create-trip", (req, res) => {
 
   // trip object added here
 
- // console.log(req.session.user[0]._id);
-  var user_id = req.session.user[0]._id
-  console.log(user_id)
+  console.log(req.session.user._id);
+  let user_id = req.session.user._id
+  // console.log(user_id)
 
+  userModel.findOneAndUpdate(
+    {
+      _id: user_id
 
-  userModel.updateOne({
-    _id: user_id
-  }, {
-    $push: {
-      trips: {
-        "origin": origin,
-        "destination": destination,
-        "distance": distance
+    },
+    {
+      $push: {
+        trips: {
+          "origin": origin,
+          "destination": destination,
+          "distance": distance
+        }
       }
-    }
-    // "trip": trip
-  }
+    }, (err, data) => {
+      if (err) {
+        console.log(err)
+      }
+      else {
+        console.log(data)
+      }
+    })
 
-  )
+  // userModel.updateOne({
+  //   _id: user_id
+  // }, {
+  //   $push: {
+  //     trips: {
+  //       "origin": origin,
+  //       "destination": destination,
+  //       "distance": distance
+  //     }
+  //   }
+  //   // "trip": trip
+  // }
+
+  // )
 
 
 
@@ -160,7 +177,7 @@ function initiateSession(req, users)
 {
   if (checkUserExists(users)) {
     req.session.authenticated = true; // user gets authenticated.
-    req.session.user = users;
+    req.session.user = users[0];
 
     console.log(`welcome ${users[0].username}`);
   }
@@ -224,7 +241,7 @@ app.post("/attemptSignup", function (req, res) {
     password: req.body.password,
     email: req.body.email,
     admin: req.body.admin,
-    trips: []
+    // trips: []
   }, function (err, users) {
     if (err) {
       console.log("Error " + err);
