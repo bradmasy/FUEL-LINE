@@ -534,6 +534,44 @@ html body #signup-page #signup-form #signup-form-align .input-buttons #confirm d
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
   color: black;
 }
+html body #signup-page .error {
+  display: block;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 0.5px solid lightgray;
+  z-index: 10;
+  background-color: rgba(248, 140, 16, 0.973);
+  opacity: 90%;
+  height: 30%;
+  width: 80%;
+  border-radius: 15px 15px 15px 15px;
+}
+html body #signup-page .error .error-container .error-title {
+  padding: 10px 15px 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 0.5px solid lightgray;
+}
+html body #signup-page .error .error-container .error-title .title {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+html body #signup-page .error .error-container .error-title .close-button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background-color: lightgray;
+  opacity: 0.95;
+  border-radius: 50%;
+  width: 15%;
+  font-size: 2rem;
+}
+html body #signup-page .error .error-container .error-content {
+  padding: 10px 15px;
+}
 
 html body #login-page {
   display: flex;
@@ -722,6 +760,44 @@ html body #login-page #form #buttons #back #back-button {
   font-size: 2vh;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   border: none;
+}
+html body .error {
+  display: block;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 0.5px solid lightgray;
+  z-index: 10;
+  background-color: rgba(248, 140, 16, 0.973);
+  opacity: 90%;
+  height: 30%;
+  width: 80%;
+  border-radius: 15px 15px 15px 15px;
+}
+html body .error .error-container .error-title {
+  padding: 10px 15px 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 0.5px solid lightgray;
+}
+html body .error .error-container .error-title .title {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+html body .error .error-container .error-title .close-button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background-color: lightgray;
+  opacity: 0.95;
+  border-radius: 50%;
+  width: 15%;
+  font-size: 2rem;
+}
+html body .error .error-container .error-content {
+  padding: 10px 15px;
 }
 
 html {

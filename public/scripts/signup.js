@@ -69,6 +69,24 @@ function checkUserExists(data) {
   }
 }
 
+function displayPopup()
+{
+
+  $(".error").css("display","flex");
+  console.log("here");
+  // function openPop(valid){
+  //   if (valid == false) return
+  //   error.classList.add('active')
+  //   overlay.classList.add('active')
+  // }
+  
+  // openPop(valid)
+  //     $('close-button'.on("click", function(){
+  //         closePop()
+  //     }))
+}
+
+
 function attemptSignup() {
   console.log("attemptSignup" + "got called!");
   let username = $("#username").val();
@@ -97,10 +115,19 @@ function attemptSignup() {
   else 
   {
     console.log("FAILED");
+    displayPopup();
+
+
+
+
   }
 
 
 }
+
+
+
+
 
 function setup() {
 
