@@ -87,7 +87,6 @@ var AutocompleteDirectionsHandler = /** @class */ (function () {
           var directionsData = response.routes[0].legs[0];
           var drivingDistance = directionsData.distance.text;
           let drivingDistanceGlobal = drivingDistance;
-          window.alert(drivingDistanceGlobal);
         } else {
           window.alert("Directions request failed due to " + status);
         }
