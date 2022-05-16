@@ -2,7 +2,7 @@
 // executed first when the serve is initiated
 var currentUser;
 const express  = require("express");
-var cors = require('cors')
+var cors       = require('cors')
 const app      = express();
 const https    = require("https");
 const session  = require("express-session");
