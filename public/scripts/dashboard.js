@@ -7,7 +7,7 @@ const chartCanvas = $("#chart");
 
 
 const myChart = new Chart(chartCanvas, {
-    type: 'bar',
+    type: 'line',
     data: {
         labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
         datasets: [{
