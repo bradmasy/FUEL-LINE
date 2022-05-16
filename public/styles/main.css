@@ -929,27 +929,6 @@ html body #profile-page #user-profile-x #user-profile-y #user-div #stats-button 
   transition: 0.3s;
 }
 
-html {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  width: 100%;
-  font-family: "jost-variable";
-  overflow-x: hidden;
-  overflow-y: hidden;
-  padding: 0%;
-}
-html body {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  width: 100%;
-  padding: 0%;
-  margin: 0%;
-  justify-content: center;
-  overflow-y: hidden;
-  overflow-x: hidden;
-}
 html body #dashboard-page {
   display: flex;
   width: 100%;
@@ -982,57 +961,22 @@ html body #dashboard-page #user-profile-x #user-profile-y #user-div {
 html body #dashboard-page #user-profile-x #user-profile-y #user-div #picture-div-x {
   display: flex;
   justify-content: center;
-  height: 40%;
+  height: 60%;
   width: 100%;
   overflow: hidden;
+  border: solid black 2px;
 }
-html body #dashboard-page #user-profile-x #user-profile-y #user-div #picture-div-x #semi-circle {
-  display: flex;
-  justify-content: center;
+html body #dashboard-page #user-profile-x #user-profile-y #user-div #picture-div-x #chart {
+  display: block;
+  height: 100%;
   width: 100%;
-  height: 100%;
-  background-color: #ffb877;
-  transform: rotate(30deg);
-  border-bottom-right-radius: 300px;
-  border-top-right-radius: 150px;
-  border-top-left-radius: 15px;
-  position: relative;
-}
-html body #dashboard-page #user-profile-x #user-profile-y #user-div #picture-div-x #semi-circle #picture-div-y {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  height: 100%;
-  width: 50%;
-}
-html body #dashboard-page #user-profile-x #user-profile-y #user-div #picture-div-x #semi-circle #picture-div-y #img-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-  transform: rotate(-30deg);
-}
-html body #dashboard-page #user-profile-x #user-profile-y #user-div #picture-div-x #semi-circle #picture-div-y #img-container div {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  height: 70%;
-  justify-content: center;
-}
-html body #dashboard-page #user-profile-x #user-profile-y #user-div #picture-div-x #semi-circle #picture-div-y #img-container div img {
-  display: flex;
-  justify-content: center;
-  border-radius: 50%;
-  height: 100%;
-  width: 90%;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+  border: solid green 2px;
 }
 html body #dashboard-page #user-profile-x #user-profile-y #user-div #info-div {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  height: 50%;
+  height: 30%;
   width: 100%;
 }
 html body #dashboard-page #user-profile-x #user-profile-y #user-div #info-div #name {
@@ -1091,7 +1035,7 @@ html body #dashboard-page #user-profile-x #user-profile-y #user-div #extra-div {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 17%;
+  height: 10%;
   width: 100%;
 }
 html body #dashboard-page #user-profile-x #user-profile-y #user-div #extra-div #button-x-axis {
@@ -1137,7 +1081,7 @@ html body #dashboard-page #user-profile-x #user-profile-y #user-div #extra-div #
   height: 90%;
   color: black;
   margin: auto;
-  font-size: 2.5vh;
+  font-size: 2vh;
   padding: 0px;
 }
 html body #dashboard-page #user-profile-x #user-profile-y #user-div #stats-button {

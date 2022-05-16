@@ -165,6 +165,7 @@ app.post("/attemptSignup", function (req, res) {
   //adds user to users database
   console.log("req. has been received");
   console.log("attemptSignup called in server");
+  
   userModel.insertMany({
     username: req.body.username,
     password: req.body.password,
