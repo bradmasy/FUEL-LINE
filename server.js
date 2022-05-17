@@ -1,11 +1,11 @@
 // homepage
 // executed first when the serve is initiated
-const express = require("express");
-var cors = require('cors')
-const app = express();
-const https = require("https");
-const session = require("express-session");
-const mongoose = require("mongoose");
+const express    = require("express");
+var cors         = require('cors')
+const app        = express();
+const https      = require("https");
+const session    = require("express-session");
+const mongoose   = require("mongoose");
 const bodyParser = require("body-parser");
 
 app.use(cors())
@@ -40,56 +40,32 @@ const userSchema = new mongoose.Schema({
 
 const userModel = mongoose.model("users", userSchema);
 
-/**
- * Schema for the trip data.
- */
-const userTripSchema = new mongoose.Schema({
-  origin: String,
-  destination: String,
-  distance: Number
-})
 
-const tripModel = mongoose.model("", userTripSchema)
 
 app.get("/statistics", (req, res) => {
   res.render("statistics");
 })
 
-// app.post("/create-trip", (req, res) => {
-//   console.log("request recieved");
-
-
-//   let origin = req.body.origin;
-//   let destination = req.body.destination;
-//   let distance = req.body.distance;
-
-//   let trip = {
-//     "origin": origin,
-//     "destination": destination,
-//     "distance": distance
-//   }
-
-//   console.log(`origin" ${origin}`);
-//   console.log(`destination" ${destination}`);
-//   console.log(`distance" ${distance}`);
-
-//   // trip object added here
-
-  console.log(req.session.user._id);
-  let user_id = req.session.user._id
-  // console.log(user_id)
+app.post("/create-trip", (req, res) => {
+  let origin      = req.body.origin;
+  let destination = req.body.destination;
+  let distance    = req.body.distance;
+  let user_id     = req.session.user._id;
+  let time        = req.body.time;
+  let date        = req.body.date;
 
   userModel.findOneAndUpdate(
     {
       _id: user_id
-
     },
     {
       $push: {
         trips: {
-          "origin": origin,
+          "origin":      origin,
           "destination": destination,
-          "distance": distance
+          "distance":    distance,
+          "date":        date,
+          "time":        time
         }
       }
     }, (err, data) => {
@@ -100,27 +76,7 @@ app.get("/statistics", (req, res) => {
         console.log(data)
       }
     })
-
-  // userModel.updateOne({
-  //   _id: user_id
-  // }, {
-  //   $push: {
-  //     trips: {
-  //       "origin": origin,
-  //       "destination": destination,
-  //       "distance": distance
-  //     }
-  //   }
-  //   // "trip": trip
-  // }
-
-  // )
-
-
-
-
-
-// })
+})
 
 function checkUserExists(data) {
   if (data.length === 0) {
@@ -132,11 +88,25 @@ function checkUserExists(data) {
 }
 
 app.get("/", function (req, res) {
-  res.render("index");
+  console.log(req.session.authenticated)
+  if(req.session.authenticated == true)
+  {
+    res.render("dashboard");
+  }
+  else{
+    res.render("index");
+  }
 });
 
 app.get("/index", function (req, res) {
-  res.render("index");
+  console.log(req.session.authenticated)
+  if(req.session.authenticated == true)
+  {
+    res.render("dashboard");
+  }
+  else{
+    res.render("index");
+  }
 });
 
 app.get("/login", function (req, res) {
@@ -184,7 +154,6 @@ function initiateSession(req, users)
   else {
     req.session.authenticated = false;
     console.log(`invalid user`);
-
   }
 }
 
@@ -195,7 +164,6 @@ function checkUserExists(data) {
   } else {
     currentUser = data;
     return true;
-    //proceedToHome();
   }
 }
 
@@ -291,7 +259,16 @@ app.get("/dashboard", function (req, res) {
   }
 });
 
+app.get("/user-data", (req,res) => {
+  console.log("request made");
 
+  // userModel.find({
+  //   _id: req.session.user.id
+  // },{})
+
+
+  res.send()
+})
 
 console.log("Server Running");
 app.use(express.static("./public"));
