@@ -31,28 +31,7 @@ html {
                 margin-top: 10%;
                 // border:solid green 2px;
             }
-
-            // #img-container { //50%
-            //     display: flex;
-            //     flex-direction: column;
-            //     height: 50%;
-            //     width: 100%;
-
-            //     #main-img {
-            //         display: flex;
-            //         flex-direction: row;
-            //         justify-content: center;
-            //         width: 100%;
-
-            //         #signup-logo {
-            //             display: flex;
-            //             flex-direction: row;
-            //             justify-content: center;
-            //             height: 100%;
-            //         }
-            //     }
-            // }
-
+       
             #greet { //10%
                 display: flex;
                 justify-content: center;
@@ -168,6 +147,58 @@ html {
                     }
                 }
             }
+
+            .error{
+                display: none;
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                border: 0.5px solid lightgray;
+                z-index: 10;
+                background-color: rgba(248, 140, 16, 0.973);
+                opacity:90%;
+                height: 30%;
+                width: 80%;
+                border-radius: 15px 15px 15px 15px;
+                // max-width: 60%;
+    
+                .error-container{
+    
+                    .error-title{
+                        padding: 10px 15px 5px;
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        border-bottom: 0.5px solid lightgray;
+    
+                        .title{
+                            font-size: 1.25rem;
+                            font-weight: bold;
+    
+                        }
+    
+                        .close-button {
+                            cursor: pointer;
+                            border: none;
+                            outline: none;
+                            background-color: lightgray;
+                            opacity: 0.95;
+                            border-radius: 50%;
+                            width: 15%;
+                            font-size: 2rem;
+    
+                        }
+                    }
+    
+                    .error-content{
+                        padding: 10px 15px;
+    
+                    }
+                }
+            }
+
+            
         }
 
      

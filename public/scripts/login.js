@@ -5,17 +5,15 @@ const $showAdminBox      = $("#admin-check");
 const $showPasswordBox   = $("#show-pass-box");
 const $showPasswordTitle = $("#pass-label");
 const $userPassword      = $("#password_log");
-const $profileButton = $("#profile");
-const $signupButton  = $("#signup");
-const $homeButton    = $("#home-button");
+const $profileButton     = $("#profile");
+const $signupButton      = $("#signup");
+const $homeButton        = $("#home-button");
 
 /**
  * Let Variables
  */
 let passwordVisible = false; // for revealing the password.
 let isAdmin = false; // for enabling admin login
-
-
 
 /**
  * Turns function handlers on for admin.
@@ -56,14 +54,23 @@ let isAdmin = false; // for enabling admin login
          }
      })
  }
+ function displayPopup()
+ {
+   $(".error").css("display","flex");
+   console.log("here");
+ }
 
+ function closePopup(){
+  $(".error").css("display","none")
+  $(".error").css("transition","0.4s");
+  console.log("closed");
+}
 
 function checkUserExists(data) {
   console.log(data);
   console.log(data[0].admin)
   if (data.length === 0) {
     console.log("User not found!");
-    alert("User not found");
   } 
   if (data[0].admin == true) {
     console.log("admin login")
@@ -87,6 +94,7 @@ function attemptLogin() {
     },
     success: checkUserExists,
   });
+  
   // resetPage();
 }
 
@@ -131,6 +139,8 @@ function setup() {
     $("#profile-button").on("click", ()=>{
         window.location.href = "/profile";
     })
+
+    $(".close-button").on("click", closePopup)
     
   }
   
