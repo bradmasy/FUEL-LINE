@@ -1,0 +1,255 @@
+@use "../typography/fonts.scss";
+@use "../mixins/mixin.scss";
+@use "../pages/index.scss";
+@use "../colors/colors.scss";
+@use "../components/buttons.scss";
+@use "../components/page-setup.scss";
+
+
+html {
+
+
+    body {
+
+        #login-page {
+            display: flex;
+            flex-direction: column;
+            // justify-content: space-around;
+            height: 100%;
+            width: 100%;
+
+            #statement {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                text-align: center;
+                font-size: 2em;
+                // font-weight: bold;
+                height: 20%;
+                // border: solid black 2px;
+                margin-top:20%;
+            }
+
+            #greet-container {
+                display: flex;
+                justify-content: center;
+                height: 10%;
+                margin-top: 5%;
+                // border:solid pink 2px;
+
+                #greet {
+                    display: flex;
+                    justify-content: center;
+                    // margin-top: 15%;
+                }
+
+            }
+
+         
+
+            #form {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+                height: 40%;
+                width: 100%;
+                // border:solid green 2px;
+
+
+                #user-container {
+                    display: flex;
+                    justify-content: center;
+                    width: 100%;
+                    height: 15%;
+                    margin-bottom: 2%;
+                    // border:solid black 2px;
+
+
+                    .input-fields:focus {
+                        border: none;
+                        outline: none;
+                        -webkit-appearance: none;
+                    }
+
+                    .input-fields:hover{
+                        cursor: pointer;
+                        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 1), 2px 3px 8px 0 #ffb877;
+                        transition: 0.3s;
+
+                    }
+
+                    .input-fields {
+                        display: flex;
+                        text-align: center;
+                        border: none;
+                        border-radius: 40px;
+                        font-size: 2vh;
+                        width: 50%;
+                        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8), 2px 3px 8px 0 #ffb877;
+                        -webkit-appearance: none;
+                        // border:solid purple 2px;
+                        font-family: fonts.$main-font;
+                    }
+                }
+
+                #pass-container {
+                    display: flex;
+                    justify-content: center;
+                    width: 100%;
+                    height: 15%;
+                    // border:solid blue 2px;
+
+                    .input-fields:focus {
+                        border: none;
+                        outline: none;
+                        -webkit-appearance: none;
+                    }
+
+                    
+                    .input-fields:hover{
+                        cursor: pointer;
+                        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 1), 2px 3px 8px 0 #ffb877;
+                        transition: 0.3s;
+
+                    }
+
+                    .input-fields {
+                        display: flex;
+                        text-align: center;
+                        border: none;
+                        border-radius: 40px;
+                        font-size: 2vh;
+                        width: 50%;
+                        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8), 2px 3px 8px 0 #ffb877;
+                        -webkit-appearance: none;
+                        font-family: fonts.$main-font;
+                    }
+                }
+
+                #check-boxes {
+                    display: flex;
+                    flex-direction: row;
+                    width: 100%;
+                    height: 10%;
+                    margin-top:5%;
+                    margin-bottom: 5%;
+                    justify-content: center;
+
+                    #make-admin {
+                        display: flex;
+                        width: 50%;
+                        justify-content: space-around;
+
+                        div {
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                        }
+
+                        label {
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                        }
+
+                    }
+
+                    #show-pass {
+                        display: flex;
+                        width: 40%;
+                       justify-content: space-around;
+
+                        div {
+                            input:hover {
+                                cursor: pointer;
+                            }
+                        }
+
+                        div {
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                        }
+
+                        label {
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                        }
+                    }
+                }
+
+                #buttons {
+                    display:flex;
+                    flex-direction: column;
+                    justify-content: space-around;
+                    height: 50%;
+                    // border:solid red 2px;
+                    gap:10%;
+
+                    #submit {
+                        display: flex;
+                        justify-content: center;
+                        height: 45%;
+                        // margin-bottom: 10%;
+    
+                        #submit-button:hover {
+                            @include mixin.hover-styles();
+                            cursor: pointer;
+                        }
+    
+                        #submit-button {
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            align-items: center;
+                            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); //, 2px 3px 8px 0 #ffb877;
+                            border-radius: 40px;
+                            padding-right: 8%;
+                            padding-left: 8%;
+                            color: black;
+                            background-color: colors.$main-color;
+                            font-family: fonts.$main-font;
+                            font-size: 2vh;
+                            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+                            border: none;
+                        }
+                    }
+    
+                    #back{
+    
+                        display: flex;
+                        justify-content: center;
+                        height: 45%;
+                        // margin-bottom: 10%;
+    
+                        #back-button:hover {
+                            @include mixin.hover-styles();
+                            cursor: pointer;
+                        }
+    
+                        #back-button {
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            align-items: center;
+                            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); //, 2px 3px 8px 0 #ffb877;
+                            border-radius: 40px;
+                            padding-right: 8%;
+                            padding-left: 8%;
+                            color: black;
+                            background-color: colors.$main-color;
+                            font-family: fonts.$main-font;
+                            font-size: 2vh;
+                            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+                            border: none;
+                        }
+                      
+    
+                    }
+                }
+            
+            }
+        }
+    }
+}

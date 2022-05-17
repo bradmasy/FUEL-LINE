@@ -13,17 +13,37 @@
 }
 /* Colors*/
 /*Mixins*/
-/**
- * SASS STYLE-SHEET FOR INDEX.HTML
- *
- * @name: Bradley Masciotra.
- * @version: 1.0
- */
+.input-buttons {
+  display: flex;
+  justify-content: center;
+  height: 10%;
+  width: 100%;
+  outline: none;
+}
+.input-buttons .input-fields:focus {
+  border: none;
+  outline: none;
+}
+.input-buttons .input-fields {
+  display: flex;
+  text-align: center;
+  border: none;
+  font-weight: bold;
+  border-radius: 40px;
+  width: 50%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8), 2px 3px 8px 0 #ffb877;
+}
+
 html {
   display: flex;
   flex-direction: column;
+  -webkit-appearance: none;
   height: 100%;
+  width: 100%;
   font-family: "jost-variable";
+  overflow-x: hidden;
+  overflow-y: hidden;
+  padding: 0%;
 }
 html body {
   display: flex;
@@ -33,89 +53,167 @@ html body {
   padding: 0%;
   margin: 0%;
   justify-content: center;
+  overflow-y: hidden;
+  overflow-x: hidden;
 }
 html body header {
   display: flex;
   flex-direction: row;
+  display: flex;
+  justify-content: right;
   width: 100%;
   height: 10%;
   background-color: #FF912C;
-}
-html body header #space {
-  display: flex;
-  width: 33%;
+  justify-content: right;
 }
 html body header #header-logo-container {
+  -webkit-appearance: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
+  width: 100%;
+  height: 100%;
+}
+html body footer {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 10%;
+  background-color: white;
+}
+html body footer #navigation-buttons {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  width: 33%;
+  width: 100%;
   height: 100%;
+  text-decoration: none;
 }
-html body header #hamburger {
-  display: flex;
-  justify-content: right;
-  width: 33.3%;
-  height: 100%;
+html body footer #navigation-buttons .nav-buttons:active {
+  transform: scale(0.9);
+  transition: 0.1s;
+  background-color: #FF912C;
 }
-html body header #hamburger #ham-menu:hover {
+html body footer #navigation-buttons .nav-buttons:hover {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.9);
   transition: 0.3s;
 }
-html body header #hamburger #ham-menu {
+html body footer #navigation-buttons .nav-buttons {
   display: flex;
+  flex-direction: column;
+  width: 25%;
   height: 100%;
 }
-html body #content {
+html body footer #navigation-buttons .nav-buttons .top-bar {
+  display: flex;
+  width: 100%;
+  height: 5%;
+  background-color: #FF912C;
+}
+html body footer #navigation-buttons .nav-buttons .hover-button {
+  display: flex;
+  flex-direction: column;
+  height: 95%;
+  width: 100%;
+}
+html body footer #navigation-buttons .nav-buttons .hover-button .button-img {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 70%;
+}
+html body footer #navigation-buttons .nav-buttons .hover-button .button-img img {
+  width: 30%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+html body footer #navigation-buttons .nav-buttons .hover-button .button-title {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-color: white;
+  text-align: center;
+  width: 100%;
+  height: 10%;
+}
+html body footer #navigation-buttons .nav-buttons .hover-button .button-title p {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  font-family: "jost-variable";
+  font-size: 1.25vh;
+}
+
+/**
+ * SASS STYLE-SHEET FOR INDEX.HTML
+ *
+ * @name: Bradley Masciotra.
+ * @version: 1.0
+ */
+html body #content {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(255, 255, 255);
   height: 80%;
   width: 100%;
+}
+@media only screen and (max-height: 400px) {
+  html body #content {
+    justify-content: center;
+  }
 }
 html body #content .row-container {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  height: 30%;
+  height: 20%;
+  margin-top: 20%;
+}
+@media only screen and (max-height: 400px) {
+  html body #content .row-container {
+    margin-top: 0%;
+  }
 }
 html body #content .row-container #main-logo {
   display: flex;
-  margin-top: 5%;
-  height: 80%;
-  width: 20%;
+  height: auto;
+  width: 25%;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 html body #content #welcome-txt {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 20%;
+  height: 15%;
   width: 100%;
 }
 html body #content #welcome-txt #name {
   display: flex;
   justify-content: center;
-  height: 75%;
+  height: 50%;
 }
 html body #content #welcome-txt #name #centre-name {
   display: flex;
   flex-direction: column;
-}
-html body #content #welcome-txt #name #centre-name p {
-  display: flex;
+  height: 100%;
   font-size: 5vh;
 }
 html body #content #welcome-txt #centre-txt {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  height: 25%;
+  height: 20%;
+  width: 100%;
 }
 html body #content #welcome-txt #centre-txt #message {
   display: flex;
   text-align: center;
-  font-size: 1.5vh;
+  font-size: 2vh;
+  height: 95%;
+  justify-content: center;
+  width: 90%;
 }
 html body #content #signup-login {
   display: flex;
@@ -135,7 +233,6 @@ html body #content #signup-login #form-align #form {
   display: flex;
   height: 100%;
   width: 80%;
-  border-radius: 15px 15px 15px 15px;
 }
 html body #content #signup-login #form-align #form #button-columns {
   display: flex;
@@ -143,135 +240,194 @@ html body #content #signup-login #form-align #form #button-columns {
   justify-content: center;
   width: 100%;
   height: 100%;
+  gap: 10%;
 }
 html body #content #signup-login #form-align #form #button-columns .button-container {
   display: flex;
   justify-content: center;
   width: 100%;
-  height: 25%;
-  margin: 1%;
+  height: 35%;
 }
 html body #content #signup-login #form-align #form #button-columns .button-container .main-button:hover {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.9);
   transition: 0.3s;
 }
+html body #content #signup-login #form-align #form #button-columns .button-container .main-button:focus {
+  transform: scale(1.1);
+  transition: 0.1s;
+  background-color: #FF912C;
+}
 html body #content #signup-login #form-align #form #button-columns .button-container .main-button {
   border-radius: 40px;
   padding-right: 10%;
   padding-left: 10%;
+  color: black;
   background-color: #FF912C;
   font-family: "jost-variable";
-  font-size: 1vh;
+  font-size: 2vh;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   border: none;
-  font-weight: bold;
 }
-html body footer {
+html body #statistics-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 80%;
   width: 100%;
-  height: 10%;
-  background-color: #FF912C;
+}
+html body #statistics-page #main-container-x {
+  display: flex;
+  justify-content: center;
+  height: 90%;
+}
+html body #statistics-page #main-container-x #main-container-y {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  width: 90%;
+  background-color: #b1b1b1;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+  border-radius: 15px 15px 15px 15px;
+}
+html body #statistics-page #main-container-x #main-container-y #total-spent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: 20%;
+  font-size: 4vh;
+}
+html body #statistics-page #main-container-x #main-container-y #total-spent p {
+  text-align: center;
+}
+html body #statistics-page #main-container-x #main-container-y #content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 80%;
+  background-color: #b1b1b1;
+}
+html body #statistics-page #main-container-x #main-container-y #content #graph-container {
   display: flex;
   flex-direction: row;
+  justify-content: center;
   width: 100%;
+  height: 60%;
 }
-html body footer #navigation-buttons {
+html body #statistics-page #main-container-x #main-container-y #content #graph-container #graph {
   display: flex;
-  width: 100%;
+  justify-content: center;
+  width: 80%;
   height: 100%;
 }
-html body footer #navigation-buttons .nav-buttons:hover {
+html body #statistics-page #main-container-x #main-container-y #content #graph-container #graph img {
+  width: 80%;
+}
+html body #statistics-page #main-container-x #main-container-y #content #buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 40%;
+  width: 100%;
+}
+html body #statistics-page #main-container-x #main-container-y #content #buttons .info {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 20%;
+}
+html body #statistics-page #main-container-x #main-container-y #content #buttons .info div {
+  display: flex;
+  justify-content: center;
+  width: 80%;
+}
+html body #statistics-page #main-container-x #main-container-y #content #buttons .info div p {
+  display: flex;
+  justify-content: center;
+  width: 50%;
+  text-align: center;
+}
+html body #statistics-page #main-container-x #main-container-y #content #buttons #display {
+  display: flex;
+  height: 20%;
+  width: 100%;
+}
+html body #statistics-page #main-container-x #main-container-y #content #buttons #display #back-x {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 50%;
+  height: 100%;
+}
+html body #statistics-page #main-container-x #main-container-y #content #buttons #display #back-x #back-y {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: 80%;
+  width: 100%;
+}
+html body #statistics-page #main-container-x #main-container-y #content #buttons #display #back-x #back-y button:hover {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.9);
   transition: 0.3s;
 }
-html body footer #navigation-buttons .nav-buttons {
+html body #statistics-page #main-container-x #main-container-y #content #buttons #display #back-x #back-y button {
   display: flex;
   flex-direction: column;
-  width: 25%;
-  height: 100%;
   justify-content: center;
-}
-html body footer #navigation-buttons .nav-buttons .hover-button {
   display: flex;
-  flex-direction: column;
-  height: 70%;
-  width: 100%;
-}
-html body footer #navigation-buttons .nav-buttons .hover-button .button-img {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  height: 75%;
-}
-html body footer #navigation-buttons .nav-buttons .hover-button .button-title {
-  display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   text-align: center;
-  width: 100%;
-  height: 25%;
-}
-html body footer #navigation-buttons .nav-buttons .hover-button .button-title p {
-  display: flex;
-  justify-content: center;
-  text-align: center;
-  width: 100%;
   height: 100%;
+  width: 45%;
+  font-size: 1em;
   font-family: "jost-variable";
-  font-size: 1.25vh;
+  outline: none;
+  border-radius: 40px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+  border: none;
+  outline: none;
+  background-color: #FF912C;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+  color: black;
+}
+html body #statistics-page #main-container-x #main-container-y #content #buttons #display #period {
+  display: flex;
+  justify-content: center;
+  width: 50%;
+}
+html body #statistics-page #main-container-x #main-container-y #content #buttons #display #period #period-x {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 50%;
+  height: 100%;
+}
+html body #statistics-page #main-container-x #main-container-y #content #buttons #display #period #period-x #period-y {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: 80%;
+  width: 100%;
+}
+html body #statistics-page #main-container-x #main-container-y #content #buttons #display #period #period-x #period-y select {
+  border-radius: 40px;
+  padding-right: 2%;
+  padding-left: 2%;
+  font-family: "jost-variable";
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+  color: black;
+  outline: none;
+  border: none;
 }
 
-html {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  font-family: "jost-variable";
-}
 html body {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  width: 100%;
-  padding: 0%;
-  margin: 0%;
-  justify-content: center;
   /*------------------------------------SIGNUP-PAGE----------------------------------------------*/
-}
-html body header {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  height: 10%;
-  background-color: #FF912C;
-}
-html body header #space {
-  display: flex;
-  width: 33%;
-}
-html body header #header-logo-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  width: 33%;
-  height: 100%;
-}
-html body header #hamburger {
-  display: flex;
-  justify-content: right;
-  width: 33.3%;
-  height: 100%;
-}
-html body header #hamburger #ham-menu:hover {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.9);
-  transition: 0.3s;
-}
-html body header #hamburger #ham-menu {
-  display: flex;
-  height: 100%;
 }
 html body #signup-page {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   background-color: white;
   height: 80%;
   width: 100%;
@@ -282,32 +438,14 @@ html body #signup-page #signup-statement {
   justify-content: center;
   text-align: center;
   font-size: 2em;
-  font-weight: bold;
-  height: 20%;
-}
-html body #signup-page #img-container {
-  display: flex;
-  flex-direction: column;
-  height: 10%;
-  width: 100%;
-}
-html body #signup-page #img-container #main-img {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  width: 100%;
-  height: 70%;
-}
-html body #signup-page #img-container #main-img #signup-logo {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  height: 100%;
+  height: 15%;
+  margin-top: 10%;
 }
 html body #signup-page #greet {
   display: flex;
   justify-content: center;
-  height: 10%;
+  height: 5%;
+  margin-top: 5%;
 }
 html body #signup-page #signup-form {
   display: flex;
@@ -318,24 +456,27 @@ html body #signup-page #signup-form {
 html body #signup-page #signup-form #signup-form-align {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
-  height: 80%;
+  height: 90%;
   width: 100%;
 }
 html body #signup-page #signup-form #signup-form-align .input-buttons {
   display: flex;
   justify-content: center;
-  height: 10%;
+  height: 20%;
   width: 100%;
   outline: none;
+  margin-top: 3%;
+  -webkit-appearance: none;
 }
 html body #signup-page #signup-form #signup-form-align .input-buttons .input-fields:focus {
   border: none;
   outline: none;
+  -webkit-appearance: none;
 }
 html body #signup-page #signup-form #signup-form-align .input-buttons .input-fields {
   display: flex;
   text-align: center;
+  -webkit-appearance: none;
   border: none;
   font-weight: bold;
   border-radius: 40px;
@@ -384,11 +525,671 @@ html body #signup-page #signup-form #signup-form-align .input-buttons #confirm d
   justify-content: center;
   align-items: center;
   border: none;
-  font-weight: bold;
+  font-family: "jost-variable";
   border-radius: 40px;
-  background-color: #ffb877;
-  width: 60%;
+  background-color: #FF912C;
+  width: 90%;
+  padding-left: 10%;
+  padding-right: 10%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+  color: black;
+}
+
+html body #login-page {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+html body #login-page #statement {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  font-size: 2em;
+  height: 20%;
+  margin-top: 20%;
+}
+html body #login-page #greet-container {
+  display: flex;
+  justify-content: center;
+  height: 10%;
+  margin-top: 5%;
+}
+html body #login-page #greet-container #greet {
+  display: flex;
+  justify-content: center;
+}
+html body #login-page #form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 40%;
+  width: 100%;
+}
+html body #login-page #form #user-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 15%;
+  margin-bottom: 2%;
+}
+html body #login-page #form #user-container .input-fields:focus {
+  border: none;
+  outline: none;
+  -webkit-appearance: none;
+}
+html body #login-page #form #user-container .input-fields:hover {
+  cursor: pointer;
+  box-shadow: 0 4px 8px 0 rgb(0, 0, 0), 2px 3px 8px 0 #ffb877;
+  transition: 0.3s;
+}
+html body #login-page #form #user-container .input-fields {
+  display: flex;
+  text-align: center;
+  border: none;
+  border-radius: 40px;
+  font-size: 2vh;
+  width: 50%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8), 2px 3px 8px 0 #ffb877;
+  -webkit-appearance: none;
+  font-family: "jost-variable";
+}
+html body #login-page #form #pass-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 15%;
+}
+html body #login-page #form #pass-container .input-fields:focus {
+  border: none;
+  outline: none;
+  -webkit-appearance: none;
+}
+html body #login-page #form #pass-container .input-fields:hover {
+  cursor: pointer;
+  box-shadow: 0 4px 8px 0 rgb(0, 0, 0), 2px 3px 8px 0 #ffb877;
+  transition: 0.3s;
+}
+html body #login-page #form #pass-container .input-fields {
+  display: flex;
+  text-align: center;
+  border: none;
+  border-radius: 40px;
+  font-size: 2vh;
+  width: 50%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8), 2px 3px 8px 0 #ffb877;
+  -webkit-appearance: none;
+  font-family: "jost-variable";
+}
+html body #login-page #form #check-boxes {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 10%;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  justify-content: center;
+}
+html body #login-page #form #check-boxes #make-admin {
+  display: flex;
+  width: 50%;
+  justify-content: space-around;
+}
+html body #login-page #form #check-boxes #make-admin div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+html body #login-page #form #check-boxes #make-admin label {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+html body #login-page #form #check-boxes #show-pass {
+  display: flex;
+  width: 40%;
+  justify-content: space-around;
+}
+html body #login-page #form #check-boxes #show-pass div input:hover {
+  cursor: pointer;
+}
+html body #login-page #form #check-boxes #show-pass div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+html body #login-page #form #check-boxes #show-pass label {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+html body #login-page #form #buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 50%;
+  gap: 10%;
+}
+html body #login-page #form #buttons #submit {
+  display: flex;
+  justify-content: center;
+  height: 45%;
+}
+html body #login-page #form #buttons #submit #submit-button:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.9);
+  transition: 0.3s;
+  cursor: pointer;
+}
+html body #login-page #form #buttons #submit #submit-button {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 40px;
+  padding-right: 8%;
+  padding-left: 8%;
+  color: black;
+  background-color: #FF912C;
+  font-family: "jost-variable";
+  font-size: 2vh;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  border: none;
+}
+html body #login-page #form #buttons #back {
+  display: flex;
+  justify-content: center;
+  height: 45%;
+}
+html body #login-page #form #buttons #back #back-button:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.9);
+  transition: 0.3s;
+  cursor: pointer;
+}
+html body #login-page #form #buttons #back #back-button {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 40px;
+  padding-right: 8%;
+  padding-left: 8%;
+  color: black;
+  background-color: #FF912C;
+  font-family: "jost-variable";
+  font-size: 2vh;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  border: none;
+}
+
+html {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  font-family: "jost-variable";
+  overflow-x: hidden;
+  overflow-y: hidden;
+  padding: 0%;
+}
+html body {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  padding: 0%;
+  margin: 0%;
+  justify-content: center;
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+html body #profile-page {
+  display: flex;
+  width: 100%;
+  height: 80%;
+}
+html body #profile-page #user-profile-x {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+html body #profile-page #user-profile-x #user-profile-y {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: 95%;
+  width: 100%;
+}
+html body #profile-page #user-profile-x #user-profile-y #user-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  width: 90%;
+  background-color: #b1b1b1;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+  border-radius: 15px 15px 15px 15px;
+}
+html body #profile-page #user-profile-x #user-profile-y #user-div #picture-div-x {
+  display: flex;
+  justify-content: center;
+  height: 40%;
+  width: 100%;
+  overflow: hidden;
+}
+html body #profile-page #user-profile-x #user-profile-y #user-div #picture-div-x #semi-circle {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background-color: #ffb877;
+  transform: rotate(30deg);
+  border-bottom-right-radius: 300px;
+  border-top-right-radius: 150px;
+  border-top-left-radius: 15px;
+  position: relative;
+}
+html body #profile-page #user-profile-x #user-profile-y #user-div #picture-div-x #semi-circle #picture-div-y {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  width: 50%;
+}
+html body #profile-page #user-profile-x #user-profile-y #user-div #picture-div-x #semi-circle #picture-div-y #img-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  transform: rotate(-30deg);
+}
+html body #profile-page #user-profile-x #user-profile-y #user-div #picture-div-x #semi-circle #picture-div-y #img-container div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: 70%;
+  justify-content: center;
+}
+html body #profile-page #user-profile-x #user-profile-y #user-div #picture-div-x #semi-circle #picture-div-y #img-container div img {
+  display: flex;
+  justify-content: center;
+  border-radius: 50%;
+  height: 100%;
+  width: 80%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+}
+html body #profile-page #user-profile-x #user-profile-y #user-div #info-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 50%;
+  width: 100%;
+}
+html body #profile-page #user-profile-x #user-profile-y #user-div #info-div #name {
+  font-size: 2em;
+  justify-content: center;
+  text-align: center;
+}
+html body #profile-page #user-profile-x #user-profile-y #user-div #info-div .info-title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 1em;
+  font-weight: bold;
+  height: 10%;
+}
+html body #profile-page #user-profile-x #user-profile-y #user-div #info-div .info-items {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: 15%;
+}
+html body #profile-page #user-profile-x #user-profile-y #user-div #info-div .info-items .label {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 1em;
+  font-weight: bold;
+  width: 30%;
+  margin-left: 3%;
+}
+html body #profile-page #user-profile-x #user-profile-y #user-div #info-div .info-items .info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 1em;
+  width: 70%;
+}
+html body #profile-page #user-profile-x #user-profile-y #user-div #extra-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 17%;
+  width: 100%;
+}
+html body #profile-page #user-profile-x #user-profile-y #user-div #extra-div #button-x-axis {
+  display: flex;
+  width: 100%;
+  height: 40%;
+  flex-direction: row;
+  justify-content: center;
+}
+html body #profile-page #user-profile-x #user-profile-y #user-div #extra-div #button-x-axis #button-y-axis {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 30%;
+}
+html body #profile-page #user-profile-x #user-profile-y #user-div #extra-div #button-x-axis #button-y-axis button:active {
+  border: none;
+  outline: none;
+}
+html body #profile-page #user-profile-x #user-profile-y #user-div #extra-div #button-x-axis #button-y-axis button:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.9);
+  transition: 0.3s;
+}
+html body #profile-page #user-profile-x #user-profile-y #user-div #extra-div #button-x-axis #button-y-axis button {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  text-align: center;
+  height: 100%;
+  width: 45%;
+  font-size: 1em;
+  font-family: "jost-variable";
+  outline: none;
+  border-radius: 40px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+  border: none;
+  outline: none;
+  width: 100% !important;
+  height: 90%;
+  color: black;
+  margin: auto;
+  font-size: 2.5vh;
+  padding: 0px;
+}
+html body #profile-page #user-profile-x #user-profile-y #user-div #stats-button {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 15%;
+}
+html body #profile-page #user-profile-x #user-profile-y #user-div #stats-button #stats-button:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.9);
+  transition: 0.3s;
+}
+
+html body #dashboard-page {
+  display: flex;
+  width: 100%;
+  height: 80%;
+}
+html body #dashboard-page #user-profile-x {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+html body #dashboard-page #user-profile-x #user-profile-y {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: 95%;
+  width: 100%;
+}
+html body #dashboard-page #user-profile-x #user-profile-y #user-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  width: 90%;
+  background-color: #b1b1b1;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+  border-radius: 15px 15px 15px 15px;
+}
+html body #dashboard-page #user-profile-x #user-profile-y #user-div #picture-div-x {
+  display: flex;
+  justify-content: center;
+  height: 60%;
+  width: 100%;
+  overflow: hidden;
+  border: solid black 2px;
+}
+html body #dashboard-page #user-profile-x #user-profile-y #user-div #picture-div-x #chart {
+  display: block;
+  height: 100%;
+  width: 100%;
+  border: solid green 2px;
+}
+html body #dashboard-page #user-profile-x #user-profile-y #user-div #info-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 30%;
+  width: 100%;
+}
+html body #dashboard-page #user-profile-x #user-profile-y #user-div #info-div #name {
+  font-size: 2em;
+  justify-content: center;
+  text-align: center;
+}
+html body #dashboard-page #user-profile-x #user-profile-y #user-div #info-div .dashboard-desc {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 0.5em;
+  font-weight: 600;
+  height: 10%;
+}
+html body #dashboard-page #user-profile-x #user-profile-y #user-div #info-div .info-title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 1em;
+  font-weight: bold;
+  height: 10%;
+}
+html body #dashboard-page #user-profile-x #user-profile-y #user-div #info-div .info-items {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: 15%;
+}
+html body #dashboard-page #user-profile-x #user-profile-y #user-div #info-div .info-items progress {
+  border: none;
+}
+html body #dashboard-page #user-profile-x #user-profile-y #user-div #info-div .info-items progress::-webkit-progress-value {
+  background: orange;
+}
+html body #dashboard-page #user-profile-x #user-profile-y #user-div #info-div .info-items progress::-webkit-progress-bar {
+  background: lightgray;
+}
+html body #dashboard-page #user-profile-x #user-profile-y #user-div #info-div .info-items .label {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 1em;
+  font-weight: bold;
+  width: 25%;
+  margin-left: 2%;
+}
+html body #dashboard-page #user-profile-x #user-profile-y #user-div #info-div .info-items .info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 1em;
+  width: 75%;
+}
+html body #dashboard-page #user-profile-x #user-profile-y #user-div #extra-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 10%;
+  width: 100%;
+}
+html body #dashboard-page #user-profile-x #user-profile-y #user-div #extra-div #button-x-axis {
+  display: flex;
+  width: 100%;
+  height: 40%;
+  flex-direction: row;
+  justify-content: center;
+}
+html body #dashboard-page #user-profile-x #user-profile-y #user-div #extra-div #button-x-axis #button-y-axis {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 30%;
+}
+html body #dashboard-page #user-profile-x #user-profile-y #user-div #extra-div #button-x-axis #button-y-axis button:active {
+  border: none;
+  outline: none;
+}
+html body #dashboard-page #user-profile-x #user-profile-y #user-div #extra-div #button-x-axis #button-y-axis button:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.9);
+  transition: 0.3s;
+}
+html body #dashboard-page #user-profile-x #user-profile-y #user-div #extra-div #button-x-axis #button-y-axis button {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  text-align: center;
+  height: 100%;
+  width: 45%;
+  font-size: 1em;
+  font-family: "jost-variable";
+  outline: none;
+  border-radius: 40px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+  border: none;
+  outline: none;
+  width: 100% !important;
+  height: 90%;
+  color: black;
+  margin: auto;
+  font-size: 2vh;
+  padding: 0px;
+}
+html body #dashboard-page #user-profile-x #user-profile-y #user-div #stats-button {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 15%;
+}
+html body #dashboard-page #user-profile-x #user-profile-y #user-div #stats-button #stats-button:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.9);
+  transition: 0.3s;
+}
+
+html body #map-page {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 80%;
+}
+html body #map-page #map-x-axis {
+  display: flex;
+  justify-content: center;
+  height: 80%;
+  width: 100%;
+}
+html body #map-page #map-x-axis #map-y-axis {
+  width: 100%;
+  height: 100%;
+}
+html body #map-page #map-x-axis #map-y-axis #map-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+html body #map-page #info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  height: 21%;
+  background-color: #b1b1b1;
+}
+html body #map-page #info #map-info {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  width: 50%;
+}
+html body #map-page #info #map-info #operators {
+  display: flex;
+}
+html body #map-page #info #map-info .info-container {
+  display: flex;
+  width: 100%;
+  height: 20%;
+  font-size: 1.5vh;
+}
+html body #map-page #info #map-info .info-container div:nth-child(1) {
+  display: flex;
+  font-weight: bold;
+  width: 75%;
+  border: solid purple 1px;
+}
+html body #map-page #info #map-info .info-container div:nth-child(2) {
+  display: flex;
+  width: 25%;
+  border: solid purple 1px;
+}
+html body #map-page #info #location {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  border: solid green 2px;
+}
+html body #map-page #info #location .button-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 50%;
+  width: 100%;
+}
+html body #map-page #info #location .button-container .centre {
+  display: flex;
+  justify-content: right;
+  width: 100%;
+  height: 60%;
+  font-family: "jost-variable";
+}
+html body #map-page #info #location .button-container .centre .buttons:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.9);
+  transition: 0.3s;
+}
+html body #map-page #info #location .button-container .centre .buttons {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  width: 60%;
+  display: table-cell;
+  vertical-align: middle;
+  color: black;
+  padding: 1%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+  font-family: "jost-variable";
+  border-radius: 40px;
+  outline: none;
+  border: none;
+  background-color: #FF912C;
 }
 
 /* Fuel Line Style Sheet
