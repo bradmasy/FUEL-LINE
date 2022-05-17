@@ -71,7 +71,7 @@ function checkUserExists(data) {
 
 function displayPopup()
 {
-  $(".error").css("display","flex");
+  $(".error").fadeIn();
   console.log("here");
   // function openPop(valid){
   //   if (valid == false) return
@@ -86,8 +86,7 @@ function displayPopup()
 }
 
 function closePopup(){
-  $(".error").css("opacity","0")
-  $(".error").css("transition","0.4s");
+  $(".error").fadeOut();
   console.log("closed");
 }
 
