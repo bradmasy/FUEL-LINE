@@ -41,7 +41,6 @@ const userSchema = new mongoose.Schema({
 const userModel = mongoose.model("users", userSchema);
 
 
-
 app.get("/statistics", (req, res) => {
   res.render("statistics");
 })
