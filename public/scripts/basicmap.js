@@ -72,8 +72,8 @@ var AutocompleteDirectionsHandler = /** @class */ (function () {
     this.destinationPlaceId = "";
     this.travelMode         = google.maps.TravelMode.DRIVING;
     this.directionsService  = new google.maps.DirectionsService();
-    this.directionsRenderer = new google.maps.DirectionsRenderer();
-    this.directionsRenderer.setMap(map);
+    // this.directionsRenderer = new google.maps.DirectionsRenderer();
+    // this.directionsRenderer.setMap(map);
     var originInput         = document.getElementById("origin-input");
     var destinationInput    = document.getElementById("destination-input");
     // Specify just the place data fields that are needed.
@@ -130,12 +130,21 @@ var AutocompleteDirectionsHandler = /** @class */ (function () {
       function (response, status) {
         if (status === "OK") 
         {
-          me.directionsRenderer.setDirections(response);
+          // me.directionsRenderer.setDirections(response);
+          for (var routeNumber = 0, numberOfRoutes = response.routes.length; routeNumber < numberOfRoutes; routeNumber++) {
+            new google.maps.DirectionsRenderer({
+              map: map,
+              directions: response,
+              routeIndex: routeNumber
+            });
+          }
           var directionsData = response.routes[0].legs[0];
           console.log(directionsData)
           var drivingDistance = directionsData.distance.text;
           drivingDistanceGlobal = drivingDistance;
-          window.alert(drivingDistanceGlobal);
+          console.log("Number of routes" + response.routes.length);
+          console.log("Driving distance" + drivingDistanceGlobal);
+          
 
           //creating the trip object here.
           console.log(response);
