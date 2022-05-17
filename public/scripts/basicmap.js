@@ -1,15 +1,33 @@
 let map;
 let drivingDistanceGlobal;
 
-// function initMap() {
-//   map = new google.maps.Map(document.getElementById("map-section"), {
-//     center: { lat: -34.397, lng: 150.644 },
-//     zoom: 8,
-//     mapTypeControl: false,
-//     scaleControl: false,
-//     zoomControl: true,
-//   });
-// }
+
+function createTripObjectForUser(distanceOB)
+{
+  let destination = distanceOB.start_address; 
+  let origin      = distanceOB.end_address;
+  let distance    = distanceOB.distance.value;
+
+  let data = {
+    "origin":origin,
+    "destination":destination,
+    "distance":distance
+  }
+
+  let options = {
+    method:"POST",
+    body:JSON.stringify(data),
+    headers: {
+      "Content-Type":"application/json"
+    }
+  }
+
+  fetch("/create-trip",options);
+  console.log(destination);
+  console.log(origin)
+
+  
+}
 
 Object.defineProperty(exports, "__esModule", { value: true });
 function initMap() {
@@ -32,8 +50,8 @@ var AutocompleteDirectionsHandler = /** @class */ (function () {
     this.directionsService  = new google.maps.DirectionsService();
     this.directionsRenderer = new google.maps.DirectionsRenderer();
     this.directionsRenderer.setMap(map);
-    var originInput      = document.getElementById("origin-input");
-    var destinationInput = document.getElementById("destination-input");
+    var originInput         = document.getElementById("origin-input");
+    var destinationInput    = document.getElementById("destination-input");
     // Specify just the place data fields that you need.
     var originAutocomplete = new google.maps.places.Autocomplete(originInput, {
       fields: ["place_id"],
@@ -50,6 +68,8 @@ var AutocompleteDirectionsHandler = /** @class */ (function () {
       destinationInput
     );
   }
+
+
   AutocompleteDirectionsHandler.prototype.setupPlaceChangedListener = function (
     autocomplete,
     mode
@@ -70,6 +90,7 @@ var AutocompleteDirectionsHandler = /** @class */ (function () {
       _this.route();
     });
   };
+
   AutocompleteDirectionsHandler.prototype.route = function () {
     if (!this.originPlaceId || !this.destinationPlaceId) {
       return;
@@ -82,12 +103,21 @@ var AutocompleteDirectionsHandler = /** @class */ (function () {
         travelMode: this.travelMode,
       },
       function (response, status) {
-        if (status === "OK") {
+        if (status === "OK") 
+        {
           me.directionsRenderer.setDirections(response);
           var directionsData = response.routes[0].legs[0];
+          console.log(directionsData)
           var drivingDistance = directionsData.distance.text;
-          let drivingDistanceGlobal = drivingDistance;
+          drivingDistanceGlobal = drivingDistance;
           window.alert(drivingDistanceGlobal);
+
+          //creating the trip object here...
+          console.log(response);
+          createTripObjectForUser(directionsData)
+          $("#calculation-form").show();
+          
+
         } else {
           window.alert("Directions request failed due to " + status);
         }
@@ -105,9 +135,10 @@ function calculate_costs(){
   jQuery("#result").empty();
     console.log("calculate costs got called")
     console.log($("#distance").val())
-    var distance     = parseInt($("#distance").val());
-    var economy      = parseInt($("#economy").val());
-    var gas_price    = parseInt($("#gas-price").val());
+    var distance     = parseFloat(drivingDistanceGlobal.replace(/[^0-9.]/g, ""))
+    console.log(distance)
+    var economy      = parseFloat($("#economy").val());
+    var gas_price    = parseFloat($("#gas-price").val());
     var cost         = ( distance / economy ) * gas_price
     var cost_rounded = cost.toFixed(2)
     console.log(cost)
@@ -115,7 +146,10 @@ function calculate_costs(){
 }
 
 
+
+
 function setup() {
+  $("#calculation-form").hide();
   initMap();
   let $topBars = $(".top-bar");
   // $topBars[3].css("background-color","black");
@@ -127,6 +161,10 @@ function setup() {
     console.log($element);
   }
   $("#calculate").click(calculate_costs);
+
 }
+
+
+
 
 $(document).ready(setup);
