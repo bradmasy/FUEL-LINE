@@ -535,7 +535,7 @@ html body #signup-page #signup-form #signup-form-align .input-buttons #confirm d
   color: black;
 }
 html body #signup-page .error {
-  display: block;
+  display: none;
   position: fixed;
   top: 50%;
   left: 50%;

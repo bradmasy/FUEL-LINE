@@ -17,6 +17,13 @@ let isAdmin = false; // for enabling admin login
 
 
 
+
+
+
+
+
+
+
 /**
  * Turns function handlers on for admin.
  */
@@ -56,14 +63,23 @@ let isAdmin = false; // for enabling admin login
          }
      })
  }
+ function displayPopup()
+ {
+   $(".error").css("display","flex");
+   console.log("here");
+ }
 
+ function closePopup(){
+  $(".error").css("opacity","0")
+  $(".error").css("transition","0.4s");
+  console.log("closed");
+}
 
 function checkUserExists(data) {
   console.log(data);
   console.log(data[0].admin)
   if (data.length === 0) {
     console.log("User not found!");
-    alert("User not found");
   } 
   if (data[0].admin == true) {
     console.log("admin login")
@@ -87,6 +103,7 @@ function attemptLogin() {
     },
     success: checkUserExists,
   });
+  
   // resetPage();
 }
 
@@ -131,6 +148,8 @@ function setup() {
     $("#profile-button").on("click", ()=>{
         window.location.href = "/profile";
     })
+
+    $(".close-button").on("click", closePopup)
     
   }
   

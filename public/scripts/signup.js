@@ -71,7 +71,9 @@ function checkUserExists(data) {
 
 function displayPopup()
 {
-
+  $(".error").css("opacity","0")
+  $(".error").css("opacity","0.9")
+  $(".error").css("transition","0.4s");
   $(".error").css("display","flex");
   console.log("here");
   // function openPop(valid){
@@ -84,6 +86,12 @@ function displayPopup()
   //     $('close-button'.on("click", function(){
   //         closePop()
   //     }))
+}
+
+function closePopup(){
+  $(".error").css("opacity","0")
+  $(".error").css("transition","0.4s");
+  console.log("closed");
 }
 
 
@@ -145,6 +153,8 @@ function setup() {
 
   showPassword();
   $("#confirm-button").on("click", attemptSignup);
+
+  $(".close-button").on("click", closePopup)
 }
 
 $(document).ready(setup);
