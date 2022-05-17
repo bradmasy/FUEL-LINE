@@ -12,7 +12,7 @@ app.use(cors())
 app.use(session({ secret: "shhhh", saveUninitialized: true, resave: true }));
 app.set("view engine", "ejs");
 
-app.listen(process.env.PORT || 5000, function (err) {
+app.listen(process.env.PORT || 5001, function (err) {
   if (err) console.log(err);
 });
 
@@ -216,6 +216,27 @@ app.post("/attemptSignup", function (req, res) {
   });
 });
 
+//editing user profile 
+app.post("/editUser", function(req, res){
+  //updates user info
+  console.log("req. has been received");
+  console.log("editUser called in server");
+
+  userModel.updateMany({
+    username: req.body.username,
+    password: req.body.password,
+    email: req.body.email,
+    admin: req.body.admin,
+
+  }, function (err, users) {
+    if (err) {
+      console.log("Error " + err);
+    } else {
+      console.log("Data " + users);
+    }
+    res.send(users);
+  });
+})
 
 app.get("/logout", (req, res) => {
   // logs the user out of session

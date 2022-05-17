@@ -1,0 +1,420 @@
+/*Fonts*/
+@font-face {
+  font-family: "indie-flower";
+  src: url("../fonts/IndieFlower-Regular.ttf");
+}
+@font-face {
+  font-family: "jost-variable";
+  src: url("../fonts/Jost-VariableFont_wght.ttf");
+}
+@font-face {
+  font-family: "righteous-reg";
+  src: url("../fonts/Righteous-Regular.ttf");
+}
+/* Colors*/
+/*Mixins*/
+.input-buttons {
+  display: flex;
+  justify-content: center;
+  height: 10%;
+  width: 100%;
+  outline: none;
+}
+.input-buttons .input-fields:focus {
+  border: none;
+  outline: none;
+}
+.input-buttons .input-fields {
+  display: flex;
+  text-align: center;
+  border: none;
+  font-weight: bold;
+  border-radius: 40px;
+  width: 50%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8), 2px 3px 8px 0 #ffb877;
+}
+
+html {
+  display: flex;
+  flex-direction: column;
+  -webkit-appearance: none;
+  height: 100%;
+  width: 100%;
+  font-family: "jost-variable";
+  overflow-x: hidden;
+  overflow-y: hidden;
+  padding: 0%;
+}
+html body {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  padding: 0%;
+  margin: 0%;
+  justify-content: center;
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+html body header {
+  display: flex;
+  flex-direction: row;
+  display: flex;
+  justify-content: right;
+  width: 100%;
+  height: 10%;
+  background-color: #FF912C;
+  justify-content: right;
+}
+html body header #header-logo-container {
+  -webkit-appearance: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
+  width: 100%;
+  height: 100%;
+}
+html body footer {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 10%;
+  background-color: white;
+}
+html body footer #navigation-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+}
+html body footer #navigation-buttons .nav-buttons:active {
+  transform: scale(0.9);
+  transition: 0.1s;
+  background-color: #FF912C;
+}
+html body footer #navigation-buttons .nav-buttons:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.9);
+  transition: 0.3s;
+}
+html body footer #navigation-buttons .nav-buttons {
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+  height: 100%;
+}
+html body footer #navigation-buttons .nav-buttons .top-bar {
+  display: flex;
+  width: 100%;
+  height: 5%;
+  background-color: #FF912C;
+}
+html body footer #navigation-buttons .nav-buttons .hover-button {
+  display: flex;
+  flex-direction: column;
+  height: 95%;
+  width: 100%;
+}
+html body footer #navigation-buttons .nav-buttons .hover-button .button-img {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 70%;
+}
+html body footer #navigation-buttons .nav-buttons .hover-button .button-img img {
+  width: 30%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+html body footer #navigation-buttons .nav-buttons .hover-button .button-title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  height: 10%;
+}
+html body footer #navigation-buttons .nav-buttons .hover-button .button-title p {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  font-family: "jost-variable";
+  font-size: 1.25vh;
+}
+
+/**
+ * SASS STYLE-SHEET FOR INDEX.HTML
+ *
+ * @name: Bradley Masciotra.
+ * @version: 1.0
+ */
+html body #content {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(255, 255, 255);
+  height: 80%;
+  width: 100%;
+}
+@media only screen and (max-height: 400px) {
+  html body #content {
+    justify-content: center;
+  }
+}
+html body #content .row-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: 20%;
+  margin-top: 20%;
+}
+@media only screen and (max-height: 400px) {
+  html body #content .row-container {
+    margin-top: 0%;
+  }
+}
+html body #content .row-container #main-logo {
+  display: flex;
+  height: auto;
+  width: 25%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+html body #content #welcome-txt {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 15%;
+  width: 100%;
+}
+html body #content #welcome-txt #name {
+  display: flex;
+  justify-content: center;
+  height: 50%;
+}
+html body #content #welcome-txt #name #centre-name {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  font-size: 5vh;
+}
+html body #content #welcome-txt #centre-txt {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: 20%;
+  width: 100%;
+}
+html body #content #welcome-txt #centre-txt #message {
+  display: flex;
+  text-align: center;
+  font-size: 2vh;
+  height: 95%;
+  justify-content: center;
+  width: 90%;
+}
+html body #content #signup-login {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 30%;
+  width: 100%;
+}
+html body #content #signup-login #form-align {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: 80%;
+  width: 100%;
+}
+html body #content #signup-login #form-align #form {
+  display: flex;
+  height: 100%;
+  width: 80%;
+}
+html body #content #signup-login #form-align #form #button-columns {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  gap: 10%;
+}
+html body #content #signup-login #form-align #form #button-columns .button-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 35%;
+}
+html body #content #signup-login #form-align #form #button-columns .button-container .main-button:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.9);
+  transition: 0.3s;
+}
+html body #content #signup-login #form-align #form #button-columns .button-container .main-button:focus {
+  transform: scale(1.1);
+  transition: 0.1s;
+  background-color: #FF912C;
+}
+html body #content #signup-login #form-align #form #button-columns .button-container .main-button {
+  border-radius: 40px;
+  padding-right: 10%;
+  padding-left: 10%;
+  color: black;
+  background-color: #FF912C;
+  font-family: "jost-variable";
+  font-size: 2vh;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  border: none;
+}
+html body {
+  /*------------------------------------SIGNUP-PAGE----------------------------------------------*/
+}
+html body #signup-page {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  height: 80%;
+  width: 100%;
+}
+html body #signup-page #signup-statement {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  text-align: center;
+  font-size: 2em;
+  height: 15%;
+  margin-top: 10%;
+}
+html body #signup-page #greet {
+  display: flex;
+  justify-content: center;
+  height: 5%;
+  margin-top: 5%;
+}
+html body #signup-page #signup-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 60%;
+}
+html body #signup-page #signup-form #signup-form-align {
+  display: flex;
+  flex-direction: column;
+  height: 90%;
+  width: 100%;
+}
+html body #signup-page #signup-form #signup-form-align .input-buttons {
+  display: flex;
+  justify-content: center;
+  height: 20%;
+  width: 100%;
+  outline: none;
+  margin-top: 3%;
+  -webkit-appearance: none;
+}
+html body #signup-page #signup-form #signup-form-align .input-buttons .input-fields:focus {
+  border: none;
+  outline: none;
+  -webkit-appearance: none;
+}
+html body #signup-page #signup-form #signup-form-align .input-buttons .input-fields {
+  display: flex;
+  text-align: center;
+  -webkit-appearance: none;
+  border: none;
+  font-weight: bold;
+  border-radius: 40px;
+  width: 50%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8), 2px 3px 8px 0 #ffb877;
+}
+html body #signup-page #signup-form #signup-form-align .input-buttons #show-me {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+html body #signup-page #signup-form #signup-form-align .input-buttons #show-me #center {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+html body #signup-page #signup-form #signup-form-align .input-buttons #show-me #center div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+html body #signup-page #signup-form #signup-form-align .input-buttons #show-me #center div #show {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+html body #signup-page #signup-form #signup-form-align .input-buttons #confirm {
+  display: flex;
+  width: 40%;
+}
+html body #signup-page #signup-form #signup-form-align .input-buttons #confirm div {
+  display: flex;
+  justify-content: center;
+  width: 50%;
+  height: 100%;
+}
+html body #signup-page #signup-form #signup-form-align .input-buttons #confirm div button:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.9);
+  transition: 0.3s;
+}
+html body #signup-page #signup-form #signup-form-align .input-buttons #confirm div button {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  font-family: "jost-variable";
+  border-radius: 40px;
+  background-color: #FF912C;
+  width: 90%;
+  padding-left: 10%;
+  padding-right: 10%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+  color: black;
+}
+html body #signup-page .error {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 0.5px solid lightgray;
+  z-index: 10;
+  background-color: rgba(248, 140, 16, 0.973);
+  opacity: 90%;
+  height: 30%;
+  width: 80%;
+  border-radius: 15px 15px 15px 15px;
+}
+html body #signup-page .error .error-container .error-title {
+  padding: 10px 15px 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 0.5px solid lightgray;
+}
+html body #signup-page .error .error-container .error-title .title {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+html body #signup-page .error .error-container .error-title .close-button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background-color: lightgray;
+  opacity: 0.95;
+  border-radius: 50%;
+  width: 15%;
+  font-size: 2rem;
+}
+html body #signup-page .error .error-container .error-content {
+  padding: 10px 15px;
+}/*# sourceMappingURL=signup.css.map */
