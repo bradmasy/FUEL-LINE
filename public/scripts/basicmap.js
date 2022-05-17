@@ -76,11 +76,11 @@ var AutocompleteDirectionsHandler = /** @class */ (function () {
     this.directionsRenderer.setMap(map);
     var originInput         = document.getElementById("origin-input");
     var destinationInput    = document.getElementById("destination-input");
-    // Specify just the place data fields that you need.
+    // Specify just the place data fields that are needed.
     var originAutocomplete = new google.maps.places.Autocomplete(originInput, {
       fields: ["place_id"],
     });
-    // Specify just the place data fields that you need.
+    // Specify just the place data fields that are needed.
     var destinationAutocomplete = new google.maps.places.Autocomplete(
       destinationInput,
       { fields: ["place_id"] }
@@ -125,6 +125,7 @@ var AutocompleteDirectionsHandler = /** @class */ (function () {
         origin: { placeId: this.originPlaceId },
         destination: { placeId: this.destinationPlaceId },
         travelMode: this.travelMode,
+        al
       },
       function (response, status) {
         if (status === "OK") 
@@ -136,7 +137,7 @@ var AutocompleteDirectionsHandler = /** @class */ (function () {
           drivingDistanceGlobal = drivingDistance;
           window.alert(drivingDistanceGlobal);
 
-          //creating the trip object here...
+          //creating the trip object here.
           console.log(response);
           createTripObjectForUser(directionsData)
           $("#calculation-form").show();
