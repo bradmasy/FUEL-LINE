@@ -143,7 +143,6 @@ app.get("/map", function (req, res) {
 })
 
 function initiateSession(req, users)
-//initiates a session
 {
   if (checkUserExists(users)) {
     req.session.authenticated = true; // user gets authenticated.
@@ -168,9 +167,6 @@ function checkUserExists(data) {
 }
 
 app.post("/attemptLogin", function (req, res) {
-  //checks if entered information matches an existing user in database
-  console.log("req. has been received");
-  console.log(req.body);
   userModel.find(
     {
       $and: [{ username: req.body.username }, { password: req.body.password }],
@@ -262,13 +258,17 @@ app.get("/dashboard", function (req, res) {
 app.get("/user-data", (req,res) => {
   console.log("request made");
 
-  console.log(req.session.user);
+  // console.log(req.session.user);
   // userModel.find({
   //   _id: req.session.user.id
   // },{})
+  req.header("Content-Type","application/json")
 
-
-  res.send(req.session.user);
+  let data = {
+    username:req.session.user.username
+  }
+  res.send(JSON.stringify(data));
+  
 })
 
 console.log("Server Running");

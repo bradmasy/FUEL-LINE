@@ -3,10 +3,13 @@ const chartCanvas = $("#chart");
 function getUserData()
 {
     fetch("/user-data").then((response) => {
-
+        console.log("here in the fetch")
         if(response.ok){
             console.log("back in the fethc")
             console.log(response);
+            
+        } else {
+            console.log("um ok...")
         }
     }).then().catch((err) => {
         console.log("error");
