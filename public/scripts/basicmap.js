@@ -125,7 +125,7 @@ var AutocompleteDirectionsHandler = /** @class */ (function () {
         origin: { placeId: this.originPlaceId },
         destination: { placeId: this.destinationPlaceId },
         travelMode: this.travelMode,
-        al
+        provideRouteAlternatives: true,
       },
       function (response, status) {
         if (status === "OK") 
