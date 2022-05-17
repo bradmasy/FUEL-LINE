@@ -2,16 +2,43 @@ let map;
 let drivingDistanceGlobal;
 
 
+/**
+ * Gets a timestamp of when the directions were requested.
+ * 
+ * @returns an array containing the date of the request and the exact time in military.
+ */
+function getTimeStamp()
+{
+  let date        = new Date();
+  let dd          = String(date.getDate()).padStart(2, '0');
+  let mm          = String(date.getMonth() + 1).padStart(2, '0'); //January is 0!
+  let yyyy        = date.getFullYear();
+  date            = mm + '/' + dd + '/' + yyyy;
+  let today       = new Date();
+  let time        = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+
+  return [date,time];
+}
+
+
+/**
+ * Creates a trip object based on the users programmed trip.
+ * 
+ * @param {Object} distanceOB an object representing all the data about the trip.
+ */
 function createTripObjectForUser(distanceOB)
 {
   let destination = distanceOB.start_address; 
   let origin      = distanceOB.end_address;
   let distance    = distanceOB.distance.value;
+  let timeStamp   = getTimeStamp();
 
   let data = {
     "origin":origin,
     "destination":destination,
-    "distance":distance
+    "distance":distance,
+    "date": timeStamp[0],
+    "time": timeStamp[1]
   }
 
   let options = {
@@ -23,9 +50,6 @@ function createTripObjectForUser(distanceOB)
   }
 
   fetch("/create-trip",options);
-  console.log(destination);
-  console.log(origin)
-
   
 }
 
@@ -155,7 +179,6 @@ function setup() {
     if (i == 3) {
       $element.css("background-color", "black");
     }
-    console.log($element);
   }
   $("#calculate").click(calculate_costs);
 

@@ -1,6 +1,14 @@
 const chartCanvas = $("#chart");
 
+function getUserData()
+{
+    fetch("/user-data").then((response) => {
 
+        if(response.ok){
+            console.log(response);
+        }
+    }).then()
+}
 
 
 
@@ -10,26 +18,7 @@ function drawChart()
     let myChart = new Chart(chartCanvas, {
         type: 'line',
         data: {
-            labels: [
-            '12:00am',
-            '1:00am',
-            '2:00am',
-            '3:00am', 
-            '4:00am',
-            '5:00am',
-            '6:00am',
-            "2:00am",
-            "2:00am",
-            "2:00am",
-            "2:00am",
-            "2:00am",
-            "2:00am",
-            "2:00am",
-            "2:00am",
-            "2:00am",
-            "2:00am",
-            "2:00am",
-            "2:00am"],
+            labels: [],
             datasets: [{
                 label: '# of Votes',
                 data: [12, 19, 3, 5, 2, 3],
@@ -71,6 +60,7 @@ function drawChart()
 function setup()
 {
     drawChart();
+    getUserData();
 }
 
 
