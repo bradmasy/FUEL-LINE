@@ -71,9 +71,6 @@ function checkUserExists(data) {
 
 function displayPopup()
 {
-  $(".error").css("opacity","0")
-  $(".error").css("opacity","0.9")
-  $(".error").css("transition","0.4s");
   $(".error").css("display","flex");
   console.log("here");
   // function openPop(valid){
