@@ -493,17 +493,70 @@ html body #signup-page #signup-form #signup-form-align .input-buttons #show-me {
 html body #signup-page #signup-form #signup-form-align .input-buttons #show-me #center {
   display: flex;
   flex-direction: row;
-  justify-content: center;
 }
-html body #signup-page #signup-form #signup-form-align .input-buttons #show-me #center div {
+html body #signup-page #signup-form #signup-form-align .input-buttons #show-me #center .container-div {
+  width: 50%;
+  height: 100%;
+  display: flex;
+}
+html body #signup-page #signup-form #signup-form-align .input-buttons #show-me #center .container-div #show-pass {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  width: 100%;
+  height: 100%;
 }
-html body #signup-page #signup-form #signup-form-align .input-buttons #show-me #center div #show {
+html body #signup-page #signup-form #signup-form-align .input-buttons #show-me #center .container-div #show-pass div {
   display: flex;
   flex-direction: row;
+  justify-content: right;
+  width: 100%;
+  height: 50%;
+}
+html body #signup-page #signup-form #signup-form-align .input-buttons #show-me #center .container-div #show-pass div div {
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
+  width: 100%;
+  height: 100%;
+}
+html body #signup-page #signup-form #signup-form-align .input-buttons #show-me #center .container-div #show-pass div div #show {
+  display: flex;
+  width: 10%;
+}
+html body #signup-page #signup-form #signup-form-align .input-buttons #show-me #center .container-div #upload {
+  display: flex;
+  width: 100%;
+}
+html body #signup-page #signup-form #signup-form-align .input-buttons #show-me #center .container-div #upload div {
+  display: flex;
+  margin-left: 8%;
+  width: 100%;
+  height: 100%;
+}
+html body #signup-page #signup-form #signup-form-align .input-buttons #show-me #center .container-div #upload div div button:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8), 2px 3px 8px 0 #ffb877;
+  transition: 0.3s;
+  cursor: pointer;
+}
+html body #signup-page #signup-form #signup-form-align .input-buttons #show-me #center .container-div #upload div div button {
+  border-radius: 15px 15px 15px 15px;
+  outline: none;
+  border: none;
+  background-color: #ffb877;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 2px 3px 8px 0 #ffb877;
+  -webkit-appearance: none;
+  font-family: "jost-variable";
+}
+html body #signup-page #signup-form #signup-form-align .input-buttons #show-me #center .container-div #upload div div #input-file {
+  display: none;
+}
+html body #signup-page #signup-form #signup-form-align .input-buttons #show-me #center .container-div #pass-title {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
+  text-align: center;
 }
 html body #signup-page #signup-form #signup-form-align .input-buttons #confirm {
   display: flex;
@@ -762,7 +815,7 @@ html body #login-page #form #buttons #back #back-button {
   border: none;
 }
 html body .error {
-  display: block;
+  display: none;
   position: fixed;
   top: 50%;
   left: 50%;
