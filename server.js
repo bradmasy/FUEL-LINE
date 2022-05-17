@@ -262,12 +262,13 @@ app.get("/dashboard", function (req, res) {
 app.get("/user-data", (req,res) => {
   console.log("request made");
 
+  console.log(req.session.user);
   // userModel.find({
   //   _id: req.session.user.id
   // },{})
 
 
-  res.send()
+  res.send(req.session.user);
 })
 
 console.log("Server Running");

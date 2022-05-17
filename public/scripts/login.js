@@ -5,24 +5,15 @@ const $showAdminBox      = $("#admin-check");
 const $showPasswordBox   = $("#show-pass-box");
 const $showPasswordTitle = $("#pass-label");
 const $userPassword      = $("#password_log");
-const $profileButton = $("#profile");
-const $signupButton  = $("#signup");
-const $homeButton    = $("#home-button");
+const $profileButton     = $("#profile");
+const $signupButton      = $("#signup");
+const $homeButton        = $("#home-button");
 
 /**
  * Let Variables
  */
 let passwordVisible = false; // for revealing the password.
 let isAdmin = false; // for enabling admin login
-
-
-
-
-
-
-
-
-
 
 /**
  * Turns function handlers on for admin.
@@ -70,7 +61,7 @@ let isAdmin = false; // for enabling admin login
  }
 
  function closePopup(){
-  $(".error").css("opacity","0")
+  $(".error").css("display","none")
   $(".error").css("transition","0.4s");
   console.log("closed");
 }

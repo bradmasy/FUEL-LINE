@@ -5,9 +5,12 @@ function getUserData()
     fetch("/user-data").then((response) => {
 
         if(response.ok){
+            console.log("back in the fethc")
             console.log(response);
         }
-    }).then()
+    }).then().catch((err) => {
+        console.log("error");
+    })
 }
 
 
