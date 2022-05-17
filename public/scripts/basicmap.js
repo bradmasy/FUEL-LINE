@@ -139,6 +139,7 @@ var AutocompleteDirectionsHandler = /** @class */ (function () {
           //creating the trip object here...
           console.log(response);
           createTripObjectForUser(directionsData)
+          $("#calculation-form").show();
           
 
         } else {
@@ -158,9 +159,10 @@ function calculate_costs(){
   jQuery("#result").empty();
     console.log("calculate costs got called")
     console.log($("#distance").val())
-    var distance     = parseInt($("#distance").val());
-    var economy      = parseInt($("#economy").val());
-    var gas_price    = parseInt($("#gas-price").val());
+    var distance     = parseFloat(drivingDistanceGlobal.replace(/[^0-9.]/g, ""))
+    console.log(distance)
+    var economy      = parseFloat($("#economy").val());
+    var gas_price    = parseFloat($("#gas-price").val());
     var cost         = ( distance / economy ) * gas_price
     var cost_rounded = cost.toFixed(2)
     console.log(cost)
@@ -171,6 +173,7 @@ function calculate_costs(){
 
 
 function setup() {
+  $("#calculation-form").hide();
   initMap();
   let $topBars = $(".top-bar");
   // $topBars[3].css("background-color","black");

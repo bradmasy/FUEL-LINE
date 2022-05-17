@@ -91,6 +91,20 @@ function samePassword(password, comparisonPassword)
     return valid;
 }
 
+/**
+ * Popup Script
+ */
+
+// function openPop(valid){
+//     if (valid == false) return
+//     error.classList.add('active')
+//     overlay.classList.add('active')
+// }
+
+// function closePop(){
+//     error.classList.remove('active')
+//     overlay.classList.remove('active')
+// }
 
 
 function passTests(username, password,emailAddress,passwordCopy) {
@@ -108,3 +122,7 @@ function passTests(username, password,emailAddress,passwordCopy) {
 
 }
 
+// openPop(valid)
+//     $('close-button'.on("click", function(){
+//         closePop()
+//     }))
