@@ -1,5 +1,7 @@
 let map;
 let drivingDistanceGlobal;
+// var changeRouteButton    = document.getElementById("change-route");
+let whichRoute = 0;
 
 
 /**
@@ -76,6 +78,9 @@ var AutocompleteDirectionsHandler = /** @class */ (function () {
     this.directionsRenderer.setMap(map);
     var originInput         = document.getElementById("origin-input");
     var destinationInput    = document.getElementById("destination-input");
+    var changeRouteButton    = document.getElementById("change-route");
+    
+    // changeRouteButton.style.display = "none";
     // Specify just the place data fields that you need.
     var originAutocomplete = new google.maps.places.Autocomplete(originInput, {
       fields: ["place_id"],
@@ -85,18 +90,18 @@ var AutocompleteDirectionsHandler = /** @class */ (function () {
       destinationInput,
       { fields: ["place_id"] }
     );
-    this.setupPlaceChangedListener(originAutocomplete, "ORIG");
-    this.setupPlaceChangedListener(destinationAutocomplete, "DEST");
+    this.setupPlaceChangedListener(originAutocomplete, "ORIG", changeRouteButton);
+    this.setupPlaceChangedListener(destinationAutocomplete, "DEST", changeRouteButton);
     this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(originInput);
-    this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(
-      destinationInput
-    );
+    this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(destinationInput);
+    this.map.controls[google.maps.ControlPosition.BOTTOM_LEFT].push(changeRouteButton);
   }
 
 
   AutocompleteDirectionsHandler.prototype.setupPlaceChangedListener = function (
     autocomplete,
-    mode
+    mode,
+    changeRoute
   ) {
     var _this = this;
     autocomplete.bindTo("bounds", this.map);
@@ -113,6 +118,63 @@ var AutocompleteDirectionsHandler = /** @class */ (function () {
       }
       _this.route();
     });
+
+    changeRoute.addEventListener("click", function () {
+      var place = autocomplete.getPlace();
+      if (!place.place_id) {
+        window.alert("Please select an option from the dropdown list.");
+        return;
+      }
+      whichRoute++
+      if (mode === "ORIG") {
+        _this.originPlaceId = place.place_id;
+      } else {
+        _this.destinationPlaceId = place.place_id;
+      }
+      _this.changeRoute();
+      // console.log("here");
+    });
+  };
+
+  AutocompleteDirectionsHandler.prototype.changeRoute = function () {
+    if (!this.originPlaceId || !this.destinationPlaceId) {
+      return;
+    }
+    var me = this;
+    this.directionsService.route(
+      {
+        origin: { placeId: this.originPlaceId },
+        destination: { placeId: this.destinationPlaceId },
+        travelMode: this.travelMode,
+        provideRouteAlternatives: true,
+      },
+      function (response, status) {
+        if (status === "OK") 
+        {
+
+          if(me.directionsRenderer.getMap != null) {
+            me.directionsRenderer.setMap(null);
+        }
+          me.directionsRenderer.setMap(map);
+          me.directionsRenderer.setDirections(response);
+          me.directionsRenderer.setRouteIndex(whichRoute);
+          var directionsData = response.routes[whichRoute].legs[0];
+          // console.log(directionsData)
+          var drivingDistance = directionsData.distance.text;
+          drivingDistanceGlobal = drivingDistance;
+          window.alert(drivingDistanceGlobal);
+
+          //creating the trip object here...
+          // console.log(response);
+          createTripObjectForUser(directionsData)
+          $("#calculation-form").show();
+          
+
+        } else {
+          window.alert("Directions request failed due to " + status);
+        }
+      }
+    );
   };
 
   AutocompleteDirectionsHandler.prototype.route = function () {
@@ -136,15 +198,15 @@ var AutocompleteDirectionsHandler = /** @class */ (function () {
         }
           me.directionsRenderer.setMap(map);
           me.directionsRenderer.setDirections(response);
-          me.directionsRenderer.setRouteIndex(1);
-          var directionsData = response.routes[0].legs[0];
-          console.log(directionsData)
+          me.directionsRenderer.setRouteIndex(whichRoute);
+          var directionsData = response.routes[whichRoute].legs[0];
+          // console.log(directionsData)
           var drivingDistance = directionsData.distance.text;
           drivingDistanceGlobal = drivingDistance;
           window.alert(drivingDistanceGlobal);
 
           //creating the trip object here...
-          console.log(response);
+          // console.log(response);
           createTripObjectForUser(directionsData)
           $("#calculation-form").show();
           
@@ -181,6 +243,7 @@ function calculate_costs(){
 
 function setup() {
   $("#calculation-form").hide();
+  
   initMap();
   let $topBars = $(".top-bar");
   // $topBars[3].css("background-color","black");
