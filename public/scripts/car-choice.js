@@ -8,7 +8,7 @@ var model = "";
 
 function createMakesMenu(car_makes_list) {
   console.log("createMakesMenu called");
-  console.log(car_makes_list);
+  // console.log(car_makes_list);
   select_makes = '<select name="makes" id="makes"> <option></option>';
   for (i = 0; i < car_makes_list.length; i++) {
     select_makes += `<option value="${car_makes_list[i]}">${car_makes_list[i]}</option>`;
@@ -20,7 +20,7 @@ function createMakesMenu(car_makes_list) {
 
 function processCarMakes(data) {
   console.log("called processCarMakes");
-  console.log(data);
+  // console.log(data);
   car_makes_list = [];
   var car_makes = data.getElementsByTagName("text");
 
@@ -47,7 +47,7 @@ function populate_make() {
 
 function createModelsMenu(car_models_list) {
   console.log("createModelsMenu called");
-  console.log(car_models_list);
+  // console.log(car_models_list);
   select_models = '<select name="models" id="models"> <option></option>';
   for (i = 0; i < car_models_list.length; i++) {
     select_models += `<option value="${car_models_list[i]}">${car_models_list[i]}</option>`;
@@ -58,7 +58,7 @@ function createModelsMenu(car_models_list) {
 
 function processCarModels(data) {
   console.log("called processCarMakes");
-  console.log(data);
+  // console.log(data);
   car_models_list = [];
   var car_models = data.getElementsByTagName("text");
 
@@ -73,7 +73,7 @@ function populate_model() {
   $("#model-choice").empty();
   console.log("populate model function got called");
   make = $("#makes").find(":selected").text();
-  console.log(make);
+  // console.log(make);
 
   $.ajax({
     type: "get",
@@ -103,13 +103,13 @@ function processVehicleID(data) {
   // $("#result").empty();
   // $("#result").html(`Fuel Efficiency of ${model} could not be found`);
 
-  console.log(average_mpg);
+  // console.log(average_mpg);
 
-  console.log(typeof average_mpg);
+  // console.log(typeof average_mpg);
   var mpg = parseFloat(average_mpg);
-  console.log(mpg);
+  // console.log(mpg);
   converted_L = 235.215 / mpg;
-  console.log(converted_L);
+  // console.log(converted_L);
 
   displayFuelEfficiency(converted_L);
 }
@@ -120,7 +120,7 @@ function processCarEfficiency(data) {
   // get the value of the fuel efficiency from XML data
   var i = data.getElementsByTagName("id")[0];
   let $i = $("#id");
-  console.log(i);
+  // console.log(i);
   if (i == null) {
     console.log("i is undefined");
     $("#result").empty();
@@ -142,7 +142,7 @@ function getFuelEfficiency() {
   // gets the average fuel efficiency from the US database for the chosen make and
   console.log("get fuel efficiency");
   make = $("#makes").find(":selected").text();
-  console.log(make);
+  // console.log(make);
 
   $.ajax({
     type: "get",
