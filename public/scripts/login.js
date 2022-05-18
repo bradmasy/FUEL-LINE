@@ -17,13 +17,6 @@ let isAdmin = false; // for enabling admin login
 
 
 
-
-
-
-
-
-
-
 /**
  * Turns function handlers on for admin.
  */
@@ -103,7 +96,6 @@ function attemptLogin() {
     },
     success: checkUserExists,
   });
-  
   // resetPage();
 }
 
@@ -148,8 +140,6 @@ function setup() {
     $("#profile-button").on("click", ()=>{
         window.location.href = "/profile";
     })
-
-    $(".close-button").on("click", closePopup)
     
   }
   

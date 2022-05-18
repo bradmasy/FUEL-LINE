@@ -108,7 +108,7 @@ html body footer #navigation-buttons .nav-buttons .top-bar {
   display: flex;
   width: 100%;
   height: 5%;
-  background-color: #c2c2c2;
+  background-color: #FF912C;
 }
 html body footer #navigation-buttons .nav-buttons .hover-button {
   display: flex;
@@ -493,70 +493,17 @@ html body #signup-page #signup-form #signup-form-align .input-buttons #show-me {
 html body #signup-page #signup-form #signup-form-align .input-buttons #show-me #center {
   display: flex;
   flex-direction: row;
+  justify-content: center;
 }
-html body #signup-page #signup-form #signup-form-align .input-buttons #show-me #center .container-div {
-  width: 50%;
-  height: 100%;
-  display: flex;
-}
-html body #signup-page #signup-form #signup-form-align .input-buttons #show-me #center .container-div #show-pass {
+html body #signup-page #signup-form #signup-form-align .input-buttons #show-me #center div {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 100%;
-  height: 100%;
 }
-html body #signup-page #signup-form #signup-form-align .input-buttons #show-me #center .container-div #show-pass div {
+html body #signup-page #signup-form #signup-form-align .input-buttons #show-me #center div #show {
   display: flex;
   flex-direction: row;
-  justify-content: right;
-  width: 100%;
-  height: 50%;
-}
-html body #signup-page #signup-form #signup-form-align .input-buttons #show-me #center .container-div #show-pass div div {
-  display: flex;
-  flex-direction: row;
-  justify-content: right;
-  width: 100%;
-  height: 100%;
-}
-html body #signup-page #signup-form #signup-form-align .input-buttons #show-me #center .container-div #show-pass div div #show {
-  display: flex;
-  width: 10%;
-}
-html body #signup-page #signup-form #signup-form-align .input-buttons #show-me #center .container-div #upload {
-  display: flex;
-  width: 100%;
-}
-html body #signup-page #signup-form #signup-form-align .input-buttons #show-me #center .container-div #upload div {
-  display: flex;
-  margin-left: 8%;
-  width: 100%;
-  height: 100%;
-}
-html body #signup-page #signup-form #signup-form-align .input-buttons #show-me #center .container-div #upload div div button:hover {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8), 2px 3px 8px 0 #ffb877;
-  transition: 0.3s;
-  cursor: pointer;
-}
-html body #signup-page #signup-form #signup-form-align .input-buttons #show-me #center .container-div #upload div div button {
-  border-radius: 15px 15px 15px 15px;
-  outline: none;
-  border: none;
-  background-color: #ffb877;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 2px 3px 8px 0 #ffb877;
-  -webkit-appearance: none;
-  font-family: "jost-variable";
-}
-html body #signup-page #signup-form #signup-form-align .input-buttons #show-me #center .container-div #upload div div #input-file {
-  display: none;
-}
-html body #signup-page #signup-form #signup-form-align .input-buttons #show-me #center .container-div #pass-title {
-  width: 50%;
-  display: flex;
-  flex-direction: column;
   justify-content: center;
-  text-align: center;
 }
 html body #signup-page #signup-form #signup-form-align .input-buttons #confirm {
   display: flex;
@@ -586,44 +533,6 @@ html body #signup-page #signup-form #signup-form-align .input-buttons #confirm d
   padding-right: 10%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
   color: black;
-}
-html body #signup-page .error {
-  display: none;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  border: 0.5px solid lightgray;
-  z-index: 10;
-  background-color: rgba(248, 140, 16, 0.973);
-  opacity: 90%;
-  height: 30%;
-  width: 80%;
-  border-radius: 15px 15px 15px 15px;
-}
-html body #signup-page .error .error-container .error-title {
-  padding: 10px 15px 5px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 0.5px solid lightgray;
-}
-html body #signup-page .error .error-container .error-title .title {
-  font-size: 1.25rem;
-  font-weight: bold;
-}
-html body #signup-page .error .error-container .error-title .close-button {
-  cursor: pointer;
-  border: none;
-  outline: none;
-  background-color: lightgray;
-  opacity: 0.95;
-  border-radius: 50%;
-  width: 15%;
-  font-size: 2rem;
-}
-html body #signup-page .error .error-container .error-content {
-  padding: 10px 15px;
 }
 
 html body #login-page {
@@ -813,44 +722,6 @@ html body #login-page #form #buttons #back #back-button {
   font-size: 2vh;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   border: none;
-}
-html body .error {
-  display: none;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  border: 0.5px solid lightgray;
-  z-index: 10;
-  background-color: rgba(248, 140, 16, 0.973);
-  opacity: 90%;
-  height: 30%;
-  width: 80%;
-  border-radius: 15px 15px 15px 15px;
-}
-html body .error .error-container .error-title {
-  padding: 10px 15px 5px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 0.5px solid lightgray;
-}
-html body .error .error-container .error-title .title {
-  font-size: 1.25rem;
-  font-weight: bold;
-}
-html body .error .error-container .error-title .close-button {
-  cursor: pointer;
-  border: none;
-  outline: none;
-  background-color: lightgray;
-  opacity: 0.95;
-  border-radius: 50%;
-  width: 15%;
-  font-size: 2rem;
-}
-html body .error .error-container .error-content {
-  padding: 10px 15px;
 }
 
 html {
@@ -1057,41 +928,7 @@ html body #profile-page #user-profile-x #user-profile-y #user-div #stats-button 
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.9);
   transition: 0.3s;
 }
-html .edit {
-  display: none;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  border: 0.5px solid lightgray;
-  z-index: 10;
-  background-color: rgb(248, 140, 16);
-  opacity: 90%;
-  width: 300px;
-  max-width: 60%;
-  padding: 15px;
-  border-radius: 5%;
-}
-html .edit .edit-container .edit-title {
-  padding: 10px 15px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  color: rgb(255, 255, 255);
-  border-bottom: 0.5px solid lightgray;
-}
-html .edit .edit-container .edit-title .title {
-  font-size: 1.25rem;
-  font-weight: bold;
-}
-html .edit .edit-container .edit-title .close-button {
-  cursor: pointer;
-  border: none;
-  outline: none;
-  background-color: lightgray;
-  border-radius: 40%;
-  font-size: 1.25rem;
-}
+
 html body #dashboard-page {
   display: flex;
   width: 100%;
@@ -1337,11 +1174,6 @@ html body #map-page #info #location .button-container .centre {
 html body #map-page #info #location .button-container .centre .buttons:hover {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.9);
   transition: 0.3s;
-}
-html body #map-page #info #location .button-container .centre .main-button:focus {
-  transform: scale(1.1);
-  transition: 0.1s;
-  background-color: #FF912C;
 }
 html body #map-page #info #location .button-container .centre .buttons {
   display: flex;
