@@ -283,10 +283,13 @@ app.get("/user-data", (req,res) => {
   // userModel.find({
   //   _id: req.session.user.id
   // },{})
+  console.log(req.session.user.trips);
   req.header("Content-Type","application/json")
 
   let data = {
-    username:req.session.user.username
+    username:req.session.user.username,
+    trips: req.session.user.trips
+    
   }
   res.send(JSON.stringify(data));
   
