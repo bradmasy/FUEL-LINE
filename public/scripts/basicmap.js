@@ -160,7 +160,7 @@ function setup() {
     }
     console.log($element);
   }
-  $("#calculate").click(calculate_costs);
+  $("#calculate").on("click", calculate_costs);
 
 }
 
