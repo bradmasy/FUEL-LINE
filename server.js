@@ -166,8 +166,8 @@ app.get("/admin_user_views", function (req, res) {
   res.render("admin_user_views");
 })
 
-app.get("/userinput", function (req, res) {
-  res.render("userinput");
+app.get("/user_input", function (req, res) {
+  res.render("user_input");
 })
 
 // app.get("/logout", function(req,res){
