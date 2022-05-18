@@ -1,4 +1,5 @@
 let touchXAxis = 0;
+let touchXAxisEnd = 0;
 let touchYAxis = 0;
 
 function process_user_info(data) {
@@ -32,36 +33,9 @@ function closeEdit(){
  console.log("closed");
 }
 
-// //sends new edits to user db
-// function process_edit() {
-//   let username = $("#username").val();
-//   let email = $("#email").val();
-
-//   $.ajax({
-//     url: "/attemptSignup",
-//     type: "POST",
-//     data: {
-//       username: $("#username").val(),
-//       email: $("#email").val(),
-//       password: $("#password1").val(),
-//       admin: adminIsChecked
-//     },
-//     success: window.location.href="/profile",
-//   });
-//   }
-
-// //edit user info
-// function editUserInfo() {
-// console.log("edit user called");
-// $.ajax({
-//   url: `/editUser`,
-//   type: "GET",
-//   success: process_edit,
-// });
-// }
-
-
-
+/**
+ * Sets up the page
+ */
 function setup() {
   console.log("document ready");
   getUserInfo();
@@ -95,11 +69,20 @@ function setup() {
   $(document).on("touchstart",(event) => {
     console.log("touched");
     console.log(event.changedTouches)
-    // touchXAxis = event.changedTouches
+    touchXAxisStart = event.changedTouches[0].screenX;
     
   })
-  $(document).on("touchend",() => {
+
+  $(document).on("touchend",(event) => {
     console.log("end");
+    touchXAxisEnd = event.changedTouches[0].screenX;
+
+    console.log(`start ${touchXAxisStart} end: ${touchXAxisEnd}`);
+
+    if(touchXAxisStart > touchXAxisEnd) // signifies a swipe right.
+    {
+      window.location.href = "/car-choice"
+    }
     
   })
 
