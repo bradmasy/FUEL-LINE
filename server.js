@@ -2,6 +2,7 @@
 // executed first when the serve is initiated
 const express = require("express");
 var cors = require('cors')
+var convert = require('xml-js');
 const app = express();
 const https = require("https");
 const session = require("express-session");
@@ -55,23 +56,23 @@ app.get("/statistics", (req, res) => {
   res.render("statistics");
 })
 
-// app.post("/create-trip", (req, res) => {
-//   console.log("request recieved");
+app.post("/create-trip", (req, res) => {
+  console.log("request recieved");
 
 
-//   let origin = req.body.origin;
-//   let destination = req.body.destination;
-//   let distance = req.body.distance;
+  let origin = req.body.origin;
+  let destination = req.body.destination;
+  let distance = req.body.distance;
 
-//   let trip = {
-//     "origin": origin,
-//     "destination": destination,
-//     "distance": distance
-//   }
+  let trip = {
+    "origin": origin,
+    "destination": destination,
+    "distance": distance
+  }
 
-//   console.log(`origin" ${origin}`);
-//   console.log(`destination" ${destination}`);
-//   console.log(`distance" ${distance}`);
+  console.log(`origin" ${origin}`);
+  console.log(`destination" ${destination}`);
+  console.log(`distance" ${distance}`);
 
 //   // trip object added here
 
@@ -120,7 +121,7 @@ app.get("/statistics", (req, res) => {
 
 
 
-// })
+})
 
 function checkUserExists(data) {
   if (data.length === 0) {
@@ -141,6 +142,10 @@ app.get("/index", function (req, res) {
 
 app.get("/login", function (req, res) {
   res.render("login");
+});
+
+app.get("/car-choice", function (req, res) {
+  res.render("car-choice");
 });
 
 app.get("/signup", function (req, res) {
@@ -291,7 +296,13 @@ app.get("/dashboard", function (req, res) {
   }
 });
 
-
+app.post("/convertXML", function (req, res) {
+  //converts XML to JSON
+  console.log("req. has been recieved");
+  console.log(req.body.file)
+  var result = convert.xml2json(req.body.file, {compact: true, spaces: 4});
+  res.send(result)
+});
 
 console.log("Server Running");
 app.use(express.static("./public"));
