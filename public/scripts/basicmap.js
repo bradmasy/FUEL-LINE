@@ -12,6 +12,7 @@ function createTripObjectForUser(distanceOB,tripCost) {
     origin: origin,
     destination: destination,
     distance: distance,
+    cost: tripCost
   };
 
   let options = {
@@ -138,9 +139,7 @@ function calculate_costs() {
 }
 
 function process_user_info(data){
-  console.log("called process_user_info")
   if (data.hasOwnProperty('vehicle_efficiency')){
-    console.log("vehicle data exists")
     fuel_efficiency = data.vehicle_efficiency
   }
   else {

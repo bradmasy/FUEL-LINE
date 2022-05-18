@@ -7,7 +7,6 @@ function process_user_info(data) {
   if (data.length === 0) {
     window.location.href = "/login";
   } else {
-<<<<<<< HEAD
     console.log(data)
     $("#name").html(`<p>${data.username}</p>`);
     $("#email").html(`<p>${data.email}</p>`);
@@ -18,11 +17,6 @@ function process_user_info(data) {
       $("#fuel-efficiency").html(`<p><button id='add-vehicle'>Add Vehicle!</button></p>`);
     }
     
-=======
-    console.log(data);
-    $("#name").html(`<p>${data.username}</p>`);
-    $("#email").html(`<p>${data.email}</p>`);
->>>>>>> brad_swipe_right
   }
 }
 
@@ -57,8 +51,6 @@ function setup() {
   getUserInfo();
 
   let $topBars = $(".top-bar");
-<<<<<<< HEAD
-=======
   
   for(let i = 0; i < 4; i++)
   {
@@ -70,7 +62,6 @@ function setup() {
       }
       console.log($element);
   }
->>>>>>> brad_swipe_right
 
   $("#home-button").on("click", () => {
     window.location.href = "/";
