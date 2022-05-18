@@ -471,4 +471,46 @@ html body #profile-page #user-profile-x #user-profile-y #user-div #stats-button 
 html body #profile-page #user-profile-x #user-profile-y #user-div #stats-button #stats-button:hover {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.9);
   transition: 0.3s;
+}
+html body .edit-form {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 0.5px solid lightgray;
+  z-index: 10;
+  background-color: rgba(248, 140, 16, 0.973);
+  opacity: 90%;
+  height: 30%;
+  width: 80%;
+  border-radius: 15px 15px 15px 15px;
+}
+html body .edit-form .edit-name {
+  padding: 10px 15px 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 0.5px solid lightgray;
+}
+html body .edit-form .edit-email {
+  padding: 10px 15px 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 0.5px solid lightgray;
+}
+html body .edit-form .edit-fuel {
+  padding: 10px 15px 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 0.5px solid lightgray;
+}
+html body .edit-form .edit-budget {
+  padding: 10px 15px 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 0.5px solid lightgray;
 }/*# sourceMappingURL=profile.css.map */

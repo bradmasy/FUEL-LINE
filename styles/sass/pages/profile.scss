@@ -229,5 +229,53 @@ html {
                 }
             }
         }
+
+        .edit-form{
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border: 0.5px solid lightgray;
+            z-index: 10;
+            background-color: rgba(248, 140, 16, 0.973);
+            opacity:90%;
+            height: 30%;
+            width: 80%;
+            border-radius: 15px 15px 15px 15px;
+            // max-width: 60%;
+
+                .edit-name{
+                    padding: 10px 15px 5px;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    border-bottom: 0.5px solid lightgray;
+                }
+
+                .edit-email{
+                    padding: 10px 15px 5px;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    border-bottom: 0.5px solid lightgray;
+                }
+
+                .edit-fuel{
+                    padding: 10px 15px 5px;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    border-bottom: 0.5px solid lightgray;
+                }
+
+                .edit-budget{
+                    padding: 10px 15px 5px;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    border-bottom: 0.5px solid lightgray;
+                }
+        }
     }
 }
