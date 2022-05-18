@@ -41,7 +41,6 @@ const userSchema = new mongoose.Schema({
 const userModel = mongoose.model("users", userSchema);
 
 
-
 app.get("/statistics", (req, res) => {
   res.render("statistics");
 })
@@ -123,7 +122,13 @@ app.get("/success", function (req, res) {
 });
 
 app.get("/profile", function (req, res) {
-  res.render("profile");
+  if(req.session.authenticated)
+  {
+    res.render("profile"); // only take them to the profile page if they are authenticated.
+  }
+  else {
+    res.redirect("login"); // redirect to login if they are not authenticated.
+  }
 })
 
 app.get("/admin_user_views", function (req, res) {
@@ -283,10 +288,13 @@ app.get("/user-data", (req,res) => {
   // userModel.find({
   //   _id: req.session.user.id
   // },{})
+  console.log(req.session.user.trips);
   req.header("Content-Type","application/json")
 
   let data = {
-    username:req.session.user.username
+    username:req.session.user.username,
+    trips: req.session.user.trips
+    
   }
   res.send(JSON.stringify(data));
   

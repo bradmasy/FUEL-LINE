@@ -18,3 +18,9 @@ function closePop(error){
     error.classList.remove('active')
     overlay.classList.remove('active')
 }
+
+function displayPopup()
+{
+  $(".error").fadeIn("slow");
+  console.log("here");
+}
