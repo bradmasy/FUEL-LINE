@@ -43,6 +43,13 @@
     #destination-input:focus {
       border-color: #4d90fe;
     }
+
+    a[href^="http://maps.google.com/maps"]{display:none !important} 
+    a[href^="https://maps.google.com/maps"]{display:none !important}
+
+     .gmnoprint a, .gmnoprint span, .gm-style-cc {
+        display:none;
+    } 
   </style>
 </head>
 
@@ -64,7 +71,9 @@
 
       <input id="destination-input" class="controls" type="text" placeholder="Enter a destination location" />
 
-      <button id="change-route">Next Route</button>
+      <button id="prev-route">Previous Route</button>
+      <button id="next-route">Next Route</button>
+      
     </div>
 
     <div id="map-x-axis">

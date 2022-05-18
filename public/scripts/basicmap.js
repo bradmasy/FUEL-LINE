@@ -1,6 +1,6 @@
 let map;
 let drivingDistanceGlobal;
-// var changeRouteButton    = document.getElementById("change-route");
+// var nextRouteButton    = document.getElementById("next-route");
 let whichRoute = 0;
 
 
@@ -78,9 +78,10 @@ var AutocompleteDirectionsHandler = /** @class */ (function () {
     this.directionsRenderer.setMap(map);
     var originInput         = document.getElementById("origin-input");
     var destinationInput    = document.getElementById("destination-input");
-    var changeRouteButton    = document.getElementById("change-route");
+    var nextRouteButton    = document.getElementById("next-route");
+    var prevRouteButton    = document.getElementById("prev-route");
     
-    // changeRouteButton.style.display = "none";
+    // nextRouteButton.style.display = "none";
     // Specify just the place data fields that you need.
     var originAutocomplete = new google.maps.places.Autocomplete(originInput, {
       fields: ["place_id"],
@@ -90,18 +91,20 @@ var AutocompleteDirectionsHandler = /** @class */ (function () {
       destinationInput,
       { fields: ["place_id"] }
     );
-    this.setupPlaceChangedListener(originAutocomplete, "ORIG", changeRouteButton);
-    this.setupPlaceChangedListener(destinationAutocomplete, "DEST", changeRouteButton);
+    this.setupPlaceChangedListener(originAutocomplete, "ORIG", nextRouteButton, prevRouteButton);
+    this.setupPlaceChangedListener(destinationAutocomplete, "DEST", nextRouteButton, prevRouteButton);
     this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(originInput);
     this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(destinationInput);
-    this.map.controls[google.maps.ControlPosition.BOTTOM_LEFT].push(changeRouteButton);
+    this.map.controls[google.maps.ControlPosition.BOTTOM_LEFT].push(prevRouteButton);
+    this.map.controls[google.maps.ControlPosition.BOTTOM_LEFT].push(nextRouteButton);
   }
 
 
   AutocompleteDirectionsHandler.prototype.setupPlaceChangedListener = function (
     autocomplete,
     mode,
-    changeRoute
+    nextRoute,
+    prevRoute
   ) {
     var _this = this;
     autocomplete.bindTo("bounds", this.map);
@@ -119,20 +122,36 @@ var AutocompleteDirectionsHandler = /** @class */ (function () {
       _this.route();
     });
 
-    changeRoute.addEventListener("click", function () {
+    nextRoute.addEventListener("click", function () {
       var place = autocomplete.getPlace();
       if (!place.place_id) {
         window.alert("Please select an option from the dropdown list.");
         return;
       }
-      whichRoute++
+      whichRoute = whichRoute + 0.5;
       if (mode === "ORIG") {
         _this.originPlaceId = place.place_id;
       } else {
         _this.destinationPlaceId = place.place_id;
       }
       _this.changeRoute();
-      // console.log("here");
+      console.log("adding");
+    });
+
+    prevRoute.addEventListener("click", function () {
+      var place = autocomplete.getPlace();
+      if (!place.place_id) {
+        window.alert("Please select an option from the dropdown list.");
+        return;
+      }
+      whichRoute = whichRoute - 0.5;
+      if (mode === "ORIG") {
+        _this.originPlaceId = place.place_id;
+      } else {
+        _this.destinationPlaceId = place.place_id;
+      }
+      _this.changeRoute();
+      console.log("subtracting");
     });
   };
 
@@ -151,6 +170,18 @@ var AutocompleteDirectionsHandler = /** @class */ (function () {
       function (response, status) {
         if (status === "OK") 
         {
+          
+
+          if (whichRoute > response.routes.length - 1) {
+            whichRoute = response.routes.length - 1;
+          }
+
+          if (whichRoute < 0) {
+            whichRoute = 0;
+          }
+
+          console.log("Route = " + whichRoute);
+          console.log("Total Routes = " + response.routes.length);
 
           if(me.directionsRenderer.getMap != null) {
             me.directionsRenderer.setMap(null);
@@ -162,7 +193,7 @@ var AutocompleteDirectionsHandler = /** @class */ (function () {
           // console.log(directionsData)
           var drivingDistance = directionsData.distance.text;
           drivingDistanceGlobal = drivingDistance;
-          window.alert(drivingDistanceGlobal);
+          // window.alert(drivingDistanceGlobal);
 
           //creating the trip object here...
           // console.log(response);
@@ -181,6 +212,10 @@ var AutocompleteDirectionsHandler = /** @class */ (function () {
     if (!this.originPlaceId || !this.destinationPlaceId) {
       return;
     }
+    console.log("i hate you")
+    console.log("Route Function = " + whichRoute);
+    whichRoute = 0;
+    console.log("Route Function = " + whichRoute);
     var me = this;
     this.directionsService.route(
       {
@@ -203,7 +238,7 @@ var AutocompleteDirectionsHandler = /** @class */ (function () {
           // console.log(directionsData)
           var drivingDistance = directionsData.distance.text;
           drivingDistanceGlobal = drivingDistance;
-          window.alert(drivingDistanceGlobal);
+          // window.alert(drivingDistanceGlobal);
 
           //creating the trip object here...
           // console.log(response);
