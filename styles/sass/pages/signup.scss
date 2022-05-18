@@ -5,12 +5,12 @@
 @use "../components/page-setup.scss";
 
 html {
-
+  
 
     body {
+ 
 
-
-
+     
         /*------------------------------------SIGNUP-PAGE----------------------------------------------*/
         #signup-page {
             display: flex;
@@ -20,8 +20,7 @@ html {
             height: 80%;
             width: 100%;
 
-            #signup-statement {
-                //20%
+            #signup-statement { //20%
                 display: flex;
                 flex-direction: row;
                 justify-content: center;
@@ -33,20 +32,39 @@ html {
                 // border:solid green 2px;
             }
 
-            #greet {
-                //10%
+            // #img-container { //50%
+            //     display: flex;
+            //     flex-direction: column;
+            //     height: 50%;
+            //     width: 100%;
+
+            //     #main-img {
+            //         display: flex;
+            //         flex-direction: row;
+            //         justify-content: center;
+            //         width: 100%;
+
+            //         #signup-logo {
+            //             display: flex;
+            //             flex-direction: row;
+            //             justify-content: center;
+            //             height: 100%;
+            //         }
+            //     }
+            // }
+
+            #greet { //10%
                 display: flex;
                 justify-content: center;
                 height: 5%;
-                margin-top: 5%
+                margin-top:5%
             }
 
-            #signup-form {
-                // 60%
+            #signup-form { // 60%
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
-                height: 60%;
+                height: 60%;    
                 // border:solid purple 2px;
 
                 #signup-form-align {
@@ -94,90 +112,20 @@ html {
                             #center {
                                 display: flex;
                                 flex-direction: row;
+                                justify-content: center;
 
-                                .container-div {
-                                    width: 50%;
-                                    height: 100%;
+                                div {
+
                                     display: flex;
+                                    flex-direction: column;
+                                    justify-content: center;
 
-                                    #show-pass {
+                                    #show {
                                         display: flex;
-                                        flex-direction: column;
+                                        flex-direction: row;
                                         justify-content: center;
-                                        width: 100%;
-                                        height: 100%;
-
-                                        div {
-                                            display: flex;
-                                            flex-direction: row;
-                                            justify-content: right;
-                                            width: 100%;
-                                            height: 50%;
-
-                                            div {
-                                                display: flex;
-                                                flex-direction: row;
-                                                justify-content: right;
-                                                width: 100%;
-                                                height: 100%;
-
-                                                #show {
-                                                   display: flex;
-                                                   width: 10%;
-                                                }
-                                            }
-                                        }
-                                    }
-
-                                    #upload {
-                                        display: flex;
-                                        // border: 2px purple solid;
-                                        width:100%;
-
-                                        div {
-                                            display: flex;
-                                            margin-left: 8%;
-                                            width:100%;
-                                            height: 100%;
-
-                                            div {
-
-                                                button:hover {
-                                                    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8), 2px 3px 8px 0 #ffb877;
-                                                    transition:0.3s;
-                                                    cursor: pointer;
-
-                                                }
-
-                                                button {
-                                                    border-radius: 15px 15px 15px 15px;
-                                                    outline: none;
-                                                    border: none;
-                                                    background-color: colors.$secondary-color;
-                                                    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 2px 3px 8px 0 #ffb877;
-                                                    -webkit-appearance: none;
-                                                    font-family: fonts.$main-font;
-                                                }
-
-                                                #input-file {
-                                                    display: none;
-                                                }
-
-                                            }
-                                        }
-                                    }
-                                    
-                                    #pass-title {
-                                        // border:solid green 2px;
-                                        width: 50%;
-                                        display: flex;
-                                        flex-direction: column;
-                                        justify-content: center;
-                                        text-align: center;
                                     }
                                 }
-
-                                
 
                             }
 
@@ -210,7 +158,7 @@ html {
                                     background-color: colors.$main-color;
                                     width: 90%;
                                     padding-left: 10%;
-                                    padding-right: 10%;
+                                    padding-right:10%;
                                     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4); //, 2px 3px 8px 0 #ffb877;
                                     color: black;
 
@@ -220,60 +168,8 @@ html {
                     }
                 }
             }
-
-            .error {
-                display: none;
-                position: fixed;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                border: 0.5px solid lightgray;
-                z-index: 10;
-                background-color: rgba(248, 140, 16, 0.973);
-                opacity: 90%;
-                height: 30%;
-                width: 80%;
-                border-radius: 15px 15px 15px 15px;
-                // max-width: 60%;
-
-                .error-container {
-
-                    .error-title {
-                        padding: 10px 15px 5px;
-                        display: flex;
-                        justify-content: space-between;
-                        align-items: center;
-                        border-bottom: 0.5px solid lightgray;
-
-                        .title {
-                            font-size: 1.25rem;
-                            font-weight: bold;
-
-                        }
-
-                        .close-button {
-                            cursor: pointer;
-                            border: none;
-                            outline: none;
-                            background-color: lightgray;
-                            opacity: 0.95;
-                            border-radius: 50%;
-                            width: 15%;
-                            font-size: 2rem;
-
-                        }
-                    }
-
-                    .error-content {
-                        padding: 10px 15px;
-
-                    }
-                }
-            }
-
-
         }
 
-
+     
     }
 }

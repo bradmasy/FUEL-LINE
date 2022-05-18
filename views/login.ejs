@@ -6,12 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <!--Sets the width of the page is the devices widtth-->
   <link rel="stylesheet" href="./styles/main.css" />
-  <script src="/scripts/jquery-3.6.0.min.js" defer></script>
-  <script src="/scripts/variables.js" defer></script>
-  <script src="/scripts/error_notif.js" defer></script>
-  <script src="/scripts/validations.js" defer></script>
+  <script src="/scripts/jquery-3.6.0.min.js"></script>
   <script src="/scripts/login.js" defer></script>
-  <script src="/scripts/handlers/footer-buttons.js" defer></script>
+  <script src="/scripts/login.js" defer></script>
+  <script src="/scripts/handlers/footer-buttons.js"></script>
 </head>
 
 <body>
@@ -29,6 +27,12 @@
     <div id="statement">
       Login To Your Fuel Line <br />Account
     </div>
+    <!-- 
+        <div id="img-container">
+            <div id="main-img">
+                <img id="logo" src="./images/logo/cropped-logo.png">
+            </div>
+        </div> -->
 
     <div id="greet-container">
       <div id="greet">
@@ -65,34 +69,11 @@
           <button id="back-button">Back</button>
         </div>
       </div>
+
+
     </div>
 
-    <!--POPUP-->
-    <div class="error">
-      <div class="error-container">
-
-        <div class="error-title">
-          <div class="title">
-            Error
-          </div>
-          <button data-close-button class="close-button">&times;</button>
-        </div>
-
-        <div class="error-content">
-          Incorrect Login.
-          <br><br>
-          REQUIREMENTS HERE
-          <br><br>
-          Please try again.
-        </div>
-
-      </div>
-    </div>
-    <div id="overlay"></div>
-        
   </main>
-
-
   <!--Footer-->
   <footer>
     <div id="navigation-buttons">

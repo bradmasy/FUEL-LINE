@@ -1,83 +1,38 @@
 const chartCanvas = $("#chart");
 
-let objectTrips = [];
-let tripLabels  = [];
-let dataSet     = [];
-let user;
-let totalDistance;
 
 
-function getTotalDistance()
+
+
+function drawChart()
 {
-    let totalDistance = 0;
-
-    for(let i = 0; i < objectTrips.length;i++)
-    {
-        totalDistance += objectTrips[i].distance;
-        console.log( objectTrips[i].distance);
-
-    }
-    console.log(totalDistance);
-    totalDistance = (totalDistance/1000).toFixed(2);
-    return totalDistance;
-}
-
-/**
- * Creates the labels for the graph based on the objects trip dates.
- */
-async function createLabels(){
-
-    for(let i = 0; i < objectTrips.length; i++)
-    {
-        tripLabels.push(objectTrips[i].date);
-        dataSet.push(objectTrips[i].distance);
-        
-    }
-}
-
-
-/**
- * Asynchronously gets the users data to parse.
- */
-async function getUserData()
-{
-   await fetch("/user-data").then((response) => {
-        if(response.ok){
-            return response.json();            
-        } 
-    }).then((object) => {
-        console.log(object);
-        console.log(object.trips);
-
-        user = object;
-        
-        for(let i = 0; i < object.trips.length; i++)
-        {
-            objectTrips.push(object.trips[i]);
-            // tripLabels.push(object.trips[i].date);
-        }
-        getTotalDistance();
-
-
-    }).catch((err) => {
-        console.log("error");
-    })
-}
-
-/**
- * Draws the chart.
- */
-async function drawChart()
-{
-   createLabels();
 
     let myChart = new Chart(chartCanvas, {
         type: 'line',
         data: {
-            labels: tripLabels,
+            labels: [
+            '12:00am',
+            '1:00am',
+            '2:00am',
+            '3:00am', 
+            '4:00am',
+            '5:00am',
+            '6:00am',
+            "2:00am",
+            "2:00am",
+            "2:00am",
+            "2:00am",
+            "2:00am",
+            "2:00am",
+            "2:00am",
+            "2:00am",
+            "2:00am",
+            "2:00am",
+            "2:00am",
+            "2:00am"],
             datasets: [{
-                label: "Date of Trip vs KM's Travelled",
-                data: dataSet,
+                label: '# of Votes',
+                data: [12, 19, 3, 5, 2, 3],
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
                     'rgba(54, 162, 235, 0.2)',
@@ -107,20 +62,14 @@ async function drawChart()
             }
         }
     });
+    
 }
 
 
 
 
-async function setup()
+function setup()
 {
-    
-    await getUserData();
-    $("#username").html(user.username);
-    console.log(user);
-    totalDistance = getTotalDistance;
-    $("#distance-driven").html(totalDistance);
-
     drawChart();
 }
 

@@ -15,9 +15,9 @@ function validatePassword(password) {
     
     if (password != null) {
         let length = password.length;
-        let exp1   = expressionCapital.exec(password);
-        let exp2   = expressionNumber.exec(password);
-        let exp3   = expressionLower.exec(password);
+        let exp1 = expressionCapital.exec(password);
+        let exp2 = expressionNumber.exec(password);
+        let exp3 = expressionLower.exec(password);
         console.log(exp1);
         console.log(exp2);
         console.log(exp3);
@@ -91,20 +91,6 @@ function samePassword(password, comparisonPassword)
     return valid;
 }
 
-/**
- * Popup Script
- */
-
-// function openPop(valid){
-//     if (valid == false) return
-//     error.classList.add('active')
-//     overlay.classList.add('active')
-// }
-
-// function closePop(){
-//     error.classList.remove('active')
-//     overlay.classList.remove('active')
-// }
 
 
 function passTests(username, password,emailAddress,passwordCopy) {
@@ -121,3 +107,4 @@ function passTests(username, password,emailAddress,passwordCopy) {
     return valid;
 
 }
+
