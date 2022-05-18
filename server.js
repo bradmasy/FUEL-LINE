@@ -167,7 +167,7 @@ app.get("/admin_user_views", function (req, res) {
 })
 
 app.get("/userinput", function (req, res) {
-  res.render("user_input");
+  res.render("userinput");
 })
 
 // app.get("/logout", function(req,res){
@@ -281,13 +281,23 @@ app.get("/logout", (req, res) => {
   }
 })
 
+
 app.get("/getUserInfo", function (req, res) {
   //sends the current session user info to the client
   if (req.session.user == 0) {
     res.render("index")
   }
   else {
-    res.send(req.session.user)
+    userModel.find({ username: req.session.user['username']}, function (err, users) {
+      if (err) {
+        console.log("Error " + err);
+      } else {
+        console.log("Data " + users);
+      }
+      console.log(req.session.user)
+      console.log(users)
+      res.send(users[0]);
+    });
   }
 });
 
@@ -301,17 +311,10 @@ app.get("/dashboard", function (req, res) {
   }
 });
 
-<<<<<<< HEAD
-
-
-app.get("/user-data", (req,res) => {
-  console.log("request made");
-=======
 app.post("/saveUserVehicle", function (req, res) {
   //adds user to users database
   console.log("req. has been received");
   console.log("saveUserVehicle called in server");
->>>>>>> 4e1ca4e77097fdfe2d46c2b9232243981efc44c7
 
   console.log(req.session.user._id);
   let user_id = req.session.user._id
@@ -325,12 +328,12 @@ app.post("/saveUserVehicle", function (req, res) {
     {
       vehicle_efficiency: req.body.vehicle,
       
-    }, (err, data) => {
+    }, (err, updated_user) => {
       if (err) {
         console.log(err)
       }
       else {
-        console.log(data)
+        req.session.user = updated_user
       }
     })
     res.send("success")
