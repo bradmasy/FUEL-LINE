@@ -121,8 +121,3 @@ function passTests(username, password,emailAddress,passwordCopy) {
     return valid;
 
 }
-
-// openPop(valid)
-//     $('close-button'.on("click", function(){
-//         closePop()
-//     }))

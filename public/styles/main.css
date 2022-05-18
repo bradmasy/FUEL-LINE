@@ -762,7 +762,7 @@ html body #login-page #form #buttons #back #back-button {
   border: none;
 }
 html body .error {
-  display: block;
+  display: none;
   position: fixed;
   top: 50%;
   left: 50%;
@@ -1004,7 +1004,41 @@ html body #profile-page #user-profile-x #user-profile-y #user-div #stats-button 
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.9);
   transition: 0.3s;
 }
-
+html .edit {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 0.5px solid lightgray;
+  z-index: 10;
+  background-color: rgb(248, 140, 16);
+  opacity: 90%;
+  width: 300px;
+  max-width: 60%;
+  padding: 15px;
+  border-radius: 5%;
+}
+html .edit .edit-container .edit-title {
+  padding: 10px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: rgb(255, 255, 255);
+  border-bottom: 0.5px solid lightgray;
+}
+html .edit .edit-container .edit-title .title {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+html .edit .edit-container .edit-title .close-button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background-color: lightgray;
+  border-radius: 40%;
+  font-size: 1.25rem;
+}
 html body #dashboard-page {
   display: flex;
   width: 100%;
@@ -1250,6 +1284,11 @@ html body #map-page #info #location .button-container .centre {
 html body #map-page #info #location .button-container .centre .buttons:hover {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.9);
   transition: 0.3s;
+}
+html body #map-page #info #location .button-container .centre .main-button:focus {
+  transform: scale(1.1);
+  transition: 0.1s;
+  background-color: #FF912C;
 }
 html body #map-page #info #location .button-container .centre .buttons {
   display: flex;

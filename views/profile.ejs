@@ -71,32 +71,51 @@
                     <div id="extra-div">
                         <div id="button-x-axis">
                             <div id="button-y-axis">
-                                <button class="edit-button">Edit</button>
+                                <button class="edit-button"  id="edit-button">Edit</button>
+                                <br>
                                 <button class="input-buttons" type="stats-link" id="stats-button">Statistics</button>
                             </div>
 
                         </div>
                     </div>
 
+                    
+
                     <!-- edit popup -->
-                    <div class="edit-form">
-                        <div class="edit-name">
-                            Change Name
-                            <input type="text" class="new-name"></div>
-                        </div>
-                        <div class="edit-email">
-                            Change Email
-                            <input type="text" class="new-email"></div>
-                        </div>
-                        <div class="edit-fuel">
-                            Change Fuel Efficiency
-                            <input type="text" class="new-fuel"></div>
-                        </div>
-                        <div class="edit-budget">
-                            Change your Budget
-                            <input type="text" class="new-budget"></div>
+                    <div class="edit">
+                        <div class="edit-container">
+                        
+                            <div class="edit-title">
+                                <div class="title">
+                                    Edit Profile
+                                </div>
+                                <button data-close-button class="close-button">&times;</button>
+                            </div>
+                
+                            <div class="edit-content">
+                                <div class="edit-form">
+                                    <div class="field">
+                                        Change Name
+                                        <input class="edit-name">
+                                     </div>
+                                    <div class="field">
+                                        Change Email
+                                        <input class="edit-name">
+                                    </div>
+                                    <div class="field">
+                                        Change Fuel Efficiency
+                                        <input class="edit-name">
+                                    </div>
+                                    <div class="field">
+                                        Change Budget
+                                        <input class="edit-name">
+                                    </div>
+                                </div>
+                            </div>
+                            
                         </div>
                     </div>
+                    <div id="overlay"></div>
 
                 </div>
 

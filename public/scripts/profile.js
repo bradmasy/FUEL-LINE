@@ -1,6 +1,4 @@
-const { isWindows } = require("nodemon/lib/utils");
-
-const EDIT_STATE = 0
+// const { isWindows } = require("nodemon/lib/utils");
 
 function process_user_info(data) {
     //if user is logged in, populates the profile page. if not, redirects to login page
@@ -13,42 +11,55 @@ function process_user_info(data) {
 }
 
 function getUserInfo() {
-    // gets the current logged in users info
-  console.log("called getUserInfo");
-  $.ajax({
-    url: `/getUserInfo`,
-    type: "GET",
-    success: process_user_info,
-  });
-}
-
-//sends new edits to user db
-function process_edit() {
-  let username = $("#username").val();
-  let email = $("#email").val();
-
-  $.ajax({
-    url: "/attemptSignup",
-    type: "POST",
-    data: {
-      username: $("#username").val(),
-      email: $("#email").val(),
-      password: $("#password1").val(),
-      admin: adminIsChecked
-    },
-    success: window.location.href="/profile",
-  });
-  }
-
-//edit user info
-function editUserInfo() {
-console.log("edit user called");
+  // gets the current logged in users info
+console.log("called getUserInfo");
 $.ajax({
-  url: `/editUser`,
+  url: `/getUserInfo`,
   type: "GET",
-  success: process_edit,
+  success: process_user_info,
 });
 }
+
+function displayEdit()
+{
+ $(".edit").fadeIn();
+  console.log("edit popup");
+}
+
+function closeEdit(){
+ $(".edit").fadeOut();
+ console.log("closed");
+}
+
+// //sends new edits to user db
+// function process_edit() {
+//   let username = $("#username").val();
+//   let email = $("#email").val();
+
+//   $.ajax({
+//     url: "/attemptSignup",
+//     type: "POST",
+//     data: {
+//       username: $("#username").val(),
+//       email: $("#email").val(),
+//       password: $("#password1").val(),
+//       admin: adminIsChecked
+//     },
+//     success: window.location.href="/profile",
+//   });
+//   }
+
+// //edit user info
+// function editUserInfo() {
+// console.log("edit user called");
+// $.ajax({
+//   url: `/editUser`,
+//   type: "GET",
+//   success: process_edit,
+// });
+// }
+
+
 
 function setup() {
   console.log("document ready");
@@ -72,9 +83,9 @@ function setup() {
     window.location.href = "/statistics";
   });
 
-  $(".edit-button").on("click", () => {
-    editUserInfo();
-  });
+  $(".edit-button").on("click", displayEdit);
+
+  $(".close-button").on("click", closeEdit)
 
 }
 
