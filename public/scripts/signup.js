@@ -151,6 +151,10 @@ function setup() {
   $("#confirm-button").on("click", attemptSignup);
 
   $(".close-button").on("click", closePopup)
+
+  $("#upload-image").on("click", () => {
+    $("#input-file").click(); // trigger the photo upload button
+  })
 }
 
 $(document).ready(setup);
