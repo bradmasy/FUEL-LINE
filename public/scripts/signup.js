@@ -108,19 +108,10 @@ function attemptSignup() {
   else 
   {
     console.log("FAILED");
-    displayPopup();
-
-
-
-
   }
 
 
 }
-
-
-
-
 
 function setup() {
 
@@ -138,8 +129,6 @@ function setup() {
 
   showPassword();
   $("#confirm-button").on("click", attemptSignup);
-
-  $(".close-button").on("click", closePopup)
 }
 
 $(document).ready(setup);

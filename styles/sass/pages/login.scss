@@ -251,8 +251,7 @@ html {
             
             }
         }
-        .error{
-                
+        .error {
             display: none;
             position: fixed;
             top: 50%;
@@ -261,22 +260,22 @@ html {
             border: 0.5px solid lightgray;
             z-index: 10;
             background-color: rgba(248, 140, 16, 0.973);
-            opacity:90%;
+            opacity: 90%;
             height: 30%;
             width: 80%;
             border-radius: 15px 15px 15px 15px;
             // max-width: 60%;
 
-            .error-container{
+            .error-container {
 
-                .error-title{
+                .error-title {
                     padding: 10px 15px 5px;
                     display: flex;
                     justify-content: space-between;
                     align-items: center;
                     border-bottom: 0.5px solid lightgray;
 
-                    .title{
+                    .title {
                         font-size: 1.25rem;
                         font-weight: bold;
 
@@ -295,7 +294,7 @@ html {
                     }
                 }
 
-                .error-content{
+                .error-content {
                     padding: 10px 15px;
 
                 }

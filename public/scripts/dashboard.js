@@ -29,16 +29,8 @@ async function createLabels(){
 
     for(let i = 0; i < objectTrips.length; i++)
     {
-        if(objectTrips[i].date != null)
-        {
-            tripLabels.push(objectTrips[i].date);
-        }
-
-        if(objectTrips[i].distance != null)
-        {
-            dataSet.push(objectTrips[i].distance);
-
-        }
+        tripLabels.push(objectTrips[i].date);
+        dataSet.push(objectTrips[i].distance);
         
     }
 }
@@ -79,8 +71,6 @@ async function drawChart()
 {
    createLabels();
 
-   console.log(dataSet);
-   console.log(tripLabels)
     let myChart = new Chart(chartCanvas, {
         type: 'line',
         data: {
@@ -134,7 +124,18 @@ async function setup()
     drawChart();
 }
 
+let $topBars =  $(".top-bar");
+    
+for(let i = 0; i < 4; i++)
+{
+    let $element = $($topBars[i]);
+    if(i == 0)
+    {
+        $element.css("background-color","#FF912C");
 
+    }
+    console.log($element);
+}
 
 
 

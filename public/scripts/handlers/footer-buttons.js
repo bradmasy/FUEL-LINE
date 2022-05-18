@@ -1,9 +1,3 @@
-// $signupButton.on("click", function(){
-// })
-
-// $homeButton.on("click", function(){
-//     window.location.href = "/index"
-// })
 
 
 function setup() {
@@ -28,6 +22,8 @@ function setup() {
     $('.nav-buttons').on("click", function() {
         console.log("nav clicked");
         $(this).triggerHandler("focus");
-    })}
+    })
+}
+
       
 $(document).ready(setup);
