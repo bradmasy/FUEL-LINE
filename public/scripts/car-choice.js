@@ -96,7 +96,10 @@ function processCarEfficiency(data) {
   // console.log(data)
   // get the value of the fuel efficiency from XML data
   var i = data.getElementsByTagName("comb08U")[0];
+  let $i = $("#comb08U");
+  console.log($i);
   var fuel_efficiency = i.childNodes[0];
+<<<<<<< HEAD
   fuel_efficiency = fuel_efficiency.nodeValue;
   // convert string mpg value to L/100KM
   console.log(fuel_efficiency);
@@ -107,6 +110,19 @@ function processCarEfficiency(data) {
   console.log(converted_L);
 
   displayFuelEfficiency(converted_L);
+=======
+  console.log(fuel_efficiency[0])
+  console.log(typeof fuel_efficiency)
+
+  efficiency = {
+    "efficiency":fuel_efficiency
+  }
+  fuel_efficiency = JSON.stringify(efficiency)
+  console.log(fuel_efficiency)
+  console.log(typeof fuel_efficiency)
+  var mpg = parseFloat(fuel_efficiency)
+  console.log(mpg)
+>>>>>>> db52a87d68aa5eae0df0e5066bda6ccb06daa91b
 }
 
 function getFuelEfficiency() {
