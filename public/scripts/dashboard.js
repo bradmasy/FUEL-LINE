@@ -29,8 +29,16 @@ async function createLabels(){
 
     for(let i = 0; i < objectTrips.length; i++)
     {
-        tripLabels.push(objectTrips[i].date);
-        dataSet.push(objectTrips[i].distance);
+        if(objectTrips[i].date != null)
+        {
+            tripLabels.push(objectTrips[i].date);
+        }
+
+        if(objectTrips[i].distance != null)
+        {
+            dataSet.push(objectTrips[i].distance);
+
+        }
         
     }
 }
@@ -71,6 +79,8 @@ async function drawChart()
 {
    createLabels();
 
+   console.log(dataSet);
+   console.log(tripLabels)
     let myChart = new Chart(chartCanvas, {
         type: 'line',
         data: {

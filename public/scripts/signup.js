@@ -73,16 +73,6 @@ function displayPopup()
 {
   $(".error").fadeIn();
   console.log("here");
-  // function openPop(valid){
-  //   if (valid == false) return
-  //   error.classList.add('active')
-  //   overlay.classList.add('active')
-  // }
-  
-  // openPop(valid)
-  //     $('close-button'.on("click", function(){
-  //         closePop()
-  //     }))
 }
 
 function closePopup(){
@@ -92,7 +82,6 @@ function closePopup(){
 
 
 function attemptSignup() {
-  console.log("attemptSignup" + "got called!");
   let username = $("#username").val();
   let email = $("#email").val();
   let origPassword = $("#password1").val();
