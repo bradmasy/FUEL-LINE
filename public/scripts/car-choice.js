@@ -91,19 +91,22 @@ function displayFuelEfficiency(converted_L) {
   $("#confirm-button").show();
 }
 
-function processCarEfficiency(data) {
-  console.log("ProcessCarEfficiency called");
-  // console.log(data)
-  // get the value of the fuel efficiency from XML data
-  var i = data.getElementsByTagName("comb08U")[0];
-  let $i = $("#comb08U");
+function processVehicleID(data) {
+  var i = data.getElementsByTagName("avgMpg")[0];
+  let $i = $("#avgMpg");
   console.log($i);
-  var fuel_efficiency = i.childNodes[0];
-  fuel_efficiency = fuel_efficiency.nodeValue;
-  // convert string mpg value to L/100KM
-  console.log(fuel_efficiency);
-  console.log(typeof fuel_efficiency);
-  var mpg = parseFloat(fuel_efficiency);
+
+  var average_mpg = i.childNodes[0];
+
+  average_mpg = average_mpg.nodeValue;
+
+  // $("#result").empty();
+  // $("#result").html(`Fuel Efficiency of ${model} could not be found`);
+
+  console.log(average_mpg);
+
+  console.log(typeof average_mpg);
+  var mpg = parseFloat(average_mpg);
   console.log(mpg);
   converted_L = 235.215 / mpg;
   console.log(converted_L);
@@ -111,7 +114,32 @@ function processCarEfficiency(data) {
   displayFuelEfficiency(converted_L);
 }
 
+function processCarEfficiency(data) {
+  console.log("ProcessCarEfficiency called");
+  // console.log(data)
+  // get the value of the fuel efficiency from XML data
+  var i = data.getElementsByTagName("id")[0];
+  let $i = $("#id");
+  console.log(i);
+  if (i == null) {
+    console.log("i is undefined");
+    $("#result").empty();
+    $("#result").html(`Fuel Efficiency of ${make} ${model} could not be found`);
+    return;
+  }
+  var vehicle_id = i.childNodes[0];
+  vehicle_id = vehicle_id.nodeValue;
+  // convert string mpg value to L/100KM
+
+  $.ajax({
+    type: "get",
+    url: `https://www.fueleconomy.gov/ws/rest/ympg/shared/ympgVehicle/${vehicle_id}`,
+    success: processVehicleID,
+  });
+}
+
 function getFuelEfficiency() {
+  // gets the average fuel efficiency from the US database for the chosen make and
   console.log("get fuel efficiency");
   make = $("#makes").find(":selected").text();
   console.log(make);
@@ -125,7 +153,7 @@ function getFuelEfficiency() {
 
 function alertVehicleSaved() {
   console.log("Vehicle Saved");
-  alert("Vehicle Saved")
+  alert("Vehicle Saved");
 }
 
 function saveUserVehicle() {
@@ -140,32 +168,45 @@ function saveUserVehicle() {
 }
 
 function setup() {
+  // Hides the save vehicle button:
   $("#confirm-button").hide();
-  // for (let i = 0; i < 4; i++) {
-  //   let $element = $($topBars[i]);
-  //   if (i == 0) {
-  //     $element.css("background-color", "black");
-  //   }
-  // }
+  $("#confirm-manual-button").hide();
+  // creates make drop down off default value:
   populate_make();
+  // changes the make drop down menu to correspond to that year:
   $("#year").on("change", function () {
     console.log("year changed");
     populate_make(this.value);
   });
-
+  // creates car models drop down on change to makes:
   $("#make-choice").on("change", "#makes", function () {
     console.log("makes value changed");
     populate_model(this.value);
   });
+  // gets the car efficiency once a model is selected
   $("#model-choice").on("change", "#models", function () {
     console.log("models value changed");
     console.log(this.value);
     model = this.value;
     getFuelEfficiency();
-    // populate_model(this.value);
   });
-
+  // Saves the users chosen vehicle to the user database
   $("#confirm-button").on("click", saveUserVehicle);
+  // shows the submit manual efficiency button:
+  $("#number-field").on("change", function () {
+    console.log("input populated");
+    $("#confirm-manual-button").show();
+  });
+  $("#confirm-manual-button").on("click", function () {
+    console.log("manual input button clicked");
+    converted_L = $("#number-field").val();
+    console.log(converted_L)
+    console.log(typeof converted_L)
+    converted_L = parseFloat(converted_L)
+    console.log(converted_L)
+    console.log(typeof converted_L)
+    saveUserVehicle();
+  });
 }
 
 $(document).ready(setup);
