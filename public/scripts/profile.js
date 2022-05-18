@@ -1,14 +1,15 @@
-let touchXAxis = 0;
-let touchXAxisEnd = 0;
-let touchYAxis = 0;
+// let touchXAxis = 0;
+// let touchXAxisEnd = 0;
+// let touchYAxis = 0;
 
 function process_user_info(data) {
     //if user is logged in, populates the profile page. if not, redirects to login page
   if (data.length === 0) {
     window.location.href = "/login";
   } else {
-    $("#name").html(`<p>${data[0].username}</p>`);
-    $("#email").html(`<p>${data[0].email}</p>`);
+    console.log(data);
+    $("#name").html(`<p>${data.username}</p>`);
+    $("#email").html(`<p>${data.email}</p>`);
   }
 }
 
@@ -81,9 +82,14 @@ function setup() {
 
     if(touchXAxisStart > touchXAxisEnd) // signifies a swipe right.
     {
-      window.location.href = "/car-choice"
+      window.location.href = "/car-choice";
     }
-    
+    else if(touchXAxisStart < touchXAxisEnd) // signifies a swipe right.
+    {
+      window.location.href = "/map";
+    }
+
+  
   })
 
 
