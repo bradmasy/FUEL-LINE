@@ -170,7 +170,7 @@ function setup() {
   for (let i = 0; i < 4; i++) {
     let $element = $($topBars[i]);
     if (i == 3) {
-      $element.css("background-color", "black");
+      $element.css("background-color", "#FF912C");
     }
     console.log($element);
   }

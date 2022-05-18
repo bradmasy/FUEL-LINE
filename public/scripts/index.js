@@ -31,7 +31,7 @@ function setup()
         let $element = $($topBars[i]);
         if(i == 0)
         {
-            $element.css("background-color","black");
+            $element.css("background-color","#FF912C");
 
         }
         console.log($element);
