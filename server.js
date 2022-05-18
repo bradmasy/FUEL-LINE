@@ -135,6 +135,10 @@ app.get("/admin_user_views", function (req, res) {
   res.render("admin_user_views");
 })
 
+app.get("/userinput", function (req, res) {
+  res.render("user_input");
+})
+
 // app.get("/logout", function(req,res){
 //   res.render("logout");
 // })
@@ -280,6 +284,8 @@ app.get("/dashboard", function (req, res) {
     res.send(req.session.user)
   }
 });
+
+
 
 app.get("/user-data", (req,res) => {
   console.log("request made");
