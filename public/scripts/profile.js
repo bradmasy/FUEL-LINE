@@ -1,4 +1,5 @@
-// const { isWindows } = require("nodemon/lib/utils");
+let touchXAxis = 0;
+let touchYAxis = 0;
 
 function process_user_info(data) {
     //if user is logged in, populates the profile page. if not, redirects to login page
@@ -90,6 +91,20 @@ function setup() {
   $(".edit-button").on("click", displayEdit);
 
   $(".close-button").on("click", closeEdit)
+
+  $(document).on("touchstart",(event) => {
+    console.log("touched");
+    console.log(event.changedTouches)
+    // touchXAxis = event.changedTouches
+    
+  })
+  $(document).on("touchend",() => {
+    console.log("end");
+    
+  })
+
+
+
 
 }
 
