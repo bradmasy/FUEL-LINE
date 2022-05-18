@@ -166,7 +166,11 @@ app.get("/admin_user_views", function (req, res) {
   res.render("admin_user_views");
 })
 
+<<<<<<< HEAD
 app.get("/user_input", function (req, res) {
+=======
+app.get("/userinput", function (req, res) {
+>>>>>>> Yuen_statPage
   res.render("user_input");
 })
 
@@ -311,6 +315,14 @@ app.get("/dashboard", function (req, res) {
   }
 });
 
+<<<<<<< HEAD
+=======
+
+
+app.get("/user-data", (req,res) => {
+  console.log("request made");
+}
+>>>>>>> Yuen_statPage
 app.post("/saveUserVehicle", function (req, res) {
   //adds user to users database
   console.log("req. has been received");
@@ -328,12 +340,20 @@ app.post("/saveUserVehicle", function (req, res) {
     {
       vehicle_efficiency: req.body.vehicle,
       
+<<<<<<< HEAD
     }, (err, updated_user) => {
+=======
+    }, (err, data) => {
+>>>>>>> Yuen_statPage
       if (err) {
         console.log(err)
       }
       else {
+<<<<<<< HEAD
         req.session.user = updated_user
+=======
+        console.log(data)
+>>>>>>> Yuen_statPage
       }
     })
     res.send("success")
