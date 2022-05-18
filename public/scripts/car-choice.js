@@ -88,10 +88,16 @@ function processCarEfficiency(data){
   console.log("ProcessCarEfficiency called")
   console.log(data)
   var i = data.getElementsByTagName("comb08U")[0];
+  let $i = $("#comb08U");
+  console.log($i);
   var fuel_efficiency = i.childNodes[0];
-  console.log(fuel_efficiency)
+  console.log(fuel_efficiency[0])
   console.log(typeof fuel_efficiency)
-  fuel_efficiency = JSON.stringify(fuel_efficiency)
+
+  efficiency = {
+    "efficiency":fuel_efficiency
+  }
+  fuel_efficiency = JSON.stringify(efficiency)
   console.log(fuel_efficiency)
   console.log(typeof fuel_efficiency)
   var mpg = parseFloat(fuel_efficiency)
