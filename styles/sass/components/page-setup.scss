@@ -29,6 +29,7 @@ html {
             @include mixin.flex_styles_rw();
             @include mixin.header_footer_styles();
             justify-content: right;
+            background-color: #FF912C !important;
             
             #header-logo-container {
                 -webkit-appearance: none;
@@ -48,6 +49,51 @@ html {
                 //     border:solid black 2px;
                 // }
 
+            }
+
+            #header-logo-container {
+                
+            }
+
+            .logout-contain{
+                display: none;
+                width: 50%;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                padding-right: 10%;
+                margin: auto;
+
+
+                .logout-button:active{
+                    @include mixin.button-active();
+                    transition: 1s;
+                    left: 0;
+
+                }
+
+                .logout-button:hover{
+                    @include mixin.hover-styles();
+                }
+
+                .logout-button{
+                    display: flex;
+
+                    right: -100px;
+                    transition: 1s;
+                    flex-direction: column;
+                    justify-content: center;
+                    text-align: center;
+                    @include mixin.button-styles();
+                    width:100% !important;
+                    height: 40%;
+                    color:black;
+                    background-color: #b1b1b1;
+                    margin: auto;
+                    font-size: 2.5vh;
+                    padding: 10px,20px;
+
+                }
             }
 
         }
