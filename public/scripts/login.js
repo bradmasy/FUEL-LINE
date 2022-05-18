@@ -78,6 +78,7 @@ function checkUserExists(data) {
   console.log(data);
   console.log(data[0].admin)
   if (data.length === 0) {
+    displayPopup;
     console.log("User not found!");
   } 
   if (data[0].admin == true) {
