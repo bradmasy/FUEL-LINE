@@ -123,7 +123,13 @@ app.get("/success", function (req, res) {
 });
 
 app.get("/profile", function (req, res) {
-  res.render("profile");
+  if(req.session.authenticated)
+  {
+    res.render("profile"); // only take them to the profile page if they are authenticated.
+  }
+  else {
+    res.render("login"); // redirect to login if they are not authenticated.
+  }
 })
 
 app.get("/admin_user_views", function (req, res) {

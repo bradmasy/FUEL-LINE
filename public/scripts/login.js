@@ -8,6 +8,8 @@ const $userPassword      = $("#password_log");
 const $profileButton     = $("#profile");
 const $signupButton      = $("#signup");
 const $homeButton        = $("#home-button");
+const USER               = 0;
+
 
 /**
  * Let Variables
@@ -67,24 +69,35 @@ let isAdmin = false; // for enabling admin login
 }
 
 function checkUserExists(data) {
-  console.log(data);
-  console.log(data[0].admin)
+  
   if (data.length === 0) {
-    console.log("User not found!");
+    displayPopup(); // error message displayed
+    console.log($("#username_log").val());
+
+    // clearing the old values from the inputs
+    $("#username_log").val("");
+    $("#password_log").val("");
+
   } 
-  if (data[0].admin == true) {
-    console.log("admin login")
-    window.location.href ="/admin_user_views"
-  }
   else {
-    window.location.href ="/success"
+    if (data[USER].admin == true) {
+      console.log("admin login")
+      window.location.href ="/admin_user_views"
+    }
+    else {
+      window.location.href ="/success"
+    }
   }
+  
 }
 
 function attemptLogin() {
     console.log("attemptLogin" + "got called!");
     console.log($("#username_log").val());
     console.log($("#password_log").val());
+
+
+
     $.ajax({
       url: "/attemptLogin",
     type: "POST",
@@ -95,7 +108,7 @@ function attemptLogin() {
     success: checkUserExists,
   });
   
-  // resetPage();
+
 }
 
 function setup() {
@@ -110,10 +123,10 @@ function setup() {
 
     let $topBars =  $(".top-bar");
     
-    for(let i = 0; i < 4; i++)
+    for(let i = 0; i < AMOUNT_OF_BARS; i++)
     {
         let $element = $($topBars[i]);
-        if(i == 0)
+        if(i == HOME_PAGE)
         {
             $element.css("background-color","black");
 
