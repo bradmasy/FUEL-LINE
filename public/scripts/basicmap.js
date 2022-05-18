@@ -175,13 +175,18 @@ function calculate_costs(){
 function setup() {
   $("#calculation-form").hide();
   initMap();
-  let $topBars = $(".top-bar");
   // $topBars[3].css("background-color","black");
-  for (let i = 0; i < 4; i++) {
-    let $element = $($topBars[i]);
-    if (i == 3) {
-      $element.css("background-color", "black");
-    }
+  let $topBars = $(".top-bar");
+  
+  for(let i = 0; i < 4; i++)
+  {
+      let $element = $($topBars[i]);
+      if(i == 3)
+      {
+          $element.css("background-color","#FF912C");
+
+      }
+      console.log($element);
   }
   $("#calculate").click(calculate_costs);
 
