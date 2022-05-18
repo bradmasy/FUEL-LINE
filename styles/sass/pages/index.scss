@@ -15,6 +15,33 @@ html {
 
     body {
 
+        #easter-content{
+            display: none;
+            height: 80%;
+            width: 100%;
+            flex-direction: column;
+            justify-content: center;
+
+            #position-center {
+                display: flex;
+                height: 30%;
+                width:100%;
+                // border:solid black 2px;
+
+
+                #easter-egg {
+                display: flex;
+                height: 25%;
+                // width: 100%;
+                position: absolute;    
+
+                }
+    
+
+            }
+           
+
+        }
         #content {
             display: flex;
             flex-direction: column;
@@ -46,6 +73,7 @@ html {
                     height: auto;
                     width: 25%;
                     object-fit: contain;
+                    position: none;
                 }
             }
 

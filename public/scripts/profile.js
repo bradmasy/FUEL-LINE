@@ -1,12 +1,13 @@
-let touchXAxis = 0;
-let touchXAxisEnd = 0;
-let touchYAxis = 0;
+// let touchXAxis = 0;
+// let touchXAxisEnd = 0;
+// let touchYAxis = 0;
 
 function process_user_info(data) {
     //if user is logged in, populates the profile page. if not, redirects to login page
   if (data.length === 0) {
     window.location.href = "/login";
   } else {
+<<<<<<< HEAD
     console.log(data)
     $("#name").html(`<p>${data.username}</p>`);
     $("#email").html(`<p>${data.email}</p>`);
@@ -17,6 +18,11 @@ function process_user_info(data) {
       $("#fuel-efficiency").html(`<p><button id='add-vehicle'>Add Vehicle!</button></p>`);
     }
     
+=======
+    console.log(data);
+    $("#name").html(`<p>${data.username}</p>`);
+    $("#email").html(`<p>${data.email}</p>`);
+>>>>>>> brad_swipe_right
   }
 }
 
@@ -41,6 +47,8 @@ function closeEdit(){
  console.log("closed");
 }
 
+
+
 /**
  * Sets up the page
  */
@@ -49,6 +57,20 @@ function setup() {
   getUserInfo();
 
   let $topBars = $(".top-bar");
+<<<<<<< HEAD
+=======
+  
+  for(let i = 0; i < 4; i++)
+  {
+      let $element = $($topBars[i]);
+      if(i == 2)
+      {
+          $element.css("background-color","#FF912C");
+
+      }
+      console.log($element);
+  }
+>>>>>>> brad_swipe_right
 
   $("#home-button").on("click", () => {
     window.location.href = "/";
@@ -85,9 +107,13 @@ function setup() {
 
     if(touchXAxisStart > touchXAxisEnd) // signifies a swipe right.
     {
-      window.location.href = "/car-choice"
+      window.location.href = "/car-choice";
     }
-    
+    else if(touchXAxisStart < touchXAxisEnd) // signifies a swipe right.
+    {
+      window.location.href = "/map";
+    }
+  
   })
 
 
