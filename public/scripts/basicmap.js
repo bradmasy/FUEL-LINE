@@ -72,15 +72,15 @@ var AutocompleteDirectionsHandler = /** @class */ (function () {
     this.destinationPlaceId = "";
     this.travelMode         = google.maps.TravelMode.DRIVING;
     this.directionsService  = new google.maps.DirectionsService();
-    // this.directionsRenderer = new google.maps.DirectionsRenderer();
-    // this.directionsRenderer.setMap(map);
+    this.directionsRenderer = new google.maps.DirectionsRenderer();
+    this.directionsRenderer.setMap(map);
     var originInput         = document.getElementById("origin-input");
     var destinationInput    = document.getElementById("destination-input");
-    // Specify just the place data fields that are needed.
+    // Specify just the place data fields that you need.
     var originAutocomplete = new google.maps.places.Autocomplete(originInput, {
       fields: ["place_id"],
     });
-    // Specify just the place data fields that are needed.
+    // Specify just the place data fields that you need.
     var destinationAutocomplete = new google.maps.places.Autocomplete(
       destinationInput,
       { fields: ["place_id"] }
@@ -130,23 +130,20 @@ var AutocompleteDirectionsHandler = /** @class */ (function () {
       function (response, status) {
         if (status === "OK") 
         {
-          // me.directionsRenderer.setDirections(response);
-          for (var routeNumber = 0, numberOfRoutes = response.routes.length; routeNumber < numberOfRoutes; routeNumber++) {
-            new google.maps.DirectionsRenderer({
-              map: map,
-              directions: response,
-              routeIndex: routeNumber
-            });
-          }
+
+          if(me.directionsRenderer.getMap != null) {
+            me.directionsRenderer.setMap(null);
+        }
+          me.directionsRenderer.setMap(map);
+          me.directionsRenderer.setDirections(response);
+          me.directionsRenderer.setRouteIndex(1);
           var directionsData = response.routes[0].legs[0];
           console.log(directionsData)
           var drivingDistance = directionsData.distance.text;
           drivingDistanceGlobal = drivingDistance;
-          console.log("Number of routes" + response.routes.length);
-          console.log("Driving distance" + drivingDistanceGlobal);
-          
+          window.alert(drivingDistanceGlobal);
 
-          //creating the trip object here.
+          //creating the trip object here...
           console.log(response);
           createTripObjectForUser(directionsData)
           $("#calculation-form").show();
