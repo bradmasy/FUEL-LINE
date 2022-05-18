@@ -151,6 +151,23 @@ html body footer #navigation-buttons .nav-buttons .hover-button .button-title p 
  * @name: Bradley Masciotra.
  * @version: 1.0
  */
+html body #easter-content {
+  display: none;
+  height: 80%;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+}
+html body #easter-content #position-center {
+  display: flex;
+  height: 30%;
+  width: 100%;
+}
+html body #easter-content #position-center #easter-egg {
+  display: flex;
+  height: 25%;
+  position: absolute;
+}
 html body #content {
   display: flex;
   flex-direction: column;
@@ -181,6 +198,7 @@ html body #content .row-container #main-logo {
   width: 25%;
   -o-object-fit: contain;
      object-fit: contain;
+  position: none;
 }
 html body #content #welcome-txt {
   display: flex;
@@ -1127,13 +1145,11 @@ html body #dashboard-page #user-profile-x #user-profile-y #user-div #picture-div
   height: 60%;
   width: 100%;
   overflow: hidden;
-  border: solid black 2px;
 }
 html body #dashboard-page #user-profile-x #user-profile-y #user-div #picture-div-x #chart {
   display: block;
   height: 100%;
   width: 100%;
-  border: solid green 2px;
 }
 html body #dashboard-page #user-profile-x #user-profile-y #user-div #info-div {
   display: flex;

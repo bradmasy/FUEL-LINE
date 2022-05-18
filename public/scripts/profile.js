@@ -34,6 +34,8 @@ function closeEdit(){
  console.log("closed");
 }
 
+
+
 /**
  * Sets up the page
  */
@@ -42,7 +44,6 @@ function setup() {
   getUserInfo();
 
   let $topBars = $(".top-bar");
-
   
   for(let i = 0; i < 4; i++)
   {
@@ -88,7 +89,6 @@ function setup() {
     {
       window.location.href = "/map";
     }
-
   
   })
 
