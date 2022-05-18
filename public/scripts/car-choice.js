@@ -1,7 +1,10 @@
 /**
  * car-choice for choosing car
  */
-var year = 2022
+var year = 2021
+var make = ""
+var model = ""
+
 function createMakesMenu(car_makes_list) {
   console.log("createMakesMenu called");
   console.log(car_makes_list);
@@ -31,8 +34,8 @@ createMakesMenu(car_makes_list)
 function populate_make() {
   console.log("populate make function got called");
   to_add = "";
-  var year = $("#year").val();
-  var year = $("#year").find(":selected").text();
+  year = $("#year").val();
+  year = $("#year").find(":selected").text();
   console.log(year);
 
   $.ajax({
@@ -70,7 +73,7 @@ createModelsMenu(car_models_list)
 function populate_model() {
   $("#model-choice").empty();
   console.log("populate model function got called");
-  var make = $("#makes").find(":selected").text();
+  make = $("#makes").find(":selected").text();
   console.log(make);
 
 
@@ -78,6 +81,34 @@ function populate_model() {
     type: "get",
     url: `https://www.fueleconomy.gov/ws/rest/vehicle/menu/model?year=${year}&make=${make}`,
     success: processCarModels,
+  });
+}
+
+function processCarEfficiency(data){
+  console.log("ProcessCarEfficiency called")
+  console.log(data)
+  var i = data.getElementsByTagName("comb08U")[0];
+  var fuel_efficiency = i.childNodes[0];
+  console.log(fuel_efficiency)
+  console.log(typeof fuel_efficiency)
+  fuel_efficiency = JSON.stringify(fuel_efficiency)
+  console.log(fuel_efficiency)
+  console.log(typeof fuel_efficiency)
+  var mpg = parseFloat(fuel_efficiency)
+  console.log(mpg)
+}
+
+function getFuelEfficiency() {
+
+  console.log("get fuel efficiency");
+  make = $("#makes").find(":selected").text();
+  console.log(make);
+
+
+  $.ajax({
+    type: "get",
+    url: `https://www.fueleconomy.gov/ws/rest/ympg/shared/vehicles?make=${make}&model=${model}`,
+    success: processCarEfficiency,
   });
 }
 
@@ -97,6 +128,13 @@ function setup() {
   $("#make-choice").on("change", "#makes", function () {
     console.log("makes value changed")
     populate_model(this.value);
+  });
+  $("#model-choice").on("change", "#models", function () {
+    console.log("models value changed")
+    console.log(this.value)
+    model = this.value
+    getFuelEfficiency();
+    // populate_model(this.value);
   });
   // $("#confirm-button").on("click", attemptSignup);
 }
