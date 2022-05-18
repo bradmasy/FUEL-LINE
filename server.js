@@ -128,7 +128,7 @@ app.get("/profile", function (req, res) {
     res.render("profile"); // only take them to the profile page if they are authenticated.
   }
   else {
-    res.render("login"); // redirect to login if they are not authenticated.
+    res.redirect("login"); // redirect to login if they are not authenticated.
   }
 })
 

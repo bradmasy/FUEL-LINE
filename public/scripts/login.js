@@ -8,14 +8,12 @@ const $userPassword      = $("#password_log");
 const $profileButton     = $("#profile");
 const $signupButton      = $("#signup");
 const $homeButton        = $("#home-button");
-const USER               = 0;
-
 
 /**
  * Let Variables
  */
 let passwordVisible = false; // for revealing the password.
-let isAdmin = false; // for enabling admin login
+let isAdmin         = false; // for enabling admin login
 
 /**
  * Turns function handlers on for admin.
@@ -72,7 +70,6 @@ function checkUserExists(data) {
   
   if (data.length === 0) {
     displayPopup(); // error message displayed
-    console.log($("#username_log").val());
 
     // clearing the old values from the inputs
     $("#username_log").val("");
@@ -126,6 +123,7 @@ function setup() {
     for(let i = 0; i < AMOUNT_OF_BARS; i++)
     {
         let $element = $($topBars[i]);
+
         if(i == HOME_PAGE)
         {
             $element.css("background-color","black");

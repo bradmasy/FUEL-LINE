@@ -15,9 +15,9 @@ function validatePassword(password) {
     
     if (password != null) {
         let length = password.length;
-        let exp1 = expressionCapital.exec(password);
-        let exp2 = expressionNumber.exec(password);
-        let exp3 = expressionLower.exec(password);
+        let exp1   = expressionCapital.exec(password);
+        let exp2   = expressionNumber.exec(password);
+        let exp3   = expressionLower.exec(password);
         console.log(exp1);
         console.log(exp2);
         console.log(exp3);
