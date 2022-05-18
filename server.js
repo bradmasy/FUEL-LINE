@@ -36,7 +36,8 @@ const userSchema = new mongoose.Schema({
   password: String,
   email: String,
   admin: Boolean,
-  trips: [Object]
+  trips: [Object],
+  vehicle_efficiency: Number,
 });
 
 const userModel = mongoose.model("users", userSchema);
@@ -296,12 +297,32 @@ app.get("/dashboard", function (req, res) {
   }
 });
 
-app.post("/convertXML", function (req, res) {
-  //converts XML to JSON
-  console.log("req. has been recieved");
-  console.log(req.body.file)
-  var result = convert.xml2json(req.body.file, {compact: true, spaces: 4});
-  res.send(result)
+app.post("/saveUserVehicle", function (req, res) {
+  //adds user to users database
+  console.log("req. has been received");
+  console.log("saveUserVehicle called in server");
+
+  console.log(req.session.user._id);
+  let user_id = req.session.user._id
+  // console.log(user_id)
+
+  userModel.findOneAndUpdate(
+    {
+      _id: user_id
+
+    },
+    {
+      vehicle_efficiency: req.body.vehicle,
+      
+    }, (err, data) => {
+      if (err) {
+        console.log(err)
+      }
+      else {
+        console.log(data)
+      }
+    })
+    res.send("success")
 });
 
 
