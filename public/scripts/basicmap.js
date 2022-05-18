@@ -1,11 +1,12 @@
 let map;
 let drivingDistanceGlobal;
 var fuel_efficiency = 8.9;
+let directionsObject;
 
-function createTripObjectForUser(distanceOB) {
+function createTripObjectForUser(distanceOB,tripCost) {
   let destination = distanceOB.start_address;
-  let origin = distanceOB.end_address;
-  let distance = distanceOB.distance.value;
+  let origin      = distanceOB.end_address;
+  let distance    = distanceOB.distance.value;
 
   let data = {
     origin: origin,
@@ -100,16 +101,18 @@ var AutocompleteDirectionsHandler = /** @class */ (function () {
       },
       function (response, status) {
         if (status === "OK") {
+
           me.directionsRenderer.setDirections(response);
-          var directionsData = response.routes[0].legs[0];
-          console.log(directionsData);
-          var drivingDistance = directionsData.distance.text;
+
+          var directionsData    = response.routes[0].legs[0];
+          directionsObject      = directionsData; // setting global.
+          var drivingDistance   = directionsData.distance.text;
           drivingDistanceGlobal = drivingDistance;
+
           window.alert(drivingDistanceGlobal);
 
           //creating the trip object here...
-          console.log(response);
-          createTripObjectForUser(directionsData);
+          
           $("#calculation-form").show();
         } else {
           window.alert("Directions request failed due to " + status);
@@ -124,15 +127,13 @@ window.initMap = initMap;
 
 function calculate_costs() {
   jQuery("#result").empty();
-  console.log("calculate costs got called");
-  console.log($("#distance").val());
-  var distance = parseFloat(drivingDistanceGlobal.replace(/[^0-9.]/g, ""));
-  console.log(distance);
-  console.log(fuel_efficiency)
-  var gas_price = parseFloat($("#gas-price").val());
-  var cost = (distance / fuel_efficiency) * gas_price;
+ 
+  var distance     = parseFloat(drivingDistanceGlobal.replace(/[^0-9.]/g, ""));
+  var gas_price    = parseFloat($("#gas-price").val());
+  var cost         = (distance / fuel_efficiency) * gas_price;
   var cost_rounded = cost.toFixed(2);
-  console.log(cost);
+
+  createTripObjectForUser(directionsObject,cost_rounded);
   jQuery("#result").append("Total cost of trip will be: $" + cost_rounded);
 }
 
