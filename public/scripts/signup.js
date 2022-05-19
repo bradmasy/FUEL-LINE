@@ -69,8 +69,19 @@ function checkUserExists(data) {
   }
 }
 
+function displayPopup()
+{
+  $(".error").fadeIn();
+  console.log("here");
+}
+
+function closePopup(){
+  $(".error").fadeOut();
+  console.log("closed");
+}
+
+
 function attemptSignup() {
-  console.log("attemptSignup" + "got called!");
   let username = $("#username").val();
   let email = $("#email").val();
   let origPassword = $("#password1").val();

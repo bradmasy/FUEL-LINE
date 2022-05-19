@@ -64,11 +64,13 @@ app.post("/create-trip", (req, res) => {
   let origin = req.body.origin;
   let destination = req.body.destination;
   let distance = req.body.distance;
+  let cost = req.body.cost;
 
   let trip = {
     "origin": origin,
     "destination": destination,
-    "distance": distance
+    "distance": distance,
+    "cost": cost
   }
 
   console.log(`origin" ${origin}`);
@@ -91,7 +93,8 @@ app.post("/create-trip", (req, res) => {
         trips: {
           "origin": origin,
           "destination": destination,
-          "distance": distance
+          "distance": distance,
+          "cost":cost
         }
       }
     }, (err, data) => {

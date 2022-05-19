@@ -1,9 +1,3 @@
-// $signupButton.on("click", function(){
-// })
-
-// $homeButton.on("click", function(){
-//     window.location.href = "/index"
-// })
 
 
 function setup() {
