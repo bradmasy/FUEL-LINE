@@ -56,10 +56,11 @@ html {
 
             .logout-contain{
                 display: none;
-                width: 50%;
+                width: 30%;
                 height: 100%;
                 flex-direction: column;
-                padding-right: 10%;
+                padding-right: 5%;
+                padding-top: 5%;
                 margin: auto;
                 justify-content: center;
 
@@ -81,7 +82,7 @@ html {
                     justify-content: center;
                     text-align: center;
                     @include mixin.button-styles();
-                    width:100% !important;
+                    width:90% !important;
                     height: 40%;
                     color:black;
                     background-color: #b1b1b1;

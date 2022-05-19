@@ -87,10 +87,11 @@ html body header #header-logo-container #header-logo {
 }
 html body header .logout-contain {
   display: none;
-  width: 50%;
+  width: 30%;
   height: 100%;
   flex-direction: column;
-  padding-right: 10%;
+  padding-right: 5%;
+  padding-top: 5%;
   margin: auto;
   justify-content: center;
 }
@@ -122,7 +123,7 @@ html body header .logout-contain .logout-button {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
   border: none;
   outline: none;
-  width: 100% !important;
+  width: 90% !important;
   height: 40%;
   color: black;
   background-color: #b1b1b1;

@@ -44,13 +44,11 @@ function closeEdit(){
 
 function logout_open(){
   if (LOGOUT_CALL==0){
-    $(".logout-contain").animate({width:'toggle'},1000);
+    $(".logout-contain").animate({width:'toggle'},500);
     LOGOUT_CALL=1
-  }}
-
-function logout_close(){
-  if (LOGOUT_CALL==1){
-    $(".logout-contain").animate({width:'toggle'},-1000);
+  }
+  else {
+    $(".logout-contain").animate({width:'toggle'},500);
     LOGOUT_CALL=0
   }}
 
