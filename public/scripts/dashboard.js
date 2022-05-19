@@ -1,8 +1,8 @@
 
-let chartCanvas = $("#chart");
-let objectTrips = [];
-let tripLabels = [];
-let dataSet = [];
+let chartCanvas       = $("#chart");
+let objectTrips       = [];
+let tripLabels        = [];
+let dataSet           = [];
 let defaultTimePeriod = "month";
 let user;
 let totalDistance;
@@ -22,6 +22,7 @@ function getMonth()
     let mm          = String(currentDate.getMonth() + 1).padStart(2, '0'); //January is 0!
     return mm;
 }
+
 /**
  * Gets the total distance of the users trips.
  * 
@@ -41,7 +42,7 @@ function getTotalDistance() {
     }
 
     distance = (distance / 1000).toFixed(2);
-
+    console.log("distance before: " + distance)
     return distance;
 }
 
@@ -71,6 +72,7 @@ async function createLabels(timePeriod) {
 
     for (let i = 0; i < objectTrips.length; i++) {
 
+        console.log(objectTrips[i])
 
         if (objectTrips[i].date != null && objectTrips[i].distance != null) {
 
@@ -112,8 +114,6 @@ async function createLabels(timePeriod) {
             }
         }
     }
-
-
 }
 
 /**
@@ -133,7 +133,7 @@ async function getUserData() {
         }
 
         totalDistance = getTotalDistance();
-        amountSpent = getTotalSpend();
+        amountSpent   = getTotalSpend();
 
     }).catch((err) => {
         console.log("error");
@@ -199,7 +199,6 @@ async function drawChart(timePeriod) {
 }
 
 
-
 function getTimePeriod() {
 
     let timePeriod       = $("#time-period").val()
@@ -241,7 +240,7 @@ function getTimePeriod() {
             {
                 if(objectTrips[i].date.slice(0, 2) == getMonth())
                 {
-                    distance += (objectTrips[i].distance);
+                    distance += (objectTrips[i].distance/1000);
                     console.log(objectTrips[i].distance);
 
     
@@ -263,11 +262,11 @@ function getTimePeriod() {
     {
 
     }
-
+    console.log("disance " + distance);
 
     let average = (currentAmountCAD / instances).toFixed(2);
     $("#trip-average").html(`You Spent: $${average}/Per Trip This Time Period.`)
-    $("#distance-driven").html(`Total Distance: ${(distance/1000).toFixed(2)}KM`);
+    $("#distance-driven").html(`Total Distance: ${(distance).toFixed(2)}KM`);
     $("#amount-spent").html(`Total Spend [CAD]: $${currentAmountCAD.toFixed(2)}`);
 
     myChart.destroy();
@@ -279,6 +278,12 @@ async function setup() {
     await getUserData();
     $("#username").html(`Welcome, ${user.username[0].toUpperCase() + user.username.slice(1, user.username.length)}!`);
     let average = (amountSpent / objectTrips.length).toFixed(2);
+
+    if(isNaN(average))
+    {
+        average = 0;
+    }
+
     $("#time-period").on("change", getTimePeriod);
     $("#distance-driven").html(`Total Distance: ${totalDistance}KM`);
     $("#trip-average").html(`You Spent: $${average}/Per Trip This Time Period.`)
