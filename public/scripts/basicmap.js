@@ -185,10 +185,9 @@ var AutocompleteDirectionsHandler = /** @class */ (function () {
     if (!this.originPlaceId || !this.destinationPlaceId) {
       return;
     }
-    // console.log("i hate you")
-    // console.log("Route Function = " + whichRoute);
+
     whichRoute = 0;
-    // console.log("Route Function = " + whichRoute);
+
     var me = this;
     this.directionsService.route(
       {
