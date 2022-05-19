@@ -8,6 +8,7 @@ const https = require("https");
 const session = require("express-session");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
+const e = require("express");
 
 app.use(cors())
 app.use(session({ secret: "shhhh", saveUninitialized: true, resave: true }));
@@ -162,7 +163,13 @@ app.get("/success", function (req, res) {
 });
 
 app.get("/profile", function (req, res) {
-  res.render("profile");
+  if(req.session.authenticated)
+  {
+    res.render("profile");
+  }
+  else {
+    res.redirect("login");
+  }
 })
 
 app.get("/admin_user_views", function (req, res) {
