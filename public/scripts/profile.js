@@ -46,6 +46,7 @@ function logout_open(){
   if (LOGOUT_CALL==0){
     $(".logout-contain").animate({width:'toggle'},500);
     LOGOUT_CALL=1
+
   }
   else {
     $(".logout-contain").animate({width:'toggle'},500);
@@ -70,7 +71,7 @@ function setup() {
 
   for (let i = 0; i < 4; i++) {
     let $element = $($topBars[i]);
-    if (i != 2) {
+    if (i == 2) {
       $element.css("background-color", "#FF912C");
     }
     console.log($element);
@@ -109,7 +110,7 @@ function setup() {
   })
 
   $("#header-logo").on("click", logout_open);
-  // $("#header-logo").on("click", logout_close);
+
 
 
   $("#info-div").on("click", "#add-vehicle", function () {
