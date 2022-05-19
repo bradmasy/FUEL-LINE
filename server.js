@@ -53,35 +53,36 @@ app.get("/statistics", (req, res) => {
 });
 
 app.post("/create-trip", (req, res) => {
-  let origin = req.body.origin;
+
+  let origin      = req.body.origin;
   let destination = req.body.destination;
-  let distance = req.body.distance;
-  let cost = req.body.cost;
-  let user_id = req.session.user._id;
+  let distance    = req.body.distance;
+  let user_id     = req.session.user._id;
+  let date        = req.body.date;
+  let time        = req.body.time;
+  let cost        = req.body.cost;
 
   userModel.findOneAndUpdate(
     {
-      _id: user_id,
+      _id: user_id
+
     },
     {
       $push: {
         trips: {
-          origin: origin,
-          destination: destination,
-          distance: distance,
-          cost: cost,
-        },
-      },
-    },
-    (err, data) => {
-      if (err) {
-        console.log(err);
-      } else {
-        console.log(data);
+          "origin":      origin,
+          "destination": destination,
+          "distance":    distance,
+          "date":        date,
+          "time":        time,
+          "cost":cost
+        }
       }
-    }
-  );
-});
+    }, (err, data) => {
+        console.log(data)
+      }
+  )
+})
 
 function checkUserExists(data) {
   if (data.length === 0) {
@@ -92,13 +93,27 @@ function checkUserExists(data) {
 }
 
 app.get("/", function (req, res) {
-  res.render("index");
+  if(req.session.authenticated == true)
+  {
+    res.render("dashboard");
+  }
+  else{
+    res.render("index");
+  }
 });
 
 app.get("/index", function (req, res) {
+<<<<<<< HEAD
   if (req.session.authenticated == true) {
     res.render("dashboard");
   } else {
+=======
+  if(req.session.authenticated == true)
+  {
+    res.redirect("dashboard");
+  }
+  else{
+>>>>>>> Brad_Graph
     res.render("index");
   }
 });
@@ -136,8 +151,21 @@ app.get("/userinput", function (req, res) {
 });
 
 app.get("/dashboard", function (req, res) {
+<<<<<<< HEAD
   res.render("dashboard");
 });
+=======
+  if(req.session.authenticated)
+  {
+    res.render("dashboard");
+
+  }
+  else
+  {
+    res.redirect("login");
+  }
+})
+>>>>>>> Brad_Graph
 
 app.get("/map", function (req, res) {
   res.render("map-copy-styles");

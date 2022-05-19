@@ -2,32 +2,59 @@ let map;
 let drivingDistanceGlobal;
 var fuel_efficiency = 8.9;
 let directionsObject;
-let whichRoute = 0;
+let whichRoute      = 0;
 
-function createTripObjectForUser(distanceOB,tripCost) {
-  let destination = distanceOB.start_address;
-  let origin      = distanceOB.end_address;
-  let distance    = distanceOB.distance.value;
+/**
+ * Gets a timestamp of when the directions were requested.
+ * 
+ * @returns an array containing the date of the request and the exact time in military.
+ */
+ function getTimeStamp()
+ {
+   let date        = new Date();
+   let dd          = String(date.getDate()).padStart(2, '0');
+   let mm          = String(date.getMonth() + 1).padStart(2, '0'); //January is 0!
+   let yyyy        = date.getFullYear();
+   date            = mm + '/' + dd + '/' + yyyy;
+   let today       = new Date();
+   let time        = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+   
+   return [date,time];
+ }
 
-  let data = {
-    origin: origin,
-    destination: destination,
-    distance: distance,
-    cost: tripCost
-  };
+ /**
+  * Creates a trip object based on the users programmed trip.
+  * 
+  * @param {Object} distanceOB an object representing all the data about the trip.
+  */
+ function createTripObjectForUser(distanceOB,cost_rounded)
+ {
+   console.log(distanceOB);
+   let destination = distanceOB.start_address; 
+   let origin      = distanceOB.end_address;
+   let distance    = distanceOB.distance.value;
+   let timeStamp   = getTimeStamp();
+   let cost        = cost_rounded;
 
-  let options = {
-    method: "POST",
-    body: JSON.stringify(data),
-    headers: {
-      "Content-Type": "application/json",
-    },
-  };
+   let data = {
+     "origin":origin,
+     "destination":destination,
+     "distance":distance,
+     "date": timeStamp[0],
+     "time": timeStamp[1],
+     "cost":cost
+   }
 
-  fetch("/create-trip", options);
-  console.log(destination);
-  console.log(origin);
-}
+   let options = {
+     method:"POST",
+     body:JSON.stringify(data),
+     headers: {
+       "Content-Type":"application/json"
+     }
+   }
+   fetch("/create-trip",options);
+   
+ }
 
 Object.defineProperty(exports, "__esModule", { value: true });
 function initMap() {
@@ -46,14 +73,14 @@ var AutocompleteDirectionsHandler = /** @class */ (function () {
     this.map = map;
     this.originPlaceId = "";
     this.destinationPlaceId = "";
-    this.travelMode = google.maps.TravelMode.DRIVING;
-    this.directionsService = new google.maps.DirectionsService();
+    this.travelMode         = google.maps.TravelMode.DRIVING;
+    this.directionsService  = new google.maps.DirectionsService();
     this.directionsRenderer = new google.maps.DirectionsRenderer();
     this.directionsRenderer.setMap(map);
     var originInput         = document.getElementById("origin-input");
     var destinationInput    = document.getElementById("destination-input");
-    var nextRouteButton    = document.getElementById("next-route");
-    var prevRouteButton    = document.getElementById("prev-route");
+    var nextRouteButton     = document.getElementById("next-route");
+    var prevRouteButton     = document.getElementById("prev-route");
     
     // nextRouteButton.style.display = "none";
     // Specify just the place data fields that you need.
@@ -124,9 +151,9 @@ var AutocompleteDirectionsHandler = /** @class */ (function () {
         _this.destinationPlaceId = place.place_id;
       }
       _this.changeRoute();
-      // console.log("subtracting");
     });
   };
+
 
   AutocompleteDirectionsHandler.prototype.changeRoute = function () {
     if (!this.originPlaceId || !this.destinationPlaceId) {
@@ -143,8 +170,6 @@ var AutocompleteDirectionsHandler = /** @class */ (function () {
       function (response, status) {
         if (status === "OK") 
         {
-          
-
           if (whichRoute > response.routes.length - 1) {
             whichRoute = response.routes.length - 1;
           }
@@ -153,15 +178,13 @@ var AutocompleteDirectionsHandler = /** @class */ (function () {
             whichRoute = 0;
           }
 
-          // console.log("Route = " + whichRoute);
-          // console.log("Total Routes = " + response.routes.length);
-
           if(me.directionsRenderer.getMap != null) {
             me.directionsRenderer.setMap(null);
         }
           me.directionsRenderer.setMap(map);
           me.directionsRenderer.setDirections(response);
           me.directionsRenderer.setRouteIndex(whichRoute);
+<<<<<<< HEAD
           switch (whichRoute) {
             case 0:
               me.directionsRenderer.setOptions({
@@ -206,10 +229,16 @@ var AutocompleteDirectionsHandler = /** @class */ (function () {
           var drivingDistance = directionsData.distance.text;
           drivingDistanceGlobal = drivingDistance;
           // window.alert(drivingDistanceGlobal);
+=======
+>>>>>>> Brad_Graph
 
+          var directionsData    = response.routes[0].legs[0];
+          var drivingDistance   = directionsData.distance.text;
+          drivingDistanceGlobal = drivingDistance;
+          
           //creating the trip object here...
-          // console.log(response);
-          createTripObjectForUser(directionsData)
+
+       
           $("#calculation-form").show();
           
 
@@ -252,7 +281,7 @@ var AutocompleteDirectionsHandler = /** @class */ (function () {
           // window.alert(drivingDistanceGlobal);
 
           //creating the trip object here...
-
+          directionsObject = directionsData;
           $("#calculation-form").show();
         } else {
           window.alert("Directions request failed due to " + status);
@@ -274,7 +303,7 @@ function calculate_costs() {
   var cost         = (distance / fuel_efficiency) * gas_price;
   var cost_rounded = cost.toFixed(2);
 
-  // createTripObjectForUser(directionsObject,cost_rounded);
+  createTripObjectForUser(directionsObject,cost_rounded);
   jQuery("#result").append("Total cost of trip will be: $" + cost_rounded);
 }
 
