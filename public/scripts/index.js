@@ -1,9 +1,12 @@
-const $profileButton = $("#profile");
-const $signupButton  = $("#signup");
-const $homeButton    = $("#home-button");
+const $profileButton     = $("#profile");
+const $signupButton      = $("#signup");
+const $homeButton        = $("#home-button");
+let counter              = 0;
+let limit                = 500;
+let clickCount           = 0;
+let secretAmountOfCLicks = 2;
+let positionIncrement    = 2;
 let animationHandler;
-let counter          = 0;
-let limit            = 500;
 
 
 $signupButton.on("click", function(){
@@ -22,12 +25,17 @@ $("#profile-button").on("click", ()=>{
     window.location.href = "/profile";
 })
 
+/**
+ * Increments the animation handler recursively until the base case is met.
+ * 
+ * @returns a reference to the animation handler. 
+ */
 function incrementHandler()
 {
 
     if(counter < limit)
     {
-        counter += 1
+        counter += positionIncrement;
       
         $("#easter-egg").css("left",`${counter}`);
         
@@ -36,19 +44,35 @@ function incrementHandler()
     else{
         cancelAnimationFrame(animationHandler);
         $("#easter-egg").fadeOut("fast");
+
         $("#easter-egg").promise().done(()=>{
-            // $("#main-logo").attr("src","/images/logo/dropletlogo.png");
+
             $("#easter-content").css("display","none");
             $("#main-logo").fadeIn("slow");
             $("#content").fadeIn("slow");
+
             counter = 0;
         })
     }
 
     return animationHandler;
-
 }
 
+/**
+ * Runs the animation when three clicks have been made to the image.
+ */
+function animation()
+{
+    $("#content").css("display","none");
+    $("#easter-content").css("display","flex");
+    $("#easter-egg").fadeIn("slow");
+
+    animationHandler = requestAnimationFrame( incrementHandler );
+    clickCount       = 0; // reset the counter.
+}
+/**
+ * Sets up the page.
+ */
 function setup()
 {
     let $topBars =  $(".top-bar");
@@ -61,7 +85,6 @@ function setup()
             $element.css("background-color","#FF912C");
 
         }
-        console.log($element);
     }
 
     $signupButton.on("click", function(){
@@ -78,39 +101,20 @@ function setup()
     $("#profile-button").on("click", ()=>{
         window.location.href = "/profile";
     })
-    
-    // $("#main-logo").css("position","absolute");
-    // $("#main-logo").offset().left();
 
     $("#main-logo").on("click", () => {
-        $("#main-logo").fadeOut("slow");
-        $("#content").fadeOut("slow");
-
-        $("#main-logo").promise().done(() => {
-            // $("#content").fadeOut("slow");
-
-            $("#content").css("display","none");
-
-            $("#easter-content").css("display","flex");
-            $("#easter-egg").fadeIn("slow");
-
-            // $("#main-logo").attr("src","/images/giphy (4).gif");
-            //  $("#main-logo").css("height","0%");
-            // $("main-logo").css("width","100px");
-
-            // $("#easter-content").css("position","absolute");
-            // $("#easter-content").css("left","0");
-            // $("#main-logo").fadeIn("slow");
-
-            animationHandler = requestAnimationFrame( incrementHandler )
- 
-
-        })
-       
+        if(clickCount == secretAmountOfCLicks)
+        {
+            $("#main-logo").fadeOut("slow");
+            $("#content").fadeOut("slow");
+    
+            $("#main-logo").promise().done( animation )
+        }
+        else
+        {
+            clickCount++; // increment the counter.
+        }
     })
-
-
-
 }
 
 $(document).ready(setup);

@@ -71,31 +71,40 @@ html body header #header-logo-container {
   -webkit-appearance: none;
   display: flex;
   flex-direction: row;
-  justify-content: right;
+  justify-content: center;
   width: 100%;
   height: 100%;
+  transition: transform 1s;
+}
+html body header #header-logo-container #header-logo {
+  width: 30%;
+  -o-object-fit: contain;
+     object-fit: contain;
+  -webkit-appearance: none;
+  transform: translateX(100%);
+  padding: 10px;
+  cursor: pointer;
 }
 html body header .logout-contain {
   display: none;
-  width: 50%;
+  width: 30%;
   height: 100%;
-  display: flex;
   flex-direction: column;
-  padding-right: 10%;
+  padding-right: 5%;
+  padding-top: 5%;
   margin: auto;
+  justify-content: center;
 }
 html body header .logout-contain .logout-button:active {
   border: none;
   outline: none;
-  transition: 1s;
-  left: 0;
 }
 html body header .logout-contain .logout-button:hover {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.9);
   transition: 0.3s;
 }
 html body header .logout-contain .logout-button {
-  display: flex;
+  display: none;
   right: -100px;
   transition: 1s;
   flex-direction: column;
@@ -114,7 +123,7 @@ html body header .logout-contain .logout-button {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
   border: none;
   outline: none;
-  width: 100% !important;
+  width: 90% !important;
   height: 40%;
   color: black;
   background-color: #b1b1b1;

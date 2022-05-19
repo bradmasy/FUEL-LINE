@@ -1,6 +1,7 @@
 // let touchXAxis = 0;
 // let touchXAxisEnd = 0;
 // let touchYAxis = 0;
+let LOGOUT_CALL=0
 
 function process_user_info(data) {
     //if user is logged in, populates the profile page. if not, redirects to login page
@@ -11,7 +12,7 @@ function process_user_info(data) {
     $("#name").html(`<p>${data.username}</p>`);
     $("#email").html(`<p>${data.email}</p>`);
     if (data.hasOwnProperty('vehicle_efficiency')){
-      $("#fuel-efficiency").html(`<p>${(data.vehicle_efficiency).toFixed(2)} L/100KM</p>`);
+      $("#fuel-efficiency").html(`<p>${data.vehicle_efficiency}</p>`);
     }
     else {
       $("#fuel-efficiency").html(`<p><button id='add-vehicle'>Add Vehicle!</button></p>`);
@@ -33,13 +34,23 @@ function getUserInfo() {
 function displayEdit()
 {
  $(".edit").fadeIn();
-  console.log("edit popup");
+
 }
 
 function closeEdit(){
  $(".edit").fadeOut();
- console.log("closed");
+
 }
+
+function logout_open(){
+  if (LOGOUT_CALL==0){
+    $(".logout-contain").animate({width:'toggle'},500);
+    LOGOUT_CALL=1
+  }
+  else {
+    $(".logout-contain").animate({width:'toggle'},500);
+    LOGOUT_CALL=0
+  }}
 
 
 
@@ -51,17 +62,7 @@ function setup() {
   getUserInfo();
 
   let $topBars = $(".top-bar");
-  
-  for(let i = 0; i < 4; i++)
-  {
-      let $element = $($topBars[i]);
-      if(i == 2)
-      {
-          $element.css("background-color","#FF912C");
 
-      }
-      console.log($element);
-  }
 
   $("#home-button").on("click", () => {
     window.location.href = "/";
@@ -107,7 +108,8 @@ function setup() {
   
   })
 
-
+  $("#header-logo").on("click", logout_open);
+  // $("#header-logo").on("click", logout_close);
 
 
   $("#info-div").on("click", "#add-vehicle", function () {
