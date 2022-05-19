@@ -13,19 +13,17 @@
     <script src="/scripts/dashboard.js" defer></script>
 
     <style>
+        progress {
+            border: none;
+        }
 
-    progress {
-    border: none;
-    }
-    
-    progress::-webkit-progress-value {
-    background: orange;
-    }
-    
-    progress::-webkit-progress-bar {
-    background: lightgray;
-    }
-                       
+        progress::-webkit-progress-value {
+            background: orange;
+        }
+
+        progress::-webkit-progress-bar {
+            background: lightgray;
+        }
     </style>
 </head>
 
@@ -34,12 +32,12 @@
     <header>
         <div id="space">
 
-        <div id="header-logo-container">
-            <img id="header-logo" src="./images/Untitled design (7).png">
-        </div>
-        <div class="logout-contain">
-            <button class="logout-button">Logout</button>
-        </div>
+            <div id="header-logo-container">
+                <img id="header-logo" src="./images/Untitled design (7).png">
+            </div>
+            <div class="logout-contain">
+                <button class="logout-button">Logout</button>
+            </div>
     </header>
     <!--Navigation-->
     <nav>
@@ -55,12 +53,12 @@
                         <canvas id="chart">
 
                         </canvas>
-                       
+
                     </div>
                     <div id="info-div">
                         <div class="info-title" id="name">
                             <!-- user taken from database -->
-                            <p>Welcome, User</p>
+                            <p>Welcome, <span id="username">User</span></p>
                         </div>
                         <!-- value and max taken from database  -->
                         <div class="info-items" id="barContainer">
@@ -73,8 +71,7 @@
                             <progress value="95" max="250"></p>
                         </div>
                         <div class="info-items" id="barContainer">
-                            <p class="label">Distance Driven:</p>
-                            <progress value="40" max="130"></p>
+                            <p class="label">Distance Driven:<span id="distance-driven"></span>KM</p>
                         </div>
 
                     </div>
@@ -116,7 +113,7 @@
                 <div class="top-bar">
                 </div>
                 <div class="hover-button">
-                    
+
                     <div class="button-img">
                         <img src="images/buttons/favorites-button.png">
                     </div>
@@ -139,16 +136,16 @@
                 </div>
             </div>
             <!--Map Button-->
-            <div class="nav-buttons"  id="map-button">
+            <div class="nav-buttons" id="map-button">
                 <div class="top-bar">
                 </div>
                 <div class="hover-button">
                     <div class="button-img">
                         <img src="./images/buttons/map.png" />
-                      </div>
-                      <div class="button-title">
+                    </div>
+                    <div class="button-title">
                         <p>Map</p>
-                      </div>
+                    </div>
                 </div>
             </div>
         </div>

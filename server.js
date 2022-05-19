@@ -51,34 +51,36 @@ app.get("/statistics", (req, res) => {
 })
 
 app.post("/create-trip", (req, res) => {
+  console.log("request recieved");
 
   let origin      = req.body.origin;
   let destination = req.body.destination;
   let distance    = req.body.distance;
-  let cost        = req.body.cost;
-  let user_id     = req.session.user._id
+  let user_id     = req.session.user._id;
+  let time        = req.body.time;
+  let date        = req.body.date;
 
   userModel.findOneAndUpdate(
     {
       _id: user_id
+
     },
     {
       $push: {
         trips: {
+          "origin":      origin,
           "origin": origin,
           "destination": destination,
-          "distance": distance,
-          "cost":cost
+          "distance":    distance,
+          "date":        date,
+          "time":        time,
+          "distance": distance
         }
       }
     }, (err, data) => {
-      if (err) {
-        console.log(err)
-      }
-      else {
         console.log(data)
       }
-    })
+  )
 })
 
 function checkUserExists(data) {
@@ -138,7 +140,15 @@ app.get("/userinput", function (req, res) {
 })
 
 app.get("/dashboard", function (req, res) {
-  res.render("dashboard");
+  if(req.session.authenticated)
+  {
+    res.render("dashboard");
+
+  }
+  else
+  {
+    res.redirect("login");
+  }
 })
 
 app.get("/map", function (req, res) {

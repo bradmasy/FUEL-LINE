@@ -12,16 +12,19 @@ let totalDistance;
  * 
  * @returns the total distance the user has travelled.
  */
-function getTotalDistance()
+ function getTotalDistance()
 {
     let distance = 0;
 
     for(let i = 0; i < objectTrips.length;i++)
     {
+        
         distance += objectTrips[i].distance;
+        console.log(objectTrips[i].distance)
     }
     
-    distance = (totalDistance/1000).toFixed(2);
+    distance = (distance/1000).toFixed(2);
+    
     return distance;
 }
 
@@ -32,8 +35,15 @@ async function createLabels(){
 
     for(let i = 0; i < objectTrips.length; i++)
     {
-        tripLabels.push(objectTrips[i].date);
-        dataSet.push(objectTrips[i].distance);   
+        if(objectTrips[i].date != null)
+        {
+            tripLabels.push(objectTrips[i].date);
+        }
+
+        if(objectTrips[i].distance != null)
+        {
+            dataSet.push(objectTrips[i].distance);
+        }
     }
 }
 
@@ -55,7 +65,7 @@ async function getUserData()
             objectTrips.push(object.trips[i]);
         }
 
-        totalDistance = getTotalDistance();
+        totalDistance =  getTotalDistance();
 
     }).catch((err) => {
         console.log("error");
@@ -115,8 +125,8 @@ async function setup()
     
     await getUserData();
     $("#username").html(user.username);
-    console.log(user);
-    totalDistance = getTotalDistance;
+    // totalDistance = getTotalDistance();
+    console.log(totalDistance);
     $("#distance-driven").html(totalDistance);
 
     drawChart();
