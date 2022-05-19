@@ -18,6 +18,7 @@ let whichRoute      = 0;
    date            = mm + '/' + dd + '/' + yyyy;
    let today       = new Date();
    let time        = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+   
    return [date,time];
  }
 

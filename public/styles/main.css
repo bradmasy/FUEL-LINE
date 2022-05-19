@@ -63,7 +63,7 @@ html body header {
   justify-content: right;
   width: 100%;
   height: 10%;
-  background-color: orange;
+  background-color: #FF912C;
   justify-content: right;
   background-color: #FF912C !important;
 }
@@ -1120,9 +1120,11 @@ html body #dashboard-page #user-profile-x #user-profile-y #user-div #picture-div
 html body #dashboard-page #user-profile-x #user-profile-y #user-div #info-div {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
-  height: 30%;
+  justify-content: flex-start;
+  height: 40%;
+  gap: 5%;
   width: 100%;
+  margin-top: 5%;
 }
 html body #dashboard-page #user-profile-x #user-profile-y #user-div #info-div #name {
   font-size: 2em;
@@ -1149,25 +1151,13 @@ html body #dashboard-page #user-profile-x #user-profile-y #user-div #info-div .i
   display: flex;
   flex-direction: row;
   justify-content: center;
-  height: 15%;
+  height: 10%;
 }
-html body #dashboard-page #user-profile-x #user-profile-y #user-div #info-div .info-items progress {
-  border: none;
-}
-html body #dashboard-page #user-profile-x #user-profile-y #user-div #info-div .info-items progress::-webkit-progress-value {
-  background: orange;
-}
-html body #dashboard-page #user-profile-x #user-profile-y #user-div #info-div .info-items progress::-webkit-progress-bar {
-  background: lightgray;
-}
-html body #dashboard-page #user-profile-x #user-profile-y #user-div #info-div .info-items .label {
+html body #dashboard-page #user-profile-x #user-profile-y #user-div #info-div .info-items span {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
-  font-size: 1em;
-  font-weight: bold;
-  width: 25%;
-  margin-left: 2%;
+  width: 100%;
 }
 html body #dashboard-page #user-profile-x #user-profile-y #user-div #info-div .info-items .info {
   display: flex;
@@ -1179,65 +1169,26 @@ html body #dashboard-page #user-profile-x #user-profile-y #user-div #info-div .i
 html body #dashboard-page #user-profile-x #user-profile-y #user-div #extra-div {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  height: 10%;
+  height: 35%;
   width: 100%;
 }
-html body #dashboard-page #user-profile-x #user-profile-y #user-div #extra-div #button-x-axis {
+html body #dashboard-page #user-profile-x #user-profile-y #user-div #extra-div #select-x {
   display: flex;
+  justify-content: center;
+  height: 30%;
   width: 100%;
-  height: 40%;
-  flex-direction: row;
-  justify-content: center;
-}
-html body #dashboard-page #user-profile-x #user-profile-y #user-div #extra-div #button-x-axis #button-y-axis {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 30%;
-}
-html body #dashboard-page #user-profile-x #user-profile-y #user-div #extra-div #button-x-axis #button-y-axis button:active {
-  border: none;
-  outline: none;
-}
-html body #dashboard-page #user-profile-x #user-profile-y #user-div #extra-div #button-x-axis #button-y-axis button:hover {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.9);
-  transition: 0.3s;
-}
-html body #dashboard-page #user-profile-x #user-profile-y #user-div #extra-div #button-x-axis #button-y-axis button {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  text-align: center;
-  height: 100%;
-  width: 45%;
-  font-size: 1em;
   font-family: "jost-variable";
-  outline: none;
+}
+html body #dashboard-page #user-profile-x #user-profile-y #user-div #extra-div #select-x select {
+  display: flex;
+  text-align: center;
+  width: 30%;
+  height: 100%;
   border-radius: 40px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
   border: none;
   outline: none;
-  width: 100% !important;
-  height: 90%;
-  color: black;
-  margin: auto;
-  font-size: 2vh;
-  padding: 0px;
-}
-html body #dashboard-page #user-profile-x #user-profile-y #user-div #stats-button {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  height: 15%;
-}
-html body #dashboard-page #user-profile-x #user-profile-y #user-div #stats-button #stats-button:hover {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.9);
-  transition: 0.3s;
+  font-family: "jost-variable";
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
 }
 
 html body #map-page {

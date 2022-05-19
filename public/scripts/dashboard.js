@@ -1,71 +1,137 @@
-const chartCanvas = $("#chart");
 
+let chartCanvas = $("#chart");
 let objectTrips = [];
-let tripLabels  = [];
-let dataSet     = [];
+let tripLabels = [];
+let dataSet = [];
+let defaultTimePeriod = "month";
 let user;
 let totalDistance;
+let amountSpent;
+let myChart
 
+function getDay()
+{
+    let currentDate = new Date();
+    let dd          = String(currentDate.getDate()).padStart(2, '0');
+    return dd;
+}
 
+function getMonth()
+{
+    let currentDate = new Date();
+    let mm          = String(currentDate.getMonth() + 1).padStart(2, '0'); //January is 0!
+    return mm;
+}
 /**
  * Gets the total distance of the users trips.
  * 
  * @returns the total distance the user has travelled.
  */
- function getTotalDistance()
-{
+function getTotalDistance() {
     let distance = 0;
 
-    for(let i = 0; i < objectTrips.length;i++)
-    {
-        
+    for (let i = 0; i < objectTrips.length; i++) {
+
         distance += objectTrips[i].distance;
-        console.log(objectTrips[i].distance)
     }
-    
-    distance = (distance/1000).toFixed(2);
-    
+
+    distance = (distance / 1000).toFixed(2);
+
     return distance;
+}
+
+function getTotalSpend() {
+    let amount = 0;
+
+    for (let i = 0; i < objectTrips.length; i++) {
+        if (objectTrips[i].cost != null) {
+            amount += parseFloat(objectTrips[i].cost);
+            console.log(objectTrips[i].cost);
+        }
+    }
+
+    return amount.toFixed(2);
 }
 
 /**
  * Creates the labels for the graph based on the objects trip dates as globals (to avoid asynchronous issues).
  */
-async function createLabels(){
+async function createLabels(timePeriod) {
 
-    for(let i = 0; i < objectTrips.length; i++)
-    {
-        if(objectTrips[i].date != null)
-        {
-            tripLabels.push(objectTrips[i].date);
-        }
+   
+    let currentDate = new Date();
+    let dd          = String(currentDate.getDate()).padStart(2, '0');
+    let mm          = String(currentDate.getMonth() + 1).padStart(2, '0'); //January is 0!
+    let yyyy        = currentDate.getFullYear();
 
-        if(objectTrips[i].distance != null)
-        {
-            dataSet.push(objectTrips[i].distance);
+    for (let i = 0; i < objectTrips.length; i++) {
+
+       console.log(objectTrips[i]);
+
+        if (objectTrips[i].date != null && objectTrips[i].distance != null) {
+
+            if (timePeriod == "month") {
+
+                let tripMonth = objectTrips[i].date.slice(0, 2);
+
+                if (tripMonth == mm) {
+                    tripLabels.push(objectTrips[i].date);
+                    dataSet.push((objectTrips[i].distance/1000).toFixed(1));
+                }
+            }
+            else if (timePeriod == "day") {
+
+                let tripDay = objectTrips[i].date.slice(3, 5);
+                
+                if(tripDay == dd)
+                {
+                    dataSet.push(objectTrips[i].cost);
+                    tripLabels.push((objectTrips[i].distance/1000).toFixed(1));
+                }
+            }
+            else if (timePeriod == "year") {
+
+                let tripYear = objectTrips[i].date.slice(6,10);
+                console.log(tripYear)
+                console.log("curren tyear " + yyyy);
+
+                if(tripYear == yyyy)
+                {
+                    if(yyyy > 1)
+                    {
+
+                    }
+                    else
+                    {
+                        dataSet.push(objectTrips[i].cost);
+                        tripLabels.push(objectTrips[i].date.slice(6,10));
+                    }
+                }
+            }
         }
     }
+
+
 }
 
 /**
  * Asynchronously gets the users data to parse.
  */
-async function getUserData()
-{
-   await fetch("/user-data").then((response) => {
-        if(response.ok){
-            return response.json();            
-        } 
+async function getUserData() {
+    await fetch("/user-data").then((response) => {
+        if (response.ok) {
+            return response.json();
+        }
     }).then((object) => {
-   
+
         user = object; // setting the global user.
-        
-        for(let i = 0; i < object.trips.length; i++)
-        {
+
+        for (let i = 0; i < object.trips.length; i++) {
             objectTrips.push(object.trips[i]);
         }
 
-        totalDistance =  getTotalDistance();
+        totalDistance = getTotalDistance();
+        amountSpent = getTotalSpend();
 
     }).catch((err) => {
         console.log("error");
@@ -75,16 +141,15 @@ async function getUserData()
 /**
  * Draws the chart.
  */
-async function drawChart()
-{
-   createLabels();
+async function drawChart(timePeriod) {
+    createLabels(timePeriod);
 
-    let myChart = new Chart(chartCanvas, {
+    myChart = new Chart(chartCanvas, {
         type: 'line',
         data: {
             labels: tripLabels,
             datasets: [{
-                label: "Date of Trip vs KM's Travelled",
+                label: `Trips Per ${timePeriod[0].toUpperCase() + timePeriod.slice(1,timePeriod.length)}`,
                 data: dataSet,
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
@@ -102,50 +167,132 @@ async function drawChart()
                     'rgba(153, 102, 255, 1)',
                     'rgba(255, 159, 64, 1)'
                 ],
-                borderWidth: 1
+                borderWidth: 1,
+              //  yAxisID:"y-axis"
             }]
         },
         options: {
-            responsive:true,
+            responsive: true,
             maintainAspectRatio: false,
             scales: {
                 y: {
-                    beginAtZero: true
+                    beginAtZero: true,
+                    title:{
+                        display:true,
+                        text:"Kilometers Travelled",
+                        color:"blue"
+                    }  
+                },
+                x: {
+                    beginAtZero: true,
+                    title:{
+                        display:true,
+                        text:"Date of Trip",
+                        color:"blue"
+                    }  
                 }
             }
         }
     });
 }
 
+function getTimePeriod() {
 
-
-
-async function setup()
-{
+    let timePeriod       = $("#time-period").val()
+    dataSet              = [];
+    tripLabels           = [];
+    let instances        = 0;
+    let distance         = 0;
+    let currentAmountCAD = 0 ;
     
-    await getUserData();
-    $("#username").html(user.username);
-    // totalDistance = getTotalDistance();
-    console.log(totalDistance);
-    $("#distance-driven").html(totalDistance);
+    if(timePeriod == "day")
+    {
+        for(let i = 0; i < objectTrips.length; i++)
+        {
+            if(objectTrips[i].date != null)
+            {
+                if(objectTrips[i].date.slice(3, 5) == getDay())
+                {
+                    distance += (objectTrips[i].distance/1000);
+                    console.log(distance);
+    
+                    for (let i = 0; i < objectTrips.length; i++) {
+    
+                        if (objectTrips[i].cost != null) {
+    
+                            currentAmountCAD += parseFloat(objectTrips[i].cost);
+                        }
+                    }
 
-    drawChart();
+                    instances++;
+                }
+            }
+            
+        }
+    }
+    else if(timePeriod == "month")
+    {
+        for(let i = 0; i < objectTrips.length; i++)
+        {
+            if(objectTrips[i].date != null)
+            {
+                if(objectTrips[i].date.slice(0, 2) == getMonth())
+                {
+                    distance += (objectTrips[i].distance/1000);
+    
+                    for (let i = 0; i < objectTrips.length; i++) {
+    
+                        if (objectTrips[i].cost != null) {
+    
+                            currentAmountCAD += parseFloat(objectTrips[i].cost);
+                        }
+                    }
+
+                    instances++;
+                }
+            }
+            
+        }
+    }
+    else if(timePeriod == "year")
+    {
+
+    }
+
+    let average = (currentAmountCAD / instances).toFixed(2);
+    $("#trip-average").html(`You Spent: $${average}/Per Trip This Time Period.`)
+    $("#distance-driven").html(`Total Distance: ${distance}KM`);
+    $("#amount-spent").html(`Total Spend [CAD]: $${currentAmountCAD.toFixed(2)}`);
+
+    myChart.destroy();
+    drawChart(timePeriod);
+   
+
 }
 
-let $topBars =  $(".top-bar");
-    
-for(let i = 0; i < 4; i++)
-{
+async function setup() {
+
+    await getUserData();
+    $("#username").html(`Welcome, ${user.username[0].toUpperCase() + user.username.slice(1, user.username.length)}!`);
+    let average = (amountSpent / objectTrips.length).toFixed(2);
+    $("#time-period").on("change", getTimePeriod);
+    $("#distance-driven").html(`Total Distance: ${totalDistance}KM`);
+    $("#trip-average").html(`You Spent: $${average}/Per Trip This Time Period.`)
+    $("#amount-spent").html(`Total Spend [CAD]: $${amountSpent}`);
+
+    let defaultTimePeriod = "month";
+    drawChart(defaultTimePeriod);
+}
+
+let $topBars = $(".top-bar");
+
+for (let i = 0; i < 4; i++) {
     let $element = $($topBars[i]);
-    if(i == 0)
-    {
-        $element.css("background-color","#FF912C");
+    if (i == 0) {
+        $element.css("background-color", "#FF912C");
 
     }
     console.log($element);
 }
-
-
-
 
 $(document).ready(setup);
