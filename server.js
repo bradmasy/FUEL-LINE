@@ -94,7 +94,13 @@ app.get("/", function (req, res) {
 });
 
 app.get("/index", function (req, res) {
-  res.render("index");
+  if(req.session.authenticated == true)
+  {
+    res.render("dashboard");
+  }
+  else{
+    res.render("index");
+  }
 });
 
 app.get("/login", function (req, res) {
@@ -110,7 +116,6 @@ app.get("/signup", function (req, res) {
 });
 
 app.get("/success", function (req, res) {
-  console.log("success");
   res.render("success");
 });
 
@@ -246,6 +251,25 @@ app.get("/dashboard", function (req, res) {
     res.send(req.session.user)
   }
 });
+
+app.get("/user-data", (req,res) => {
+  console.log("request made");
+
+  // console.log(req.session.user);
+  // userModel.find({
+  //   _id: req.session.user.id
+  // },{})
+  console.log(req.session.user.trips);
+  req.header("Content-Type","application/json")
+
+  let data = {
+    username:req.session.user.username,
+    trips: req.session.user.trips
+    
+  }
+  res.send(JSON.stringify(data));
+  
+})
 
 app.post("/saveUserVehicle", function (req, res) {
   //adds user to users database
