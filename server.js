@@ -52,13 +52,16 @@ app.get("/statistics", (req, res) => {
 
 app.post("/create-trip", (req, res) => {
   console.log("request recieved");
-
+  console.log(req.session.user)
+  console.log(req.body);
   let origin      = req.body.origin;
   let destination = req.body.destination;
   let distance    = req.body.distance;
   let user_id     = req.session.user._id;
-  let time        = req.body.time;
   let date        = req.body.date;
+  let time        = req.body.time;
+  let cost        = req.body.cost;
+  console.log(cost);
 
   userModel.findOneAndUpdate(
     {
@@ -69,12 +72,11 @@ app.post("/create-trip", (req, res) => {
       $push: {
         trips: {
           "origin":      origin,
-          "origin": origin,
           "destination": destination,
           "distance":    distance,
           "date":        date,
           "time":        time,
-          "distance": distance
+          "cost":cost
         }
       }
     }, (err, data) => {
@@ -92,13 +94,19 @@ function checkUserExists(data) {
 }
 
 app.get("/", function (req, res) {
-  res.render("index");
+  if(req.session.authenticated == true)
+  {
+    res.render("dashboard");
+  }
+  else{
+    res.render("index");
+  }
 });
 
 app.get("/index", function (req, res) {
   if(req.session.authenticated == true)
   {
-    res.render("dashboard");
+    res.redirect("dashboard");
   }
   else{
     res.render("index");

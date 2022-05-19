@@ -26,20 +26,22 @@ let whichRoute      = 0;
   * 
   * @param {Object} distanceOB an object representing all the data about the trip.
   */
- function createTripObjectForUser(distanceOB)
+ function createTripObjectForUser(distanceOB,cost_rounded)
  {
    console.log(distanceOB);
    let destination = distanceOB.start_address; 
    let origin      = distanceOB.end_address;
    let distance    = distanceOB.distance.value;
    let timeStamp   = getTimeStamp();
+   let cost        = cost_rounded;
 
    let data = {
      "origin":origin,
      "destination":destination,
      "distance":distance,
      "date": timeStamp[0],
-     "time": timeStamp[1]
+     "time": timeStamp[1],
+     "cost":cost
    }
 
    let options = {
@@ -148,9 +150,9 @@ var AutocompleteDirectionsHandler = /** @class */ (function () {
         _this.destinationPlaceId = place.place_id;
       }
       _this.changeRoute();
-      // console.log("subtracting");
     });
   };
+
 
   AutocompleteDirectionsHandler.prototype.changeRoute = function () {
     if (!this.originPlaceId || !this.destinationPlaceId) {
@@ -167,8 +169,6 @@ var AutocompleteDirectionsHandler = /** @class */ (function () {
       function (response, status) {
         if (status === "OK") 
         {
-          
-
           if (whichRoute > response.routes.length - 1) {
             whichRoute = response.routes.length - 1;
           }
@@ -177,24 +177,20 @@ var AutocompleteDirectionsHandler = /** @class */ (function () {
             whichRoute = 0;
           }
 
-          // console.log("Route = " + whichRoute);
-          // console.log("Total Routes = " + response.routes.length);
-
           if(me.directionsRenderer.getMap != null) {
             me.directionsRenderer.setMap(null);
         }
           me.directionsRenderer.setMap(map);
           me.directionsRenderer.setDirections(response);
           me.directionsRenderer.setRouteIndex(whichRoute);
-          var directionsData = response.routes[whichRoute].legs[0];
-          // console.log(directionsData)
-          var drivingDistance = directionsData.distance.text;
+
+          var directionsData    = response.routes[0].legs[0];
+          var drivingDistance   = directionsData.distance.text;
           drivingDistanceGlobal = drivingDistance;
-          // window.alert(drivingDistanceGlobal);
           
           //creating the trip object here...
-          // console.log(response);
-          createTripObjectForUser(directionsData)
+
+       
           $("#calculation-form").show();
           
 
@@ -237,7 +233,7 @@ var AutocompleteDirectionsHandler = /** @class */ (function () {
           // window.alert(drivingDistanceGlobal);
 
           //creating the trip object here...
-
+          directionsObject = directionsData;
           $("#calculation-form").show();
         } else {
           window.alert("Directions request failed due to " + status);
@@ -259,7 +255,7 @@ function calculate_costs() {
   var cost         = (distance / fuel_efficiency) * gas_price;
   var cost_rounded = cost.toFixed(2);
 
-  // createTripObjectForUser(directionsObject,cost_rounded);
+  createTripObjectForUser(directionsObject,cost_rounded);
   jQuery("#result").append("Total cost of trip will be: $" + cost_rounded);
 }
 
