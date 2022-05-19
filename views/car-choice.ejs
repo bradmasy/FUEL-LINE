@@ -39,10 +39,12 @@
     <nav></nav>
 
     <!--Main-->
-    <main id="content">
+    <main id="car-choice">
       <label for="cars">Enter your car information:</label>
-      <div id="year-choice">
+      <div id="year-choice">1. Year of release:
+
         <select name="year" id="year">
+          <option value=""></option>
           <option value="2021">2021</option>
           <option value="2020">2020</option>
           <option value="2019">2019</option>
@@ -67,15 +69,20 @@
           <option value="2000">2000</option>
         </select>
       </div>
-      <div id="make-choice"></div>
-      <div id="model-choice"></div>
+      <span>2. Make of Vehicle:
+      <span id="make-choice"></span>
+    </span>
+    <span>
+      3. Model of Vehicle:
+      <span id="model-choice"></span>
+    </span>
       <br /><br />
       <div id="result" ></div>
       <div id="save-selection">
-      <input type="submit" value="Save Vehicle" id="confirm-button">
+      <input type="submit" value="Save Vehicle" id="confirm-button" class="button">
     </div>
     <div id="manual-input"> Or, enter fuel efficiency manually(L/100KM): <input type="text" id="number-field"></input></div>
-    <input type="submit" value="Save Efficiency" id="confirm-manual-button">
+    <div><input type="submit" value="Save Efficiency" id="confirm-manual-button" class="button"></div>
     </main>
 
     <!--Footer-->
