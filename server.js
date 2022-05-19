@@ -59,35 +59,16 @@ app.get("/statistics", (req, res) => {
 })
 
 app.post("/create-trip", (req, res) => {
-  console.log("request recieved");
 
-
-  let origin = req.body.origin;
+  let origin      = req.body.origin;
   let destination = req.body.destination;
-  let distance = req.body.distance;
-  let cost = req.body.cost;
-
-  let trip = {
-    "origin": origin,
-    "destination": destination,
-    "distance": distance,
-    "cost": cost
-  }
-
-  console.log(`origin" ${origin}`);
-  console.log(`destination" ${destination}`);
-  console.log(`distance" ${distance}`);
-
-//   // trip object added here
-
-  console.log(req.session.user._id);
-  let user_id = req.session.user._id
-  // console.log(user_id)
+  let distance    = req.body.distance;
+  let cost        = req.body.cost;
+  let user_id     = req.session.user._id
 
   userModel.findOneAndUpdate(
     {
       _id: user_id
-
     },
     {
       $push: {
@@ -106,26 +87,6 @@ app.post("/create-trip", (req, res) => {
         console.log(data)
       }
     })
-
-  // userModel.updateOne({
-  //   _id: user_id
-  // }, {
-  //   $push: {
-  //     trips: {
-  //       "origin": origin,
-  //       "destination": destination,
-  //       "distance": distance
-  //     }
-  //   }
-  //   // "trip": trip
-  // }
-
-  // )
-
-
-
-
-
 })
 
 function checkUserExists(data) {
@@ -168,7 +129,7 @@ app.get("/profile", function (req, res) {
     res.render("profile");
   }
   else {
-    res.redirect("login");
+    res.redirect("login"); // redirect if not already logged in.
   }
 })
 
