@@ -1,13 +1,13 @@
 // let touchXAxis = 0;
 // let touchXAxisEnd = 0;
 // let touchYAxis = 0;
+let LOGOUT_CALL=0
 
 function process_user_info(data) {
     //if user is logged in, populates the profile page. if not, redirects to login page
   if (data.length === 0) {
     window.location.href = "/login";
   } else {
-<<<<<<< HEAD
     console.log(data)
     $("#name").html(`<p>${data.username}</p>`);
     $("#email").html(`<p>${data.email}</p>`);
@@ -18,11 +18,6 @@ function process_user_info(data) {
       $("#fuel-efficiency").html(`<p><button id='add-vehicle'>Add Vehicle!</button></p>`);
     }
     
-=======
-    console.log(data);
-    $("#name").html(`<p>${data.username}</p>`);
-    $("#email").html(`<p>${data.email}</p>`);
->>>>>>> brad_swipe_right
   }
 }
 
@@ -39,13 +34,25 @@ function getUserInfo() {
 function displayEdit()
 {
  $(".edit").fadeIn();
-  console.log("edit popup");
+
 }
 
 function closeEdit(){
  $(".edit").fadeOut();
- console.log("closed");
+
 }
+
+function logout_open(){
+  if (LOGOUT_CALL==0){
+    $(".logout-contain").animate({width:'toggle'},1000);
+    LOGOUT_CALL=1
+  }}
+
+function logout_close(){
+  if (LOGOUT_CALL==1){
+    $(".logout-contain").animate({width:'toggle'},-1000);
+    LOGOUT_CALL=0
+  }}
 
 
 
@@ -57,20 +64,7 @@ function setup() {
   getUserInfo();
 
   let $topBars = $(".top-bar");
-<<<<<<< HEAD
-=======
-  
-  for(let i = 0; i < 4; i++)
-  {
-      let $element = $($topBars[i]);
-      if(i == 2)
-      {
-          $element.css("background-color","#FF912C");
 
-      }
-      console.log($element);
-  }
->>>>>>> brad_swipe_right
 
   $("#home-button").on("click", () => {
     window.location.href = "/";
@@ -116,7 +110,8 @@ function setup() {
   
   })
 
-
+  $("#header-logo").on("click", logout_open);
+  // $("#header-logo").on("click", logout_close);
 
 
   $("#info-div").on("click", "#add-vehicle", function () {
