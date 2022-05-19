@@ -4,7 +4,9 @@ const $homeButton    = $("#home-button");
 let animationHandler;
 let counter          = 0;
 let limit            = 500;
-
+let clickCount           = 0;
+let secretAmountOfCLicks = 3;
+let positionIncrement = 2;
 
 $signupButton.on("click", function(){
 })
@@ -27,7 +29,7 @@ function incrementHandler()
 
     if(counter < limit)
     {
-        counter += 1
+        counter += positionIncrement;
       
         $("#easter-egg").css("left",`${counter}`);
         
@@ -36,17 +38,18 @@ function incrementHandler()
     else{
         cancelAnimationFrame(animationHandler);
         $("#easter-egg").fadeOut("fast");
+
         $("#easter-egg").promise().done(()=>{
-            // $("#main-logo").attr("src","/images/logo/dropletlogo.png");
+
             $("#easter-content").css("display","none");
             $("#main-logo").fadeIn("slow");
             $("#content").fadeIn("slow");
+
             counter = 0;
         })
     }
 
     return animationHandler;
-
 }
 
 function setup()
@@ -78,39 +81,28 @@ function setup()
     $("#profile-button").on("click", ()=>{
         window.location.href = "/profile";
     })
-    
-    // $("#main-logo").css("position","absolute");
-    // $("#main-logo").offset().left();
 
     $("#main-logo").on("click", () => {
-        $("#main-logo").fadeOut("slow");
-        $("#content").fadeOut("slow");
-
-        $("#main-logo").promise().done(() => {
-            // $("#content").fadeOut("slow");
-
-            $("#content").css("display","none");
-
-            $("#easter-content").css("display","flex");
-            $("#easter-egg").fadeIn("slow");
-
-            // $("#main-logo").attr("src","/images/giphy (4).gif");
-            //  $("#main-logo").css("height","0%");
-            // $("main-logo").css("width","100px");
-
-            // $("#easter-content").css("position","absolute");
-            // $("#easter-content").css("left","0");
-            // $("#main-logo").fadeIn("slow");
-
-            animationHandler = requestAnimationFrame( incrementHandler )
- 
-
-        })
-       
+        if(clickCount == secretAmountOfCLicks)
+        {
+            $("#main-logo").fadeOut("slow");
+            $("#content").fadeOut("slow");
+    
+            $("#main-logo").promise().done(() => {
+                
+                $("#content").css("display","none");
+                $("#easter-content").css("display","flex");
+                $("#easter-egg").fadeIn("slow");
+    
+                animationHandler = requestAnimationFrame( incrementHandler );
+                clickCount = 0; // reset the counter.
+            })
+        }
+        else
+        {
+            clickCount++; // increment the counter.
+        }
     })
-
-
-
 }
 
 $(document).ready(setup);

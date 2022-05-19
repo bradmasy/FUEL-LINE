@@ -1,12 +1,12 @@
 // homepage
 // executed first when the serve is initiated
-const express = require("express");
-var cors = require('cors')
-var convert = require('xml-js');
-const app = express();
-const https = require("https");
-const session = require("express-session");
-const mongoose = require("mongoose");
+const express    = require("express");
+var cors         = require('cors')
+var convert      = require('xml-js');
+const app        = express();
+const https      = require("https");
+const session    = require("express-session");
+const mongoose   = require("mongoose");
 const bodyParser = require("body-parser");
 
 app.use(cors())
@@ -31,6 +31,9 @@ mongoose.connect(
   }
 );
 
+/**
+ * Schema for user.
+ */
 const userSchema = new mongoose.Schema({
   username: String,
   password: String,
@@ -42,51 +45,21 @@ const userSchema = new mongoose.Schema({
 
 const userModel = mongoose.model("users", userSchema);
 
-/**
- * Schema for the trip data.
- */
-const userTripSchema = new mongoose.Schema({
-  origin: String,
-  destination: String,
-  distance: Number
-})
-
-const tripModel = mongoose.model("", userTripSchema)
-
 app.get("/statistics", (req, res) => {
   res.render("statistics");
 })
 
 app.post("/create-trip", (req, res) => {
-  console.log("request recieved");
 
-
-  let origin = req.body.origin;
+  let origin      = req.body.origin;
   let destination = req.body.destination;
-  let distance = req.body.distance;
-  let cost = req.body.cost;
-
-  let trip = {
-    "origin": origin,
-    "destination": destination,
-    "distance": distance,
-    "cost": cost
-  }
-
-  console.log(`origin" ${origin}`);
-  console.log(`destination" ${destination}`);
-  console.log(`distance" ${distance}`);
-
-//   // trip object added here
-
-  console.log(req.session.user._id);
-  let user_id = req.session.user._id
-  // console.log(user_id)
+  let distance    = req.body.distance;
+  let cost        = req.body.cost;
+  let user_id     = req.session.user._id
 
   userModel.findOneAndUpdate(
     {
       _id: user_id
-
     },
     {
       $push: {
@@ -105,26 +78,6 @@ app.post("/create-trip", (req, res) => {
         console.log(data)
       }
     })
-
-  // userModel.updateOne({
-  //   _id: user_id
-  // }, {
-  //   $push: {
-  //     trips: {
-  //       "origin": origin,
-  //       "destination": destination,
-  //       "distance": distance
-  //     }
-  //   }
-  //   // "trip": trip
-  // }
-
-  // )
-
-
-
-
-
 })
 
 function checkUserExists(data) {
@@ -132,7 +85,6 @@ function checkUserExists(data) {
     console.log("User not found!");
   } else {
     return true;
-    //proceedToHome();
   }
 }
 
@@ -172,10 +124,6 @@ app.get("/admin_user_views", function (req, res) {
 app.get("/userinput", function (req, res) {
   res.render("user_input");
 })
-
-// app.get("/logout", function(req,res){
-//   res.render("logout");
-// })
 
 app.get("/dashboard", function (req, res) {
   res.render("dashboard");

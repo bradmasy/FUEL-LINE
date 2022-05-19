@@ -163,10 +163,11 @@ function getUserInfo() {
 
 function setup() {
   getUserInfo();
-  $("#calculation-form").hide();
   initMap();
+  $("#calculation-form").hide();
+
   let $topBars = $(".top-bar");
-  // $topBars[3].css("background-color","black");
+
   for (let i = 0; i < 4; i++) {
     let $element = $($topBars[i]);
     if (i == 3) {
