@@ -135,7 +135,7 @@ var AutocompleteDirectionsHandler = /** @class */ (function () {
         _this.destinationPlaceId = place.place_id;
       }
       _this.changeRoute();
-      console.log("adding");
+      // console.log("adding");
     });
 
     prevRoute.addEventListener("click", function () {
@@ -151,7 +151,7 @@ var AutocompleteDirectionsHandler = /** @class */ (function () {
         _this.destinationPlaceId = place.place_id;
       }
       _this.changeRoute();
-      console.log("subtracting");
+      // console.log("subtracting");
     });
   };
 
@@ -180,8 +180,8 @@ var AutocompleteDirectionsHandler = /** @class */ (function () {
             whichRoute = 0;
           }
 
-          console.log("Route = " + whichRoute);
-          console.log("Total Routes = " + response.routes.length);
+          // console.log("Route = " + whichRoute);
+          // console.log("Total Routes = " + response.routes.length);
 
           if(me.directionsRenderer.getMap != null) {
             me.directionsRenderer.setMap(null);
@@ -212,10 +212,10 @@ var AutocompleteDirectionsHandler = /** @class */ (function () {
     if (!this.originPlaceId || !this.destinationPlaceId) {
       return;
     }
-    console.log("i hate you")
-    console.log("Route Function = " + whichRoute);
+    // console.log("i hate you")
+    // console.log("Route Function = " + whichRoute);
     whichRoute = 0;
-    console.log("Route Function = " + whichRoute);
+    // console.log("Route Function = " + whichRoute);
     var me = this;
     this.directionsService.route(
       {
