@@ -1,12 +1,13 @@
-const $profileButton = $("#profile");
-const $signupButton  = $("#signup");
-const $homeButton    = $("#home-button");
-let animationHandler;
-let counter          = 0;
-let limit            = 500;
+const $profileButton     = $("#profile");
+const $signupButton      = $("#signup");
+const $homeButton        = $("#home-button");
+let counter              = 0;
+let limit                = 500;
 let clickCount           = 0;
-let secretAmountOfCLicks = 3;
-let positionIncrement = 2;
+let secretAmountOfCLicks = 2;
+let positionIncrement    = 2;
+let animationHandler;
+
 
 $signupButton.on("click", function(){
 })
@@ -24,6 +25,11 @@ $("#profile-button").on("click", ()=>{
     window.location.href = "/profile";
 })
 
+/**
+ * Increments the animation handler recursively until the base case is met.
+ * 
+ * @returns a reference to the animation handler. 
+ */
 function incrementHandler()
 {
 
@@ -52,6 +58,19 @@ function incrementHandler()
     return animationHandler;
 }
 
+
+function animation()
+{
+    $("#content").css("display","none");
+    $("#easter-content").css("display","flex");
+    $("#easter-egg").fadeIn("slow");
+
+    animationHandler = requestAnimationFrame( incrementHandler );
+    clickCount       = 0; // reset the counter.
+}
+/**
+ * Sets up the page.
+ */
 function setup()
 {
     let $topBars =  $(".top-bar");
@@ -88,15 +107,7 @@ function setup()
             $("#main-logo").fadeOut("slow");
             $("#content").fadeOut("slow");
     
-            $("#main-logo").promise().done(() => {
-                
-                $("#content").css("display","none");
-                $("#easter-content").css("display","flex");
-                $("#easter-egg").fadeIn("slow");
-    
-                animationHandler = requestAnimationFrame( incrementHandler );
-                clickCount = 0; // reset the counter.
-            })
+            $("#main-logo").promise().done( animation )
         }
         else
         {
