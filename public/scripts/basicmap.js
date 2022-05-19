@@ -162,6 +162,45 @@ var AutocompleteDirectionsHandler = /** @class */ (function () {
           me.directionsRenderer.setMap(map);
           me.directionsRenderer.setDirections(response);
           me.directionsRenderer.setRouteIndex(whichRoute);
+          switch (whichRoute) {
+            case 0:
+              me.directionsRenderer.setOptions({
+                polylineOptions: {
+                  strokeColor: '#0088FF',
+                  strokeWeight: 6,
+                  strokeOpacity: 0.6
+              }
+              })
+              break;
+            case 1:
+              me.directionsRenderer.setOptions({
+                polylineOptions: {
+                  strokeColor: 'gold',
+                  strokeWeight: 6,
+                  strokeOpacity: 0.6
+                }
+              })
+              break;
+            case 2:
+              me.directionsRenderer.setOptions({
+                polylineOptions: {
+                  strokeColor: 'lightcoral',
+                  strokeWeight: 6,
+                  strokeOpacity: 0.6
+                }
+              })
+              break;
+            default:
+                me.directionsRenderer.setOptions({
+                  polylineOptions: {
+                    strokeColor: 'red',
+                    strokeWeight: 6,
+                    strokeOpacity: 0.6
+                  }
+                })
+              break;
+          } 
+
           var directionsData = response.routes[whichRoute].legs[0];
           // console.log(directionsData)
           var drivingDistance = directionsData.distance.text;
