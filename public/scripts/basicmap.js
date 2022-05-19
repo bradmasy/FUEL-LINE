@@ -184,7 +184,6 @@ var AutocompleteDirectionsHandler = /** @class */ (function () {
           me.directionsRenderer.setMap(map);
           me.directionsRenderer.setDirections(response);
           me.directionsRenderer.setRouteIndex(whichRoute);
-<<<<<<< HEAD
           switch (whichRoute) {
             case 0:
               me.directionsRenderer.setOptions({
@@ -229,8 +228,6 @@ var AutocompleteDirectionsHandler = /** @class */ (function () {
           var drivingDistance = directionsData.distance.text;
           drivingDistanceGlobal = drivingDistance;
           // window.alert(drivingDistanceGlobal);
-=======
->>>>>>> Brad_Graph
 
           var directionsData    = response.routes[0].legs[0];
           var drivingDistance   = directionsData.distance.text;

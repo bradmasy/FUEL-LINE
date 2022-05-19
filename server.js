@@ -103,17 +103,11 @@ app.get("/", function (req, res) {
 });
 
 app.get("/index", function (req, res) {
-<<<<<<< HEAD
-  if (req.session.authenticated == true) {
-    res.render("dashboard");
-  } else {
-=======
   if(req.session.authenticated == true)
   {
     res.redirect("dashboard");
   }
   else{
->>>>>>> Brad_Graph
     res.render("index");
   }
 });
@@ -151,10 +145,6 @@ app.get("/userinput", function (req, res) {
 });
 
 app.get("/dashboard", function (req, res) {
-<<<<<<< HEAD
-  res.render("dashboard");
-});
-=======
   if(req.session.authenticated)
   {
     res.render("dashboard");
@@ -165,7 +155,6 @@ app.get("/dashboard", function (req, res) {
     res.redirect("login");
   }
 })
->>>>>>> Brad_Graph
 
 app.get("/map", function (req, res) {
   res.render("map-copy-styles");

@@ -32,7 +32,12 @@ function getTotalDistance() {
 
     for (let i = 0; i < objectTrips.length; i++) {
 
-        distance += objectTrips[i].distance;
+        if(objectTrips[i].distance != null)
+        {
+            distance += objectTrips[i].distance;
+            console.log("original: " + objectTrips[i].distance);
+
+        }
     }
 
     distance = (distance / 1000).toFixed(2);
@@ -66,7 +71,6 @@ async function createLabels(timePeriod) {
 
     for (let i = 0; i < objectTrips.length; i++) {
 
-       console.log(objectTrips[i]);
 
         if (objectTrips[i].date != null && objectTrips[i].distance != null) {
 
@@ -92,8 +96,6 @@ async function createLabels(timePeriod) {
             else if (timePeriod == "year") {
 
                 let tripYear = objectTrips[i].date.slice(6,10);
-                console.log(tripYear)
-                console.log("curren tyear " + yyyy);
 
                 if(tripYear == yyyy)
                 {
@@ -196,6 +198,8 @@ async function drawChart(timePeriod) {
     });
 }
 
+
+
 function getTimePeriod() {
 
     let timePeriod       = $("#time-period").val()
@@ -214,7 +218,6 @@ function getTimePeriod() {
                 if(objectTrips[i].date.slice(3, 5) == getDay())
                 {
                     distance += (objectTrips[i].distance/1000);
-                    console.log(distance);
     
                     for (let i = 0; i < objectTrips.length; i++) {
     
@@ -238,7 +241,9 @@ function getTimePeriod() {
             {
                 if(objectTrips[i].date.slice(0, 2) == getMonth())
                 {
-                    distance += (objectTrips[i].distance/1000);
+                    distance += (objectTrips[i].distance);
+                    console.log(objectTrips[i].distance);
+
     
                     for (let i = 0; i < objectTrips.length; i++) {
     
@@ -259,15 +264,14 @@ function getTimePeriod() {
 
     }
 
+
     let average = (currentAmountCAD / instances).toFixed(2);
     $("#trip-average").html(`You Spent: $${average}/Per Trip This Time Period.`)
-    $("#distance-driven").html(`Total Distance: ${distance}KM`);
+    $("#distance-driven").html(`Total Distance: ${(distance/1000).toFixed(2)}KM`);
     $("#amount-spent").html(`Total Spend [CAD]: $${currentAmountCAD.toFixed(2)}`);
 
     myChart.destroy();
     drawChart(timePeriod);
-   
-
 }
 
 async function setup() {
@@ -292,7 +296,6 @@ for (let i = 0; i < 4; i++) {
         $element.css("background-color", "#FF912C");
 
     }
-    console.log($element);
 }
 
 $(document).ready(setup);
