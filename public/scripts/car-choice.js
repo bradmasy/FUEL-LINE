@@ -197,6 +197,7 @@ function setup() {
     console.log("input populated");
     $("#confirm-manual-button").show();
   });
+  // Gets the data from input field and calls saveUserVehicle
   $("#confirm-manual-button").on("click", function () {
     console.log("manual input button clicked");
     converted_L = $("#number-field").val();
