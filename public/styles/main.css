@@ -1457,6 +1457,62 @@ html body #input-page #input-form #input-form-align .input-buttons #confirm div 
   height: 100%;
 }
 
+html body #car-choice {
+  background-image: linear-gradient(#FF912C, purple);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  height: 80%;
+  width: 100%;
+  justify-content: center;
+  text-align: center;
+}
+@media only screen and (max-height: 400px) {
+  html body #car-choice {
+    justify-content: center;
+  }
+}
+html body #car-choice select {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border: 0;
+  outline: 0;
+  font: inherit;
+  width: 20em;
+  height: 3em;
+  padding: 0 4em 0 1em;
+  background: url(/images/buttons/dropdown.png) no-repeat right 0.8em center/1.4em, linear-gradient(to left, rgba(255, 255, 255, 0.3) 3em, rgba(255, 255, 255, 0.2) 3em);
+  color: white;
+  border-radius: 0.25em;
+  box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+html body #car-choice select option {
+  color: inherit;
+  background-color: #320a28;
+}
+html body #car-choice select:focus {
+  outline: none;
+}
+html body #car-choice select::-ms-expand {
+  display: none;
+}
+html body #car-choice .button {
+  background-color: #FF912C;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  width: 180px;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
 /* Fuel Line Style Sheet
  *
  * @name: Bradley Masciotra

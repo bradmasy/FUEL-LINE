@@ -1,3 +1,26 @@
 {
-    "liveServer.settings.port": 5501
+    "liveServer.settings.donotShowInfoMsg": true,
+    "editor.renderControlCharacters": false,
+    "git.autofetch": true,
+    "workbench.editorAssociations": {
+        "*.ipynb": "default"
+    },
+    "liveServer.settings.donotVerifyTags": true,
+
+    "liveSassCompile.settings.formats": [
+
+        {
+            "format": "expanded",
+            "extensionName": ".css",
+            "savePath": "/public/styles",
+            "savePathSegmentKeys": null,
+            "savePathReplaceSegmentsWith": null
+        }
+    ],
+    "liveSassCompile.settings.generateMap": false,
+
+    "liveSassCompile.settings.includeItems":[
+        "/styles/main.scss"
+    ],
+
 }
