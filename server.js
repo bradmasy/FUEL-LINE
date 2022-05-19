@@ -8,7 +8,7 @@ const https      = require("https");
 const session    = require("express-session");
 const mongoose   = require("mongoose");
 const bodyParser = require("body-parser");
-const e = require("express");
+const USER       = 0;
 
 app.use(cors())
 app.use(session({ secret: "shhhh", saveUninitialized: true, resave: true }));
@@ -145,14 +145,11 @@ function initiateSession(req, users)
 {
   if (checkUserExists(users)) {
     req.session.authenticated = true; // user gets authenticated.
-    req.session.user = users[0];
-
-    console.log(`welcome ${users[0].username}`);
+    req.session.user = users[USER];
   }
   else {
     req.session.authenticated = false;
     console.log(`invalid user`);
-
   }
 }
 
@@ -169,8 +166,7 @@ function checkUserExists(data) {
 
 app.post("/attemptLogin", function (req, res) {
   //checks if entered information matches an existing user in database
-  console.log("req. has been received");
-  console.log(req.body);
+
   userModel.find(
     {
       $and: [{ username: req.body.username }, { password: req.body.password }],
@@ -188,7 +184,6 @@ app.post("/attemptLogin", function (req, res) {
 
 app.post("/displayUsersToAdmin", function (req, res) {
   //sends all users in database
-  console.log("req. has been recieved");
   userModel.find({}, function (err, users) {
     if (err) {
       console.log("Error " + err);
@@ -201,15 +196,14 @@ app.post("/displayUsersToAdmin", function (req, res) {
 
 app.post("/attemptSignup", function (req, res) {
   //adds user to users database
-  console.log("req. has been received");
-  console.log("attemptSignup called in server");
 
   userModel.insertMany({
     username: req.body.username,
     password: req.body.password,
     email: req.body.email,
     admin: req.body.admin,
-    // trips: []
+    trips: []
+    
   }, function (err, users) {
     if (err) {
       console.log("Error " + err);
@@ -223,19 +217,13 @@ app.post("/attemptSignup", function (req, res) {
 
 app.get("/logout", (req, res) => {
   // logs the user out of session
-  console.log("req made");
-  res.sendFile(__dirname + "/public/logout.html");
 
   if (req.session) {
     delete req.session;
-    console.log("logged out");
     res.render("index");
-    // req.session.destroy((err) => {
-    //  // res.status(400).send("Unable to log out")
-    // });
   }
   else {
-    res.render("index");
+    res.render("404");
   }
 })
 
