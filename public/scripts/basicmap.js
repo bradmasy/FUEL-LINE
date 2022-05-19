@@ -209,10 +209,9 @@ var AutocompleteDirectionsHandler = /** @class */ (function () {
     if (!this.originPlaceId || !this.destinationPlaceId) {
       return;
     }
-    // console.log("i hate you")
-    // console.log("Route Function = " + whichRoute);
+
     whichRoute = 0;
-    // console.log("Route Function = " + whichRoute);
+
     var me = this;
     this.directionsService.route(
       {
@@ -252,6 +251,7 @@ var AutocompleteDirectionsHandler = /** @class */ (function () {
 window.initMap = initMap;
 
 function calculate_costs() {
+  console.log("calculate costs called")
   jQuery("#result").empty();
  
   var distance     = parseFloat(drivingDistanceGlobal.replace(/[^0-9.]/g, ""));
@@ -259,7 +259,7 @@ function calculate_costs() {
   var cost         = (distance / fuel_efficiency) * gas_price;
   var cost_rounded = cost.toFixed(2);
 
-  createTripObjectForUser(directionsObject,cost_rounded);
+  // createTripObjectForUser(directionsObject,cost_rounded);
   jQuery("#result").append("Total cost of trip will be: $" + cost_rounded);
 }
 
@@ -300,7 +300,7 @@ function setup() {
     }
     console.log($element);
   }
-  $("#calculate").on("click", calculate_costs);
+  $("#calculation-form").on("click", "#calculate", calculate_costs);
 }
 
 
