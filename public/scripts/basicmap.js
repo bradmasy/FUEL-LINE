@@ -220,7 +220,7 @@ var AutocompleteDirectionsHandler = /** @class */ (function () {
             default:
                 me.directionsRenderer.setOptions({
                   polylineOptions: {
-                    strokeColor: 'lightcoral',
+                    strokeColor: 'red',
                     strokeWeight: 6,
                     strokeOpacity: 0.6
                   }
