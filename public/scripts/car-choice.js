@@ -203,9 +203,16 @@ function setup() {
     converted_L = $("#number-field").val();
     console.log(converted_L)
     console.log(typeof converted_L)
+
     converted_L = parseFloat(converted_L)
     console.log(converted_L)
     console.log(typeof converted_L)
+    if (isNaN(converted_L)){
+      console.log("not a number")
+      alert("Fuel Efficiency must be a number measured in L/100KM")
+      $("#number-field").val('');
+      return
+    }
     saveUserVehicle();
   });
 }
