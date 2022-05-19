@@ -7,34 +7,35 @@ let user;
 let totalDistance;
 
 
+/**
+ * Gets the total distance of the users trips.
+ * 
+ * @returns the total distance the user has travelled.
+ */
 function getTotalDistance()
 {
-    let totalDistance = 0;
+    let distance = 0;
 
     for(let i = 0; i < objectTrips.length;i++)
     {
-        totalDistance += objectTrips[i].distance;
-        console.log( objectTrips[i].distance);
-
+        distance += objectTrips[i].distance;
     }
-    console.log(totalDistance);
-    totalDistance = (totalDistance/1000).toFixed(2);
-    return totalDistance;
+    
+    distance = (totalDistance/1000).toFixed(2);
+    return distance;
 }
 
 /**
- * Creates the labels for the graph based on the objects trip dates.
+ * Creates the labels for the graph based on the objects trip dates as globals (to avoid asynchronous issues).
  */
 async function createLabels(){
 
     for(let i = 0; i < objectTrips.length; i++)
     {
         tripLabels.push(objectTrips[i].date);
-        dataSet.push(objectTrips[i].distance);
-        
+        dataSet.push(objectTrips[i].distance);   
     }
 }
-
 
 /**
  * Asynchronously gets the users data to parse.
@@ -46,18 +47,15 @@ async function getUserData()
             return response.json();            
         } 
     }).then((object) => {
-        console.log(object);
-        console.log(object.trips);
-
-        user = object;
+   
+        user = object; // setting the global user.
         
         for(let i = 0; i < object.trips.length; i++)
         {
             objectTrips.push(object.trips[i]);
-            // tripLabels.push(object.trips[i].date);
         }
-        getTotalDistance();
 
+        totalDistance = getTotalDistance();
 
     }).catch((err) => {
         console.log("error");

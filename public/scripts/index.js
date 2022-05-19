@@ -58,7 +58,9 @@ function incrementHandler()
     return animationHandler;
 }
 
-
+/**
+ * Runs the animation when three clicks have been made to the image.
+ */
 function animation()
 {
     $("#content").css("display","none");
@@ -83,7 +85,6 @@ function setup()
             $element.css("background-color","#FF912C");
 
         }
-        console.log($element);
     }
 
     $signupButton.on("click", function(){
