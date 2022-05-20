@@ -253,7 +253,11 @@ var AutocompleteDirectionsHandler = /** @class */ (function () {
           var drivingDistance = directionsData.distance.text;
           drivingDistanceGlobal = drivingDistance;
           // window.alert(drivingDistanceGlobal);
-          calculate_costs();
+          if (gas_price != null) {
+            console.log("called from line 257")
+            calculate_costs();
+          }
+          
 
           var directionsData = response.routes[0].legs[0];
           var drivingDistance = directionsData.distance.text;
