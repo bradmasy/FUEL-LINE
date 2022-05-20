@@ -130,6 +130,8 @@ function setup() {
 
   }
 
+  $(".close-button").on("click", closePopup)
+
   showPassword();
   $("#confirm-button").on("click", attemptSignup);
 }

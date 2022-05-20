@@ -211,7 +211,7 @@ var AutocompleteDirectionsHandler = /** @class */ (function () {
             case 1:
               me.directionsRenderer.setOptions({
                 polylineOptions: {
-                  strokeColor: "gold",
+                  strokeColor: "lawngreen",
                   strokeWeight: 6,
                   strokeOpacity: 0.6,
                 },
