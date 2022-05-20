@@ -52,6 +52,7 @@ function showPassword() {
 }
 function displayPopup() {
   $(".error").fadeIn();
+
   console.log("error popup");
 
   $(".close-button").on("click", () => {
@@ -70,12 +71,12 @@ function closePopup() {
 }
 
 function checkUserExists(data) {
-  console.log(data);
-  console.log(data[0].admin)
+console.log(data);
   if (data.length === 0) {
     console.log("User not found!");
+    displayPopup();
   }
-  if (data[0].admin == true) {
+  else if (data[0].admin == true) {
     console.log("admin login")
     window.location.href = "/admin_user_views"
   }
