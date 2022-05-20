@@ -1,5 +1,6 @@
 let map;
 let drivingDistanceGlobal;
+let drivingDurationGlobal;
 var fuel_efficiency = 8.9;
 let directionsObject;
 let whichRoute = 0;
@@ -300,6 +301,8 @@ var AutocompleteDirectionsHandler = /** @class */ (function () {
           // console.log(directionsData)
           var drivingDistance = directionsData.distance.text;
           drivingDistanceGlobal = drivingDistance;
+          var drivingDuration = directionsData.duration.text;
+          drivingDurationGlobal = drivingDuration;
           // window.alert(drivingDistanceGlobal);
           if (gas_price != null) {
             console.log("route changed");
@@ -352,6 +355,9 @@ function calculate_costs() {
       "Total distance of trip: " +
       distance +
       "KM" +
+      "<br>" +
+      "Driving time of trip: " +
+      drivingDurationGlobal +
       "</span>" +
       "<br>"
   );
