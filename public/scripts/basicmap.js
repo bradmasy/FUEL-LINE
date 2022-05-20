@@ -5,6 +5,7 @@ let directionsObject;
 let whichRoute = 0;
 let cost_rounded;
 var gas_price = null;
+let LOGOUT_CALL= 0
 var user_login_status = false
 /**
  * Gets a timestamp of when the directions were requested.
@@ -29,6 +30,15 @@ function getTimeStamp() {
  *
  * @param {Object} distanceOB an object representing all the data about the trip.
  */
+
+ function logout_open(){
+  $(".logout-contain").animate({width:'toggle'},500);
+}
+
+function logout_close(){
+  $(".logout-contain").animate({width:'toggle'},500);
+}
+
 function createTripObjectForUser(distanceOB, cost_rounded) {
   console.log(distanceOB);
   let destination = distanceOB.start_address;
@@ -63,8 +73,9 @@ function initMap() {
     zoom: 14,
     mapTypeControl: false,
     scaleControl: false,
-    zoomControl: true,
+    zoomControl: false,
     fullscreenControl: false,
+    streetViewControl: false,
   });
   new AutocompleteDirectionsHandler(map);
 }
@@ -111,7 +122,7 @@ var AutocompleteDirectionsHandler = /** @class */ (function () {
     this.map.controls[google.maps.ControlPosition.BOTTOM_LEFT].push(
       prevRouteButton
     );
-    this.map.controls[google.maps.ControlPosition.BOTTOM_LEFT].push(
+    this.map.controls[google.maps.ControlPosition.BOTTOM_RIGHT].push(
       nextRouteButton
     );
   }
@@ -396,5 +407,20 @@ function setup() {
   }
   $("#calculation-form").on("click", "#calculate", calculate_costs);
 }
+
+$("#header-logo").on("click", () => {
+  if (LOGOUT_CALL == 0){
+    $(".logout-contain").promise().done( logout_open )
+    $(".logout-contain").fadeIn("slow")
+    $(".logout-button").fadeIn("slow")
+    LOGOUT_CALL = 1
+  }
+  else {
+    $(".logout-contain").promise().done( logout_close )
+    $(".logout-contain").fadeOut("slow")
+    $(".logout-button").fadeOut("slow")
+    LOGOUT_CALL = 0
+  }})
+
 
 $(document).ready(setup);

@@ -5,9 +5,9 @@ let counter              = 0;
 let limit                = 500;
 let clickCount           = 0;
 let secretAmountOfCLicks = 2;
-let positionIncrement    = 2;
+let positionIncrement    = 1;
 const soundtrack         = new Audio("../audio/Scooby Doo.mp3");
-const soundtrackStart    = 0;//5.15;
+const soundtrackStart    = 5.15;
 soundtrack.currentTime = soundtrackStart;
 
 let animationHandler;
@@ -119,10 +119,11 @@ function setup()
 
             $("#main-logo").fadeOut("slow");
             $("#content").fadeOut("slow");
-            setTimeout(() => {
-                $("#main-logo").promise().done( animation )
+            // $("#easter-egg").css("left","100px");
 
-            },5000)
+            $("#main-logo").promise().done( animation );
+
+        
         }
         else
         {

@@ -9,7 +9,16 @@ let user;
 let totalDistance;
 let amountSpent;
 let myChart
+let LOGOUT_CALL       = 0
 
+
+function logout_open(){
+    $(".logout-contain").animate({width:'toggle'},500);
+}
+
+function logout_close(){
+    $(".logout-contain").animate({width:'toggle'},500);
+}
 
 function getDay()
 {
@@ -92,8 +101,8 @@ async function createLabels(timePeriod) {
                 if (tripMonth == mm) {
                     tripLabels.push(objectTrips[i].date);
                     dataSet.push((objectTrips[i].distance/1000).toFixed(1));
-                    xAxisLabel = "Distance Travelled in KM";
-                    yAxisLabel = "Date of Trip";
+                    xAxisLabel = "Date of Trip";
+                    yAxisLabel = "Distance Travelled in KM";
                 }
             }
             else if (timePeriod == "day") {
@@ -331,5 +340,19 @@ for (let i = 0; i < 4; i++) {
         $element.css("background-color", "#FF912C");
     }
 }
+
+$("#header-logo").on("click", () => {
+    if (LOGOUT_CALL == 0){
+      $(".logout-contain").promise().done( logout_open )
+      $(".logout-contain").fadeIn("slow")
+      $(".logout-button").fadeIn("slow")
+      LOGOUT_CALL = 1
+    }
+    else {
+      $(".logout-contain").promise().done( logout_close )
+      $(".logout-contain").fadeOut("slow")
+      $(".logout-button").fadeOut("slow")
+      LOGOUT_CALL = 0
+    }})
 
 $(document).ready(setup);
