@@ -2,59 +2,57 @@ let map;
 let drivingDistanceGlobal;
 var fuel_efficiency = 8.9;
 let directionsObject;
-let whichRoute      = 0;
-
+let whichRoute = 0;
+var gas_price = null;
 /**
  * Gets a timestamp of when the directions were requested.
- * 
+ *
  * @returns an array containing the date of the request and the exact time in military.
  */
- function getTimeStamp()
- {
-   let date        = new Date();
-   let dd          = String(date.getDate()).padStart(2, '0');
-   let mm          = String(date.getMonth() + 1).padStart(2, '0'); //January is 0!
-   let yyyy        = date.getFullYear();
-   date            = mm + '/' + dd + '/' + yyyy;
-   let today       = new Date();
-   let time        = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-   
-   return [date,time];
- }
+function getTimeStamp() {
+  let date = new Date();
+  let dd = String(date.getDate()).padStart(2, "0");
+  let mm = String(date.getMonth() + 1).padStart(2, "0"); //January is 0!
+  let yyyy = date.getFullYear();
+  date = mm + "/" + dd + "/" + yyyy;
+  let today = new Date();
+  let time =
+    today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
 
- /**
-  * Creates a trip object based on the users programmed trip.
-  * 
-  * @param {Object} distanceOB an object representing all the data about the trip.
-  */
- function createTripObjectForUser(distanceOB,cost_rounded)
- {
-   console.log(distanceOB);
-   let destination = distanceOB.start_address; 
-   let origin      = distanceOB.end_address;
-   let distance    = distanceOB.distance.value;
-   let timeStamp   = getTimeStamp();
-   let cost        = cost_rounded;
+  return [date, time];
+}
 
-   let data = {
-     "origin":origin,
-     "destination":destination,
-     "distance":distance,
-     "date": timeStamp[0],
-     "time": timeStamp[1],
-     "cost":cost
-   }
+/**
+ * Creates a trip object based on the users programmed trip.
+ *
+ * @param {Object} distanceOB an object representing all the data about the trip.
+ */
+function createTripObjectForUser(distanceOB, cost_rounded) {
+  console.log(distanceOB);
+  let destination = distanceOB.start_address;
+  let origin = distanceOB.end_address;
+  let distance = distanceOB.distance.value;
+  let timeStamp = getTimeStamp();
+  let cost = cost_rounded;
 
-   let options = {
-     method:"POST",
-     body:JSON.stringify(data),
-     headers: {
-       "Content-Type":"application/json"
-     }
-   }
-   fetch("/create-trip",options);
-   
- }
+  let data = {
+    origin: origin,
+    destination: destination,
+    distance: distance,
+    date: timeStamp[0],
+    time: timeStamp[1],
+    cost: cost,
+  };
+
+  let options = {
+    method: "POST",
+    body: JSON.stringify(data),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  };
+  fetch("/create-trip", options);
+}
 
 Object.defineProperty(exports, "__esModule", { value: true });
 function initMap() {
@@ -73,15 +71,15 @@ var AutocompleteDirectionsHandler = /** @class */ (function () {
     this.map = map;
     this.originPlaceId = "";
     this.destinationPlaceId = "";
-    this.travelMode         = google.maps.TravelMode.DRIVING;
-    this.directionsService  = new google.maps.DirectionsService();
+    this.travelMode = google.maps.TravelMode.DRIVING;
+    this.directionsService = new google.maps.DirectionsService();
     this.directionsRenderer = new google.maps.DirectionsRenderer();
     this.directionsRenderer.setMap(map);
-    var originInput         = document.getElementById("origin-input");
-    var destinationInput    = document.getElementById("destination-input");
-    var nextRouteButton     = document.getElementById("next-route");
-    var prevRouteButton     = document.getElementById("prev-route");
-    
+    var originInput = document.getElementById("origin-input");
+    var destinationInput = document.getElementById("destination-input");
+    var nextRouteButton = document.getElementById("next-route");
+    var prevRouteButton = document.getElementById("prev-route");
+
     // nextRouteButton.style.display = "none";
     // Specify just the place data fields that you need.
     var originAutocomplete = new google.maps.places.Autocomplete(originInput, {
@@ -92,12 +90,28 @@ var AutocompleteDirectionsHandler = /** @class */ (function () {
       destinationInput,
       { fields: ["place_id"] }
     );
-    this.setupPlaceChangedListener(originAutocomplete, "ORIG", nextRouteButton, prevRouteButton);
-    this.setupPlaceChangedListener(destinationAutocomplete, "DEST", nextRouteButton, prevRouteButton);
+    this.setupPlaceChangedListener(
+      originAutocomplete,
+      "ORIG",
+      nextRouteButton,
+      prevRouteButton
+    );
+    this.setupPlaceChangedListener(
+      destinationAutocomplete,
+      "DEST",
+      nextRouteButton,
+      prevRouteButton
+    );
     this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(originInput);
-    this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(destinationInput);
-    this.map.controls[google.maps.ControlPosition.BOTTOM_LEFT].push(prevRouteButton);
-    this.map.controls[google.maps.ControlPosition.BOTTOM_LEFT].push(nextRouteButton);
+    this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(
+      destinationInput
+    );
+    this.map.controls[google.maps.ControlPosition.BOTTOM_LEFT].push(
+      prevRouteButton
+    );
+    this.map.controls[google.maps.ControlPosition.BOTTOM_LEFT].push(
+      nextRouteButton
+    );
   }
 
   AutocompleteDirectionsHandler.prototype.setupPlaceChangedListener = function (
@@ -154,7 +168,6 @@ var AutocompleteDirectionsHandler = /** @class */ (function () {
     });
   };
 
-
   AutocompleteDirectionsHandler.prototype.changeRoute = function () {
     if (!this.originPlaceId || !this.destinationPlaceId) {
       return;
@@ -168,8 +181,7 @@ var AutocompleteDirectionsHandler = /** @class */ (function () {
         provideRouteAlternatives: true,
       },
       function (response, status) {
-        if (status === "OK") 
-        {
+        if (status === "OK") {
           if (whichRoute > response.routes.length - 1) {
             whichRoute = response.routes.length - 1;
           }
@@ -178,9 +190,9 @@ var AutocompleteDirectionsHandler = /** @class */ (function () {
             whichRoute = 0;
           }
 
-          if(me.directionsRenderer.getMap != null) {
+          if (me.directionsRenderer.getMap != null) {
             me.directionsRenderer.setMap(null);
-        }
+          }
           me.directionsRenderer.setMap(map);
           me.directionsRenderer.setDirections(response);
           me.directionsRenderer.setRouteIndex(whichRoute);
@@ -188,57 +200,56 @@ var AutocompleteDirectionsHandler = /** @class */ (function () {
             case 0:
               me.directionsRenderer.setOptions({
                 polylineOptions: {
-                  strokeColor: '#0088FF',
+                  strokeColor: "#0088FF",
                   strokeWeight: 6,
-                  strokeOpacity: 0.6
-              }
-              })
+                  strokeOpacity: 0.6,
+                },
+              });
               break;
             case 1:
               me.directionsRenderer.setOptions({
                 polylineOptions: {
-                  strokeColor: 'gold',
+                  strokeColor: "gold",
                   strokeWeight: 6,
-                  strokeOpacity: 0.6
-                }
-              })
+                  strokeOpacity: 0.6,
+                },
+              });
               break;
             case 2:
               me.directionsRenderer.setOptions({
                 polylineOptions: {
-                  strokeColor: 'lightcoral',
+                  strokeColor: "lightcoral",
                   strokeWeight: 6,
-                  strokeOpacity: 0.6
-                }
-              })
+                  strokeOpacity: 0.6,
+                },
+              });
               break;
             default:
-                me.directionsRenderer.setOptions({
-                  polylineOptions: {
-                    strokeColor: 'red',
-                    strokeWeight: 6,
-                    strokeOpacity: 0.6
-                  }
-                })
+              me.directionsRenderer.setOptions({
+                polylineOptions: {
+                  strokeColor: "red",
+                  strokeWeight: 6,
+                  strokeOpacity: 0.6,
+                },
+              });
               break;
-          } 
+          }
 
           var directionsData = response.routes[whichRoute].legs[0];
           // console.log(directionsData)
           var drivingDistance = directionsData.distance.text;
           drivingDistanceGlobal = drivingDistance;
           // window.alert(drivingDistanceGlobal);
+          calculate_costs();
 
-          var directionsData    = response.routes[0].legs[0];
-          var drivingDistance   = directionsData.distance.text;
+          var directionsData = response.routes[0].legs[0];
+          var drivingDistance = directionsData.distance.text;
           drivingDistanceGlobal = drivingDistance;
-          
+
           //creating the trip object here...
 
-       
-          $("#calculation-form").show();
+          // $("#calculation-form").show();
           
-
         } else {
           window.alert("Directions request failed due to " + status);
         }
@@ -262,12 +273,10 @@ var AutocompleteDirectionsHandler = /** @class */ (function () {
         provideRouteAlternatives: true,
       },
       function (response, status) {
-        if (status === "OK") 
-        {
-
-          if(me.directionsRenderer.getMap != null) {
+        if (status === "OK") {
+          if (me.directionsRenderer.getMap != null) {
             me.directionsRenderer.setMap(null);
-        }
+          }
           me.directionsRenderer.setMap(map);
           me.directionsRenderer.setDirections(response);
           me.directionsRenderer.setRouteIndex(whichRoute);
@@ -276,6 +285,10 @@ var AutocompleteDirectionsHandler = /** @class */ (function () {
           var drivingDistance = directionsData.distance.text;
           drivingDistanceGlobal = drivingDistance;
           // window.alert(drivingDistanceGlobal);
+          if (gas_price != null) {
+            console.log("route changed")
+            calculate_costs();
+          }
 
           //creating the trip object here...
           directionsObject = directionsData;
@@ -292,24 +305,32 @@ var AutocompleteDirectionsHandler = /** @class */ (function () {
 window.initMap = initMap;
 
 function calculate_costs() {
-  console.log("calculate costs called")
-  jQuery("#result").empty();
- 
-  var distance     = parseFloat(drivingDistanceGlobal.replace(/[^0-9.]/g, ""));
-  var gas_price    = parseFloat($("#gas-price").val());
-  var cost         = (distance / fuel_efficiency) * gas_price;
+  console.log("calculate costs called");
+
+  if (gas_price == null) {
+    gas_price = parseFloat($("#gas-price").val());
+  }
+  var distance = parseFloat(drivingDistanceGlobal.replace(/[^0-9.]/g, ""));
+  console.log(distance)
+  var cost = (distance / fuel_efficiency) * gas_price;
   var cost_rounded = cost.toFixed(2);
 
-  createTripObjectForUser(directionsObject,cost_rounded);
-  jQuery("#result").append("Total cost of trip will be: $" + cost_rounded);
+  jQuery("#calculation-form").empty();
+  console.log(cost_rounded);
+
+  createTripObjectForUser(directionsObject, cost_rounded);
+  jQuery("#calculation-form").append(
+    "<span class='result'> Total cost of trip: $" +
+      cost_rounded + "<br>" + "Total distance of trip: " + distance + "KM" +
+      "</span>"
+  );
 }
 
-function process_user_info(data){
-  if (data.hasOwnProperty('vehicle_efficiency')){
-    fuel_efficiency = data.vehicle_efficiency
-  }
-  else {
-    console.log("vehicle data does not exist")
+function process_user_info(data) {
+  if (data.hasOwnProperty("vehicle_efficiency")) {
+    fuel_efficiency = data.vehicle_efficiency;
+  } else {
+    console.log("vehicle data does not exist");
   }
 }
 
@@ -319,11 +340,12 @@ function getUserInfo() {
   $.ajax({
     url: `/getUserInfo`,
     type: "GET",
-    success: function (data) {process_user_info(data)},
+    success: function (data) {
+      process_user_info(data);
+    },
     error: function (textStatus, errorThrown) {
-      process_user_info("data not found")
-    }
-  
+      process_user_info("data not found");
+    },
   });
 }
 
@@ -343,8 +365,5 @@ function setup() {
   }
   $("#calculation-form").on("click", "#calculate", calculate_costs);
 }
-
-
-
 
 $(document).ready(setup);

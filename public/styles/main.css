@@ -1219,7 +1219,40 @@ html body #map-page #info {
   flex-direction: row;
   justify-content: space-around;
   height: 21%;
-  background-color: #b1b1b1;
+  background-color: white;
+  text-align: center;
+}
+html body #map-page #info input[type=text] {
+  border-radius: 25px;
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: none;
+  background-color: #ffb877;
+  color: white;
+}
+html body #map-page #info .button {
+  background-color: #FF912C;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  width: 180px;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+html body #map-page #info .result {
+  background-color: #FF912C;
+  color: white;
+  border-radius: 25px;
+  padding: 16px 32px;
+  margin: 4px 2px;
+  display: inline-block;
 }
 html body #map-page #info #map-info {
   display: flex;
