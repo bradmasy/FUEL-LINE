@@ -104,6 +104,7 @@ function attemptSignup() {
         },
         error: displayPopup(),
         success: checkUserExists,
+
       });
   }
   else 
