@@ -6,6 +6,10 @@ let limit                = 500;
 let clickCount           = 0;
 let secretAmountOfCLicks = 2;
 let positionIncrement    = 2;
+const soundtrack         = new Audio("../audio/Scooby Doo.mp3");
+const soundtrackStart    = 0;//5.15;
+soundtrack.currentTime = soundtrackStart;
+
 let animationHandler;
 
 
@@ -42,6 +46,8 @@ function incrementHandler()
         animationHandler = requestAnimationFrame(incrementHandler);
     }
     else{
+
+        
         cancelAnimationFrame(animationHandler);
         $("#easter-egg").fadeOut("fast");
 
@@ -52,6 +58,8 @@ function incrementHandler()
             $("#content").fadeIn("slow");
 
             counter = 0;
+            soundtrack.pause();
+            soundtrack.currentTime = soundtrackStart;
         })
     }
 
@@ -68,6 +76,7 @@ function animation()
     $("#easter-egg").fadeIn("slow");
 
     animationHandler = requestAnimationFrame( incrementHandler );
+   
     clickCount       = 0; // reset the counter.
 }
 /**
@@ -87,6 +96,7 @@ function setup()
         }
     }
 
+
     $signupButton.on("click", function(){
     })
     
@@ -105,10 +115,14 @@ function setup()
     $("#main-logo").on("click", () => {
         if(clickCount == secretAmountOfCLicks)
         {
+            soundtrack.play();
+
             $("#main-logo").fadeOut("slow");
             $("#content").fadeOut("slow");
-    
-            $("#main-logo").promise().done( animation )
+            setTimeout(() => {
+                $("#main-logo").promise().done( animation )
+
+            },5000)
         }
         else
         {
