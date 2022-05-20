@@ -70,7 +70,7 @@ function incrementHandler()
  * Runs the animation when three clicks have been made to the image.
  */
 function animation()
-{
+{$("#main-logo").css("opacity","100%");
     $("#content").css("display","none");
     $("#easter-content").css("display","flex");
     $("#easter-egg").fadeIn("slow");
@@ -79,6 +79,9 @@ function animation()
    
     clickCount       = 0; // reset the counter.
 }
+
+
+
 /**
  * Sets up the page.
  */
@@ -113,17 +116,27 @@ function setup()
     })
 
     $("#main-logo").on("click", () => {
+        if(clickCount == 0)
+        {
+            $("#main-logo").css("transition","0.8s");
+            $("#main-logo").css("opacity","70%");
+        }
+        else if(clickCount == 1)
+        { 
+            $("#main-logo").css("transition","0.8s");
+            $("#main-logo").css("opacity","50%");
+
+        }
         if(clickCount == secretAmountOfCLicks)
         {
+
+            soundtrack.volume = 0.1;
             soundtrack.play();
 
             $("#main-logo").fadeOut("slow");
             $("#content").fadeOut("slow");
-            // $("#easter-egg").css("left","100px");
 
             $("#main-logo").promise().done( animation );
-
-        
         }
         else
         {
