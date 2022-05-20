@@ -230,9 +230,9 @@ app.post("/attemptSignup", function (req, res) {
 app.get("/logout", (req, res) => {
   // logs the user out of session
 
-  if (req.session) {
+  if (req.session.authenticated) {
     req.session.authenticated = false;
-    delete req.session;
+    req.session.destroy();
     res.render("index");
   } else {
     res.render("404");
@@ -252,7 +252,7 @@ app.get("/getUserInfo", function (req, res) {
         } else {
           console.log("Data " + users);
         }
-        console.log(users);
+        // console.log(users);
         res.send(users[0]);
       }
     );
@@ -265,9 +265,9 @@ app.get("/user-data", (req, res) => {
     { username: req.session.user["username"] },
     function (err, users) {
       if (err) {
-        console.log("Error " + err);
+        // console.log("Error " + err);
       } else {
-        console.log("Data " + users);
+        // console.log("Data " + users);
       }
       console.log(users);
       let data = {
@@ -285,7 +285,7 @@ app.post("/saveUserVehicle", function (req, res) {
   console.log("req. has been received");
   console.log("saveUserVehicle called in server");
 
-  console.log(req.session.user._id);
+ 
   let user_id = req.session.user._id;
   // console.log(user_id)
 

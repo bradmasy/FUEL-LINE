@@ -232,6 +232,7 @@ html {
 
         }
         .edit{
+            
             display: none;
             position: fixed;
             top: 50%;
@@ -287,6 +288,7 @@ html {
                         }
 
                         .save{
+                            @include mixin.button-styles();
 
                             
                             .save-button{
