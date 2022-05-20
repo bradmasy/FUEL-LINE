@@ -108,6 +108,10 @@ function setup() {
   
   })
 
+  $('.logout-button').on('click', function(){
+    window.location.href ="/logout"
+  })
+
   $("#header-logo").on("click", () => {
     if (LOGOUT_CALL==0){
       $(".logout-contain").promise().done( logout_open )
