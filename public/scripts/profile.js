@@ -43,15 +43,14 @@ function closeEdit(){
 }
 
 function logout_open(){
-  if (LOGOUT_CALL==0){
     $(".logout-contain").animate({width:'toggle'},500);
-    LOGOUT_CALL=1
+}
 
-  }
-  else {
+function logout_close(){
     $(".logout-contain").animate({width:'toggle'},500);
-    LOGOUT_CALL=0
-  }}
+}
+
+ 
 
 
 
@@ -109,7 +108,19 @@ function setup() {
   
   })
 
-  $("#header-logo").on("click", logout_open);
+  $("#header-logo").on("click", () => {
+    if (LOGOUT_CALL==0){
+      $(".logout-contain").promise().done( logout_open )
+      $(".logout-contain").fadeIn("slow")
+      $(".logout-button").fadeIn("slow")
+      LOGOUT_CALL=1
+    }
+    else {
+      $(".logout-contain").promise().done( logout_close )
+      $(".logout-contain").fadeOut("slow")
+      $(".logout-button").fadeOut("slow")
+      LOGOUT_CALL=0
+    }})
 
 
 

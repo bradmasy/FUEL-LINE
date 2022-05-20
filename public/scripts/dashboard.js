@@ -4,10 +4,12 @@ let objectTrips       = [];
 let tripLabels        = [];
 let dataSet           = [];
 let defaultTimePeriod = "month";
+const CONVERT_TO_KM   = 1000;
 let user;
 let totalDistance;
 let amountSpent;
 let myChart
+
 
 function getDay()
 {
@@ -21,6 +23,15 @@ function getMonth()
     let currentDate = new Date();
     let mm          = String(currentDate.getMonth() + 1).padStart(2, '0'); //January is 0!
     return mm;
+}
+
+function getYear()
+{
+    let currentDate = new Date();
+
+    let yyyy        = currentDate.getFullYear();
+    return yyyy;
+
 }
 
 /**
@@ -64,15 +75,13 @@ function getTotalSpend() {
  */
 async function createLabels(timePeriod) {
 
-   
-    let currentDate = new Date();
-    let dd          = String(currentDate.getDate()).padStart(2, '0');
-    let mm          = String(currentDate.getMonth() + 1).padStart(2, '0'); //January is 0!
-    let yyyy        = currentDate.getFullYear();
+    let dd          = getDay();
+    let mm          = getMonth();
+    let yyyy        = getYear();
+    let xAxisLabel;
+    let yAxisLabel;
 
     for (let i = 0; i < objectTrips.length; i++) {
-
-        console.log(objectTrips[i])
 
         if (objectTrips[i].date != null && objectTrips[i].distance != null) {
 
@@ -83,6 +92,8 @@ async function createLabels(timePeriod) {
                 if (tripMonth == mm) {
                     tripLabels.push(objectTrips[i].date);
                     dataSet.push((objectTrips[i].distance/1000).toFixed(1));
+                    xAxisLabel = "Distance Travelled in KM";
+                    yAxisLabel = "Date of Trip";
                 }
             }
             else if (timePeriod == "day") {
@@ -93,6 +104,8 @@ async function createLabels(timePeriod) {
                 {
                     dataSet.push(objectTrips[i].cost);
                     tripLabels.push((objectTrips[i].distance/1000).toFixed(1));
+                    xAxisLabel = "Distance Travelled in KM";
+                    yAxisLabel = "Cost Per Trip in CAD";
                 }
             }
             else if (timePeriod == "year") {
@@ -101,19 +114,16 @@ async function createLabels(timePeriod) {
 
                 if(tripYear == yyyy)
                 {
-                    if(yyyy > 1)
-                    {
-
-                    }
-                    else
-                    {
-                        dataSet.push(objectTrips[i].cost);
-                        tripLabels.push(objectTrips[i].date.slice(6,10));
-                    }
+                    dataSet.push(objectTrips[i].cost);
+                    tripLabels.push(objectTrips[i].date.slice(0,5));
+                    xAxisLabel = `Trips Taken (Month/Day) in ${tripYear}`;
+                    yAxisLabel = "Cost Per Trip in CAD";
                 }
             }
         }
     }
+
+    return [xAxisLabel,yAxisLabel];
 }
 
 /**
@@ -144,7 +154,9 @@ async function getUserData() {
  * Draws the chart.
  */
 async function drawChart(timePeriod) {
-    createLabels(timePeriod);
+    let labelInfo  = await createLabels(timePeriod);
+    let xAxisLabel = labelInfo[0];
+    let yAxisLabel = labelInfo[1];
 
     myChart = new Chart(chartCanvas, {
         type: 'line',
@@ -170,7 +182,6 @@ async function drawChart(timePeriod) {
                     'rgba(255, 159, 64, 1)'
                 ],
                 borderWidth: 1,
-              //  yAxisID:"y-axis"
             }]
         },
         options: {
@@ -181,7 +192,7 @@ async function drawChart(timePeriod) {
                     beginAtZero: true,
                     title:{
                         display:true,
-                        text:"Kilometers Travelled",
+                        text: yAxisLabel,
                         color:"blue"
                     }  
                 },
@@ -189,7 +200,7 @@ async function drawChart(timePeriod) {
                     beginAtZero: true,
                     title:{
                         display:true,
-                        text:"Date of Trip",
+                        text:xAxisLabel,
                         color:"blue"
                     }  
                 }
@@ -199,6 +210,72 @@ async function drawChart(timePeriod) {
 }
 
 
+function compareTimePeriodToObject (period,object)
+{
+    let objectPeriod;
+    let time;
+
+    switch(period)
+            {
+                case "day":
+                    {
+                        console.log(object)
+                        objectPeriod =  object.slice(3, 5);
+                        time         =  getDay();
+                        break;
+                    } 
+                case "month": 
+                {
+                    objectPeriod =  object.slice(0, 2);
+                    time         =  getMonth();
+                    break;
+                }
+                case "year":
+                    {
+                        objectPeriod =  object.slice(6, 10);
+                        time         =  getYear()
+                    }
+                    break;
+                }
+    return [objectPeriod,time];
+}
+/**
+ * Performs the agregations based on the day time period.
+ */
+function aggregations(period)
+{
+    let objectPeriod;
+    let time;
+    let instances        = 0;
+    let distance         = 0;
+    let currentAmountCAD = 0 ;
+
+    for(let i = 0; i < objectTrips.length; i++)
+    {
+        if(objectTrips[i].date != null)
+        {
+            let data     = compareTimePeriodToObject(period,objectTrips[i].date);
+            objectPeriod = data[0];
+            time         = data [1];
+    
+            if(objectPeriod == time)
+            {
+                distance += (objectTrips[i].distance/1000);
+
+
+                    if (objectTrips[i].cost != null) {
+
+                        currentAmountCAD += parseFloat(objectTrips[i].cost);
+                    }
+
+                instances++; // increase the amount of instances
+            }
+        }
+    }
+
+    return [instances, distance, currentAmountCAD];
+}
+
 function getTimePeriod() {
 
     let timePeriod       = $("#time-period").val()
@@ -207,69 +284,22 @@ function getTimePeriod() {
     let instances        = 0;
     let distance         = 0;
     let currentAmountCAD = 0 ;
+    let data             = aggregations(timePeriod);
+    instances            = data[0];
+    distance             = data[1];
+    currentAmountCAD     = data[2];
+    let average          = (currentAmountCAD / instances).toFixed(2);
     
-    if(timePeriod == "day")
+    if(isNaN(average))
     {
-        for(let i = 0; i < objectTrips.length; i++)
-        {
-            if(objectTrips[i].date != null)
-            {
-                if(objectTrips[i].date.slice(3, 5) == getDay())
-                {
-                    distance += (objectTrips[i].distance/1000);
-    
-                    for (let i = 0; i < objectTrips.length; i++) {
-    
-                        if (objectTrips[i].cost != null) {
-    
-                            currentAmountCAD += parseFloat(objectTrips[i].cost);
-                        }
-                    }
-
-                    instances++;
-                }
-            }
-            
-        }
+        average = 0;
     }
-    else if(timePeriod == "month")
-    {
-        for(let i = 0; i < objectTrips.length; i++)
-        {
-            if(objectTrips[i].date != null)
-            {
-                if(objectTrips[i].date.slice(0, 2) == getMonth())
-                {
-                    distance += (objectTrips[i].distance/1000);
-                    console.log(objectTrips[i].distance);
 
-    
-                    for (let i = 0; i < objectTrips.length; i++) {
-    
-                        if (objectTrips[i].cost != null) {
-    
-                            currentAmountCAD += parseFloat(objectTrips[i].cost);
-                        }
-                    }
-
-                    instances++;
-                }
-            }
-            
-        }
-    }
-    else if(timePeriod == "year")
-    {
-
-    }
-    console.log("disance " + distance);
-
-    let average = (currentAmountCAD / instances).toFixed(2);
     $("#trip-average").html(`You Spent: $${average}/Per Trip This Time Period.`)
     $("#distance-driven").html(`Total Distance: ${(distance).toFixed(2)}KM`);
     $("#amount-spent").html(`Total Spend [CAD]: $${currentAmountCAD.toFixed(2)}`);
 
-    myChart.destroy();
+    myChart.destroy(); // destroy the chart and rebuild.
     drawChart(timePeriod);
 }
 
@@ -299,7 +329,6 @@ for (let i = 0; i < 4; i++) {
     let $element = $($topBars[i]);
     if (i == 0) {
         $element.css("background-color", "#FF912C");
-
     }
 }
 

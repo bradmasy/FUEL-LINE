@@ -5,14 +5,21 @@
 @use "../components/page-setup.scss";
 
 html {
+    overflow-x: hidden;
+    overflow-y: hidden;
     body {
+        overflow-x: hidden;
+        overflow-y: hidden;
         #map-page {
             display: flex;
             flex-direction: column;
             // justify-content: center;
             width: 100%;
             height: 80%;
+            overflow-x: hidden;
+            overflow-y: hidden;
             // border: solid black 3px;
+
 
             #map-x-axis {
                 display: flex;
