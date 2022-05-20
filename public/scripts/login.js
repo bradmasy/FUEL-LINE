@@ -95,7 +95,7 @@ function attemptLogin() {
       username: $("#username_log").val(),
       password: $("#password_log").val(),
     },
-    error: displayPopup(),
+    error: displayPopup,
     success: checkUserExists
    
   });

@@ -3,21 +3,24 @@ let drivingDistanceGlobal;
 var fuel_efficiency = 8.9;
 let directionsObject;
 let whichRoute = 0;
+let cost_rounded;
 var gas_price = null;
 let LOGOUT_CALL= 0
+var user_login_status = false
 /**
  * Gets a timestamp of when the directions were requested.
  *
  * @returns an array containing the date of the request and the exact time in military.
  */
 function getTimeStamp() {
-  let date  = new Date();
-  let dd    = String(date.getDate()).padStart(2, "0");
-  let mm    = String(date.getMonth() + 1).padStart(2, "0"); //January is 0!
-  let yyyy  = date.getFullYear();
-  date      = mm + "/" + dd + "/" + yyyy;
+  let date = new Date();
+  let dd = String(date.getDate()).padStart(2, "0");
+  let mm = String(date.getMonth() + 1).padStart(2, "0"); //January is 0!
+  let yyyy = date.getFullYear();
+  date = mm + "/" + dd + "/" + yyyy;
   let today = new Date();
-  let time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+  let time =
+    today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
 
   return [date, time];
 }
@@ -258,7 +261,6 @@ var AutocompleteDirectionsHandler = /** @class */ (function () {
           //creating the trip object here...
 
           // $("#calculation-form").show();
-          
         } else {
           window.alert("Directions request failed due to " + status);
         }
@@ -295,7 +297,7 @@ var AutocompleteDirectionsHandler = /** @class */ (function () {
           drivingDistanceGlobal = drivingDistance;
           // window.alert(drivingDistanceGlobal);
           if (gas_price != null) {
-            console.log("route changed")
+            console.log("route changed");
             calculate_costs();
           }
 
@@ -318,27 +320,55 @@ function calculate_costs() {
 
   if (gas_price == null) {
     gas_price = parseFloat($("#gas-price").val());
+    console.log("gas price value:" + gas_price);
+    console.log("gas price type:" + typeof gas_price);
+    if (isNaN(gas_price)) {
+      console.log("not a number");
+      alert("Enter price of gas without special characters");
+      return;
+    }
+  }
+  if (isNaN(gas_price)) {
+    gas_price = parseFloat($("#gas-price").val());
   }
   var distance = parseFloat(drivingDistanceGlobal.replace(/[^0-9.]/g, ""));
-  console.log(distance)
+  console.log(distance);
   var cost = (distance / fuel_efficiency) * gas_price;
-  var cost_rounded = cost.toFixed(2);
+  cost_rounded = cost.toFixed(2);
 
   jQuery("#calculation-form").empty();
   console.log(cost_rounded);
 
-  createTripObjectForUser(directionsObject, cost_rounded);
+  // createTripObjectForUser(directionsObject, cost_rounded);
   jQuery("#calculation-form").append(
     "<span class='result'> Total cost of trip: $" +
-      cost_rounded + "<br>" + "Total distance of trip: " + distance + "KM" +
-      "</span>"
+      cost_rounded +
+      "<br>" +
+      "Total distance of trip: " +
+      distance +
+      "KM" +
+      "</span>" +
+      "<br>"
   );
+  if (user_login_status == true) {
+    $("#calculation-form").append("<button id='save-trip-button'> Go on route! </button>")
+    $("#save-trip-button").on("click", () => {
+      createTripObjectForUser(directionsObject, cost_rounded)
+    });
+
+    // createTripObjectForUser(directionsObject, cost_rounded);
+  }
 }
 
 function process_user_info(data) {
   if (data.hasOwnProperty("vehicle_efficiency")) {
     fuel_efficiency = data.vehicle_efficiency;
-  } else {
+    user_login_status = true;
+  }
+  if (data.hasOwnProperty("username")) {
+    user_login_status = true;
+  }
+   else {
     console.log("vehicle data does not exist");
   }
 }
@@ -358,8 +388,9 @@ function getUserInfo() {
   });
 }
 
+
 function setup() {
-  console.log("setup function activated")
+  console.log("setup function activated");
   getUserInfo();
   initMap();
   $("#calculation-form").hide();
