@@ -10,13 +10,14 @@ var gas_price = null;
  * @returns an array containing the date of the request and the exact time in military.
  */
 function getTimeStamp() {
-  let date  = new Date();
-  let dd    = String(date.getDate()).padStart(2, "0");
-  let mm    = String(date.getMonth() + 1).padStart(2, "0"); //January is 0!
-  let yyyy  = date.getFullYear();
-  date      = mm + "/" + dd + "/" + yyyy;
+  let date = new Date();
+  let dd = String(date.getDate()).padStart(2, "0");
+  let mm = String(date.getMonth() + 1).padStart(2, "0"); //January is 0!
+  let yyyy = date.getFullYear();
+  date = mm + "/" + dd + "/" + yyyy;
   let today = new Date();
-  let time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+  let time =
+    today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
 
   return [date, time];
 }
@@ -248,7 +249,6 @@ var AutocompleteDirectionsHandler = /** @class */ (function () {
           //creating the trip object here...
 
           // $("#calculation-form").show();
-          
         } else {
           window.alert("Directions request failed due to " + status);
         }
@@ -285,7 +285,7 @@ var AutocompleteDirectionsHandler = /** @class */ (function () {
           drivingDistanceGlobal = drivingDistance;
           // window.alert(drivingDistanceGlobal);
           if (gas_price != null) {
-            console.log("route changed")
+            console.log("route changed");
             calculate_costs();
           }
 
@@ -308,9 +308,19 @@ function calculate_costs() {
 
   if (gas_price == null) {
     gas_price = parseFloat($("#gas-price").val());
+    console.log("gas price value:" + gas_price);
+    console.log("gas price type:" + typeof gas_price);
+    if (isNaN(gas_price)) {
+      console.log("not a number");
+      alert("Enter price of gas without special characters");
+      return;
+    }
+  }
+  if (isNaN(gas_price)) {
+    gas_price = parseFloat($("#gas-price").val());
   }
   var distance = parseFloat(drivingDistanceGlobal.replace(/[^0-9.]/g, ""));
-  console.log(distance)
+  console.log(distance);
   var cost = (distance / fuel_efficiency) * gas_price;
   var cost_rounded = cost.toFixed(2);
 
@@ -320,7 +330,11 @@ function calculate_costs() {
   createTripObjectForUser(directionsObject, cost_rounded);
   jQuery("#calculation-form").append(
     "<span class='result'> Total cost of trip: $" +
-      cost_rounded + "<br>" + "Total distance of trip: " + distance + "KM" +
+      cost_rounded +
+      "<br>" +
+      "Total distance of trip: " +
+      distance +
+      "KM" +
       "</span>"
   );
 }
@@ -349,7 +363,7 @@ function getUserInfo() {
 }
 
 function setup() {
-  console.log("setup function activated")
+  console.log("setup function activated");
   getUserInfo();
   initMap();
   $("#calculation-form").hide();
