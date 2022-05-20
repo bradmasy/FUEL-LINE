@@ -1287,6 +1287,9 @@ html body #map-page #info #map-info {
 html body #map-page #info #map-info #operators {
   display: flex;
 }
+html body #map-page #info #map-info #operators #calculation-form {
+  display: "none";
+}
 html body #map-page #info #map-info .info-container {
   display: flex;
   width: 100%;
