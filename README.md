@@ -54,6 +54,10 @@
 
 # Bugs:
 
+
+- stylings to map page
+- popups on incorrect information added
+
 # GIT Assignment
 
 To run the website:
