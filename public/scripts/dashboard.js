@@ -167,8 +167,8 @@ async function drawChart(timePeriod) {
     let xAxisLabel = labelInfo[0];
     let yAxisLabel = labelInfo[1];
    
-    dataSet = dataSet.sort();
-    tripLabels = tripLabels.sort();
+  //  dataSet    = dataSet.sort();
+    //tripLabels = tripLabels.sort();
 
     myChart = new Chart(chartCanvas, {
         type: 'line',
