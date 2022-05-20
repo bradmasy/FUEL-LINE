@@ -12,7 +12,7 @@ function process_user_info(data) {
     $("#name").html(`<p>${data.username}</p>`);
     $("#email").html(`<p>${data.email}</p>`);
     if (data.hasOwnProperty('vehicle_efficiency')){
-      $("#fuel-efficiency").html(`<p>${data.vehicle_efficiency}</p>`);
+      $("#fuel-efficiency").html(`<p>${(data.vehicle_efficiency).toFixed(2)} L/100KM</p>`);
     }
     else {
       $("#fuel-efficiency").html(`<p><button id='add-vehicle'>Add Vehicle!</button></p>`);
