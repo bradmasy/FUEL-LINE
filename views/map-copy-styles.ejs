@@ -23,7 +23,17 @@
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
     }
 
-    #origin-input,
+    #origin-input {
+      background-color: #fff;
+      font-family: Roboto;
+      font-size: 15px;
+      font-weight: 300;
+      margin-left: 1%;
+      padding: 0 11px 0 13px;
+      text-overflow: ellipsis;
+      width: 190px;
+    }
+
     #destination-input {
       background-color: #fff;
       font-family: Roboto;
@@ -32,7 +42,16 @@
       margin-left: 1%;
       padding: 0 11px 0 13px;
       text-overflow: ellipsis;
-      width: 200px;
+      width: 190px;
+      position: absolute;
+      right: 0px;
+      
+
+    }
+
+    #input-locations {
+      display: flex;
+      justify-content: space-between;
     }
 
     #origin-input:focus,
@@ -62,10 +81,12 @@
   <!--Main-->
   <main id="map-page">
 
-    <div>
-      <input id="origin-input" class="controls" type="text" placeholder="Enter an origin location" />
+    <div id="map-interaction-elements">
+      <div id="input-locations">
+      <input id="origin-input" class="controls" type="text" placeholder="Origin" />
 
-      <input id="destination-input" class="controls" type="text" placeholder="Enter a destination location" />
+      <input id="destination-input" class="controls" type="text" placeholder="Destination" />
+    </div>
 
       <button id="prev-route">Previous Route</button>
       <button id="next-route">Next Route</button>
