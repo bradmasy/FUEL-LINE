@@ -4,6 +4,7 @@ var fuel_efficiency = 8.9;
 let directionsObject;
 let whichRoute = 0;
 var gas_price = null;
+let LOGOUT_CALL= 0
 /**
  * Gets a timestamp of when the directions were requested.
  *
@@ -26,6 +27,15 @@ function getTimeStamp() {
  *
  * @param {Object} distanceOB an object representing all the data about the trip.
  */
+
+ function logout_open(){
+  $(".logout-contain").animate({width:'toggle'},500);
+}
+
+function logout_close(){
+  $(".logout-contain").animate({width:'toggle'},500);
+}
+
 function createTripObjectForUser(distanceOB, cost_rounded) {
   console.log(distanceOB);
   let destination = distanceOB.start_address;
@@ -365,5 +375,20 @@ function setup() {
   }
   $("#calculation-form").on("click", "#calculate", calculate_costs);
 }
+
+$("#header-logo").on("click", () => {
+  if (LOGOUT_CALL == 0){
+    $(".logout-contain").promise().done( logout_open )
+    $(".logout-contain").fadeIn("slow")
+    $(".logout-button").fadeIn("slow")
+    LOGOUT_CALL = 1
+  }
+  else {
+    $(".logout-contain").promise().done( logout_close )
+    $(".logout-contain").fadeOut("slow")
+    $(".logout-button").fadeOut("slow")
+    LOGOUT_CALL = 0
+  }})
+
 
 $(document).ready(setup);
