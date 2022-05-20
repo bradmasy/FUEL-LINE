@@ -3,7 +3,9 @@ let drivingDistanceGlobal;
 var fuel_efficiency = 8.9;
 let directionsObject;
 let whichRoute = 0;
+let cost_rounded;
 var gas_price = null;
+var user_login_status = false
 /**
  * Gets a timestamp of when the directions were requested.
  *
@@ -322,12 +324,12 @@ function calculate_costs() {
   var distance = parseFloat(drivingDistanceGlobal.replace(/[^0-9.]/g, ""));
   console.log(distance);
   var cost = (distance / fuel_efficiency) * gas_price;
-  var cost_rounded = cost.toFixed(2);
+  cost_rounded = cost.toFixed(2);
 
   jQuery("#calculation-form").empty();
   console.log(cost_rounded);
 
-  createTripObjectForUser(directionsObject, cost_rounded);
+  // createTripObjectForUser(directionsObject, cost_rounded);
   jQuery("#calculation-form").append(
     "<span class='result'> Total cost of trip: $" +
       cost_rounded +
@@ -335,14 +337,25 @@ function calculate_costs() {
       "Total distance of trip: " +
       distance +
       "KM" +
-      "</span>"
+      "</span>" +
+      "<br>"
   );
+  if (user_login_status == true) {
+    $("#calculation-form").append("<button id='save-trip-button'> Go on route! </button>")
+    
+    // createTripObjectForUser(directionsObject, cost_rounded);
+  }
 }
 
 function process_user_info(data) {
   if (data.hasOwnProperty("vehicle_efficiency")) {
     fuel_efficiency = data.vehicle_efficiency;
-  } else {
+    user_login_status = true;
+  }
+  if (data.hasOwnProperty("username")) {
+    user_login_status = true;
+  }
+   else {
     console.log("vehicle data does not exist");
   }
 }
@@ -362,6 +375,7 @@ function getUserInfo() {
   });
 }
 
+
 function setup() {
   console.log("setup function activated");
   getUserInfo();
@@ -378,6 +392,7 @@ function setup() {
     console.log($element);
   }
   $("#calculation-form").on("click", "#calculate", calculate_costs);
+  $("#calculation-form").on("click", "#save-trip-button", createTripObjectForUser(directionsObject, cost_rounded));
 }
 
 $(document).ready(setup);
