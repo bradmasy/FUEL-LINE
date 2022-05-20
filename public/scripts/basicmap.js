@@ -342,7 +342,10 @@ function calculate_costs() {
   );
   if (user_login_status == true) {
     $("#calculation-form").append("<button id='save-trip-button'> Go on route! </button>")
-    
+    $("#save-trip-button").on("click", () => {
+      createTripObjectForUser(directionsObject, cost_rounded)
+    });
+
     // createTripObjectForUser(directionsObject, cost_rounded);
   }
 }
@@ -392,7 +395,6 @@ function setup() {
     console.log($element);
   }
   $("#calculation-form").on("click", "#calculate", calculate_costs);
-  $("#calculation-form").on("click", "#save-trip-button", createTripObjectForUser(directionsObject, cost_rounded));
 }
 
 $(document).ready(setup);
