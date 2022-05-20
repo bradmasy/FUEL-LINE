@@ -102,7 +102,9 @@ function attemptSignup() {
           password: $("#password1").val(),
           admin: adminIsChecked
         },
+        error: displayPopup(),
         success: checkUserExists,
+
       });
   }
   else 

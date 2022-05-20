@@ -232,7 +232,6 @@ app.get("/logout", (req, res) => {
 
   if (req.session.authenticated) {
     req.session.authenticated = false;
-    console.log('here')
     req.session.destroy();
     res.render("index");
   } else {
