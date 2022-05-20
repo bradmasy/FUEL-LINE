@@ -230,8 +230,9 @@ app.post("/attemptSignup", function (req, res) {
 app.get("/logout", (req, res) => {
   // logs the user out of session
 
-  if (req.session) {
+  if (req.session.authenticated) {
     req.session.authenticated = false;
+    console.log('here')
     delete req.session;
     res.render("index");
   } else {
