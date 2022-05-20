@@ -267,14 +267,6 @@ app.get("/getUserInfo", function (req, res) {
   }
 });
 
-app.get("/dashboard", function (req, res) {
-  //sends the current session user info to the client
-  if (req.session.user == 1) {
-    res.render("dashboard");
-  } else {
-    res.send(req.session.user);
-  }
-});
 
 app.get("/user-data", (req, res) => {
   console.log("request made");

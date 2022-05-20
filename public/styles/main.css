@@ -560,7 +560,7 @@ html body #signup-page #signup-form #signup-form-align .input-buttons .input-fie
 }
 html body #signup-page #signup-form #signup-form-align .input-buttons #show-me {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   height: 100%;
   width: 100%;
@@ -572,12 +572,12 @@ html body #signup-page #signup-form #signup-form-align .input-buttons #show-me #
 }
 html body #signup-page #signup-form #signup-form-align .input-buttons #show-me #center div {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
 }
 html body #signup-page #signup-form #signup-form-align .input-buttons #show-me #center div #show {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
 }
 html body #signup-page #signup-form #signup-form-align .input-buttons #confirm {
