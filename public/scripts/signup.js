@@ -6,11 +6,11 @@
  * Constant Variables
  */
 
-const $backButton = $("#back-button");
-const $confirmButton = $("#confirm-button");
-const $confirmPassword = $("#password2");
-const $userPassword = $("#password1");
-const $showPasswordBox = $("#show");
+const $backButton        = $("#back-button");
+const $confirmButton     = $("#confirm-button");
+const $confirmPassword   = $("#password2");
+const $userPassword      = $("#password1");
+const $showPasswordBox   = $("#show");
 const $showPasswordTitle = $("#pass-title");
 
 
