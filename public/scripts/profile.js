@@ -91,23 +91,24 @@ function setup() {
     
   })
 
+// swipe event
 
-  $(document).on("touchend",(event) => {
-    console.log("end");
-    touchXAxisEnd = event.changedTouches[0].screenX;
+  // $(document).on("touchend",(event) => {
+  //   console.log("end");
+  //   touchXAxisEnd = event.changedTouches[0].screenX;
 
-    console.log(`start ${touchXAxisStart} end: ${touchXAxisEnd}`);
+  //   console.log(`start ${touchXAxisStart} end: ${touchXAxisEnd}`);
 
-    if(touchXAxisStart > touchXAxisEnd) // signifies a swipe right.
-    {
-      window.location.href = "/car-choice";
-    }
-    else if(touchXAxisStart < touchXAxisEnd) // signifies a swipe right.
-    {
-      window.location.href = "/map";
-    }
+  //   if(touchXAxisStart > touchXAxisEnd) // signifies a swipe right.
+  //   {
+  //     window.location.href = "/car-choice";
+  //   }
+  //   else if(touchXAxisStart < touchXAxisEnd) // signifies a swipe right.
+  //   {
+  //     window.location.href = "/map";
+  //   }
   
-  })
+  // })
 
   $('.logout-button').on('click', function(){
     window.location.href ="/logout";
