@@ -37,6 +37,7 @@
 html {
   display: flex;
   flex-direction: column;
+  -webkit-appearance: none;
   height: 100%;
   width: 100%;
   font-family: "jost-variable";
@@ -58,39 +59,77 @@ html body {
 html body header {
   display: flex;
   flex-direction: row;
+  display: flex;
+  justify-content: right;
   width: 100%;
   height: 10%;
   background-color: #FF912C;
-}
-html body header #space {
-  display: flex;
-  width: 33%;
+  justify-content: right;
+  background-color: #FF912C !important;
 }
 html body header #header-logo-container {
+  -webkit-appearance: none;
   display: flex;
   flex-direction: row;
-  justify-content: right;
-  width: auto;
+  justify-content: center;
+  width: 100%;
   height: 100%;
+  transition: transform 1s;
 }
 html body header #header-logo-container #header-logo {
   width: 30%;
   -o-object-fit: contain;
      object-fit: contain;
+  -webkit-appearance: none;
+  transform: translateX(100%);
+  padding: 10px;
+  cursor: pointer;
 }
-html body header #hamburger {
-  display: flex;
-  justify-content: right;
-  width: 33.3%;
+html body header .logout-contain {
+  display: none;
+  width: 30%;
   height: 100%;
+  flex-direction: column;
+  padding-right: 5%;
+  padding-top: 5%;
+  margin: auto;
+  justify-content: center;
 }
-html body header #hamburger #ham-menu:hover {
+html body header .logout-contain .logout-button:active {
+  border: none;
+  outline: none;
+}
+html body header .logout-contain .logout-button:hover {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.9);
   transition: 0.3s;
 }
-html body header #hamburger #ham-menu {
+html body header .logout-contain .logout-button {
+  display: none;
+  right: -100px;
+  transition: 1s;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
   display: flex;
+  flex-direction: row;
+  justify-content: center;
+  text-align: center;
   height: 100%;
+  width: 45%;
+  font-size: 1em;
+  font-family: "jost-variable";
+  outline: none;
+  border-radius: 40px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+  border: none;
+  outline: none;
+  width: 90% !important;
+  height: 40%;
+  color: black;
+  background-color: #b1b1b1;
+  margin: auto;
+  font-size: 2.5vh;
+  padding: 10px, 20px;
 }
 html body footer {
   display: flex;
@@ -126,7 +165,7 @@ html body footer #navigation-buttons .nav-buttons .top-bar {
   display: flex;
   width: 100%;
   height: 5%;
-  background-color: #FF912C;
+  background-color: lightgray;
 }
 html body footer #navigation-buttons .nav-buttons .hover-button {
   display: flex;
@@ -169,33 +208,60 @@ html body footer #navigation-buttons .nav-buttons .hover-button .button-title p 
  * @name: Bradley Masciotra.
  * @version: 1.0
  */
+html body #easter-content {
+  display: none;
+  height: 80%;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+}
+html body #easter-content #position-center {
+  display: flex;
+  height: 30%;
+  width: 100%;
+}
+html body #easter-content #position-center #easter-egg {
+  display: flex;
+  height: 25%;
+  position: absolute;
+}
 html body #content {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
   background-color: rgb(255, 255, 255);
   height: 80%;
   width: 100%;
+}
+@media only screen and (max-height: 400px) {
+  html body #content {
+    justify-content: center;
+  }
 }
 html body #content .row-container {
   display: flex;
   flex-direction: row;
   justify-content: center;
   height: 20%;
+  margin-top: 20%;
+}
+@media only screen and (max-height: 400px) {
+  html body #content .row-container {
+    margin-top: 0%;
+  }
 }
 html body #content .row-container #main-logo {
   display: flex;
-  margin-top: 5%;
   height: auto;
   width: 25%;
   -o-object-fit: contain;
      object-fit: contain;
+  position: none;
 }
 html body #content #welcome-txt {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 30%;
+  height: 15%;
   width: 100%;
 }
 html body #content #welcome-txt #name {
@@ -206,12 +272,8 @@ html body #content #welcome-txt #name {
 html body #content #welcome-txt #name #centre-name {
   display: flex;
   flex-direction: column;
-  height: 80%;
-}
-html body #content #welcome-txt #name #centre-name p {
-  display: flex;
-  font-size: 5vh;
   height: 100%;
+  font-size: 5vh;
 }
 html body #content #welcome-txt #centre-txt {
   display: flex;
@@ -246,7 +308,6 @@ html body #content #signup-login #form-align #form {
   display: flex;
   height: 100%;
   width: 80%;
-  border-radius: 15px 15px 15px 15px;
 }
 html body #content #signup-login #form-align #form #button-columns {
   display: flex;
@@ -254,13 +315,13 @@ html body #content #signup-login #form-align #form #button-columns {
   justify-content: center;
   width: 100%;
   height: 100%;
+  gap: 10%;
 }
 html body #content #signup-login #form-align #form #button-columns .button-container {
   display: flex;
   justify-content: center;
   width: 100%;
   height: 35%;
-  margin: 1%;
 }
 html body #content #signup-login #form-align #form #button-columns .button-container .main-button:hover {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.9);
@@ -282,7 +343,6 @@ html body #content #signup-login #form-align #form #button-columns .button-conta
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   border: none;
 }
-
 html body #statistics-page {
   display: flex;
   flex-direction: column;
@@ -301,7 +361,7 @@ html body #statistics-page #main-container-x #main-container-y {
   justify-content: space-between;
   height: 100%;
   width: 90%;
-  background-color: #b1b1b1;
+  background-color: #c4c4c4;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
   border-radius: 15px 15px 15px 15px;
 }
@@ -443,7 +503,6 @@ html body {
 html body #signup-page {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   background-color: white;
   height: 80%;
   width: 100%;
@@ -454,63 +513,45 @@ html body #signup-page #signup-statement {
   justify-content: center;
   text-align: center;
   font-size: 2em;
-  font-weight: bold;
-  height: 20%;
-  margin-top: 1%;
-}
-html body #signup-page #img-container {
-  display: flex;
-  flex-direction: column;
-  height: 50%;
-  width: 100%;
-}
-html body #signup-page #img-container #main-img {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  width: 100%;
-}
-html body #signup-page #img-container #main-img #signup-logo {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  height: 100%;
-  width: a;
+  height: 15%;
+  margin-top: 10%;
 }
 html body #signup-page #greet {
   display: flex;
   justify-content: center;
-  height: 10%;
+  height: 5%;
+  margin-top: 5%;
 }
 html body #signup-page #signup-form {
   display: flex;
   flex-direction: column;
   justify-content: center;
   height: 60%;
-  margin-top: 15%;
 }
 html body #signup-page #signup-form #signup-form-align {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
-  height: 80%;
+  height: 90%;
   width: 100%;
 }
 html body #signup-page #signup-form #signup-form-align .input-buttons {
   display: flex;
   justify-content: center;
-  height: 10%;
+  height: 20%;
   width: 100%;
   outline: none;
   margin-top: 3%;
+  -webkit-appearance: none;
 }
 html body #signup-page #signup-form #signup-form-align .input-buttons .input-fields:focus {
   border: none;
   outline: none;
+  -webkit-appearance: none;
 }
 html body #signup-page #signup-form #signup-form-align .input-buttons .input-fields {
   display: flex;
   text-align: center;
+  -webkit-appearance: none;
   border: none;
   font-weight: bold;
   border-radius: 40px;
@@ -519,11 +560,10 @@ html body #signup-page #signup-form #signup-form-align .input-buttons .input-fie
 }
 html body #signup-page #signup-form #signup-form-align .input-buttons #show-me {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   height: 100%;
   width: 100%;
-  margin-top: 5%;
 }
 html body #signup-page #signup-form #signup-form-align .input-buttons #show-me #center {
   display: flex;
@@ -532,12 +572,12 @@ html body #signup-page #signup-form #signup-form-align .input-buttons #show-me #
 }
 html body #signup-page #signup-form #signup-form-align .input-buttons #show-me #center div {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
 }
 html body #signup-page #signup-form #signup-form-align .input-buttons #show-me #center div #show {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
 }
 html body #signup-page #signup-form #signup-form-align .input-buttons #confirm {
@@ -560,11 +600,14 @@ html body #signup-page #signup-form #signup-form-align .input-buttons #confirm d
   justify-content: center;
   align-items: center;
   border: none;
-  font-weight: bold;
+  font-family: "jost-variable";
   border-radius: 40px;
-  background-color: #ffb877;
-  width: 60%;
+  background-color: #FF912C;
+  width: 90%;
+  padding-left: 10%;
+  padding-right: 10%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+  color: black;
 }
 
 html body #login-page {
@@ -575,40 +618,22 @@ html body #login-page {
 }
 html body #login-page #statement {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   text-align: center;
   font-size: 2em;
   height: 20%;
+  margin-top: 20%;
 }
-html body #login-page #img-container {
-  display: flex;
-  flex-direction: column;
-  height: 50%;
-  width: 100%;
-}
-html body #login-page #img-container #main-img {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  width: 100%;
-}
-html body #login-page #img-container #main-img #logo {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  height: 100%;
-  width: auto;
-}
-html body #login-page #greet {
+html body #login-page #greet-container {
   display: flex;
   justify-content: center;
   height: 10%;
-  margin-top: 15%;
+  margin-top: 5%;
 }
-html body #login-page #space {
+html body #login-page #greet-container #greet {
   display: flex;
-  height: 10%;
+  justify-content: center;
 }
 html body #login-page #form {
   display: flex;
@@ -621,52 +646,70 @@ html body #login-page #form #user-container {
   display: flex;
   justify-content: center;
   width: 100%;
-  height: 25%;
+  height: 15%;
   margin-bottom: 2%;
 }
 html body #login-page #form #user-container .input-fields:focus {
   border: none;
   outline: none;
+  -webkit-appearance: none;
+}
+html body #login-page #form #user-container .input-fields:hover {
+  cursor: pointer;
+  box-shadow: 0 4px 8px 0 rgb(0, 0, 0), 2px 3px 8px 0 #ffb877;
+  transition: 0.3s;
 }
 html body #login-page #form #user-container .input-fields {
   display: flex;
   text-align: center;
   border: none;
-  font-weight: bold;
   border-radius: 40px;
+  font-size: 2vh;
   width: 50%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8), 2px 3px 8px 0 #ffb877;
+  -webkit-appearance: none;
+  font-family: "jost-variable";
 }
 html body #login-page #form #pass-container {
   display: flex;
   justify-content: center;
   width: 100%;
-  height: 25%;
+  height: 15%;
 }
 html body #login-page #form #pass-container .input-fields:focus {
   border: none;
   outline: none;
+  -webkit-appearance: none;
+}
+html body #login-page #form #pass-container .input-fields:hover {
+  cursor: pointer;
+  box-shadow: 0 4px 8px 0 rgb(0, 0, 0), 2px 3px 8px 0 #ffb877;
+  transition: 0.3s;
 }
 html body #login-page #form #pass-container .input-fields {
   display: flex;
   text-align: center;
   border: none;
-  font-weight: bold;
   border-radius: 40px;
+  font-size: 2vh;
   width: 50%;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8), 2px 3px 8px 0 #ffb877;
+  -webkit-appearance: none;
+  font-family: "jost-variable";
 }
 html body #login-page #form #check-boxes {
   display: flex;
   flex-direction: row;
   width: 100%;
-  height: 30%;
+  height: 10%;
+  margin-top: 5%;
+  margin-bottom: 5%;
   justify-content: center;
 }
 html body #login-page #form #check-boxes #make-admin {
   display: flex;
   width: 50%;
-  justify-content: center;
+  justify-content: space-around;
 }
 html body #login-page #form #check-boxes #make-admin div {
   display: flex;
@@ -680,8 +723,11 @@ html body #login-page #form #check-boxes #make-admin label {
 }
 html body #login-page #form #check-boxes #show-pass {
   display: flex;
-  width: 50%;
-  justify-content: center;
+  width: 40%;
+  justify-content: space-around;
+}
+html body #login-page #form #check-boxes #show-pass div input:hover {
+  cursor: pointer;
 }
 html body #login-page #form #check-boxes #show-pass div {
   display: flex;
@@ -693,29 +739,102 @@ html body #login-page #form #check-boxes #show-pass label {
   flex-direction: column;
   justify-content: center;
 }
-html body #login-page #form #submit {
+html body #login-page #form #buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 50%;
+  gap: 10%;
+}
+html body #login-page #form #buttons #submit {
   display: flex;
   justify-content: center;
-  height: 15%;
+  height: 45%;
 }
-html body #login-page #form #submit #submit-button:hover {
+html body #login-page #form #buttons #submit #submit-button:hover {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.9);
   transition: 0.3s;
+  cursor: pointer;
 }
-html body #login-page #form #submit #submit-button {
+html body #login-page #form #buttons #submit #submit-button {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: none;
-  height: 100%;
-  padding: 2%;
-  color: black;
-  font-weight: bold;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   border-radius: 40px;
-  background-color: #ffb877;
-  width: 20%;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+  padding-right: 8%;
+  padding-left: 8%;
+  color: black;
+  background-color: #FF912C;
+  font-family: "jost-variable";
+  font-size: 2vh;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  border: none;
+}
+html body #login-page #form #buttons #back {
+  display: flex;
+  justify-content: center;
+  height: 45%;
+}
+html body #login-page #form #buttons #back #back-button:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.9);
+  transition: 0.3s;
+  cursor: pointer;
+}
+html body #login-page #form #buttons #back #back-button {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 40px;
+  padding-right: 8%;
+  padding-left: 8%;
+  color: black;
+  background-color: #FF912C;
+  font-family: "jost-variable";
+  font-size: 2vh;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  border: none;
+}
+html body .error {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 0.5px solid lightgray;
+  z-index: 10;
+  background-color: rgba(248, 140, 16, 0.973);
+  opacity: 90%;
+  height: 30%;
+  width: 80%;
+  border-radius: 15px 15px 15px 15px;
+}
+html body .error .error-container .error-title {
+  padding: 10px 15px 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 0.5px solid lightgray;
+}
+html body .error .error-container .error-title .title {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+html body .error .error-container .error-title .close-button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background-color: lightgray;
+  opacity: 0.95;
+  border-radius: 50%;
+  width: 15%;
+  font-size: 2rem;
+}
+html body .error .error-container .error-content {
+  padding: 10px 15px;
 }
 
 html {
@@ -764,7 +883,7 @@ html body #profile-page #user-profile-x #user-profile-y #user-div {
   justify-content: space-between;
   height: 100%;
   width: 90%;
-  background-color: #b1b1b1;
+  background-color: #c4c4c4;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
   border-radius: 15px 15px 15px 15px;
 }
@@ -814,7 +933,7 @@ html body #profile-page #user-profile-x #user-profile-y #user-div #picture-div-x
   justify-content: center;
   border-radius: 50%;
   height: 100%;
-  width: 90%;
+  width: 80%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
 }
 html body #profile-page #user-profile-x #user-profile-y #user-div #info-div {
@@ -849,15 +968,15 @@ html body #profile-page #user-profile-x #user-profile-y #user-div #info-div .inf
   justify-content: center;
   font-size: 1em;
   font-weight: bold;
-  width: 25%;
-  margin-left: 2%;
+  width: 30%;
+  margin-left: 3%;
 }
 html body #profile-page #user-profile-x #user-profile-y #user-div #info-div .info-items .info {
   display: flex;
   flex-direction: column;
   justify-content: center;
   font-size: 1em;
-  width: 75%;
+  width: 70%;
 }
 html body #profile-page #user-profile-x #user-profile-y #user-div #extra-div {
   display: flex;
@@ -922,7 +1041,41 @@ html body #profile-page #user-profile-x #user-profile-y #user-div #stats-button 
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.9);
   transition: 0.3s;
 }
-
+html .edit {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 0.5px solid lightgray;
+  z-index: 10;
+  background-color: rgb(248, 140, 16);
+  opacity: 90%;
+  width: 300px;
+  max-width: 60%;
+  padding: 15px;
+  border-radius: 5%;
+}
+html .edit .edit-container .edit-title {
+  padding: 10px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: rgb(255, 255, 255);
+  border-bottom: 0.5px solid lightgray;
+}
+html .edit .edit-container .edit-title .title {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+html .edit .edit-container .edit-title .close-button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background-color: lightgray;
+  border-radius: 40%;
+  font-size: 1.25rem;
+}
 html body #dashboard-page {
   display: flex;
   width: 100%;
@@ -948,16 +1101,111 @@ html body #dashboard-page #user-profile-x #user-profile-y #user-div {
   justify-content: space-between;
   height: 100%;
   width: 90%;
-  background-color: #b1b1b1;
+  background-color: #c4c4c4;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
   border-radius: 15px 15px 15px 15px;
 }
+html body #dashboard-page #user-profile-x #user-profile-y #user-div #picture-div-x {
+  display: flex;
+  justify-content: center;
+  height: 60%;
+  width: 100%;
+  overflow: hidden;
+}
+html body #dashboard-page #user-profile-x #user-profile-y #user-div #picture-div-x #chart {
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+html body #dashboard-page #user-profile-x #user-profile-y #user-div #info-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 40%;
+  gap: 5%;
+  width: 100%;
+  margin-top: 5%;
+}
+html body #dashboard-page #user-profile-x #user-profile-y #user-div #info-div #name {
+  font-size: 2em;
+  justify-content: center;
+  text-align: center;
+}
+html body #dashboard-page #user-profile-x #user-profile-y #user-div #info-div .dashboard-desc {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 0.5em;
+  font-weight: 600;
+  height: 10%;
+}
+html body #dashboard-page #user-profile-x #user-profile-y #user-div #info-div .info-title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 1em;
+  font-weight: bold;
+  height: 10%;
+}
+html body #dashboard-page #user-profile-x #user-profile-y #user-div #info-div .info-items {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: 10%;
+}
+html body #dashboard-page #user-profile-x #user-profile-y #user-div #info-div .info-items span {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+html body #dashboard-page #user-profile-x #user-profile-y #user-div #info-div .info-items .info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 1em;
+  width: 75%;
+}
+html body #dashboard-page #user-profile-x #user-profile-y #user-div #extra-div {
+  display: flex;
+  flex-direction: column;
+  height: 35%;
+  width: 100%;
+}
+html body #dashboard-page #user-profile-x #user-profile-y #user-div #extra-div #select-x {
+  display: flex;
+  justify-content: center;
+  height: 30%;
+  width: 100%;
+  font-family: "jost-variable";
+}
+html body #dashboard-page #user-profile-x #user-profile-y #user-div #extra-div #select-x select {
+  display: flex;
+  text-align: center;
+  width: 30%;
+  height: 100%;
+  border-radius: 40px;
+  border: none;
+  outline: none;
+  font-family: "jost-variable";
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+}
 
+html {
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+html body {
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
 html body #map-page {
   display: flex;
   flex-direction: column;
   width: 100%;
   height: 80%;
+  overflow-x: hidden;
+  overflow-y: hidden;
 }
 html body #map-page #map-x-axis {
   display: flex;
@@ -980,14 +1228,50 @@ html body #map-page #info {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  height: 20%;
-  background-color: #b1b1b1;
+  height: 21%;
+  background-color: white;
+  text-align: center;
+}
+html body #map-page #info input[type=text] {
+  border-radius: 25px;
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: none;
+  background-color: #ffb877;
+  color: white;
+}
+html body #map-page #info .button {
+  background-color: #FF912C;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  width: 180px;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+html body #map-page #info .result {
+  background-color: #FF912C;
+  color: white;
+  border-radius: 25px;
+  padding: 16px 32px;
+  margin: 4px 2px;
+  display: inline-block;
 }
 html body #map-page #info #map-info {
   display: flex;
   justify-content: space-around;
   flex-direction: column;
   width: 50%;
+}
+html body #map-page #info #map-info #operators {
+  display: flex;
 }
 html body #map-page #info #map-info .info-container {
   display: flex;
@@ -1010,6 +1294,7 @@ html body #map-page #info #location {
   display: flex;
   flex-direction: column;
   width: 40%;
+  border: solid green 2px;
 }
 html body #map-page #info #location .button-container {
   display: flex;
@@ -1044,6 +1329,182 @@ html body #map-page #info #location .button-container .centre .buttons {
   outline: none;
   border: none;
   background-color: #FF912C;
+}
+
+html body {
+  /*------------------------------------SIGNUP-PAGE----------------------------------------------*/
+}
+html body #input-page {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(255, 255, 255);
+  height: 80%;
+  width: 100%;
+}
+html body #input-page #input-statement {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  text-align: center;
+  font-size: 2em;
+  height: 15%;
+}
+html body #input-page #greet {
+  display: flex;
+  justify-content: center;
+  height: 5%;
+  margin-top: 5%;
+}
+html body #input-page #input-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 60%;
+  padding: 10px, 15px;
+}
+html body #input-page #input-form #input-form-align {
+  display: flex;
+  flex-direction: column;
+  height: 90%;
+  width: 100%;
+}
+html body #input-page #input-form #input-form-align .input-buttons {
+  display: flex;
+  justify-content: center;
+  height: 20%;
+  width: 100%;
+  outline: none;
+  margin-top: 3%;
+  -webkit-appearance: none;
+}
+html body #input-page #input-form #input-form-align .input-buttons .input-fields:focus {
+  border: none;
+  outline: none;
+  -webkit-appearance: none;
+}
+html body #input-page #input-form #input-form-align .input-buttons .input-fields {
+  display: flex;
+  text-align: center;
+  -webkit-appearance: none;
+  border: none;
+  font-weight: bold;
+  border-radius: 40px;
+  width: 50%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8), 2px 3px 8px 0 #ffb877;
+}
+html body #input-page #input-form #input-form-align .input-buttons #show-me {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+html body #input-page #input-form #input-form-align .input-buttons #show-me #center {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+html body #input-page #input-form #input-form-align .input-buttons #show-me #center div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+html body #input-page #input-form #input-form-align .input-buttons #show-me #center div #show {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+html body #input-page #input-form #input-form-align .input-buttons #confirm {
+  display: flex;
+  width: 75%;
+  justify-content: center;
+  padding-top: 10px;
+}
+html body #input-page #input-form #input-form-align .input-buttons #confirm div {
+  display: flex;
+  justify-content: center;
+  width: 50%;
+  height: 100%;
+}
+html body #input-page #input-form #input-form-align .input-buttons #confirm div button:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.9);
+  transition: 0.3s;
+}
+html body #input-page #input-form #input-form-align .input-buttons #confirm div button {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  font-family: "jost-variable";
+  font-weight: bold;
+  border-radius: 40px;
+  background-color: #FF912C;
+  width: 50%;
+  padding-left: 10%;
+  padding-right: 10%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+  color: black;
+}
+html body #input-page #input-form #input-form-align .input-buttons #confirm div button .button-image {
+  width: 100%;
+  height: 100%;
+}
+
+html body #car-choice {
+  background-image: linear-gradient(#FF912C, purple);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  height: 80%;
+  width: 100%;
+  justify-content: center;
+  text-align: center;
+}
+@media only screen and (max-height: 400px) {
+  html body #car-choice {
+    justify-content: center;
+  }
+}
+html body #car-choice select {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border: 0;
+  outline: 0;
+  font: inherit;
+  width: 20em;
+  height: 3em;
+  padding: 0 4em 0 1em;
+  background: url(/images/buttons/dropdown.png) no-repeat right 0.8em center/1.4em, linear-gradient(to left, rgba(255, 255, 255, 0.3) 3em, rgba(255, 255, 255, 0.2) 3em);
+  color: white;
+  border-radius: 0.25em;
+  box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+html body #car-choice select option {
+  color: inherit;
+  background-color: #320a28;
+}
+html body #car-choice select:focus {
+  outline: none;
+}
+html body #car-choice select::-ms-expand {
+  display: none;
+}
+html body #car-choice .button {
+  background-color: #FF912C;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  width: 180px;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
 }
 
 /* Fuel Line Style Sheet

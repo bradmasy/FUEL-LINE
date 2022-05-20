@@ -1,0 +1,147 @@
+<html>
+  <head>
+    <title></title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--Sets the width of the page is the devices widtth-->
+    <link rel="stylesheet" href="/styles/main.css" />
+    <script src="/scripts/jquery-3.6.0.min.js" defer></script>
+    <script src="/scripts/handlers/footer-buttons.js" defer></script>
+
+
+    <!-- <script src="/public/scripts/handlers/footer-buttons.js"></script> -->
+    <script src="/scripts/car-choice.js" defer></script>
+
+    <style>
+      progress {
+        border: none;
+      }
+
+      progress::-webkit-progress-value {
+        background: orange;
+      }
+
+      progress::-webkit-progress-bar {
+        background: lightgray;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!--Header-->
+    <header>
+      <div id="space"></div>
+      <div id="header-logo-container">
+        <img id="header-logo" src="images/Untitled design (7).png" />
+      </div>
+    </header>
+    <!--Navigation-->
+    <nav></nav>
+
+    <!--Main-->
+    <main id="car-choice">
+      <div>
+      <img src="/images/car-icon-white.png" alt="" style="height: 100px; width: 100px;">
+    </div>
+      <label for="cars">Enter your car information:</label>
+      <div id="year-choice">1. Year of release:
+
+        <select name="year" id="year">
+          <option value=""></option>
+          <option value="2021">2021</option>
+          <option value="2020">2020</option>
+          <option value="2019">2019</option>
+          <option value="2018">2018</option>
+          <option value="2017">2017</option>
+          <option value="2016">2016</option>
+          <option value="2015">2015</option>
+          <option value="2014">2014</option>
+          <option value="2013">2013</option>
+          <option value="2012">2012</option>
+          <option value="2011">2011</option>
+          <option value="2010">2010</option>
+          <option value="2008">2008</option>
+          <option value="2008">2008</option>
+          <option value="2007">2007</option>
+          <option value="2006">2006</option>
+          <option value="2005">2005</option>
+          <option value="2004">2004</option>
+          <option value="2003">2003</option>
+          <option value="2002">2002</option>
+          <option value="2001">2001</option>
+          <option value="2000">2000</option>
+        </select>
+      </div>
+      <span>2. Make of Vehicle:
+      <span id="make-choice"></span>
+    </span>
+    <span>
+      3. Model of Vehicle:
+      <span id="model-choice"></span>
+    </span>
+      <br /><br />
+      <div id="result" ></div>
+      <div id="save-selection">
+      <input type="submit" value="Save Vehicle" id="confirm-button" class="button">
+    </div>
+    <div id="manual-input"> Or, enter fuel efficiency manually(L/100KM): <input type="text" id="number-field"></input></div>
+    <div><input type="submit" value="Save Efficiency" id="confirm-manual-button" class="button"></div>
+    </main>
+
+    <!--Footer-->
+    <footer>
+      <div id="navigation-buttons">
+        <!--Home Button-->
+        <div class="nav-buttons">
+          <div class="top-bar"></div>
+          <div class="hover-button" id="home-button">
+            <div class="button-img">
+              <img src="images/buttons/home-button.png" />
+            </div>
+            <div class="button-title">
+              <p>Home</p>
+            </div>
+          </div>
+        </div>
+        <!--Favorites Button-->
+        <div class="nav-buttons">
+          <div class="top-bar"></div>
+          <div class="hover-button">
+            <div class="button-img">
+              <img src="images/buttons/favorites-button.png" />
+            </div>
+            <div class="button-title">
+              <p>Favorites</p>
+            </div>
+          </div>
+        </div>
+        <!--User Button-->
+        <div class="nav-buttons" id="profile-button">
+          <div class="top-bar"></div>
+          <div class="hover-button">
+            <div class="button-img">
+              <img src="images/buttons/user-button.png" />
+            </div>
+            <div class="button-title" id="profile">
+              <p>Your Profile</p>
+            </div>
+          </div>
+        </div>
+        <!--Map Button-->
+        <div class="nav-buttons" id="map-button">
+          <div class="top-bar"></div>
+          <div class="hover-button">
+            <div class="button-img">
+              <img src="./images/buttons/map.png" />
+            </div>
+            <div class="button-title">
+              <p>Map</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!--END OF BODY-->
+  </body>
+</html>

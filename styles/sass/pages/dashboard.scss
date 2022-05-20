@@ -1,20 +1,21 @@
-
 @use "../typography/fonts.scss";
 @use "../mixins/mixin.scss";
+@use "../pages/index.scss";
 @use "../colors/colors.scss";
+@use "../components/buttons.scss";
 @use "../components/page-setup.scss";
 
-
 html {
-    body {
 
+
+    body {
+ 
         #dashboard-page {
             display: flex;
             width: 100%;
             height: 80%;
 
-            #user-profile-x{
-
+            #user-profile-x {
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
@@ -30,9 +31,118 @@ html {
 
                     #user-div {
                         @include mixin.profile-page-container();
+                        
+
+                        #picture-div-x {
+                            display: flex;
+                            justify-content: center;
+                            height: 60%;
+                            width: 100%;
+                            overflow: hidden;
+                            // border:solid black 2px;
+
+                            #chart{
+                                display: block;
+                                height: 100%;
+                                width:100%;
+                                // border:solid green 2px;
+                            }
+                        }
+
+                        // Content
+                        #info-div {
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: flex-start;
+                            height: 40%;
+                            gap:5%;
+                            width: 100%;
+                            margin-top: 5%;
+                            #name {
+                                font-size: 2em;
+                                justify-content: center;
+                                text-align: center;
+                            }
+
+                            .dashboard-desc {
+                                display: flex;
+                                flex-direction: column;
+                                justify-content: center;
+                                font-size: 0.5em;
+                                font-weight:600;
+                                height: 10%;
+                            }
+
+                            .info-title {
+                                display: flex;
+                                flex-direction: column;
+                                justify-content: center;
+                                font-size: 1em;
+                                font-weight: bold;
+                                height: 10%;
+
+                            }
+
+                            .info-items {
+                                display: flex;
+                                flex-direction: row;
+                                justify-content: center;
+                                height: 10%;
+                                // border:solid black 2px;
+
+                                span {
+                                    display: flex;
+                                    flex-direction: row;
+                                    justify-content: center;
+                                    width: 100%;
+                                }
+
+                                .info {
+                                    display: flex;
+                                    flex-direction: column;
+                                    justify-content: center;
+                                    font-size: 1em;
+                                    width: 75%;
+                                }
+                            }
+                        }
+
+                        // Button
+                        #extra-div {
+                            display: flex;
+                            flex-direction: column;
+                            height: 35%;
+                            width: 100%;
+
+                            #select-x {
+                                display: flex;
+                                justify-content: center;
+                                height: 30%;
+                                width: 100%;
+                                font-family: fonts.$main-font;
+
+
+                                select {
+                                    display: flex;
+                                    text-align: center;
+                                    width: 30%;
+                                    height: 100%;
+                                    border-radius: 40px;
+                                    border:none;
+                                    outline:none;
+                                    font-family: fonts.$main-font;
+                                    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+
+                                }
+                            }
+
+                         
+                        }
+
+                       
+                        
+
                     }
-
-
                 }
             }
         }

@@ -8,33 +8,24 @@
     <link rel="stylesheet" href="/styles/main.css">
     <script src="/scripts/jquery-3.6.0.min.js" defer></script>
     <script src="/scripts/handlers/footer-buttons.js" defer></script>
-    <script src="/public/scripts/handlers/footer-buttons.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js" defer></script>
+    <script src="/public/scripts/handlers/footer-buttons.js" defer></script>
+    <script src="/scripts/dashboard.js" defer></script>
 
-    <style>
 
-progress {
-    border: none;
-    }
-    
-    progress::-webkit-progress-value {
-    background: orange;
-    }
-    
-    progress::-webkit-progress-bar {
-    background: lightgray;
-    }
-                       
-    </style>
 </head>
 
 <body>
     <!--Header-->
     <header>
-        <div id="space">
+        <!-- <div id="space">
+        </div> -->
 
-        </div>
         <div id="header-logo-container">
-            <img id="header-logo" src="images/Untitled design (7).png">
+            <img id="header-logo" src="./images/Untitled design (7).png">
+        </div>
+        <div class="logout-contain">
+            <button class="logout-button">Logout</button>
         </div>
     </header>
     <!--Navigation-->
@@ -42,60 +33,44 @@ progress {
     </nav>
 
     <!--Main-->
-    <main id="profile-page">
+    <main id="dashboard-page">
         <div id="user-profile-x">
             <div id="user-profile-y">
                 <div id="user-div">
                     <!--User Profile Box-->
                     <div id="picture-div-x">
-                        <div id="semi-circle">
-                            <div id="picture-div-y">
-                                <div id="img-container">
-                                    <div>
-                                        <img src="./images/profile2.jpg">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <canvas id="chart">
+                        </canvas>
                     </div>
                     <div id="info-div">
                         <div class="info-title" id="name">
-                            <!-- user taken from database -->
-                            <p>Welcome, User</p>
-                        </div>
-                        <!-- value and max taken from database  -->
-                        <div class="info-items" id="barContainer">
-                            <p class="label">Gas Usage:</p>
-                            <progress value="40" max="130"></p>
-                        </div>
-
-                        <div class="info-items" id="barContainer">
-                            <p class="label">Gas Cost:</p>
-                            <progress value="95" max="250"></p>
+                            <span id="username"></span>
                         </div>
                         <div class="info-items" id="barContainer">
-                            <p class="label">Distance Drivenen:</p>
-                            <progress value="40" max="130"></p>
+                            <span id="amount-spent"></span>
                         </div>
-
-                    </div>
-
-                    <div id="extra-div">
-                        <div id="button-x-axis">
-                            <div id="button-y-axis">
-                                <button class="input-buttons" type="stats-link" id="stats-button">Statistics</button>
+                        <div class="info-items" id="barContainer">
+                            <span id="trip-average"></span>
+                        </div>
+                        <div class="info-items" id="barContainer">
+                            <span id="distance-driven"></span>
+                        </div>
+                        <div id="extra-div">
+                            <div id="select-x">
+                                <select class="input-buttons" id="time-period">
+                                    <option value="" selected disabled hidden>Time Period</option>
+                                    <option value="day">Daily</option>
+                                    <option value="month">Monthly</option>
+                                    <option value="year">Yearly</option>
+                                </select>
                             </div>
-
                         </div>
                     </div>
                 </div>
-
             </div>
-
         </div>
-
+        </div>
     </main>
-
     <!--Footer-->
     <footer>
         <div id="navigation-buttons">
@@ -117,7 +92,7 @@ progress {
                 <div class="top-bar">
                 </div>
                 <div class="hover-button">
-                    
+
                     <div class="button-img">
                         <img src="images/buttons/favorites-button.png">
                     </div>
@@ -140,16 +115,16 @@ progress {
                 </div>
             </div>
             <!--Map Button-->
-            <div class="nav-buttons"  id="map-button">
+            <div class="nav-buttons" id="map-button">
                 <div class="top-bar">
                 </div>
                 <div class="hover-button">
                     <div class="button-img">
                         <img src="./images/buttons/map.png" />
-                      </div>
-                      <div class="button-title">
+                    </div>
+                    <div class="button-title">
                         <p>Map</p>
-                      </div>
+                    </div>
                 </div>
             </div>
         </div>

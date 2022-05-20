@@ -5,14 +5,21 @@
 @use "../components/page-setup.scss";
 
 html {
+    overflow-x: hidden;
+    overflow-y: hidden;
     body {
+        overflow-x: hidden;
+        overflow-y: hidden;
         #map-page {
             display: flex;
             flex-direction: column;
             // justify-content: center;
             width: 100%;
             height: 80%;
+            overflow-x: hidden;
+            overflow-y: hidden;
             // border: solid black 3px;
+
 
             #map-x-axis {
                 display: flex;
@@ -21,11 +28,8 @@ html {
                 width:100%;
 
                 #map-y-axis {
- 
                     width:100%;
                     height: 100%;
-
-
 
                     #map-section {
                         display: flex;
@@ -41,9 +45,41 @@ html {
                 display: flex;
                 flex-direction: row;
                 justify-content: space-around;
-                height: 20%;
-                background-color: colors.$main-grey;
-
+                height: 21%;
+                background-color: white;
+                text-align: center;
+                input[type=text] {
+                    border-radius: 25px;
+                    width: 100%;
+                    padding: 12px 20px;
+                    margin: 8px 0;
+                    box-sizing: border-box;
+                    border: none;
+                    background-color: #ffb877;
+                    color: white;
+                  }
+                .button {
+                    background-color: #FF912C;
+                    border: none;
+                    color: white;
+                    padding: 16px 32px;
+                    text-align: center;
+                    width: 180px;
+                    text-decoration: none;
+                    display: inline-block;
+                    font-size: 16px;
+                    margin: 4px 2px;
+                    transition-duration: 0.4s;
+                    cursor: pointer;
+                }
+                .result {
+                    background-color: #FF912C;
+                    color: white;
+                    border-radius: 25px;
+                    padding: 16px 32px;
+                    margin: 4px 2px;
+                    display: inline-block;
+                }
                 #map-info {
                     display: flex;
                     justify-content: space-around;
@@ -51,12 +87,22 @@ html {
                     width: 50%;
                     // border: solid 2px purple;
 
+                    #operators{
+                        display: flex;
+                    
+                        #calculation-form {
+
+                        }
+
+                    }
+
                     .info-container {
                         display: flex;
                         width:100%;
                         // border:solid black 1px;
                         height: 20%;
                         font-size: 1.5vh;
+
                         div:nth-child(1){
                             display: flex;
                             font-weight: bold;
@@ -76,7 +122,7 @@ html {
                     display: flex;
                     flex-direction: column;
                     width: 40%;
-                    // border: solid green 2px;
+                    border: solid green 2px;
 
                     .button-container {
                         display: flex;
@@ -114,19 +160,7 @@ html {
                                 background-color: colors.$main-color;
                             }
 
-                            // #extra-button {
-                            //     display: flex;
-                            //     justify-content: center;
-                            //     height: 100%;
-                            //     width: 50%;
-                            //     display: table-cell;
-                            //     vertical-align: middle;
-                            //     padding: 1%;
-                            //     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8), 2px 3px 8px 0 black;
-                            //     font-family: fonts.$main-font;
-
-
-                            // }
+                       
 
 
                         }

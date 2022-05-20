@@ -5,7 +5,7 @@
 
 html {
     @include mixin.flex_styles_cl();
-
+    -webkit-appearance: none;
     height: 100%;
     width: 100%;
     font-family: fonts.$main-font;
@@ -28,46 +28,71 @@ html {
         header {
             @include mixin.flex_styles_rw();
             @include mixin.header_footer_styles();
-
-            #space {
-                display: flex;
-                width: 33%;
-            }
-
+            justify-content: right;
+            background-color: #FF912C !important;
+            
             #header-logo-container {
-                display: flex;
+                -webkit-appearance: none;
+                display:flex;
                 flex-direction: row;
-                justify-content: right;
-                width: auto;
+                justify-content: center;
+                width: 100%;
                 height: 100%;
+                transition: transform 1s;
 
 
                 #header-logo 
                 {
                     width: 30%;
                     object-fit: contain;
-
+                    -webkit-appearance: none;
+                    transform: translateX(100%);
+                    padding: 10px;
+                    cursor: pointer
                 }
 
             }
 
-            #hamburger {
-                display: flex;
-                justify-content: right;
-                width: 33.3%;
+
+            .logout-contain{
+                display: none;
+                width: 30%;
                 height: 100%;
-                //  border: solid 1px red;
+                flex-direction: column;
+                padding-right: 5%;
+                padding-top: 5%;
+                margin: auto;
+                justify-content: center;
 
+                .logout-button:active{
+                    @include mixin.button-active();
 
-                #ham-menu:hover {
+                }
+
+                .logout-button:hover{
                     @include mixin.hover-styles();
                 }
 
-                #ham-menu {
-                    display: flex;
-                    height: 100%;
+                .logout-button{
+                    display: none;
+
+                    right: -100px;
+                    transition: 1s;
+                    flex-direction: column;
+                    justify-content: center;
+                    text-align: center;
+                    @include mixin.button-styles();
+                    width:90% !important;
+                    height: 40%;
+                    color:black;
+                    background-color: #b1b1b1;
+                    margin: auto;
+                    font-size: 2.5vh;
+                    padding: 10px,20px;
+
                 }
             }
+
         }
 
 
@@ -109,7 +134,7 @@ html {
                         display: flex;
                         width: 100%;
                         height:5%;
-                        background-color: colors.$main-color;
+                        background-color: lightgray;
                     }
     
 

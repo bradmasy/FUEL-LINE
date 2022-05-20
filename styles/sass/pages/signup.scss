@@ -15,84 +15,67 @@ html {
         #signup-page {
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            // justify-content: center;
             background-color: white;
             height: 80%;
             width: 100%;
 
-            #signup-statement {
+            #signup-statement { //20%
                 display: flex;
                 flex-direction: row;
                 justify-content: center;
                 text-align: center;
                 font-size: 2em;
-                font-weight: bold;
-                height: 20%;
-                margin-top: 1%;
+                // font-weight: bold;
+                height: 15%;
+                margin-top: 10%;
+                // border:solid green 2px;
             }
 
-            #img-container {
-                display: flex;
-                flex-direction: column;
-                height: 50%;
-                width: 100%;
+       
 
-                #main-img {
-                    display: flex;
-                    flex-direction: row;
-                    justify-content: center;
-                    width: 100%;
-
-                    #signup-logo {
-                        display: flex;
-                        flex-direction: row;
-                        justify-content: center;
-                        height: 100%;
-                        width: a;
-                    }
-                }
-            }
-
-            #greet {
+            #greet { //10%
                 display: flex;
                 justify-content: center;
-                height: 10%;
-
-                p {}
+                height: 5%;
+                margin-top:5%
             }
 
-            #signup-form {
+            #signup-form { // 60%
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
-                height: 60%;
-                margin-top: 15%;
+                height: 60%;    
+                // border:solid purple 2px;
 
                 #signup-form-align {
                     display: flex;
                     flex-direction: column;
-                    justify-content: space-around;
-                    height: 80%;
+                    // justify-content: ;
+                    height: 90%;
                     width: 100%;
-
-
+                    // border:solid green 2px;
 
                     .input-buttons {
                         display: flex;
                         justify-content: center;
-                        height: 10%;
+                        height: 20%;
                         width: 100%;
                         outline: none;
                         margin-top: 3%;
+                        -webkit-appearance: none;
+                        // border:solid blue 2px;
 
                         .input-fields:focus {
                             border: none;
                             outline: none;
+                            -webkit-appearance: none;
                         }
 
                         .input-fields {
                             display: flex;
                             text-align: center;
+                            -webkit-appearance: none;
                             border: none;
                             font-weight: bold;
                             border-radius: 40px;
@@ -102,26 +85,26 @@ html {
 
                         #show-me {
                             display: flex;
-                            flex-direction: column;
+                            flex-direction: row;
                             justify-content: center;
                             height: 100%;
                             width: 100%;
-                            margin-top: 5%;
 
                             #center {
                                 display: flex;
                                 flex-direction: row;
                                 justify-content: center;
+                                // border: solid black 2px;
 
                                 div {
 
                                     display: flex;
-                                    flex-direction: column;
+                                    flex-direction: row;
                                     justify-content: center;
 
                                     #show {
                                         display: flex;
-                                        flex-direction: row;
+                                        flex-direction: column;
                                         justify-content: center;
                                     }
                                 }
@@ -151,11 +134,15 @@ html {
                                     justify-content: center;
                                     align-items: center;
                                     border: none;
-                                    font-weight: bold;
+                                    font-family: fonts.$main-font;
+                                    // font-weight: bold;
                                     border-radius: 40px;
-                                    background-color: colors.$secondary-color;
-                                    width: 60%;
+                                    background-color: colors.$main-color;
+                                    width: 90%;
+                                    padding-left: 10%;
+                                    padding-right:10%;
                                     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4); //, 2px 3px 8px 0 #ffb877;
+                                    color: black;
 
                                 }
                             }
