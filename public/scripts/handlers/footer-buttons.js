@@ -2,6 +2,11 @@
 
 function setup() {
 
+    $(".logout-button").on("click", () => {
+        console.log("logout")
+        window.location.href = "/logout";
+    });
+
     $("#home-button").on("click", ()=>{
     console.log("clicked");
     window.location.href ="/";

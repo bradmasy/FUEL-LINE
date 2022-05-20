@@ -171,6 +171,8 @@ function initiateSession(req, users) {
   }
 }
 
+
+
 function checkUserExists(data) {
   if (data.length === 0) {
     console.log("User not found!");
@@ -238,6 +240,7 @@ app.get("/logout", (req, res) => {
   // logs the user out of session
 
   if (req.session) {
+    req.session.authenticated = false;
     delete req.session;
     res.render("index");
   } else {
