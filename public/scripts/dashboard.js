@@ -101,8 +101,8 @@ async function createLabels(timePeriod) {
                 if (tripMonth == mm) {
                     tripLabels.push(objectTrips[i].date);
                     dataSet.push((objectTrips[i].distance/1000).toFixed(1));
-                    xAxisLabel = "Distance Travelled in KM";
-                    yAxisLabel = "Date of Trip";
+                    xAxisLabel = "Date of Trip";
+                    yAxisLabel = "Distance Travelled in KM";
                 }
             }
             else if (timePeriod == "day") {
@@ -166,6 +166,9 @@ async function drawChart(timePeriod) {
     let labelInfo  = await createLabels(timePeriod);
     let xAxisLabel = labelInfo[0];
     let yAxisLabel = labelInfo[1];
+   
+  //  dataSet    = dataSet.sort();
+    //tripLabels = tripLabels.sort();
 
     myChart = new Chart(chartCanvas, {
         type: 'line',

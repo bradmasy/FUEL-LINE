@@ -4,12 +4,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/styles/main.css">
   <script src="https://polyfill.io/v3/polyfill.min.js?features=default" defer></script>
+  <script> var exports = {}; </script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBE5NVWlFtuddGJGJxUiAS7Po3_jQePuts&callback=initMap&libraries=places&v=weekly"> </script>
   <script src="/scripts/jquery-3.6.0.min.js" defer></script>
   <script src="/scripts/handlers/footer-buttons.js" defer></script>
-  <script> var exports = {}; </script>
-  <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBE5NVWlFtuddGJGJxUiAS7Po3_jQePuts&callback=initMap&libraries=places&v=weekly"> </script>
-  <script async type="module" src="/scripts/basicmap.js" ></script>
-
+  <script type="module" src="/scripts/basicmap.js" defer ></script>
 
   <style>
     .controls {
@@ -117,8 +116,8 @@
             </div>
          
             <div>
-              Cost of Gas ($/L): <br>
-              <input type="text" name="" id="gas-price" /><br />
+              
+              <input type="text" name="" id="gas-price" placeholder="Cost of Gas ($/L):"/><br />
             </div>
             <div>
               <input type="button" value="calculate" id="calculate" class="button"/>

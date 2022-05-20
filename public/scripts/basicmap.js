@@ -73,8 +73,9 @@ function initMap() {
     zoom: 14,
     mapTypeControl: false,
     scaleControl: false,
-    zoomControl: true,
+    zoomControl: false,
     fullscreenControl: false,
+    streetViewControl: false,
   });
   new AutocompleteDirectionsHandler(map);
 }
@@ -121,7 +122,7 @@ var AutocompleteDirectionsHandler = /** @class */ (function () {
     this.map.controls[google.maps.ControlPosition.BOTTOM_LEFT].push(
       prevRouteButton
     );
-    this.map.controls[google.maps.ControlPosition.BOTTOM_LEFT].push(
+    this.map.controls[google.maps.ControlPosition.BOTTOM_RIGHT].push(
       nextRouteButton
     );
   }
@@ -252,7 +253,11 @@ var AutocompleteDirectionsHandler = /** @class */ (function () {
           var drivingDistance = directionsData.distance.text;
           drivingDistanceGlobal = drivingDistance;
           // window.alert(drivingDistanceGlobal);
-          calculate_costs();
+          if (gas_price != null) {
+            console.log("called from line 257")
+            calculate_costs();
+          }
+          
 
           var directionsData = response.routes[0].legs[0];
           var drivingDistance = directionsData.distance.text;
