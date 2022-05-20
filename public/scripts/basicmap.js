@@ -349,6 +349,7 @@ function getUserInfo() {
 }
 
 function setup() {
+  console.log("setup function activated")
   getUserInfo();
   initMap();
   $("#calculation-form").hide();

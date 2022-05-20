@@ -53,35 +53,35 @@ app.get("/statistics", (req, res) => {
 });
 
 app.post("/create-trip", (req, res) => {
-
-  let origin      = req.body.origin;
+  let origin = req.body.origin;
   let destination = req.body.destination;
-  let distance    = req.body.distance;
-  let user_id     = req.session.user._id;
-  let date        = req.body.date;
-  let time        = req.body.time;
-  let cost        = req.body.cost;
+  let distance = req.body.distance;
+  let user_id = req.session.user._id;
+  let date = req.body.date;
+  let time = req.body.time;
+  let cost = req.body.cost;
 
   userModel.findOneAndUpdate(
     {
-      _id: user_id
+      _id: user_id,
     },
     {
       $push: {
         trips: {
-          "origin":      origin,
-          "destination": destination,
-          "distance":    distance,
-          "date":        date,
-          "time":        time,
-          "cost":cost
-        }
-      }
-    }, (err, data) => {
-        console.log(data)
-      }
-  )
-})
+          origin: origin,
+          destination: destination,
+          distance: distance,
+          date: date,
+          time: time,
+          cost: cost,
+        },
+      },
+    },
+    (err, data) => {
+      console.log(data);
+    }
+  );
+});
 
 function checkUserExists(data) {
   if (data.length === 0) {
@@ -92,21 +92,17 @@ function checkUserExists(data) {
 }
 
 app.get("/", function (req, res) {
-  if(req.session.authenticated == true)
-  {
+  if (req.session.authenticated == true) {
     res.render("dashboard");
-  }
-  else{
+  } else {
     res.render("index");
   }
 });
 
 app.get("/index", function (req, res) {
-  if(req.session.authenticated == true)
-  {
+  if (req.session.authenticated == true) {
     res.redirect("dashboard");
-  }
-  else{
+  } else {
     res.render("index");
   }
 });
@@ -144,15 +140,12 @@ app.get("/userinput", function (req, res) {
 });
 
 app.get("/dashboard", function (req, res) {
-  if(req.session.authenticated)
-  {
+  if (req.session.authenticated) {
     res.render("dashboard");
-  }
-  else
-  {
+  } else {
     res.redirect("login");
   }
-})
+});
 
 app.get("/map", function (req, res) {
   res.render("map-copy-styles");
@@ -162,8 +155,8 @@ function initiateSession(req, users) {
   //initiates a session
   if (checkUserExists(users)) {
     req.session.authenticated = true; // user gets authenticated.
-    req.session.user          = users[USER];
-    console.log( req.session.user )
+    req.session.user = users[USER];
+    console.log(req.session.user);
   } else {
     req.session.authenticated = false;
     console.log(`invalid user`);
@@ -227,7 +220,7 @@ app.post("/attemptSignup", function (req, res) {
         console.log("Error " + err);
       } else {
         console.log("Data " + users);
-        initiateSession(req,users);
+        initiateSession(req, users);
       }
       res.send(users);
     }
@@ -251,7 +244,6 @@ app.get("/getUserInfo", function (req, res) {
   if (req.session.user == 0) {
     res.render("index");
   } else {
-
     userModel.find(
       { username: req.session.user["username"] },
       function (err, users) {
@@ -260,7 +252,6 @@ app.get("/getUserInfo", function (req, res) {
         } else {
           console.log("Data " + users);
         }
-        console.log(req.session.user);
         console.log(users);
         res.send(users[0]);
       }
@@ -268,16 +259,25 @@ app.get("/getUserInfo", function (req, res) {
   }
 });
 
-
 app.get("/user-data", (req, res) => {
   req.header("Content-Type", "application/json");
-
-  let data = {
-    username: req.session.user.username,
-    trips: req.session.user.trips,
-  };
-
-  res.send(JSON.stringify(data));
+  userModel.find(
+    { username: req.session.user["username"] },
+    function (err, users) {
+      if (err) {
+        console.log("Error " + err);
+      } else {
+        console.log("Data " + users);
+      }
+      console.log(users);
+      let data = {
+        username: users[0].username,
+        trips: users[0].trips,
+      };
+      // res.send(users[0]);
+      res.send(JSON.stringify(data));
+    }
+  );
 });
 
 app.post("/saveUserVehicle", function (req, res) {
