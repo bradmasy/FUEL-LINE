@@ -109,17 +109,17 @@ function setup() {
   // })
 
   $("#header-logo").on("click", () => {
-    if (LOGOUT_CALL==0){
+    if (LOGOUT_CALL == 0){
       $(".logout-contain").promise().done( logout_open )
       $(".logout-contain").fadeIn("slow")
       $(".logout-button").fadeIn("slow")
-      LOGOUT_CALL=1
+      LOGOUT_CALL = 1
     }
     else {
       $(".logout-contain").promise().done( logout_close )
       $(".logout-contain").fadeOut("slow")
       $(".logout-button").fadeOut("slow")
-      LOGOUT_CALL=0
+      LOGOUT_CALL = 0
     }})
 
 
