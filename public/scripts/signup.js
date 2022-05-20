@@ -109,6 +109,7 @@ function attemptSignup() {
   }
   else 
   {
+    displayPopup()
     console.log("FAILED");
   }
 
@@ -123,7 +124,7 @@ function setup() {
   for (let i = 0; i < 4; i++) {
     let $element = $($topBars[i]);
     if (i == 0) {
-      $element.css("background-color", "black");
+      $element.css("background-color", "#FF912C");
 
     }
 
