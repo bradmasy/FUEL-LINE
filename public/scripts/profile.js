@@ -84,29 +84,34 @@ function setup() {
 
   $(".close-button").on("click", closeEdit)
 
-  // $(document).on("touchstart",(event) => {
-  //   console.log("touched");
-  //   console.log(event.changedTouches)
-  //   touchXAxisStart = event.changedTouches[0].screenX;
+  $(document).on("touchstart",(event) => {
+    console.log("touched");
+    console.log(event.changedTouches)
+    touchXAxisStart = event.changedTouches[0].screenX;
     
-  // })
+  })
 
-  // $(document).on("touchend",(event) => {
-  //   console.log("end");
-  //   touchXAxisEnd = event.changedTouches[0].screenX;
 
-  //   console.log(`start ${touchXAxisStart} end: ${touchXAxisEnd}`);
+  $(document).on("touchend",(event) => {
+    console.log("end");
+    touchXAxisEnd = event.changedTouches[0].screenX;
 
-  //   if(touchXAxisStart > touchXAxisEnd) // signifies a swipe right.
-  //   {
-  //     window.location.href = "/car-choice";
-  //   }
-  //   else if(touchXAxisStart < touchXAxisEnd) // signifies a swipe right.
-  //   {
-  //     window.location.href = "/map";
-  //   }
+    console.log(`start ${touchXAxisStart} end: ${touchXAxisEnd}`);
+
+    if(touchXAxisStart > touchXAxisEnd) // signifies a swipe right.
+    {
+      window.location.href = "/car-choice";
+    }
+    else if(touchXAxisStart < touchXAxisEnd) // signifies a swipe right.
+    {
+      window.location.href = "/map";
+    }
   
-  // })
+  })
+
+  $('.logout-button').on('click', function(){
+    window.location.href ="/logout";
+  })
 
   $("#header-logo").on("click", () => {
     if (LOGOUT_CALL==0){
