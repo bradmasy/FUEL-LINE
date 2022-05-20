@@ -65,7 +65,6 @@ app.post("/create-trip", (req, res) => {
   userModel.findOneAndUpdate(
     {
       _id: user_id
-
     },
     {
       $push: {
@@ -148,7 +147,6 @@ app.get("/dashboard", function (req, res) {
   if(req.session.authenticated)
   {
     res.render("dashboard");
-
   }
   else
   {
@@ -164,14 +162,13 @@ function initiateSession(req, users) {
   //initiates a session
   if (checkUserExists(users)) {
     req.session.authenticated = true; // user gets authenticated.
-    req.session.user = users[USER];
+    req.session.user          = users[USER];
+    console.log( req.session.user )
   } else {
     req.session.authenticated = false;
     console.log(`invalid user`);
   }
 }
-
-
 
 function checkUserExists(data) {
   if (data.length === 0) {
@@ -230,6 +227,7 @@ app.post("/attemptSignup", function (req, res) {
         console.log("Error " + err);
       } else {
         console.log("Data " + users);
+        initiateSession(req,users);
       }
       res.send(users);
     }
@@ -272,19 +270,13 @@ app.get("/getUserInfo", function (req, res) {
 
 
 app.get("/user-data", (req, res) => {
-  console.log("request made");
-
-  // console.log(req.session.user);
-  // userModel.find({
-  //   _id: req.session.user.id
-  // },{})
-  console.log(req.session.user.trips);
   req.header("Content-Type", "application/json");
 
   let data = {
     username: req.session.user.username,
     trips: req.session.user.trips,
   };
+
   res.send(JSON.stringify(data));
 });
 

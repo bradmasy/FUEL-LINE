@@ -10,14 +10,13 @@ var gas_price = null;
  * @returns an array containing the date of the request and the exact time in military.
  */
 function getTimeStamp() {
-  let date = new Date();
-  let dd = String(date.getDate()).padStart(2, "0");
-  let mm = String(date.getMonth() + 1).padStart(2, "0"); //January is 0!
-  let yyyy = date.getFullYear();
-  date = mm + "/" + dd + "/" + yyyy;
+  let date  = new Date();
+  let dd    = String(date.getDate()).padStart(2, "0");
+  let mm    = String(date.getMonth() + 1).padStart(2, "0"); //January is 0!
+  let yyyy  = date.getFullYear();
+  date      = mm + "/" + dd + "/" + yyyy;
   let today = new Date();
-  let time =
-    today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+  let time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
 
   return [date, time];
 }
