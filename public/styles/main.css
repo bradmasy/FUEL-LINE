@@ -65,14 +65,71 @@ html body header {
   height: 10%;
   background-color: #FF912C;
   justify-content: right;
+  background-color: #FF912C !important;
 }
 html body header #header-logo-container {
   -webkit-appearance: none;
   display: flex;
   flex-direction: row;
-  justify-content: right;
+  justify-content: center;
   width: 100%;
   height: 100%;
+  transition: transform 1s;
+}
+html body header #header-logo-container #header-logo {
+  width: 30%;
+  -o-object-fit: contain;
+     object-fit: contain;
+  -webkit-appearance: none;
+  transform: translateX(100%);
+  padding: 10px;
+  cursor: pointer;
+}
+html body header .logout-contain {
+  display: none;
+  width: 30%;
+  height: 100%;
+  flex-direction: column;
+  padding-right: 5%;
+  padding-top: 5%;
+  margin: auto;
+  justify-content: center;
+}
+html body header .logout-contain .logout-button:active {
+  border: none;
+  outline: none;
+}
+html body header .logout-contain .logout-button:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.9);
+  transition: 0.3s;
+}
+html body header .logout-contain .logout-button {
+  display: none;
+  right: -100px;
+  transition: 1s;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  text-align: center;
+  height: 100%;
+  width: 45%;
+  font-size: 1em;
+  font-family: "jost-variable";
+  outline: none;
+  border-radius: 40px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+  border: none;
+  outline: none;
+  width: 90% !important;
+  height: 40%;
+  color: black;
+  background-color: #b1b1b1;
+  margin: auto;
+  font-size: 2.5vh;
+  padding: 10px, 20px;
 }
 html body footer {
   display: flex;
@@ -108,7 +165,7 @@ html body footer #navigation-buttons .nav-buttons .top-bar {
   display: flex;
   width: 100%;
   height: 5%;
-  background-color: #FF912C;
+  background-color: lightgray;
 }
 html body footer #navigation-buttons .nav-buttons .hover-button {
   display: flex;
@@ -151,12 +208,34 @@ html body footer #navigation-buttons .nav-buttons .hover-button .button-title p 
  * @name: Bradley Masciotra.
  * @version: 1.0
  */
+html body #easter-content {
+  display: none;
+  height: 80%;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+}
+html body #easter-content #position-center {
+  display: flex;
+  height: 30%;
+  width: 100%;
+}
+html body #easter-content #position-center #easter-egg {
+  display: flex;
+  height: 25%;
+  position: absolute;
+}
 html body #content {
   display: flex;
   flex-direction: column;
   background-color: rgb(255, 255, 255);
   height: 80%;
   width: 100%;
+}
+@media only screen and (max-height: 400px) {
+  html body #content {
+    justify-content: center;
+  }
 }
 html body #content .row-container {
   display: flex;
@@ -165,12 +244,18 @@ html body #content .row-container {
   height: 20%;
   margin-top: 20%;
 }
+@media only screen and (max-height: 400px) {
+  html body #content .row-container {
+    margin-top: 0%;
+  }
+}
 html body #content .row-container #main-logo {
   display: flex;
   height: auto;
   width: 25%;
   -o-object-fit: contain;
      object-fit: contain;
+  position: none;
 }
 html body #content #welcome-txt {
   display: flex;
@@ -223,7 +308,6 @@ html body #content #signup-login #form-align #form {
   display: flex;
   height: 100%;
   width: 80%;
-  border-radius: 15px 15px 15px 15px;
 }
 html body #content #signup-login #form-align #form #button-columns {
   display: flex;
@@ -231,13 +315,13 @@ html body #content #signup-login #form-align #form #button-columns {
   justify-content: center;
   width: 100%;
   height: 100%;
+  gap: 10%;
 }
 html body #content #signup-login #form-align #form #button-columns .button-container {
   display: flex;
   justify-content: center;
   width: 100%;
   height: 35%;
-  margin: 1%;
 }
 html body #content #signup-login #form-align #form #button-columns .button-container .main-button:hover {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.9);
@@ -259,7 +343,6 @@ html body #content #signup-login #form-align #form #button-columns .button-conta
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   border: none;
 }
-
 html body #statistics-page {
   display: flex;
   flex-direction: column;
@@ -278,7 +361,7 @@ html body #statistics-page #main-container-x #main-container-y {
   justify-content: space-between;
   height: 100%;
   width: 90%;
-  background-color: #b1b1b1;
+  background-color: #c4c4c4;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
   border-radius: 15px 15px 15px 15px;
 }
@@ -477,7 +560,7 @@ html body #signup-page #signup-form #signup-form-align .input-buttons .input-fie
 }
 html body #signup-page #signup-form #signup-form-align .input-buttons #show-me {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   height: 100%;
   width: 100%;
@@ -489,12 +572,12 @@ html body #signup-page #signup-form #signup-form-align .input-buttons #show-me #
 }
 html body #signup-page #signup-form #signup-form-align .input-buttons #show-me #center div {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
 }
 html body #signup-page #signup-form #signup-form-align .input-buttons #show-me #center div #show {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
 }
 html body #signup-page #signup-form #signup-form-align .input-buttons #confirm {
@@ -640,7 +723,7 @@ html body #login-page #form #check-boxes #make-admin label {
 }
 html body #login-page #form #check-boxes #show-pass {
   display: flex;
-  width: 30%;
+  width: 40%;
   justify-content: space-around;
 }
 html body #login-page #form #check-boxes #show-pass div input:hover {
@@ -715,6 +798,44 @@ html body #login-page #form #buttons #back #back-button {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   border: none;
 }
+html body .error {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 0.5px solid lightgray;
+  z-index: 10;
+  background-color: rgba(248, 140, 16, 0.973);
+  opacity: 90%;
+  height: 30%;
+  width: 80%;
+  border-radius: 15px 15px 15px 15px;
+}
+html body .error .error-container .error-title {
+  padding: 10px 15px 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 0.5px solid lightgray;
+}
+html body .error .error-container .error-title .title {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+html body .error .error-container .error-title .close-button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background-color: lightgray;
+  opacity: 0.95;
+  border-radius: 50%;
+  width: 15%;
+  font-size: 2rem;
+}
+html body .error .error-container .error-content {
+  padding: 10px 15px;
+}
 
 html {
   display: flex;
@@ -762,7 +883,7 @@ html body #profile-page #user-profile-x #user-profile-y #user-div {
   justify-content: space-between;
   height: 100%;
   width: 90%;
-  background-color: #b1b1b1;
+  background-color: #c4c4c4;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
   border-radius: 15px 15px 15px 15px;
 }
@@ -920,27 +1041,40 @@ html body #profile-page #user-profile-x #user-profile-y #user-div #stats-button 
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.9);
   transition: 0.3s;
 }
-
-html {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  width: 100%;
-  font-family: "jost-variable";
-  overflow-x: hidden;
-  overflow-y: hidden;
-  padding: 0%;
+html .edit {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 0.5px solid lightgray;
+  z-index: 10;
+  background-color: rgb(248, 140, 16);
+  opacity: 90%;
+  width: 300px;
+  max-width: 60%;
+  padding: 15px;
+  border-radius: 5%;
 }
-html body {
+html .edit .edit-container .edit-title {
+  padding: 10px 15px;
   display: flex;
-  flex-direction: column;
-  height: 100%;
-  width: 100%;
-  padding: 0%;
-  margin: 0%;
-  justify-content: center;
-  overflow-y: hidden;
-  overflow-x: hidden;
+  justify-content: space-between;
+  align-items: center;
+  color: rgb(255, 255, 255);
+  border-bottom: 0.5px solid lightgray;
+}
+html .edit .edit-container .edit-title .title {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+html .edit .edit-container .edit-title .close-button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background-color: lightgray;
+  border-radius: 40%;
+  font-size: 1.25rem;
 }
 html body #dashboard-page {
   display: flex;
@@ -967,65 +1101,30 @@ html body #dashboard-page #user-profile-x #user-profile-y #user-div {
   justify-content: space-between;
   height: 100%;
   width: 90%;
-  background-color: #b1b1b1;
+  background-color: #c4c4c4;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
   border-radius: 15px 15px 15px 15px;
 }
 html body #dashboard-page #user-profile-x #user-profile-y #user-div #picture-div-x {
   display: flex;
   justify-content: center;
-  height: 40%;
+  height: 60%;
   width: 100%;
   overflow: hidden;
 }
-html body #dashboard-page #user-profile-x #user-profile-y #user-div #picture-div-x #semi-circle {
-  display: flex;
-  justify-content: center;
+html body #dashboard-page #user-profile-x #user-profile-y #user-div #picture-div-x #chart {
+  display: block;
+  height: 100%;
   width: 100%;
-  height: 100%;
-  background-color: #ffb877;
-  transform: rotate(30deg);
-  border-bottom-right-radius: 300px;
-  border-top-right-radius: 150px;
-  border-top-left-radius: 15px;
-  position: relative;
-}
-html body #dashboard-page #user-profile-x #user-profile-y #user-div #picture-div-x #semi-circle #picture-div-y {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  height: 100%;
-  width: 50%;
-}
-html body #dashboard-page #user-profile-x #user-profile-y #user-div #picture-div-x #semi-circle #picture-div-y #img-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-  transform: rotate(-30deg);
-}
-html body #dashboard-page #user-profile-x #user-profile-y #user-div #picture-div-x #semi-circle #picture-div-y #img-container div {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  height: 70%;
-  justify-content: center;
-}
-html body #dashboard-page #user-profile-x #user-profile-y #user-div #picture-div-x #semi-circle #picture-div-y #img-container div img {
-  display: flex;
-  justify-content: center;
-  border-radius: 50%;
-  height: 100%;
-  width: 90%;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
 }
 html body #dashboard-page #user-profile-x #user-profile-y #user-div #info-div {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
-  height: 50%;
+  justify-content: flex-start;
+  height: 40%;
+  gap: 5%;
   width: 100%;
+  margin-top: 5%;
 }
 html body #dashboard-page #user-profile-x #user-profile-y #user-div #info-div #name {
   font-size: 2em;
@@ -1052,25 +1151,13 @@ html body #dashboard-page #user-profile-x #user-profile-y #user-div #info-div .i
   display: flex;
   flex-direction: row;
   justify-content: center;
-  height: 15%;
+  height: 10%;
 }
-html body #dashboard-page #user-profile-x #user-profile-y #user-div #info-div .info-items progress {
-  border: none;
-}
-html body #dashboard-page #user-profile-x #user-profile-y #user-div #info-div .info-items progress::-webkit-progress-value {
-  background: orange;
-}
-html body #dashboard-page #user-profile-x #user-profile-y #user-div #info-div .info-items progress::-webkit-progress-bar {
-  background: lightgray;
-}
-html body #dashboard-page #user-profile-x #user-profile-y #user-div #info-div .info-items .label {
+html body #dashboard-page #user-profile-x #user-profile-y #user-div #info-div .info-items span {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
-  font-size: 1em;
-  font-weight: bold;
-  width: 25%;
-  margin-left: 2%;
+  width: 100%;
 }
 html body #dashboard-page #user-profile-x #user-profile-y #user-div #info-div .info-items .info {
   display: flex;
@@ -1082,72 +1169,43 @@ html body #dashboard-page #user-profile-x #user-profile-y #user-div #info-div .i
 html body #dashboard-page #user-profile-x #user-profile-y #user-div #extra-div {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  height: 17%;
+  height: 35%;
   width: 100%;
 }
-html body #dashboard-page #user-profile-x #user-profile-y #user-div #extra-div #button-x-axis {
+html body #dashboard-page #user-profile-x #user-profile-y #user-div #extra-div #select-x {
   display: flex;
+  justify-content: center;
+  height: 30%;
   width: 100%;
-  height: 40%;
-  flex-direction: row;
-  justify-content: center;
-}
-html body #dashboard-page #user-profile-x #user-profile-y #user-div #extra-div #button-x-axis #button-y-axis {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 30%;
-}
-html body #dashboard-page #user-profile-x #user-profile-y #user-div #extra-div #button-x-axis #button-y-axis button:active {
-  border: none;
-  outline: none;
-}
-html body #dashboard-page #user-profile-x #user-profile-y #user-div #extra-div #button-x-axis #button-y-axis button:hover {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.9);
-  transition: 0.3s;
-}
-html body #dashboard-page #user-profile-x #user-profile-y #user-div #extra-div #button-x-axis #button-y-axis button {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  text-align: center;
-  height: 100%;
-  width: 45%;
-  font-size: 1em;
   font-family: "jost-variable";
-  outline: none;
+}
+html body #dashboard-page #user-profile-x #user-profile-y #user-div #extra-div #select-x select {
+  display: flex;
+  text-align: center;
+  width: 30%;
+  height: 100%;
   border-radius: 40px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
   border: none;
   outline: none;
-  width: 100% !important;
-  height: 90%;
-  color: black;
-  margin: auto;
-  font-size: 2.5vh;
-  padding: 0px;
-}
-html body #dashboard-page #user-profile-x #user-profile-y #user-div #stats-button {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  height: 15%;
-}
-html body #dashboard-page #user-profile-x #user-profile-y #user-div #stats-button #stats-button:hover {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.9);
-  transition: 0.3s;
+  font-family: "jost-variable";
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
 }
 
+html {
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+html body {
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
 html body #map-page {
   display: flex;
   flex-direction: column;
   width: 100%;
   height: 80%;
+  overflow-x: hidden;
+  overflow-y: hidden;
 }
 html body #map-page #map-x-axis {
   display: flex;
@@ -1171,7 +1229,54 @@ html body #map-page #info {
   flex-direction: row;
   justify-content: space-around;
   height: 21%;
-  background-color: #b1b1b1;
+  background-color: white;
+  text-align: center;
+}
+html body #map-page #info input[type=text] {
+  border-radius: 25px;
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: none;
+  background-color: #ffb877;
+  color: white;
+}
+html body #map-page #info .button {
+  background-color: #FF912C;
+  border: none;
+  color: white;
+  padding: 4px 32px;
+  text-align: center;
+  width: 180px;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+html body #map-page #info #save-trip-button {
+  background-color: #ffb877;
+  border-radius: 25px;
+  border: none;
+  color: white;
+  padding: 4px 32px;
+  text-align: center;
+  width: 180px;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+html body #map-page #info .result {
+  background-color: #FF912C;
+  color: white;
+  padding: 4px 32px;
+  margin: 4px 2px;
+  display: inline-block;
 }
 html body #map-page #info #map-info {
   display: flex;
@@ -1238,6 +1343,182 @@ html body #map-page #info #location .button-container .centre .buttons {
   outline: none;
   border: none;
   background-color: #FF912C;
+}
+
+html body {
+  /*------------------------------------SIGNUP-PAGE----------------------------------------------*/
+}
+html body #input-page {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(255, 255, 255);
+  height: 80%;
+  width: 100%;
+}
+html body #input-page #input-statement {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  text-align: center;
+  font-size: 2em;
+  height: 15%;
+}
+html body #input-page #greet {
+  display: flex;
+  justify-content: center;
+  height: 5%;
+  margin-top: 5%;
+}
+html body #input-page #input-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 60%;
+  padding: 10px, 15px;
+}
+html body #input-page #input-form #input-form-align {
+  display: flex;
+  flex-direction: column;
+  height: 90%;
+  width: 100%;
+}
+html body #input-page #input-form #input-form-align .input-buttons {
+  display: flex;
+  justify-content: center;
+  height: 20%;
+  width: 100%;
+  outline: none;
+  margin-top: 3%;
+  -webkit-appearance: none;
+}
+html body #input-page #input-form #input-form-align .input-buttons .input-fields:focus {
+  border: none;
+  outline: none;
+  -webkit-appearance: none;
+}
+html body #input-page #input-form #input-form-align .input-buttons .input-fields {
+  display: flex;
+  text-align: center;
+  -webkit-appearance: none;
+  border: none;
+  font-weight: bold;
+  border-radius: 40px;
+  width: 50%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8), 2px 3px 8px 0 #ffb877;
+}
+html body #input-page #input-form #input-form-align .input-buttons #show-me {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+html body #input-page #input-form #input-form-align .input-buttons #show-me #center {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+html body #input-page #input-form #input-form-align .input-buttons #show-me #center div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+html body #input-page #input-form #input-form-align .input-buttons #show-me #center div #show {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+html body #input-page #input-form #input-form-align .input-buttons #confirm {
+  display: flex;
+  width: 75%;
+  justify-content: center;
+  padding-top: 10px;
+}
+html body #input-page #input-form #input-form-align .input-buttons #confirm div {
+  display: flex;
+  justify-content: center;
+  width: 50%;
+  height: 100%;
+}
+html body #input-page #input-form #input-form-align .input-buttons #confirm div button:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.9);
+  transition: 0.3s;
+}
+html body #input-page #input-form #input-form-align .input-buttons #confirm div button {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  font-family: "jost-variable";
+  font-weight: bold;
+  border-radius: 40px;
+  background-color: #FF912C;
+  width: 50%;
+  padding-left: 10%;
+  padding-right: 10%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+  color: black;
+}
+html body #input-page #input-form #input-form-align .input-buttons #confirm div button .button-image {
+  width: 100%;
+  height: 100%;
+}
+
+html body #car-choice {
+  background-image: linear-gradient(#FF912C, purple);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  height: 80%;
+  width: 100%;
+  justify-content: center;
+  text-align: center;
+}
+@media only screen and (max-height: 400px) {
+  html body #car-choice {
+    justify-content: center;
+  }
+}
+html body #car-choice select {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border: 0;
+  outline: 0;
+  font: inherit;
+  width: 20em;
+  height: 3em;
+  padding: 0 4em 0 1em;
+  background: url(/images/buttons/dropdown.png) no-repeat right 0.8em center/1.4em, linear-gradient(to left, rgba(255, 255, 255, 0.3) 3em, rgba(255, 255, 255, 0.2) 3em);
+  color: white;
+  border-radius: 0.25em;
+  box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+html body #car-choice select option {
+  color: inherit;
+  background-color: #320a28;
+}
+html body #car-choice select:focus {
+  outline: none;
+}
+html body #car-choice select::-ms-expand {
+  display: none;
+}
+html body #car-choice .button {
+  background-color: #FF912C;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  width: 180px;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
 }
 
 /* Fuel Line Style Sheet

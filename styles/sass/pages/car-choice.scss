@@ -1,0 +1,84 @@
+@use "../typography/fonts.scss";
+@use "../mixins/mixin.scss";
+@use "../pages/index.scss";
+@use "../colors/colors.scss";
+@use "../components/buttons.scss";
+@use "../components/page-setup.scss";
+
+
+$glass: rgba(255, 255, 255, 0.2);
+$glass-icon: rgba(255, 255, 255, 0.3);
+$option: #320a28;
+
+html {
+
+    body {
+
+
+
+        #car-choice {
+            background-image: linear-gradient(#FF912C, purple);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            
+            height: 80%;
+            width: 100%;
+
+            justify-content: center;
+            text-align: center;
+
+            @media only screen and (max-height: 400px) {
+                justify-content: center;
+
+            }
+
+            select {
+                appearance: none;
+                border: 0;
+                outline: 0;
+                font: inherit;
+                width: 20em;
+                height: 3em;
+                padding: 0 4em 0 1em;
+                background: url(/images/buttons/dropdown.png)
+                    no-repeat right 0.8em center / 1.4em,
+                  linear-gradient(to left, $glass-icon 3em, $glass 3em);
+                color: white;
+                border-radius: 0.25em;
+                box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.2);
+                cursor: pointer;
+                option {
+                  color: inherit;
+                  background-color: $option;
+                }
+                &:focus {
+                  outline: none;
+                }
+                &::-ms-expand {
+                  display: none;
+                }
+              }
+            .button {
+                background-color: #FF912C;
+                border: none;
+                color: white;
+                padding: 16px 32px;
+                text-align: center;
+                width: 180px;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                margin: 4px 2px;
+                transition-duration: 0.4s;
+                cursor: pointer;
+            }
+
+
+
+
+
+
+        }
+    }
+}

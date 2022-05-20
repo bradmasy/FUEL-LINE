@@ -37,25 +37,22 @@ $backButton.on("click", () => {
 /**
  * Turns function handlers on for show password.
  */
-function showPassword()
-{
-    $showPasswordBox.on("click",() => {
+function showPassword() {
+  $showPasswordBox.on("click", () => {
 
-        if(!passwordVisible)
-        {
-            $showPasswordTitle.html("Hide Password");
-            $userPassword.attr("type","text");
-            $confirmPassword.attr("type","text");
-            passwordVisible = true;
-        }
-        else
-        {
-            $showPasswordTitle.html("Show Password");
-            $userPassword.attr("type","password");
-            $confirmPassword.attr("type","password");
-            passwordVisible = false;
-        }
-    })
+    if (!passwordVisible) {
+      $showPasswordTitle.html("Hide Password");
+      $userPassword.attr("type", "text");
+      $confirmPassword.attr("type", "text");
+      passwordVisible = true;
+    }
+    else {
+      $showPasswordTitle.html("Show Password");
+      $userPassword.attr("type", "password");
+      $confirmPassword.attr("type", "password");
+      passwordVisible = false;
+    }
+  })
 }
 
 function proceedToHome() {
@@ -72,51 +69,68 @@ function checkUserExists(data) {
   }
 }
 
+function displayPopup()
+{
+  $(".error").fadeIn();
+  console.log("here");
+}
+
+function closePopup(){
+  $(".error").fadeOut();
+  console.log("closed");
+}
+
+
 function attemptSignup() {
-  console.log("attemptSignup" + "got called!");
-  console.log($("#username").val());
-  console.log($("#email").val());
-  console.log($("#password1").val());
-  console.log($("#password2").val());
-
-  adminIsChecked = false;
-  if ($("#admin-status").is(":checked")) adminIsChecked = true;
+  let username = $("#username").val();
+  let email = $("#email").val();
+  let origPassword = $("#password1").val();
+  let passwordCopy = $("#password2").val();
 
 
-  if ($("#password1").val() === $("#password2").val()) {
-    $.ajax({
-      url: "/attemptSignup",
-      //   url: "https://radiant-anchorage-93970.herokuapp.com/findUnicornByWeight",
-      type: "POST",
-      data: {
-        username: $("#username").val(),
-        email: $("#email").val(),
-        password: $("#password1").val(),
-        admin: adminIsChecked
-      },
-      success: checkUserExists,
-    });
-    // resetPage();
-  } else {
-    alert("passwords do not match");
+  if (passTests(username, origPassword, email, passwordCopy))
+   {
+      adminIsChecked = false;
+      if ($("#admin-status").is(":checked")) adminIsChecked = true;
+
+      $.ajax({
+        url: "/attemptSignup",
+        type: "POST",
+        data: {
+          username: $("#username").val(),
+          email: $("#email").val(),
+          password: $("#password1").val(),
+          admin: adminIsChecked
+        },
+
+        success: checkUserExists,
+
+      });
   }
+  else 
+  {
+    displayPopup()
+    console.log("FAILED");
+  }
+
+
 }
 
 function setup() {
 
 
-  let $topBars =  $(".top-bar");
-    
-  for(let i = 0; i < 4; i++)
-  {
-      let $element = $($topBars[i]);
-      if(i == 0)
-      {
-          $element.css("background-color","black");
+  let $topBars = $(".top-bar");
 
-      }
-      
+  for (let i = 0; i < 4; i++) {
+    let $element = $($topBars[i]);
+    if (i == 0) {
+      $element.css("background-color", "#FF912C");
+
+    }
+
   }
+
+  $(".close-button").on("click", closePopup)
 
   showPassword();
   $("#confirm-button").on("click", attemptSignup);

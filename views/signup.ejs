@@ -1,87 +1,119 @@
 <html>
 
 <head>
-    <title></title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--Sets the width of the page is the devices widtth-->
-    <link rel="stylesheet" href="/styles/main.css">
-    <script src="./scripts/jquery-3.6.0.min.js" defer></script>
-    <!-- <script src="./scripts/index.js" defer></script> -->
-    <script src="./scripts/signup.js" defer></script>
+  <title></title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--Sets the width of the page is the devices widtth-->
+  <link rel="stylesheet" href="/styles/main.css">
+  <script src="/scripts/jquery-3.6.0.min.js" defer></script>
+  <!-- <script src="./scripts/index.js" defer></script> -->
+  <script src="/scripts/validations.js" defer></script>
+  <script src="/scripts/signup.js" defer></script>
+
 </head>
 
 <body>
-    <!--Header-->
-    <header>
-    
-        <div id="header-logo-container">
-            <!-- <img id="header-logo" src="./images/Untitled design (7).png"> -->
-        </div>
-      
-    </header>
-    <!--Navigation-->
-    <nav>
+  <!--Header-->
+  <header>
 
-    </nav>
+    <div id="header-logo-container">
+      <!-- <img id="header-logo" src="./images/Untitled design (7).png"> -->
+    </div>
 
-    <!--Main-->
-    <main id="signup-page">
-        <div id="signup-statement">
-            Create Your Fuel Line <br>Account
-        </div>
+  </header>
+  <!--Navigation-->
+  <nav>
 
-        <!-- <div id="img-container">
+  </nav>
+
+  <!--Main-->
+  <main id="signup-page">
+    <div id="signup-statement">
+      Create Your Fuel Line <br>Account
+    </div>
+
+    <!-- <div id="img-container">
             <div id="main-img">
                 <img id="signup-logo" src="./images/logo/hdlogo1.png">
             </div>
         </div> -->
 
-        <div id="greet">
-            Please Enter Your Information Below...
+    <div id="greet">
+      Please Enter Your Information Below...
+    </div>
+
+    <div id="signup-form">
+      <div id="signup-form-align">
+        <div class="input-buttons">
+          <input class="input-fields" placeholder="Username" id="username">
+        </div>
+        <div class="input-buttons">
+          <input class="input-fields" id="email" placeholder="Email">
+        </div>
+        <div class="input-buttons">
+          <input id="password1" class="input-fields" placeholder="Password" type="password">
+        </div>
+        <div class="input-buttons">
+          <input id="password2" class="input-fields" placeholder="Confirm Password" type="password">
         </div>
 
-        <div id="signup-form">
-            <div id="signup-form-align">
-                <div class="input-buttons">
-                    <input class="input-fields" placeholder="Username" id="username">
-                </div>
-                <div class="input-buttons">
-                    <input class="input-fields" id="email" placeholder="Email">
-                </div>
-                <div class="input-buttons">
-                    <input id ="password1" class="input-fields" placeholder="Password" type="password">
-                </div>
-                <div class="input-buttons">
-                    <input id="password2" class="input-fields" placeholder="Confirm Password" type="password">
-                </div>
+        <div class="input-buttons">
+          <div id="show-me">
+            <div id="center">
 
-                <div class="input-buttons">
-                    <div id="show-me">
-                        <div id="center">
-                            <div>
-                                <input id="show" type="checkbox" value="show">
-                            </div>
-                            <label id="pass-title">Show Password</label>
-                        </div>
+              <div class="container-div">
+                <div id="show-pass">
+                  <div>
+                    <div>
+                      <label id="pass-title">Show Password</label>
+                      <input id="show" type="checkbox" value="show">
                     </div>
+                  </div>
                 </div>
-
-                <div class="input-buttons">                    
-                    <div id="confirm">
-                        <div>
-                            <button id="back-button">Back</button>
-                        </div>
-                        <div>
-                            <button id="confirm-button">Confirm</button>
-                        </div>
-                    </div>
-                   
-                </div>
+              </div>
             </div>
+          </div>
         </div>
-    </main>
-   <!--Footer-->
+        <div class="input-buttons">
+          <div id="confirm">
+            <div>
+              <button id="back-button">Back</button>
+            </div>
+            <div>
+              <button id="confirm-button">Confirm</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!--POPUP-->
+    <div class="error">
+      <div class="error-container">
+
+        <div class="error-title">
+          <div class="title">
+            Error
+          </div>
+          <button data-close-button class="close-button">&times;</button>
+        </div>
+
+        <div class="error-content">
+          Your password does not meet our requirements.
+          <br><br>
+          REQUIREMENTS HERE
+          <br><br>
+          Please try again.
+        </div>
+
+      </div>
+    </div>
+    <div id="overlay"></div>
+  </main>
+
+  <!--Footer-->
   <footer>
     <div id="navigation-buttons">
       <!--Home Button-->
@@ -124,7 +156,7 @@
         </div>
       </div>
       <!--Map Button-->
-      <div class="nav-buttons" id="map-button" >
+      <div class="nav-buttons" id="map-button">
         <div class="top-bar">
         </div>
         <div class="hover-button">
@@ -139,7 +171,7 @@
     </div>
   </footer>
 
-    <!--END OF BODY-->
+  <!--END OF BODY-->
 </body>
 
 </html>

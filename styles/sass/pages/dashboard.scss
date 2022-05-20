@@ -6,26 +6,10 @@
 @use "../components/page-setup.scss";
 
 html {
-    @include mixin.flex_styles_cl();
 
-    height: 100%;
-    width: 100%;
-    font-family: fonts.$main-font;
-    overflow-x: hidden;
-    overflow-y: hidden;
-    padding: 0%;
 
     body {
-        @include mixin.flex_styles_cl();
-
-        height: 100%;
-        width: 100%;
-        padding: 0%;
-        margin: 0%;
-        justify-content: center;
-        overflow-y: hidden;
-        overflow-x: hidden;
-
+ 
         #dashboard-page {
             display: flex;
             width: 100%;
@@ -47,65 +31,21 @@ html {
 
                     #user-div {
                         @include mixin.profile-page-container();
-                        //gap: 2%;
+                        
 
                         #picture-div-x {
                             display: flex;
                             justify-content: center;
-                            height: 40%;
+                            height: 60%;
                             width: 100%;
                             overflow: hidden;
+                            // border:solid black 2px;
 
-                            #semi-circle {
-                                display: flex;
-                                justify-content: center;
-                                width: 100%;
+                            #chart{
+                                display: block;
                                 height: 100%;
-                                background-color: colors.$secondary-color;
-                                // border-bottom-left-radius: 15px;
-                                transform: rotate(30deg);
-                                border-bottom-right-radius: 300px;
-                                border-top-right-radius: 150px;
-                                border-top-left-radius: 15px;
-                                position: relative;
-
-                                #picture-div-y {
-                                    display: flex;
-                                    flex-direction: column;
-                                    justify-content: center;
-                                    height: 100%;
-                                    width: 50%;
-
-                                    #img-container {
-                                        display: flex;
-                                        flex-direction: column;
-                                        justify-content: center;
-                                        width: 100%;
-                                        height: 100%;
-                                        transform: rotate(-30deg);
-
-
-                                        div {
-                                            display: flex;
-                                            flex-direction: row;
-                                            justify-content: center;
-                                            height: 70%;
-                                            justify-content: center;
-
-                                            img {
-                                                display: flex;
-                                                justify-content: center;
-                                                border-radius: 50%;
-                                                height: 100%;
-                                                width: 90%;
-                                                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .4);
-
-                                                // border: solid #b1b1b1 3px;
-                                            }
-                                        }
-
-                                    }
-                                }
+                                width:100%;
+                                // border:solid green 2px;
                             }
                         }
 
@@ -113,14 +53,11 @@ html {
                         #info-div {
                             display: flex;
                             flex-direction: column;
-                            justify-content: space-around;
-                            height: 50%;
+                            justify-content: flex-start;
+                            height: 40%;
+                            gap:5%;
                             width: 100%;
-
-
-                           
-
-
+                            margin-top: 5%;
                             #name {
                                 font-size: 2em;
                                 justify-content: center;
@@ -150,35 +87,14 @@ html {
                                 display: flex;
                                 flex-direction: row;
                                 justify-content: center;
-                                height: 15%;
+                                height: 10%;
+                                // border:solid black 2px;
 
-
-
-                                progress {
-                                    border: none;
-                                }
-                                    
-                                progress::-webkit-progress-value {
-                                background: orange;
-                                }
-                                
-                                progress::-webkit-progress-bar {
-                                background: lightgray;
-                                }
-                                
-                                       
-
-                              //  border: solid green 3px;
-
-
-                                .label {
+                                span {
                                     display: flex;
-                                    flex-direction: column;
+                                    flex-direction: row;
                                     justify-content: center;
-                                    font-size: 1em;
-                                    font-weight: bold;
-                                    width: 25%;
-                                    margin-left: 2%;
+                                    width: 100%;
                                 }
 
                                 .info {
@@ -188,7 +104,6 @@ html {
                                     font-size: 1em;
                                     width: 75%;
                                 }
-
                             }
                         }
 
@@ -196,64 +111,36 @@ html {
                         #extra-div {
                             display: flex;
                             flex-direction: column;
-                            justify-content: center;
-                            height: 17%;
+                            height: 35%;
                             width: 100%;
 
-
-                            #button-x-axis {
+                            #select-x {
                                 display: flex;
-                                width: 100%;
-                                height: 40%;
-                                flex-direction: row;
                                 justify-content: center;
-                                // border:solid black 2px;
+                                height: 30%;
+                                width: 100%;
+                                font-family: fonts.$main-font;
 
-                                #button-y-axis {
+
+                                select {
                                     display: flex;
-                                    flex-direction: column;
-                                    justify-content: center;
-                                    // border:solid green 2px;
-                                    width:30%;
-                                    
+                                    text-align: center;
+                                    width: 30%;
+                                    height: 100%;
+                                    border-radius: 40px;
+                                    border:none;
+                                    outline:none;
+                                    font-family: fonts.$main-font;
+                                    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
 
-
-                                    button:active {
-                                        @include mixin.button-active();
-                                    }
-
-                                    button:hover {
-                                        @include mixin.hover-styles();
-
-                                    }
-
-                                    button {
-                                        display: flex;
-                                        flex-direction: column;
-                                        justify-content: center;
-                                        text-align: center;
-                                        @include mixin.button-styles();
-                                        width:100% !important;
-                                        height: 90%;
-                                        color:black;
-                                        margin: auto;
-                                        font-size: 2.5vh;
-                                        padding:0px;
-                                   }
                                 }
                             }
+
+                         
                         }
 
-                        #stats-button {
-                            display: flex;
-                            flex-direction: column;
-                            justify-content: center;
-                            height: 15%;
-
-                            #stats-button:hover {
-                                @include mixin.hover-styles();
-                            }
-                        }
+                       
+                        
 
                     }
                 }

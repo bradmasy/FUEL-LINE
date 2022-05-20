@@ -2,18 +2,13 @@
   <title></title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!--Sets the width of the page is the devices widtth-->
   <link rel="stylesheet" href="/styles/main.css">
-
   <script src="https://polyfill.io/v3/polyfill.min.js?features=default" defer></script>
+  <script> var exports = {}; </script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBE5NVWlFtuddGJGJxUiAS7Po3_jQePuts&callback=initMap&libraries=places&v=weekly"> </script>
   <script src="/scripts/jquery-3.6.0.min.js" defer></script>
   <script src="/scripts/handlers/footer-buttons.js" defer></script>
-  <!-- <script src="/scripts/maps.js" defer></script> -->
-  <script> var exports = {}; </script>
-  <script type="module" src="/scripts/basicmap.js" defer></script>
-  <script async
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBE5NVWlFtuddGJGJxUiAS7Po3_jQePuts&callback=initMap&libraries=places&v=weekly">
-    </script>
+  <script type="module" src="/scripts/basicmap.js" defer ></script>
 
   <style>
     .controls {
@@ -27,7 +22,17 @@
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
     }
 
-    #origin-input,
+    #origin-input {
+      background-color: #fff;
+      font-family: Roboto;
+      font-size: 15px;
+      font-weight: 300;
+      margin-left: 1%;
+      padding: 0 11px 0 13px;
+      text-overflow: ellipsis;
+      width: 190px;
+    }
+
     #destination-input {
       background-color: #fff;
       font-family: Roboto;
@@ -36,33 +41,57 @@
       margin-left: 1%;
       padding: 0 11px 0 13px;
       text-overflow: ellipsis;
-      width: 200px;
+      width: 190px;
+      position: absolute;
+      right: 0px;
+      
+
+    }
+
+    #input-locations {
+      display: flex;
+      justify-content: space-between;
     }
 
     #origin-input:focus,
     #destination-input:focus {
       border-color: #4d90fe;
     }
+
+    a[href^="http://maps.google.com/maps"]{display:none !important} 
+    a[href^="https://maps.google.com/maps"]{display:none !important}
+
+     .gmnoprint a, .gmnoprint span, .gm-style-cc {
+        display:none;
+    } 
   </style>
 </head>
 
 <body>
   <!--Header-->
   <header>
-    <div id="space">
-    </div>
     <div id="header-logo-container">
-      <!-- <img id="header-logo" src="images/Untitled design (7).png"> -->
+      <img id="header-logo" src="./images/Untitled design (7).png">
+    </div>
+
+    <div class="logout-contain">
+        <button class="logout-button">Logout</button>
     </div>
   </header>
 
   <!--Main-->
   <main id="map-page">
 
-    <div>
-      <input id="origin-input" class="controls" type="text" placeholder="Enter an origin location" />
+    <div id="map-interaction-elements">
+      <div id="input-locations">
+      <input id="origin-input" class="controls" type="text" placeholder="Origin" />
 
-      <input id="destination-input" class="controls" type="text" placeholder="Enter a destination location" />
+      <input id="destination-input" class="controls" type="text" placeholder="Destination" />
+    </div>
+
+      <button id="prev-route">Previous Route</button>
+      <button id="next-route">Next Route</button>
+      
     </div>
 
     <div id="map-x-axis">
@@ -81,17 +110,17 @@
       <div class="map-info">
         <div id="operators">
           <div id="calculation-form">
+
             <div>
-              Distance:<input type="text" name="" id="distance" /><br />
+
+            </div>
+         
+            <div>
+              
+              <input type="text" name="" id="gas-price" placeholder="Cost of Gas ($/L):"/><br />
             </div>
             <div>
-              Fuel Economy:<input type="text" name="" id="economy" /><br />
-            </div>
-            <div>
-              Cost of Gas:<input type="text" name="" id="gas-price" /><br />
-            </div>
-            <div>
-              <input type="button" value="calculate" id="calculate" />
+              <input type="button" value="calculate" id="calculate" class="button"/>
   
             </div>
             <div id="result"></div>

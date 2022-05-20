@@ -6,22 +6,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--Sets the width of the page is the devices widtth-->
     <link rel="stylesheet" href="/styles/main.css">
+    <!-- <script src="/scripts/logout.js" defer></script> -->
     <script src="/scripts/jquery-3.6.0.min.js" defer></script>
     <script src="/scripts/handlers/footer-buttons.js" defer></script>
     <script src="/scripts/profile.js" defer></script>
-    <script src="/public/scripts/handlers/footer-buttons.js"></script>
+    <!-- <script src="/public/scripts/handlers/footer-buttons.js"></script> -->
 </head>
 
 <body>
     <!--Header-->
     <header>
-        <!-- <div id="space">
 
-        </div>
         <div id="header-logo-container">
-            <img id="header-logo" src="images/Untitled design (7).png">
-        </div> -->
-    </header>
+          <img id="header-logo" src="./images/Untitled design (7).png">
+        </div>
+
+        <div class="logout-contain">
+            <button class="logout-button">Logout</button>
+        </div>
+
+      </header>
     <!--Navigation-->
     <nav>
     </nav>
@@ -37,7 +41,7 @@
                             <div id="picture-div-y">
                                 <div id="img-container">
                                     <div>
-                                        <img src="./images/profile2.jpg">
+                                        <img src="./images/user.png">
                                     </div>
                                 </div>
                             </div>
@@ -56,18 +60,14 @@
                             <p class="info" id="address">Vancouver, British Columbia, Canada</p>
                         </div>
                         <div class="info-items" id="efficiency">
-                            <p class="label">Fuel Efficiency</p>
-                            <p class="info" id="fuel-efficiency">9L/KM</p>
+                            <p class="label">Vehicle Fuel Efficiency:</p>
+                            <p class="info" id="fuel-efficiency"></p>
                         </div>
 
                         <div class="info-items" id="efficiency">
-                            <p class="label">etc:</p>
-                            <p class="info">etc</p>
+                            <p class="label">Budget:</p>
+                            <p class="info" id="budget">250</p>
           
-                        </div>
-                        <div class="info-items" id="efficiency">
-                            <p class="label">etc</p>
-                            <p class="info">etc</p>
                         </div>
 
                     </div>
@@ -75,11 +75,56 @@
                     <div id="extra-div">
                         <div id="button-x-axis">
                             <div id="button-y-axis">
+                                <button class="edit-button"  id="edit-button">Edit</button>
+                                <br>
                                 <button class="input-buttons" type="stats-link" id="stats-button">Statistics</button>
                             </div>
 
                         </div>
                     </div>
+
+                    
+
+                    <!-- edit popup -->
+                    <div class="edit">
+                        <div class="edit-container">
+                        
+                            <div class="edit-title">
+                                <div class="title">
+                                    Edit Profile
+                                </div>
+                                <button data-close-button class="close-button">&times;</button>
+                            </div>
+                
+                            <div class="edit-content">
+                                <div class="edit-form">
+                                    <div class="field">
+                                        Change Name
+                                        <input class="edit-name">
+                                     </div>
+                                    <div class="field">
+                                        Change Email
+                                        <input class="edit-name">
+                                    </div>
+                                    <div class="field">
+                                        Change Budget
+                                        <input class="edit-name">
+                                    </div>
+                                    <br>
+                                    <div class="field">
+                                        
+                                        <a href="/car-choice">Change Vehicle</a>
+                                    </div>
+                                    <br>
+                                    <div class="save">
+                                        <button class="save-button">Save</button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <div id="overlay"></div>
 
                 </div>
 
