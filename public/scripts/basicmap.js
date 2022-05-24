@@ -253,6 +253,7 @@ var AutocompleteDirectionsHandler = /** @class */ (function () {
           // console.log(directionsData)
           var drivingDistance = directionsData.distance.text;
           drivingDistanceGlobal = drivingDistance;
+          directionsObject = directionsData;
           // window.alert(drivingDistanceGlobal);
           if (gas_price != null) {
             console.log("called from line 257")
@@ -304,13 +305,14 @@ var AutocompleteDirectionsHandler = /** @class */ (function () {
           var drivingDuration = directionsData.duration.text;
           drivingDurationGlobal = drivingDuration;
           // window.alert(drivingDistanceGlobal);
+          directionsObject = directionsData;
           if (gas_price != null) {
             console.log("route changed");
             calculate_costs();
           }
 
           //creating the trip object here...
-          directionsObject = directionsData;
+         
           $("#calculation-form").show();
         } else {
           window.alert("Directions request failed due to " + status);
