@@ -296,11 +296,10 @@ var AutocompleteDirectionsHandler = /** @class */ (function () {
           var directionsData = response.routes[whichRoute].legs[0];
           var drivingDistance = directionsData.distance.text;
           drivingDistanceGlobal = drivingDistance;
-<<<<<<< HEAD
+          var drivingDuration = directionsData.duration.text;
+          drivingDurationGlobal = drivingDuration;
           directionsObject = directionsData;
           // window.alert(drivingDistanceGlobal);
-=======
->>>>>>> 2b43d42c1535340f4769a35a195eb5d038f989bc
           if (gas_price != null) {
             calculate_costs();
           }
@@ -353,11 +352,8 @@ var AutocompleteDirectionsHandler = /** @class */ (function () {
           drivingDistanceGlobal = drivingDistance;
           var drivingDuration = directionsData.duration.text;
           drivingDurationGlobal = drivingDuration;
-<<<<<<< HEAD
           // window.alert(drivingDistanceGlobal);
           directionsObject = directionsData;
-=======
->>>>>>> 2b43d42c1535340f4769a35a195eb5d038f989bc
           if (gas_price != null) {
             calculate_costs();
           }
