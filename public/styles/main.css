@@ -242,7 +242,7 @@ html body #content .row-container {
   flex-direction: row;
   justify-content: center;
   height: 20%;
-  margin-top: 20%;
+  margin-top: 7%;
 }
 @media only screen and (max-height: 400px) {
   html body #content .row-container {
@@ -613,7 +613,8 @@ html body #signup-page #signup-form #signup-form-align .input-buttons #confirm d
 html body #login-page {
   display: flex;
   flex-direction: column;
-  height: 100%;
+  justify-content: space-around;
+  height: 80%;
   width: 100%;
 }
 html body #login-page #statement {
@@ -623,13 +624,23 @@ html body #login-page #statement {
   text-align: center;
   font-size: 2em;
   height: 20%;
-  margin-top: 20%;
+  margin-top: 7%;
+}
+@media only screen and (max-width: 400px) {
+  html body #login-page #statement {
+    margin-top: 20%;
+  }
 }
 html body #login-page #greet-container {
   display: flex;
   justify-content: center;
   height: 10%;
-  margin-top: 5%;
+  margin-top: 0%;
+}
+@media only screen and (max-width: 400px) {
+  html body #login-page #greet-container {
+    margin-top: 5%;
+  }
 }
 html body #login-page #greet-container #greet {
   display: flex;
@@ -639,15 +650,33 @@ html body #login-page #form {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  height: 40%;
+  height: 70%;
   width: 100%;
+}
+@media only screen and (max-width: 400px) {
+  html body #login-page #form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 40%;
+    width: 100%;
+  }
 }
 html body #login-page #form #user-container {
   display: flex;
   justify-content: center;
   width: 100%;
-  height: 15%;
+  height: 12%;
   margin-bottom: 2%;
+}
+@media only screen and (max-width: 400px) {
+  html body #login-page #form #user-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 15%;
+    margin-bottom: 2%;
+  }
 }
 html body #login-page #form #user-container .input-fields:focus {
   border: none;
@@ -665,16 +694,40 @@ html body #login-page #form #user-container .input-fields {
   border: none;
   border-radius: 40px;
   font-size: 2vh;
-  width: 50%;
+  width: 15%;
+  height: 100%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8), 2px 3px 8px 0 #ffb877;
   -webkit-appearance: none;
   font-family: "jost-variable";
+}
+@media only screen and (max-width: 400px) {
+  html body #login-page #form #user-container .input-fields {
+    display: flex;
+    text-align: center;
+    border: none;
+    border-radius: 40px;
+    font-size: 2vh;
+    width: 50%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8), 2px 3px 8px 0 #ffb877;
+    -webkit-appearance: none;
+    font-family: "jost-variable";
+  }
 }
 html body #login-page #form #pass-container {
   display: flex;
   justify-content: center;
   width: 100%;
-  height: 15%;
+  height: 12%;
+  margin-bottom: 2%;
+}
+@media only screen and (max-width: 400px) {
+  html body #login-page #form #pass-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 15%;
+    margin-bottom: 2%;
+  }
 }
 html body #login-page #form #pass-container .input-fields:focus {
   border: none;
@@ -692,19 +745,42 @@ html body #login-page #form #pass-container .input-fields {
   border: none;
   border-radius: 40px;
   font-size: 2vh;
-  width: 50%;
+  width: 15%;
+  height: 100%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8), 2px 3px 8px 0 #ffb877;
   -webkit-appearance: none;
   font-family: "jost-variable";
+}
+@media only screen and (max-width: 400px) {
+  html body #login-page #form #pass-container .input-fields {
+    display: flex;
+    text-align: center;
+    border: none;
+    border-radius: 40px;
+    font-size: 2vh;
+    width: 50%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8), 2px 3px 8px 0 #ffb877;
+    -webkit-appearance: none;
+    font-family: "jost-variable";
+  }
 }
 html body #login-page #form #check-boxes {
   display: flex;
   flex-direction: row;
   width: 100%;
   height: 10%;
-  margin-top: 5%;
-  margin-bottom: 5%;
   justify-content: center;
+}
+@media only screen and (max-width: 400px) {
+  html body #login-page #form #check-boxes {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 10%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    justify-content: center;
+  }
 }
 html body #login-page #form #check-boxes #make-admin {
   display: flex;
@@ -724,7 +800,14 @@ html body #login-page #form #check-boxes #make-admin label {
 html body #login-page #form #check-boxes #show-pass {
   display: flex;
   width: 40%;
-  justify-content: space-around;
+  justify-content: center;
+}
+@media only screen and (max-width: 400px) {
+  html body #login-page #form #check-boxes #show-pass {
+    display: flex;
+    width: 40%;
+    justify-content: space-around;
+  }
 }
 html body #login-page #form #check-boxes #show-pass div input:hover {
   cursor: pointer;
@@ -743,13 +826,20 @@ html body #login-page #form #buttons {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  height: 50%;
+  height: 30%;
   gap: 10%;
 }
 html body #login-page #form #buttons #submit {
   display: flex;
   justify-content: center;
-  height: 45%;
+  height: 50%;
+}
+@media only screen and (max-width: 400px) {
+  html body #login-page #form #buttons #submit {
+    display: flex;
+    justify-content: center;
+    height: 45%;
+  }
 }
 html body #login-page #form #buttons #submit #submit-button:hover {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.9);
@@ -763,8 +853,9 @@ html body #login-page #form #buttons #submit #submit-button {
   align-items: center;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   border-radius: 40px;
-  padding-right: 8%;
-  padding-left: 8%;
+  padding-right: 2%;
+  padding-left: 2%;
+  height: 100%;
   color: black;
   background-color: #FF912C;
   font-family: "jost-variable";
@@ -772,10 +863,28 @@ html body #login-page #form #buttons #submit #submit-button {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   border: none;
 }
+@media only screen and (max-width: 400px) {
+  html body #login-page #form #buttons #submit #submit-button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 40px;
+    padding-right: 8%;
+    padding-left: 8%;
+    color: black;
+    background-color: #FF912C;
+    font-family: "jost-variable";
+    font-size: 2vh;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    border: none;
+  }
+}
 html body #login-page #form #buttons #back {
   display: flex;
   justify-content: center;
-  height: 45%;
+  height: 50%;
 }
 html body #login-page #form #buttons #back #back-button:hover {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.9);
@@ -789,14 +898,33 @@ html body #login-page #form #buttons #back #back-button {
   align-items: center;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   border-radius: 40px;
-  padding-right: 8%;
-  padding-left: 8%;
+  padding-right: 2%;
+  padding-left: 2%;
+  height: 100%;
   color: black;
   background-color: #FF912C;
   font-family: "jost-variable";
   font-size: 2vh;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   border: none;
+}
+@media only screen and (max-width: 400px) {
+  html body #login-page #form #buttons #back #back-button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 40px;
+    padding-right: 8%;
+    padding-left: 8%;
+    color: black;
+    background-color: #FF912C;
+    font-family: "jost-variable";
+    font-size: 2vh;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    border: none;
+  }
 }
 html body .error {
   display: none;

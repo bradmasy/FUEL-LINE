@@ -14,8 +14,8 @@ html {
         #login-page {
             display: flex;
             flex-direction: column;
-            // justify-content: space-around;
-            height: 100%;
+            justify-content: space-around;
+            height: 80%;
             width: 100%;
 
             #statement {
@@ -24,18 +24,25 @@ html {
                 justify-content: center;
                 text-align: center;
                 font-size: 2em;
-                // font-weight: bold;
                 height: 20%;
-                // border: solid black 2px;
-                margin-top:20%;
+                margin-top:7%;
+
+                @media only screen and (max-width: 400px) {
+                    margin-top: 20%;
+                    
+                }
             }
 
             #greet-container {
                 display: flex;
                 justify-content: center;
                 height: 10%;
-                margin-top: 5%;
-                // border:solid pink 2px;
+                margin-top: 0%;
+
+                @media only screen and (max-width: 400px) {
+                    margin-top: 5%;
+                    
+                }
 
                 #greet {
                     display: flex;
@@ -51,20 +58,34 @@ html {
                 display: flex;
                 flex-direction: column;
                 justify-content: space-around;
-                height: 40%;
+                height: 70%;
                 width: 100%;
                 // border:solid green 2px;
+                @media only screen and (max-width: 400px) {
+                   
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-around;
+                    height: 40%;
+                    width: 100%;
+                }
 
-
-                #user-container {
+                #user-container { // 15
                     display: flex;
                     justify-content: center;
                     width: 100%;
-                    height: 15%;
+                    height: 12%;
                     margin-bottom: 2%;
                     // border:solid black 2px;
 
-
+                    @media only screen and (max-width: 400px) {
+                        display: flex;
+                        justify-content: center;
+                        width: 100%;
+                        height: 15%;
+                        margin-bottom: 2%;
+                      
+                    }
                     .input-fields:focus {
                         border: none;
                         outline: none;
@@ -84,20 +105,45 @@ html {
                         border: none;
                         border-radius: 40px;
                         font-size: 2vh;
-                        width: 50%;
+                        width: 15%;
+                        height: 100%;
                         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8), 2px 3px 8px 0 #ffb877;
                         -webkit-appearance: none;
                         // border:solid purple 2px;
                         font-family: fonts.$main-font;
+
+                        @media only screen and (max-width: 400px) {
+                            display: flex;
+                            text-align: center;
+                            border: none;
+                            border-radius: 40px;
+                            font-size: 2vh;
+                            width: 50%;
+                            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8), 2px 3px 8px 0 #ffb877;
+                            -webkit-appearance: none;
+                            // border:solid purple 2px;
+                            font-family: fonts.$main-font;
+                          
+                        }
                     }
                 }
 
-                #pass-container {
+                #pass-container { //15
                     display: flex;
                     justify-content: center;
                     width: 100%;
-                    height: 15%;
-                    // border:solid blue 2px;
+                    height: 12%;
+                    margin-bottom: 2%;
+                    // border:solid black 2px;
+
+                    @media only screen and (max-width: 400px) {
+                        display: flex;
+                        justify-content: center;
+                        width: 100%;
+                        height: 15%;
+                        margin-bottom: 2%;
+                      
+                    }
 
                     .input-fields:focus {
                         border: none;
@@ -119,21 +165,50 @@ html {
                         border: none;
                         border-radius: 40px;
                         font-size: 2vh;
-                        width: 50%;
+                        width: 15%;
+                        height: 100%;
                         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8), 2px 3px 8px 0 #ffb877;
                         -webkit-appearance: none;
+                        // border:solid purple 2px;
                         font-family: fonts.$main-font;
+
+                        @media only screen and (max-width: 400px) {
+                            display: flex;
+                            text-align: center;
+                            border: none;
+                            border-radius: 40px;
+                            font-size: 2vh;
+                            width: 50%;
+                            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8), 2px 3px 8px 0 #ffb877;
+                            -webkit-appearance: none;
+                            // border:solid purple 2px;
+                            font-family: fonts.$main-font;
+                          
+                        }
                     }
                 }
 
-                #check-boxes {
+                #check-boxes { //10
                     display: flex;
                     flex-direction: row;
                     width: 100%;
                     height: 10%;
-                    margin-top:5%;
-                    margin-bottom: 5%;
+                    // margin-top:5%;
+                    // margin-bottom: 5%;
                     justify-content: center;
+
+                    
+                    @media only screen and (max-width: 400px) {
+                        display: flex;
+                        flex-direction: row;
+                        width: 100%;
+                        height: 10%;
+                        margin-top:5%;
+                        margin-bottom: 5%;
+                        justify-content: center;
+    
+                      
+                    }
 
                     #make-admin {
                         display: flex;
@@ -157,7 +232,15 @@ html {
                     #show-pass {
                         display: flex;
                         width: 40%;
+                       justify-content: center;
+
+                       @media only screen and (max-width: 400px) {
+                        display: flex;
+                        width: 40%;
                        justify-content: space-around;
+    
+                      
+                    }
 
                         div {
                             input:hover {
@@ -179,19 +262,25 @@ html {
                     }
                 }
 
-                #buttons {
+                #buttons { // 50
                     display:flex;
                     flex-direction: column;
                     justify-content: space-around;
-                    height: 50%;
-                    // border:solid red 2px;
+                    height: 30%;
                     gap:10%;
 
                     #submit {
                         display: flex;
                         justify-content: center;
-                        height: 45%;
+                        height: 50%;
                         // margin-bottom: 10%;
+
+                        @media only screen and (max-width: 400px) {
+                           
+                            display: flex;
+                            justify-content: center;
+                            height: 45%;
+                        }
     
                         #submit-button:hover {
                             @include mixin.hover-styles();
@@ -199,6 +288,25 @@ html {
                         }
     
                         #submit-button {
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            align-items: center;
+                            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); //, 2px 3px 8px 0 #ffb877;
+                            border-radius: 40px;
+                            padding-right: 2%;
+                            padding-left: 2%;
+                            height: 100%;
+                            color: black;
+                            background-color: colors.$main-color;
+                            font-family: fonts.$main-font;
+                            font-size: 2vh;
+                            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+                            border: none;
+
+
+                            @media only screen and (max-width: 400px) {
+                           
                             display: flex;
                             flex-direction: column;
                             justify-content: center;
@@ -213,6 +321,7 @@ html {
                             font-size: 2vh;
                             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
                             border: none;
+                            }
                         }
                     }
     
@@ -220,7 +329,7 @@ html {
     
                         display: flex;
                         justify-content: center;
-                        height: 45%;
+                        height: 50%;
                         // margin-bottom: 10%;
     
                         #back-button:hover {
@@ -235,6 +344,25 @@ html {
                             align-items: center;
                             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); //, 2px 3px 8px 0 #ffb877;
                             border-radius: 40px;
+                            padding-right: 2%;
+                            padding-left: 2%;
+                            height: 100%;
+                            color: black;
+                            background-color: colors.$main-color;
+                            font-family: fonts.$main-font;
+                            font-size: 2vh;
+                            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+                            border: none;
+
+
+                            @media only screen and (max-width: 400px) {
+                           
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            align-items: center;
+                            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); //, 2px 3px 8px 0 #ffb877;
+                            border-radius: 40px;
                             padding-right: 8%;
                             padding-left: 8%;
                             color: black;
@@ -243,6 +371,7 @@ html {
                             font-size: 2vh;
                             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
                             border: none;
+                            }
                         }
                       
     

@@ -1,14 +1,20 @@
 // homepage
 // executed first when the serve is initiated
-const express = require("express");
-var cors = require("cors");
-var convert = require("xml-js");
-const app = express();
-const https = require("https");
-const session = require("express-session");
-const mongoose = require("mongoose");
+const express    = require("express");
+var cors         = require("cors");
+var convert      = require("xml-js");
+const app        = express();
+const https      = require("https");
+const session    = require("express-session");
+const mongoose   = require("mongoose");
 const bodyParser = require("body-parser");
-const USER = 0;
+const multer     = require("multer");
+var fs           = require('fs');
+var path         = require('path');
+require('dotenv/config');
+const USER       = 0;
+
+
 
 app.use(cors());
 app.use(session({ secret: "shhhh", saveUninitialized: true, resave: true }));
@@ -34,6 +40,78 @@ mongoose.connect(
   }
 );
 
+const Storage = multer.diskStorage({
+  destination: (req,file, cd) => {
+    null, "uploads"},
+  filename:(req, file, cb) => {
+    cb(null, file.originalname + "-" + Date.now());
+  }
+})
+
+const upload = multer({
+  storage:Storage
+})
+
+
+app.get("/viewImg", (req,res) => {
+  imageModel.find({},(err,items) => {
+    if(err)
+    {
+      console.log(err);
+    }
+    else {
+      res.render("profile", {items:items})
+      
+    }
+  })
+})
+
+app.get("/upload",(req,res) => {
+  res.render("upload_img")
+})
+
+app.post("/uploadImage", upload.single("image") ,(req,res)=> {
+  console.log(req.body);
+
+  let img = {
+    // data: fs.readFileSync(path.join(__dirname+ "/uploads/" + req.body.url)),
+    contentType: "image/png"
+  }
+
+  imageModel.create(img, (err,item) => {
+    console.log(img)
+    if(err){
+      console.log(err)
+    }
+    else {
+      item.save();
+      res.redirect("/")
+    }
+  })
+
+  // upload(req, res, (err) => {
+  //   if(err){
+  //     console.log(err)
+  //   }
+  //   else{
+  //     const newImage = new imageModel({
+  //       name: req.body.name,
+  //       image: {
+  //         data: req.file.filename,
+  //         contentType: "image/png"
+  //       }
+  //     })
+  //     newImage.save()
+  //     .then(() => {
+  //       res.send("succesfully uploaded")
+  //     })
+  //     .catch((err) => {
+  //       console.log("error");
+  //     })
+  //     }
+  // })
+})
+
 /**
  * Schema for user.
  */
@@ -46,7 +124,18 @@ const userSchema = new mongoose.Schema({
   vehicle_efficiency: Number,
 });
 
-const userModel = mongoose.model("users", userSchema);
+const imageSchema = new mongoose.Schema({
+  name: String,
+  desc: String,
+  img:
+  {
+      data: Buffer,
+      contentType: String
+  }
+});
+
+const userModel  = mongoose.model("users", userSchema);
+const imageModel = mongoose.model("image", imageSchema);
 
 app.get("/statistics", (req, res) => {
   res.render("statistics");
@@ -152,26 +241,23 @@ app.get("/map", function (req, res) {
 });
 
 function initiateSession(req, users) {
-  //initiates a session
   if (checkUserExists(users)) {
     req.session.authenticated = true; // user gets authenticated.
     req.session.user = users[USER];
     console.log(req.session.user);
   } else {
     req.session.authenticated = false;
-    console.log(`invalid user`);
   }
 }
 
 function checkUserExists(data) {
-  if (data.length === 0) {
-    console.log("User not found!");
-    return false;
-  } else {
+  let valid = false;
+
+  if (data.length != 0) {
     currentUser = data;
-    return true;
-    //proceedToHome();
-  }
+    valid = true;
+  } 
+  return valid;
 }
 
 app.post("/attemptLogin", function (req, res) {
