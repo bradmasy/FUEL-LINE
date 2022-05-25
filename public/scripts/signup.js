@@ -3,15 +3,16 @@
  */
 
 
+
 /**
  * Constant Variables
  */
 
-const $backButton = $("#back-button");
-const $confirmButton = $("#confirm-button");
-const $confirmPassword = $("#password2");
-const $userPassword = $("#password1");
-const $showPasswordBox = $("#show");
+const $backButton        = $("#back-button");
+const $confirmButton     = $("#confirm-button");
+const $confirmPassword   = $("#password2");
+const $userPassword      = $("#password1");
+const $showPasswordBox   = $("#show");
 const $showPasswordTitle = $("#pass-title");
 
 
@@ -83,25 +84,25 @@ function closePopup() {
 
 
 function attemptSignup() {
-  let username     = $("#username").val();
-  let email        = $("#email").val();
+  let username = $("#username").val();
+  let email = $("#email").val();
   let origPassword = $("#password1").val();
   let passwordCopy = $("#password2").val();
-  let imgString    = $("#img-string").val();
-  let id           = `${username.slice(0, 2)}${origPassword.slice(3, 6)}`;
+  let imgString = $("#img-string").val();
+  let id = `${username.slice(0, 2)}${origPassword.slice(3, 6)}`;
 
 
   const fileFormData = new FormData();
-  fileFormData.append("file", imageFiles);
+  fileFormData.append("image", imageFiles);
 
-  fetch("/upload",{
-    method:"POST",
+  fetch("/upload", {
+    method: "POST",
     body: fileFormData
   }).then((response) => {
     console.log(response);
   });
 
- 
+
   if (passTests(username, origPassword, email, passwordCopy)) {
     adminIsChecked = false;
     if ($("#admin-status").is(":checked")) adminIsChecked = true;
@@ -114,7 +115,7 @@ function attemptSignup() {
         email: $("#email").val(),
         password: $("#password1").val(),
         admin: adminIsChecked,
-        image:fileFormData
+        image: fileFormData
       },
 
       success: checkUserExists,
@@ -127,11 +128,11 @@ function attemptSignup() {
   }
 
 
-} 
+}
 
 function setup() {
 
-  
+
 
   let $topBars = $(".top-bar");
 
@@ -152,11 +153,24 @@ function setup() {
   $("#prof-img-button").on("click", () => {
     $("#img-string").trigger("click");
     $("#img-string").on("change", (e) => {
-    
+
       console.log(e);
       imageFiles = e.target.files[0];
       console.log(imageFiles);
+      // Create a new FileReader() object
+      let reader = new FileReader();
 
+      // Setup the callback event to run when the file is read
+      reader.onload = imageFiles;
+
+      reader.addEventListener("load", () =>{
+        console.log(reader.result);
+        localStorage.setItem("recent-image", reader.result)
+
+      })
+
+      // Read the file
+      reader.readAsDataURL(imageFiles);
     })
   })
 }
@@ -168,4 +182,4 @@ function setup() {
 
 //----------------------------------------------------------------------
 
-  $(document).ready(setup);
+$(document).ready(setup);
