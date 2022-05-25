@@ -14,7 +14,6 @@ html {
         #login-page {
             display: flex;
             flex-direction: column;
-            // justify-content: space-around;
             height: 100%;
             width: 100%;
 
@@ -24,9 +23,7 @@ html {
                 justify-content: center;
                 text-align: center;
                 font-size: 2em;
-                // font-weight: bold;
                 height: 20%;
-                // border: solid black 2px;
                 margin-top:20%;
             }
 
@@ -35,17 +32,12 @@ html {
                 justify-content: center;
                 height: 10%;
                 margin-top: 5%;
-                // border:solid pink 2px;
 
                 #greet {
                     display: flex;
                     justify-content: center;
-                    // margin-top: 15%;
                 }
-
             }
-
-         
 
             #form {
                 display: flex;
@@ -53,8 +45,6 @@ html {
                 justify-content: space-around;
                 height: 40%;
                 width: 100%;
-                // border:solid green 2px;
-
 
                 #user-container {
                     display: flex;
@@ -62,8 +52,6 @@ html {
                     width: 100%;
                     height: 15%;
                     margin-bottom: 2%;
-                    // border:solid black 2px;
-
 
                     .input-fields:focus {
                         border: none;

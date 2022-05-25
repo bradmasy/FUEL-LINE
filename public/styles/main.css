@@ -531,8 +531,66 @@ html body #signup-page #signup-form {
 html body #signup-page #signup-form #signup-form-align {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   height: 90%;
   width: 100%;
+}
+html body #signup-page #signup-form #signup-form-align #profile-pic-form {
+  display: flex;
+  flex-direction: column;
+}
+html body #signup-page #signup-form #signup-form-align #profile-pic-form #form-div {
+  display: flex;
+  margin-top: 2%;
+  justify-content: center;
+}
+html body #signup-page #signup-form #signup-form-align #profile-pic-form #form-div #choose-button:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.9);
+  transition: 0.3s;
+}
+html body #signup-page #signup-form #signup-form-align #profile-pic-form #form-div #choose-button:focus {
+  border: none;
+  outline: none;
+  -webkit-appearance: none;
+}
+html body #signup-page #signup-form #signup-form-align #profile-pic-form #form-div #choose-button {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  font-family: "jost-variable";
+  font-size: 1.5vh;
+  border-radius: 40px;
+  background-color: #FF912C;
+  width: 30%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+  color: black;
+  margin-bottom: 2%;
+}
+html body #signup-page #signup-form #signup-form-align #profile-pic-form #form-div #profile-picture {
+  display: none;
+}
+html body #signup-page #signup-form #signup-form-align #profile-pic-form #submission {
+  display: flex;
+  justify-content: center;
+}
+html body #signup-page #signup-form #signup-form-align #profile-pic-form #submission #input-submit:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.9);
+  transition: 0.3s;
+}
+html body #signup-page #signup-form #signup-form-align #profile-pic-form #submission #input-submit {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  font-family: "jost-variable";
+  border-radius: 40px;
+  background-color: #FF912C;
+  width: 20%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+  color: black;
 }
 html body #signup-page #signup-form #signup-form-align .input-buttons {
   display: flex;
@@ -542,6 +600,7 @@ html body #signup-page #signup-form #signup-form-align .input-buttons {
   outline: none;
   margin-top: 3%;
   -webkit-appearance: none;
+  font-family: "jost-variable";
 }
 html body #signup-page #signup-form #signup-form-align .input-buttons .input-fields:focus {
   border: none;

@@ -60,14 +60,13 @@
 
         <form id="profile-pic-form" method="POST" action="/profile-upload-single" enctype="multipart/form-data">
           <div id="form-div" style="text-align: center">
-              <button>Choose Profile Picture</button>
-              <input id="profile-picture" type="file" name="profile-file" required/>
+            <button id="choose-button">Choose Profile Picture</button>
+            <input id="profile-picture" type="file" name="profile-file" required />
           </div>
-          <div style="text-align: center">
-              <input type="submit" value="Upload" />
+          <div id="submission"style="text-align: center">
+            <input id="input-submit" type="submit" value="Upload">
           </div>
-      </form>
-
+        </form>
 
         <div class="input-buttons">
           <div id="show-me">

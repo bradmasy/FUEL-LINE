@@ -32,6 +32,8 @@ function validatePassword(password) {
         console.log("bad pass")
     }
 
+    console.log(valid)
+
     return valid;
 }
 
