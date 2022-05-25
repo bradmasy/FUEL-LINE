@@ -112,6 +112,10 @@ var AutocompleteDirectionsHandler = /** @class */ (function () {
     var nextRouteDiv = document.getElementById("next-route-div");
     var prevRouteDiv = document.getElementById("prev-route-div");
 
+    // Makes the next and previous route buttons invisble to start
+    nextRouteDiv.style.display = "none";
+    prevRouteDiv.style.display = "none";
+
     // Autocompletes text entered into the originInput field.
     var originAutocomplete = new google.maps.places.Autocomplete(originInput, {
       fields: ["place_id"],
@@ -217,9 +221,9 @@ var AutocompleteDirectionsHandler = /** @class */ (function () {
     });
   };
 
-      /**
-     * Advances the route when the user clicks the changeRoute buttton.
-     */
+  /**
+  * Advances the route when the user clicks the changeRoute buttton.
+  */
   AutocompleteDirectionsHandler.prototype.changeRoute = function () {
     if (!this.originPlaceId || !this.destinationPlaceId) {
       return;
@@ -253,6 +257,21 @@ var AutocompleteDirectionsHandler = /** @class */ (function () {
           me.directionsRenderer.setMap(map);
           me.directionsRenderer.setDirections(response);
           me.directionsRenderer.setRouteIndex(whichRoute);
+
+
+          // Enable the previous route button at appropriate times
+          if (whichRoute == 0) {
+            document.getElementById("prev-route-div").style.display = "none";
+          } else {
+            document.getElementById("prev-route-div").style.display = "initial"; 
+          }
+
+          // Enable the previous route button at appropriate times
+          if (whichRoute >= response.routes.length - 1) {
+            document.getElementById("next-route-div").style.display = "none";
+          } else {
+            document.getElementById("next-route-div").style.display = "initial"; 
+          }
 
           // Sets the colours of the different routes.
           switch (whichRoute) {
@@ -327,7 +346,14 @@ var AutocompleteDirectionsHandler = /** @class */ (function () {
     // Sets the first route to index 0
     whichRoute = 0;
 
+    // Enable the next route button
+    document.getElementById("next-route-div").style.display = "initial";
+    // var nextRouteDiv = document.getElementById("next-route-div");
+    // var prevRouteDiv = document.getElementById("prev-route-div");
+
     var me = this;
+
+
 
     // Creates the route
     this.directionsService.route(
