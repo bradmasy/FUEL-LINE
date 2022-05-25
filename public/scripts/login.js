@@ -71,7 +71,8 @@ function closePopup() {
 }
 
 function checkUserExists(data) {
-console.log(data);
+  // Checks the response from the server to verify that user exists
+// console.log(data);
   if (data.length === 0) {
     console.log("User not found!");
     displayPopup();
@@ -86,6 +87,7 @@ console.log(data);
 }
 
 function attemptLogin() {
+  // calls the server to check if the user info matches the database
   console.log("attemptLogin" + "got called!");
   console.log($("#username_log").val());
   console.log($("#password_log").val());
