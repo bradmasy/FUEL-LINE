@@ -75,7 +75,6 @@ function setup() {
     if (i == 2) {
       $element.css("background-color", "#FF912C");
     }
-    console.log($element);
   }
 
   $("#stats-button").on("click", () => {

@@ -13,7 +13,7 @@ var fs           = require('fs');
 var path         = require('path');
 const fileUpload = require("express-fileupload");
 require('dotenv/config');
-const GridFsStorage = require("multer-gridfs-storage")
+const gridFsStorage = require("multer-gridfs-storage")
 const Request = require("request");
 const USER       = 0;
 
@@ -47,13 +47,6 @@ mongoose.connect(
 //-------------------------------------------image to database--------------------------------------------------------
 
 
-
-const storage = new GridFsStorage({
-  url:process.env.DB,
-  file:(req,file) => {
-    const match = ["image/png"]
-  }
-})
 
 //-------------------------------------------image to database--------------------------------------------------------
 
