@@ -47,11 +47,27 @@
       
 
     }
-
     #input-locations {
       display: flex;
       justify-content: space-between;
     }
+
+    .arrow {
+      border: solid black;
+      border-width: 0 3px 3px 0;
+      display: inline-block;
+      padding: 3px;
+    }
+
+  .right {
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+  }
+
+  .left {
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+  }
 
     #origin-input:focus,
     #destination-input:focus {
@@ -89,8 +105,14 @@
       <input id="destination-input" class="controls" type="text" placeholder="Destination" />
     </div>
 
+    <div id="prev-route-div">
+      <i class="arrow left"></i>
       <button id="prev-route">Previous Route</button>
+    </div>
+    <div id="next-route-div">
       <button id="next-route">Next Route</button>
+      <i class="arrow right"></i>
+    </div>
       
     </div>
 
