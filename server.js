@@ -325,6 +325,8 @@ app.post(
   "/profile-upload-single",
   upload.single("profile-file"),
   function (req, res, next) {
+
+    console.log("here");
     // uploads file to uploads directory
     // req.file is the `profile-file` file
     // req.body will hold the text fields, if there were any

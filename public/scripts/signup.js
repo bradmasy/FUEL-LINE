@@ -225,7 +225,7 @@ function successfulProfilePictureUpload()
     console.log("success")
     $("#input-submit").css("transition","2s");
     $("#input-submit").css("background-color","lightgreen");
-    $("#input-submit").attr("value","Successful");
+    // $("#input-submit").attr("value","Successful");
 
   })
 }
