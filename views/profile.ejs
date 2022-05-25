@@ -48,7 +48,17 @@
                         </div>
                     </div>
                     <div id="info-div">
+                        <form method="POST" action="/profile-upload-single" enctype="multipart/form-data">
+                            <div>
+                                <label>Upload profile picture</label>
+                                <input type="file" name="profile-file" required/>
+                            </div>
+                            <div>
+                                <input type="submit" value="Upload" />
+                            </div>
+                        </form>
                         <div class="info-title" id="name">
+                            
                         </div>
                         <div class="info-items" id="efficiency">
                             <p class="label">Email:</p>
