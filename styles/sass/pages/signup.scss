@@ -32,7 +32,7 @@ html {
                 // border:solid green 2px;
             }
 
-       
+
 
             #greet { //10%
                 display: flex;
@@ -46,7 +46,9 @@ html {
                 flex-direction: column;
                 justify-content: center;
                 height: 60%;    
-                // border:solid purple 2px;
+
+
+            
 
                 #signup-form-align {
                     display: flex;
@@ -55,6 +57,9 @@ html {
                     height: 90%;
                     width: 100%;
                     // border:solid green 2px;
+                    #profile-pic-form {
+                        border:solid black 2px;
+                    }
 
                     .input-buttons {
                         display: flex;
