@@ -13,6 +13,7 @@ var fs           = require('fs');
 var path         = require('path');
 const fileUpload = require("express-fileupload");
 require('dotenv/config');
+const GridFsStorage = require("multer-gridfs-storage")
 const Request = require("request");
 const USER       = 0;
 
@@ -45,62 +46,14 @@ mongoose.connect(
 
 //-------------------------------------------image to database--------------------------------------------------------
 
-// var imageSchema = new mongoose.Schema({
-//   name: String,
-//   desc: String,
-//   img:
-//   {
-//       data: Buffer,
-//       contentType: String
-//   }
-// });
 
 
-// var storage = multer.diskStorage({
-//   destination: (req, file, cb) => {
-//       cb(null, 'uploads')
-//   },
-//   filename: (req, file, cb) => {
-//       cb(null, file.fieldname + '-' + Date.now())
-//   }
-// });
-
-// var upload = multer({ storage: storage });
-// const imgModel  = mongoose.model("image", imageSchema);
-
-  
-// app.get('/', (req, res) => {
-//   imgModel.find({}, (err, items) => {
-//       if (err) {
-//           console.log(err);
-//           res.status(500).send('An error occurred', err);
-//       }
-//       else {
-//           res.render('imagesPage', { items: items });
-//       }
-//   });
-// });
-
-// app.post('/', upload.single('image'), (req, res, next) => {
-  
-//   var obj = {
-//       name: req.body.name,
-//       desc: req.body.desc,
-//       img: {
-//           data: fs.readFileSync(path.join(__dirname + '/uploads/' + req.file.filename)),
-//           contentType: 'image/png'
-//       }
-//   }
-//   imgModel.create(obj, (err, item) => {
-//       if (err) {
-//           console.log(err);
-//       }
-//       else {
-//           // item.save();
-//           res.redirect('/');
-//       }
-//   });
-// });
+const storage = new GridFsStorage({
+  url:process.env.DB,
+  file:(req,file) => {
+    const match = ["image/png"]
+  }
+})
 
 //-------------------------------------------image to database--------------------------------------------------------
 
@@ -110,27 +63,6 @@ app.get("/viewImg", (req,res) => {
 const upload = require('multer')({ dest: path.join(__dirname, 'public/photos') })
 
 app.post("/upload",upload.single("images"), async (req,res) => {
-  console.log("here in upload")
-  console.log(req.files);
-  console.log(req.files);
-
-  // console.log(req.body)
-  
-
-  const requestBody = {
-    name: req.body.name,
-    description: req.body.description,
-    images: req.files.name
-}
-req.body = requestBody;
-
-try{
-    await req.body.save()
-    res.status(201).send()
-
-}catch(e){
-    res.status(400).send(e)
-}
 
 
 

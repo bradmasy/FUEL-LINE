@@ -9,6 +9,8 @@ function process_user_info(data) {
     window.location.href = "/login";
   } else {
     console.log(data)
+    
+    $("#img-container").html(`<img src="${data.profile_image[0]}" alt="profile picture">`);
     $("#name").html(`<p>${data.username}</p>`);
     $("#email").html(`<p>${data.email}</p>`);
     if (data.hasOwnProperty('vehicle_efficiency')){

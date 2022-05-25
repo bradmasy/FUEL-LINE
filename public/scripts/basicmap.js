@@ -41,7 +41,6 @@ function logout_close(){
 }
 
 function createTripObjectForUser(distanceOB, cost_rounded) {
-  console.log(distanceOB);
   let destination = distanceOB.start_address;
   let origin = distanceOB.end_address;
   let distance = distanceOB.distance.value;
@@ -67,7 +66,13 @@ function createTripObjectForUser(distanceOB, cost_rounded) {
   fetch("/create-trip", options);
 }
 
+// Lets the the map get exported in
+
 Object.defineProperty(exports, "__esModule", { value: true });
+
+    /**
+     * initiates the map at set coordinates over Vancouver then creates/calls the AutocompleteDirectionsHandler.
+     */
 function initMap() {
   map = new google.maps.Map(document.getElementById("map-section"), {
     center: { lat: 49.2835025, lng: -123.1154588 },
@@ -80,7 +85,18 @@ function initMap() {
   });
   new AutocompleteDirectionsHandler(map);
 }
+/**
+ * A Javascript version of a class that represents the autocompleting directions fields on the map and handles all of their methods.
+ * 
+ * @returns AutocompleteDirectionsHandler, this class returns itself
+ */
 var AutocompleteDirectionsHandler = /** @class */ (function () {
+
+      /**
+     * Constructs the autocompleting directions fields and pins them to the map.
+     *
+     * @param map a Google Maps Object to pin the fields to and insert the route onto
+     */
   function AutocompleteDirectionsHandler(map) {
     this.map = map;
     this.originPlaceId = "";
@@ -94,28 +110,31 @@ var AutocompleteDirectionsHandler = /** @class */ (function () {
     var nextRouteButton = document.getElementById("next-route");
     var prevRouteButton = document.getElementById("prev-route");
 
-    // nextRouteButton.style.display = "none";
-    // Specify just the place data fields that you need.
+    // Autocompletes text entered into the originInput field.
     var originAutocomplete = new google.maps.places.Autocomplete(originInput, {
       fields: ["place_id"],
     });
-    // Specify just the place data fields that you need.
+    // Autocompletes text entered into the destinationInput field.
     var destinationAutocomplete = new google.maps.places.Autocomplete(
       destinationInput,
       { fields: ["place_id"] }
     );
+    // Calls setupPlaceChangedListener for the originInput
     this.setupPlaceChangedListener(
       originAutocomplete,
       "ORIG",
       nextRouteButton,
       prevRouteButton
     );
+    // Calls setupPlaceChangedListener for the destinationInput
     this.setupPlaceChangedListener(
       destinationAutocomplete,
       "DEST",
       nextRouteButton,
       prevRouteButton
     );
+
+    // Pin the map controls to the map
     this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(originInput);
     this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(
       destinationInput
@@ -128,6 +147,16 @@ var AutocompleteDirectionsHandler = /** @class */ (function () {
     );
   }
 
+    /**
+     * Handles what happens when the user clicks an autocompleted place.
+     * 
+     * !!THIS FUNCTION IS CALLED TWICE, ONCE FOR EACH INPUT FIELD!!
+     *
+     * @param autocomplete The autocomplete from the specified input
+     * @param mode the mode - either Origin or Destination
+     * @param nextRoute The button to change to the next route
+     * @param prevRoute The button to change to the previous route
+     */
   AutocompleteDirectionsHandler.prototype.setupPlaceChangedListener = function (
     autocomplete,
     mode,
@@ -136,6 +165,7 @@ var AutocompleteDirectionsHandler = /** @class */ (function () {
   ) {
     var _this = this;
     autocomplete.bindTo("bounds", this.map);
+    // Listens for the user to chose an autocomplete option, then calls route()
     autocomplete.addListener("place_changed", function () {
       var place = autocomplete.getPlace();
       if (!place.place_id) {
@@ -150,12 +180,14 @@ var AutocompleteDirectionsHandler = /** @class */ (function () {
       _this.route();
     });
 
+    // Listens for the user to click the next route button, then calls changeRoute()
     nextRoute.addEventListener("click", function () {
       var place = autocomplete.getPlace();
       if (!place.place_id) {
         window.alert("Please select an option from the dropdown list.");
         return;
       }
+      // Changes which route is being displayed (this is called twice, hence the +0.5)
       whichRoute = whichRoute + 0.5;
       if (mode === "ORIG") {
         _this.originPlaceId = place.place_id;
@@ -163,15 +195,16 @@ var AutocompleteDirectionsHandler = /** @class */ (function () {
         _this.destinationPlaceId = place.place_id;
       }
       _this.changeRoute();
-      // console.log("adding");
     });
 
+    // Listens for the user to click the next route button, then calls changeRoute()
     prevRoute.addEventListener("click", function () {
       var place = autocomplete.getPlace();
       if (!place.place_id) {
         window.alert("Please select an option from the dropdown list.");
         return;
       }
+      // Changes which route is being displayed (this is called twice, hence the -0.5)
       whichRoute = whichRoute - 0.5;
       if (mode === "ORIG") {
         _this.originPlaceId = place.place_id;
@@ -182,11 +215,16 @@ var AutocompleteDirectionsHandler = /** @class */ (function () {
     });
   };
 
+      /**
+     * Advances the route when the user clicks the changeRoute buttton.
+     */
   AutocompleteDirectionsHandler.prototype.changeRoute = function () {
     if (!this.originPlaceId || !this.destinationPlaceId) {
       return;
     }
     var me = this;
+
+    // Creates the route
     this.directionsService.route(
       {
         origin: { placeId: this.originPlaceId },
@@ -194,6 +232,8 @@ var AutocompleteDirectionsHandler = /** @class */ (function () {
         travelMode: this.travelMode,
         provideRouteAlternatives: true,
       },
+
+      // Gets the response from the API
       function (response, status) {
         if (status === "OK") {
           if (whichRoute > response.routes.length - 1) {
@@ -207,9 +247,12 @@ var AutocompleteDirectionsHandler = /** @class */ (function () {
           if (me.directionsRenderer.getMap != null) {
             me.directionsRenderer.setMap(null);
           }
+          // Rerenders the map and sets the route on top of it
           me.directionsRenderer.setMap(map);
           me.directionsRenderer.setDirections(response);
           me.directionsRenderer.setRouteIndex(whichRoute);
+
+          // Sets the colours of the different routes.
           switch (whichRoute) {
             case 0:
               me.directionsRenderer.setOptions({
@@ -249,13 +292,15 @@ var AutocompleteDirectionsHandler = /** @class */ (function () {
               break;
           }
 
+          // Gets the object from which route information can be extracted
           var directionsData = response.routes[whichRoute].legs[0];
-          // console.log(directionsData)
           var drivingDistance = directionsData.distance.text;
           drivingDistanceGlobal = drivingDistance;
+          var drivingDuration = directionsData.duration.text;
+          drivingDurationGlobal = drivingDuration;
+          directionsObject = directionsData;
           // window.alert(drivingDistanceGlobal);
           if (gas_price != null) {
-            console.log("called from line 257")
             calculate_costs();
           }
           
@@ -264,24 +309,25 @@ var AutocompleteDirectionsHandler = /** @class */ (function () {
           var drivingDistance = directionsData.distance.text;
           drivingDistanceGlobal = drivingDistance;
 
-          //creating the trip object here...
-
-          // $("#calculation-form").show();
         } else {
           window.alert("Directions request failed due to " + status);
         }
       }
     );
   };
-
+/**
+ * Initializes the route from the user's chosen origin and destination locations.
+ */
   AutocompleteDirectionsHandler.prototype.route = function () {
     if (!this.originPlaceId || !this.destinationPlaceId) {
       return;
     }
-
+    // Sets the first route to index 0
     whichRoute = 0;
 
     var me = this;
+
+    // Creates the route
     this.directionsService.route(
       {
         origin: { placeId: this.originPlaceId },
@@ -289,28 +335,31 @@ var AutocompleteDirectionsHandler = /** @class */ (function () {
         travelMode: this.travelMode,
         provideRouteAlternatives: true,
       },
+      // Gets the response from the API
       function (response, status) {
         if (status === "OK") {
           if (me.directionsRenderer.getMap != null) {
             me.directionsRenderer.setMap(null);
           }
+          // Rerenders the map and sets the route on top of it
           me.directionsRenderer.setMap(map);
           me.directionsRenderer.setDirections(response);
           me.directionsRenderer.setRouteIndex(whichRoute);
+          // Gets the object from which route information can be extracted
           var directionsData = response.routes[whichRoute].legs[0];
-          // console.log(directionsData)
+
           var drivingDistance = directionsData.distance.text;
           drivingDistanceGlobal = drivingDistance;
           var drivingDuration = directionsData.duration.text;
           drivingDurationGlobal = drivingDuration;
           // window.alert(drivingDistanceGlobal);
+          directionsObject = directionsData;
           if (gas_price != null) {
-            console.log("route changed");
             calculate_costs();
           }
 
           //creating the trip object here...
-          directionsObject = directionsData;
+         
           $("#calculation-form").show();
         } else {
           window.alert("Directions request failed due to " + status);
@@ -324,14 +373,10 @@ var AutocompleteDirectionsHandler = /** @class */ (function () {
 window.initMap = initMap;
 
 function calculate_costs() {
-  console.log("calculate costs called");
 
   if (gas_price == null) {
     gas_price = parseFloat($("#gas-price").val());
-    console.log("gas price value:" + gas_price);
-    console.log("gas price type:" + typeof gas_price);
     if (isNaN(gas_price)) {
-      console.log("not a number");
       alert("Enter price of gas without special characters");
       return;
     }
@@ -340,14 +385,11 @@ function calculate_costs() {
     gas_price = parseFloat($("#gas-price").val());
   }
   var distance = parseFloat(drivingDistanceGlobal.replace(/[^0-9.]/g, ""));
-  console.log(distance);
   var cost = (distance / fuel_efficiency) * gas_price;
   cost_rounded = cost.toFixed(2);
 
   jQuery("#calculation-form").empty();
-  console.log(cost_rounded);
 
-  // createTripObjectForUser(directionsObject, cost_rounded);
   jQuery("#calculation-form").append(
     "<span class='result'> Total cost of trip: $" +
       cost_rounded +
@@ -367,7 +409,6 @@ function calculate_costs() {
       createTripObjectForUser(directionsObject, cost_rounded)
     });
 
-    // createTripObjectForUser(directionsObject, cost_rounded);
   }
 }
 
@@ -380,13 +421,11 @@ function process_user_info(data) {
     user_login_status = true;
   }
    else {
-    console.log("vehicle data does not exist");
   }
 }
 
 function getUserInfo() {
-  // gets the current logged in users info
-  console.log("called getUserInfo");
+  // Gets the current logged in users info
   $.ajax({
     url: `/getUserInfo`,
     type: "GET",
@@ -401,7 +440,6 @@ function getUserInfo() {
 
 
 function setup() {
-  console.log("setup function activated");
   getUserInfo();
   initMap();
   $("#calculation-form").hide();
@@ -413,7 +451,6 @@ function setup() {
     if (i == 3) {
       $element.css("background-color", "#FF912C");
     }
-    console.log($element);
   }
   $("#calculation-form").on("click", "#calculate", calculate_costs);
 }
