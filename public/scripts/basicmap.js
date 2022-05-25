@@ -109,6 +109,8 @@ var AutocompleteDirectionsHandler = /** @class */ (function () {
     var destinationInput = document.getElementById("destination-input");
     var nextRouteButton = document.getElementById("next-route");
     var prevRouteButton = document.getElementById("prev-route");
+    var nextRouteDiv = document.getElementById("next-route-div");
+    var prevRouteDiv = document.getElementById("prev-route-div");
 
     // Autocompletes text entered into the originInput field.
     var originAutocomplete = new google.maps.places.Autocomplete(originInput, {
@@ -140,10 +142,10 @@ var AutocompleteDirectionsHandler = /** @class */ (function () {
       destinationInput
     );
     this.map.controls[google.maps.ControlPosition.BOTTOM_LEFT].push(
-      prevRouteButton
+      prevRouteDiv
     );
     this.map.controls[google.maps.ControlPosition.BOTTOM_RIGHT].push(
-      nextRouteButton
+      nextRouteDiv
     );
   }
 
