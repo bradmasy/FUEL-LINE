@@ -127,10 +127,11 @@ function attemptSignup() {
   }
 
 
-}
+} 
 
 function setup() {
 
+  
 
   let $topBars = $(".top-bar");
 
