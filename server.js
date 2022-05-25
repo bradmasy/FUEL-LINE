@@ -3,7 +3,8 @@
 const express = require("express");
 var cors = require("cors");
 var convert = require("xml-js");
-var multer  = require('multer')
+var multer = require("multer");
+var staged_photo = "";
 const app = express();
 const https = require("https");
 const session = require("express-session");
@@ -46,7 +47,7 @@ const userSchema = new mongoose.Schema({
   admin: Boolean,
   trips: [Object],
   vehicle_efficiency: Number,
-  profile_image: Array,
+  profile_image: String,
 });
 
 const userModel = mongoose.model("users", userSchema);
@@ -217,6 +218,7 @@ app.post("/attemptSignup", function (req, res) {
       email: req.body.email,
       admin: req.body.admin,
       trips: [],
+      profile_image: staged_photo,
     },
     function (err, users) {
       if (err) {
@@ -288,7 +290,6 @@ app.post("/saveUserVehicle", function (req, res) {
   console.log("req. has been received");
   console.log("saveUserVehicle called in server");
 
- 
   let user_id = req.session.user._id;
   // console.log(user_id)
 
@@ -312,45 +313,50 @@ app.post("/saveUserVehicle", function (req, res) {
 
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, './uploads')
+    cb(null, "./uploads");
   },
   filename: function (req, file, cb) {
-    cb(null, file.originalname)
-  }
-})
-var upload = multer({ storage: storage })
+    cb(null, file.originalname);
+  },
+});
+var upload = multer({ storage: storage });
 
-app.post('/profile-upload-single', upload.single('profile-file'), function (req, res, next) {
-  // req.file is the `profile-file` file
-  // req.body will hold the text fields, if there were any
-  console.log(JSON.stringify(req.file))
-  console.log(req.file.path)
-  console.log(typeof req.file.path)
+app.post(
+  "/profile-upload-single",
+  upload.single("profile-file"),
+  function (req, res, next) {
+    // req.file is the `profile-file` file
+    // req.body will hold the text fields, if there were any
+    // console.log(JSON.stringify(req.file))
+    // console.log(req.file.path)
+    // console.log(typeof req.file.path)
 
-  userModel.findOneAndUpdate(
-    {
-      username: req.session.user["username"] ,
-    },
-    {
-      $push: { profile_image: req.file.path }
-    },
-    (err, data) => {
-      if (err) {
-        console.log(err);
-      } else {
-        console.log(data);
-      }
+    if (req.session.authenticated == true) {
+      userModel.findOneAndUpdate(
+        {
+          username: req.session.user["username"],
+        },
+        {
+          profile_image: req.file.path,
+        },
+        (err, data) => {
+          if (err) {
+            console.log(err);
+          } else {
+            console.log(data);
+          }
+        }
+      );
+
+      return res.render("profile");
     }
-  );
-
-  var response = '<a href="/">Home</a><br>'
-  response += "Files uploaded successfully.<br>"
-  response += `<img src="${req.file.path}" /><br>`
-  return res.send(response)
-})
-
-
+    else {
+      staged_photo = req.file.path
+    }
+    
+  }
+);
 
 console.log("Server Running");
 app.use(express.static("./public"));
-app.use('/uploads', express.static('uploads'));
+app.use("/uploads", express.static("uploads"));

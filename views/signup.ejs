@@ -57,6 +57,15 @@
         <div class="input-buttons">
           <input id="password2" class="input-fields" placeholder="Confirm Password" type="password">
         </div>
+        <form method="POST" action="/profile-upload-single" enctype="multipart/form-data">
+          <div style="text-align: center">
+              <label>Upload profile picture</label>
+              <input type="file" name="profile-file" required/>
+          </div>
+          <div style="text-align: center">
+              <input type="submit" value="Upload" />
+          </div>
+      </form>
 
         <div class="input-buttons">
           <div id="show-me">
