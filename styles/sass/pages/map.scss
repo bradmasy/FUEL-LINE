@@ -10,6 +10,7 @@ html {
     body {
         overflow-x: hidden;
         overflow-y: hidden;
+        background-image: linear-gradient(#FF912C, rgb(131, 60, 131));
         #map-page {
             display: flex;
             flex-direction: column;
@@ -46,7 +47,7 @@ html {
                 flex-direction: row;
                 justify-content: space-around;
                 height: 21%;
-                background-color: white;
+                
                 text-align: center;
                 input[type=text] {
                     border-radius: 25px;
@@ -73,7 +74,7 @@ html {
                     cursor: pointer;
                 }
                 #save-trip-button {
-                    background-color: #ffb877;
+                    background-color: #FF912C;
                     border-radius: 25px;
                     border: none;
                     color: white;
@@ -88,7 +89,7 @@ html {
                     cursor: pointer;
                 }
                 .result {
-                    background-color: #FF912C;
+                    background-color:  #ffb877;
                     color: white;
                     
                     padding: 4px 32px;

@@ -226,9 +226,9 @@ html body #easter-content #position-center #easter-egg {
   position: absolute;
 }
 html body #content {
+  background-image: linear-gradient(#FF912C, purple);
   display: flex;
   flex-direction: column;
-  background-color: rgb(255, 255, 255);
   height: 80%;
   width: 100%;
 }
@@ -263,6 +263,7 @@ html body #content #welcome-txt {
   justify-content: center;
   height: 15%;
   width: 100%;
+  color: white;
 }
 html body #content #welcome-txt #name {
   display: flex;
@@ -503,9 +504,9 @@ html body {
 html body #signup-page {
   display: flex;
   flex-direction: column;
-  background-color: white;
   height: 80%;
   width: 100%;
+  color: white;
 }
 html body #signup-page #signup-statement {
   display: flex;
@@ -674,6 +675,8 @@ html body #login-page {
   flex-direction: column;
   height: 100%;
   width: 100%;
+  background-image: linear-gradient(#FF912C, purple);
+  color: white;
 }
 html body #login-page #statement {
   display: flex;
@@ -921,6 +924,7 @@ html body #profile-page {
   display: flex;
   width: 100%;
   height: 80%;
+  background-image: linear-gradient(#FF912C, purple);
 }
 html body #profile-page #user-profile-x {
   display: flex;
@@ -1257,6 +1261,7 @@ html {
 html body {
   overflow-x: hidden;
   overflow-y: hidden;
+  background-image: linear-gradient(#FF912C, rgb(131, 60, 131));
 }
 html body #map-page {
   display: flex;
@@ -1288,7 +1293,6 @@ html body #map-page #info {
   flex-direction: row;
   justify-content: space-around;
   height: 21%;
-  background-color: white;
   text-align: center;
 }
 html body #map-page #info input[type=text] {
@@ -1316,7 +1320,7 @@ html body #map-page #info .button {
   cursor: pointer;
 }
 html body #map-page #info #save-trip-button {
-  background-color: #ffb877;
+  background-color: #FF912C;
   border-radius: 25px;
   border: none;
   color: white;
@@ -1331,7 +1335,7 @@ html body #map-page #info #save-trip-button {
   cursor: pointer;
 }
 html body #map-page #info .result {
-  background-color: #FF912C;
+  background-color: #ffb877;
   color: white;
   padding: 4px 32px;
   margin: 4px 2px;
