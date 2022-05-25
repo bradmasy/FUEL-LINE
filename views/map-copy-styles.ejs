@@ -54,9 +54,9 @@
 
     .arrow {
       border: solid black;
-      border-width: 0 3px 3px 0;
+      border-width: 0 6px 6px 0;
       display: inline-block;
-      padding: 3px;
+      padding: 4px;
     }
 
   .right {
@@ -68,6 +68,22 @@
     transform: rotate(135deg);
     -webkit-transform: rotate(135deg);
   }
+
+  /* .change-route-button {
+    background-color: #FF912C;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    width: 180px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    } */
+
 
     #origin-input:focus,
     #destination-input:focus {
@@ -107,10 +123,10 @@
 
     <div id="prev-route-div">
       <i class="arrow left"></i>
-      <button id="prev-route">Previous Route</button>
+      <button class="change-route-button" id="prev-route">Previous Route</button>
     </div>
     <div id="next-route-div">
-      <button id="next-route">Next Route</button>
+      <button class="change-route-button" id="next-route">Next Route</button>
       <i class="arrow right"></i>
     </div>
       
