@@ -1,5 +1,6 @@
 // homepage
 // executed first when the serve is initiated
+<<<<<<< HEAD
 const express    = require("express");
 var cors         = require("cors");
 var convert      = require("xml-js");
@@ -7,6 +8,17 @@ const app        = express();
 const https      = require("https");
 const session    = require("express-session");
 const mongoose   = require("mongoose");
+=======
+const express = require("express");
+var cors = require("cors");
+var convert = require("xml-js");
+var multer = require("multer");
+var staged_photo = "";
+const app = express();
+const https = require("https");
+const session = require("express-session");
+const mongoose = require("mongoose");
+>>>>>>> 7d25e856c097797245fc69ff703332d4630d0df6
 const bodyParser = require("body-parser");
 const multer     = require("multer");
 var fs           = require('fs');
@@ -73,6 +85,10 @@ const userSchema = new mongoose.Schema({
   admin: Boolean,
   trips: [Object],
   vehicle_efficiency: Number,
+<<<<<<< HEAD
+=======
+  profile_image: String,
+>>>>>>> 7d25e856c097797245fc69ff703332d4630d0df6
 });
 
 const imageSchema = new mongoose.Schema({
@@ -243,6 +259,7 @@ app.post("/displayUsersToAdmin", function (req, res) {
 
 app.post("/attemptSignup", function (req, res) {
   //adds user to users database
+<<<<<<< HEAD
   console.log("here");
   console.log(req.body)
   console.log(req.files);
@@ -270,6 +287,28 @@ app.post("/attemptSignup", function (req, res) {
   //     res.send(users);
   //   }
   // );
+=======
+
+  userModel.insertMany(
+    {
+      username: req.body.username,
+      password: req.body.password,
+      email: req.body.email,
+      admin: req.body.admin,
+      trips: [],
+      profile_image: staged_photo,
+    },
+    function (err, users) {
+      if (err) {
+        console.log("Error " + err);
+      } else {
+        console.log("Data " + users);
+        initiateSession(req, users);
+      }
+      res.send(users);
+    }
+  );
+>>>>>>> 7d25e856c097797245fc69ff703332d4630d0df6
 });
 
 app.get("/logout", (req, res) => {
@@ -330,7 +369,6 @@ app.post("/saveUserVehicle", function (req, res) {
   console.log("req. has been received");
   console.log("saveUserVehicle called in server");
 
- 
   let user_id = req.session.user._id;
   // console.log(user_id)
 
@@ -352,5 +390,57 @@ app.post("/saveUserVehicle", function (req, res) {
   res.send("success");
 });
 
+<<<<<<< HEAD
 console.log("Server Running");
 app.use(express.static("./public"));
+=======
+var storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, "./uploads");
+  },
+  filename: function (req, file, cb) {
+    cb(null, file.originalname);
+  },
+});
+var upload = multer({ storage: storage });
+
+app.post(
+  "/profile-upload-single",
+  upload.single("profile-file"),
+  function (req, res, next) {
+    // req.file is the `profile-file` file
+    // req.body will hold the text fields, if there were any
+    // console.log(JSON.stringify(req.file))
+    // console.log(req.file.path)
+    // console.log(typeof req.file.path)
+
+    if (req.session.authenticated == true) {
+      userModel.findOneAndUpdate(
+        {
+          username: req.session.user["username"],
+        },
+        {
+          profile_image: req.file.path,
+        },
+        (err, data) => {
+          if (err) {
+            console.log(err);
+          } else {
+            console.log(data);
+          }
+        }
+      );
+
+      return res.render("profile");
+    }
+    else {
+      staged_photo = req.file.path
+    }
+    
+  }
+);
+
+console.log("Server Running");
+app.use(express.static("./public"));
+app.use("/uploads", express.static("uploads"));
+>>>>>>> 7d25e856c097797245fc69ff703332d4630d0df6

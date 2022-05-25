@@ -10,7 +10,7 @@ function process_user_info(data) {
   } else {
     console.log(data)
     
-    $("#img-container").html(`<img src="${data.profile_image[0]}" alt="profile picture">`);
+    $("#img-container").html(`<img src="${data.profile_image}" alt="profile picture">`);
     $("#name").html(`<p>${data.username}</p>`);
     $("#email").html(`<p>${data.email}</p>`);
     if (data.hasOwnProperty('vehicle_efficiency')){
