@@ -1,5 +1,5 @@
 // homepage
-// executed first when the serve is initiated
+// executed first when the server is initiated
 const express = require("express");
 var cors = require("cors");
 var convert = require("xml-js");
@@ -28,7 +28,7 @@ app.use(
     extended: true,
   })
 );
-
+//---------------------------------------------------------database initiatializations-------------------------------------------------//
 mongoose.connect(
   "mongodb+srv://fuel_line_2022:fuel@cluster0.vcuj9.mongodb.net/FuelLineDTC12?retryWrites=true&w=majority",
   {
@@ -51,49 +51,10 @@ const userSchema = new mongoose.Schema({
 });
 
 const userModel = mongoose.model("users", userSchema);
-
+//---------------------------------------------------------route rendering-------------------------------------------------//
 app.get("/statistics", (req, res) => {
   res.render("statistics");
 });
-
-app.post("/create-trip", (req, res) => {
-  let origin = req.body.origin;
-  let destination = req.body.destination;
-  let distance = req.body.distance;
-  let user_id = req.session.user._id;
-  let date = req.body.date;
-  let time = req.body.time;
-  let cost = req.body.cost;
-
-  userModel.findOneAndUpdate(
-    {
-      _id: user_id,
-    },
-    {
-      $push: {
-        trips: {
-          origin: origin,
-          destination: destination,
-          distance: distance,
-          date: date,
-          time: time,
-          cost: cost,
-        },
-      },
-    },
-    (err, data) => {
-      console.log(data);
-    }
-  );
-});
-
-function checkUserExists(data) {
-  if (data.length === 0) {
-    console.log("User not found!");
-  } else {
-    return true;
-  }
-}
 
 app.get("/", function (req, res) {
   if (req.session.authenticated == true) {
@@ -154,7 +115,7 @@ app.get("/dashboard", function (req, res) {
 app.get("/map", function (req, res) {
   res.render("map-copy-styles");
 });
-
+//---------------------------------------------------------------session initiatalization------------------------------------------------//
 function initiateSession(req, users) {
   //initiates a session
   if (checkUserExists(users)) {
@@ -164,6 +125,45 @@ function initiateSession(req, users) {
   } else {
     req.session.authenticated = false;
     console.log(`invalid user`);
+  }
+}
+//---------------------------------------------------------------Database CRUD Operations------------------------------------------------//
+app.post("/create-trip", (req, res) => {
+  let origin = req.body.origin;
+  let destination = req.body.destination;
+  let distance = req.body.distance;
+  let user_id = req.session.user._id;
+  let date = req.body.date;
+  let time = req.body.time;
+  let cost = req.body.cost;
+
+  userModel.findOneAndUpdate(
+    {
+      _id: user_id,
+    },
+    {
+      $push: {
+        trips: {
+          origin: origin,
+          destination: destination,
+          distance: distance,
+          date: date,
+          time: time,
+          cost: cost,
+        },
+      },
+    },
+    (err, data) => {
+      console.log(data);
+    }
+  );
+});
+
+function checkUserExists(data) {
+  if (data.length === 0) {
+    console.log("User not found!");
+  } else {
+    return true;
   }
 }
 
@@ -350,14 +350,12 @@ app.post(
       );
 
       return res.render("profile");
+    } else {
+      staged_photo = req.file.path;
     }
-    else {
-      staged_photo = req.file.path
-    }
-    
   }
 );
-
+//----------------------------------------------------Routes for public files -----------------------------------//
 console.log("Server Running");
 app.use(express.static("./public"));
 app.use("/uploads", express.static("uploads"));
