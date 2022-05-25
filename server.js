@@ -300,7 +300,7 @@ app.post("/saveUserVehicle", function (req, res) {
     },
     {
       vehicle_efficiency: req.body.vehicle,
-      vehicle_model: req.body.model,
+      vehicle_model: req.body.vehicle_model,
     },
     (err, data) => {
       if (err) {
