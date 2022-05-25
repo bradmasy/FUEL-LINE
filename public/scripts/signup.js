@@ -2,15 +2,16 @@
  * signup.JS for the signup page
  */
 
+
 /**
  * Constant Variables
  */
 
-const $backButton        = $("#back-button");
-const $confirmButton     = $("#confirm-button");
-const $confirmPassword   = $("#password2");
-const $userPassword      = $("#password1");
-const $showPasswordBox   = $("#show");
+const $backButton = $("#back-button");
+const $confirmButton = $("#confirm-button");
+const $confirmPassword = $("#password2");
+const $userPassword = $("#password1");
+const $showPasswordBox = $("#show");
 const $showPasswordTitle = $("#pass-title");
 
 
@@ -19,7 +20,7 @@ const $showPasswordTitle = $("#pass-title");
  */
 
 let passwordVisible = false; // for revealing the password.
-
+let imageFiles;
 /**
  * Functions
  */
@@ -69,46 +70,58 @@ function checkUserExists(data) {
   }
 }
 
-function displayPopup()
-{
+function displayPopup() {
   $(".error").fadeIn();
-  console.log("here");
 }
 
-function closePopup(){
+function closePopup() {
   $(".error").fadeOut();
-  console.log("closed");
 }
+
+
+
 
 
 function attemptSignup() {
-  let username = $("#username").val();
-  let email = $("#email").val();
+  let username     = $("#username").val();
+  let email        = $("#email").val();
   let origPassword = $("#password1").val();
   let passwordCopy = $("#password2").val();
+  let imgString    = $("#img-string").val();
+  let id           = `${username.slice(0, 2)}${origPassword.slice(3, 6)}`;
 
 
-  if (passTests(username, origPassword, email, passwordCopy))
-   {
-      adminIsChecked = false;
-      if ($("#admin-status").is(":checked")) adminIsChecked = true;
+  const fileFormData = new FormData();
+  fileFormData.append("file", imageFiles);
 
-      $.ajax({
-        url: "/attemptSignup",
-        type: "POST",
-        data: {
-          username: $("#username").val(),
-          email: $("#email").val(),
-          password: $("#password1").val(),
-          admin: adminIsChecked
-        },
+  fetch("/upload",{
+    method:"POST",
+    body: fileFormData
+  }).then((response) => {
+    console.log(response);
+  });
 
-        success: checkUserExists,
+ 
+  if (passTests(username, origPassword, email, passwordCopy)) {
+    adminIsChecked = false;
+    if ($("#admin-status").is(":checked")) adminIsChecked = true;
 
-      });
+    $.ajax({
+      url: "/attemptSignup",
+      type: "POST",
+      data: {
+        username: $("#username").val(),
+        email: $("#email").val(),
+        password: $("#password1").val(),
+        admin: adminIsChecked,
+        image:fileFormData
+      },
+
+      success: checkUserExists,
+
+    });
   }
-  else 
-  {
+  else {
     displayPopup()
     console.log("FAILED");
   }
@@ -125,15 +138,33 @@ function setup() {
     let $element = $($topBars[i]);
     if (i == 0) {
       $element.css("background-color", "#FF912C");
-
     }
 
+
+    $(".close-button").on("click", closePopup)
+
+    showPassword();
+    $("#confirm-button").on("click", attemptSignup);
   }
 
-  $(".close-button").on("click", closePopup)
 
-  showPassword();
-  $("#confirm-button").on("click", attemptSignup);
+  $("#prof-img-button").on("click", () => {
+    $("#img-string").trigger("click");
+    $("#img-string").on("change", (e) => {
+    
+      console.log(e);
+      imageFiles = e.target.files[0];
+      console.log(imageFiles);
+
+    })
+  })
 }
 
-$(document).ready(setup);
+
+
+
+//----------------------------------------------------------------------
+
+//----------------------------------------------------------------------
+
+  $(document).ready(setup);

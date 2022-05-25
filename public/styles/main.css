@@ -231,8 +231,9 @@ html body #content {
   background-color: rgb(255, 255, 255);
   height: 80%;
   width: 100%;
+  justify-content: center;
 }
-@media only screen and (max-height: 400px) {
+@media only screen and (max-width: 400px) {
   html body #content {
     justify-content: center;
   }
@@ -244,9 +245,9 @@ html body #content .row-container {
   height: 20%;
   margin-top: 7%;
 }
-@media only screen and (max-height: 400px) {
+@media only screen and (max-width: 400px) {
   html body #content .row-container {
-    margin-top: 0%;
+    margin-top: 20%;
   }
 }
 html body #content .row-container #main-logo {
@@ -296,6 +297,11 @@ html body #content #signup-login {
   justify-content: center;
   height: 30%;
   width: 100%;
+}
+@media only screen and (max-width: 400px) {
+  html body #content #signup-login {
+    margin-top: 0%;
+  }
 }
 html body #content #signup-login #form-align {
   display: flex;
@@ -542,6 +548,9 @@ html body #signup-page #signup-form #signup-form-align .input-buttons {
   outline: none;
   margin-top: 3%;
   -webkit-appearance: none;
+}
+html body #signup-page #signup-form #signup-form-align .input-buttons #img-string {
+  display: none;
 }
 html body #signup-page #signup-form #signup-form-align .input-buttons .input-fields:focus {
   border: none;

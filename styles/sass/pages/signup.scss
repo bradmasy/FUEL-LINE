@@ -66,6 +66,10 @@ html {
                         -webkit-appearance: none;
                         // border:solid blue 2px;
 
+                        #img-string{
+                            display: none;
+                        }
+
                         .input-fields:focus {
                             border: none;
                             outline: none;

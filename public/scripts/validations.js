@@ -18,18 +18,14 @@ function validatePassword(password) {
         let exp1 = expressionCapital.exec(password);
         let exp2 = expressionNumber.exec(password);
         let exp3 = expressionLower.exec(password);
-        console.log(exp1);
-        console.log(exp2);
-        console.log(exp3);
+    
 
 
         if (exp1 != null && exp2 != null && exp3 != null && length >= 8) {
-            console.log("good password");
             valid = true;
         }
     }
     else {
-        console.log("bad pass")
     }
 
     return valid;
@@ -50,10 +46,7 @@ function validateEmail(emailAddress){
             valid = true;
         }
     }
-    else 
-    {
-        console.log("bad email address");
-    }
+ 
 
     return valid;
 }
@@ -63,17 +56,14 @@ function validateEmail(emailAddress){
 function validateUsername(username) {
     let valid = false;
 
-    console.log(`\"${username}\"`);
     if(username != null)
     {
         if (username.length === NO_USERNAME || username.length < MIN_USERNAME_LEN) {
-            console.log("bad username");
             valid = false;
         }
         else
         {
             valid = true;
-            console.log("good username");
         }
     }
    

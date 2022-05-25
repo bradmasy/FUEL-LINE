@@ -43,25 +43,29 @@
       Please Enter Your Information Below...
     </div>
 
-    <div id="signup-form">
+    <div id="signup-form" >
       <div id="signup-form-align">
         <div class="input-buttons">
-          <input class="input-fields" placeholder="Username" id="username">
+          <input class="input-fields" placeholder="Username" id="username" type="username" name="username">
         </div>
         <div class="input-buttons">
-          <input class="input-fields" id="email" placeholder="Email">
+          <input class="input-fields" id="email" placeholder="Email" type="email" name="email"> 
         </div>
         <div class="input-buttons">
-          <input id="password1" class="input-fields" placeholder="Password" type="password">
+          <input id="password1" class="input-fields" placeholder="Password" type="password" name="password">
         </div>
         <div class="input-buttons">
-          <input id="password2" class="input-fields" placeholder="Confirm Password" type="password">
+          <input id="password2" class="input-fields" placeholder="Confirm Password" type="password" name="password2">
+        </div>
+
+        <div class="input-buttons">
+          <button id="prof-img-button">Choose Profile Picture</button>
+          <input type="file" id="img-string" accept="image/png, image/jpeg" type="image" name="image" required>
         </div>
 
         <div class="input-buttons">
           <div id="show-me">
             <div id="center">
-
               <div class="container-div">
                 <div id="show-pass">
                   <div>
@@ -78,10 +82,10 @@
         <div class="input-buttons">
           <div id="confirm">
             <div>
-              <button id="back-button">Back</button>
+              <button  id="back-button">Back</button>
             </div>
             <div>
-              <button id="confirm-button">Confirm</button>
+              <button type="submit" id="confirm-button">Confirm</button>
             </div>
           </div>
         </div>

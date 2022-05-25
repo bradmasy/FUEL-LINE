@@ -11,13 +11,16 @@ const bodyParser = require("body-parser");
 const multer     = require("multer");
 var fs           = require('fs');
 var path         = require('path');
+const fileUpload = require("express-fileupload");
 require('dotenv/config');
+const Request = require("request");
 const USER       = 0;
 
 
 
 app.use(cors());
 app.use(session({ secret: "shhhh", saveUninitialized: true, resave: true }));
+app.use(fileUpload());
 app.set("view engine", "ejs");
 
 app.listen(process.env.PORT || 5000, function (err) {
@@ -40,77 +43,100 @@ mongoose.connect(
   }
 );
 
-const Storage = multer.diskStorage({
-  destination: (req,file, cd) => {
-    null, "uploads"},
-  filename:(req, file, cb) => {
-    cb(null, file.originalname + "-" + Date.now());
-  }
-})
+//-------------------------------------------image to database--------------------------------------------------------
 
-const upload = multer({
-  storage:Storage
-})
+// var imageSchema = new mongoose.Schema({
+//   name: String,
+//   desc: String,
+//   img:
+//   {
+//       data: Buffer,
+//       contentType: String
+//   }
+// });
 
+
+// var storage = multer.diskStorage({
+//   destination: (req, file, cb) => {
+//       cb(null, 'uploads')
+//   },
+//   filename: (req, file, cb) => {
+//       cb(null, file.fieldname + '-' + Date.now())
+//   }
+// });
+
+// var upload = multer({ storage: storage });
+// const imgModel  = mongoose.model("image", imageSchema);
+
+  
+// app.get('/', (req, res) => {
+//   imgModel.find({}, (err, items) => {
+//       if (err) {
+//           console.log(err);
+//           res.status(500).send('An error occurred', err);
+//       }
+//       else {
+//           res.render('imagesPage', { items: items });
+//       }
+//   });
+// });
+
+// app.post('/', upload.single('image'), (req, res, next) => {
+  
+//   var obj = {
+//       name: req.body.name,
+//       desc: req.body.desc,
+//       img: {
+//           data: fs.readFileSync(path.join(__dirname + '/uploads/' + req.file.filename)),
+//           contentType: 'image/png'
+//       }
+//   }
+//   imgModel.create(obj, (err, item) => {
+//       if (err) {
+//           console.log(err);
+//       }
+//       else {
+//           // item.save();
+//           res.redirect('/');
+//       }
+//   });
+// });
+
+//-------------------------------------------image to database--------------------------------------------------------
 
 app.get("/viewImg", (req,res) => {
-  imageModel.find({},(err,items) => {
-    if(err)
-    {
-      console.log(err);
-    }
-    else {
-      res.render("profile", {items:items})
-      
-    }
-  })
+
+})
+const upload = require('multer')({ dest: path.join(__dirname, 'public/photos') })
+
+app.post("/upload",upload.single("images"), async (req,res) => {
+  console.log("here in upload")
+  console.log(req.files);
+  console.log(req.files);
+
+  // console.log(req.body)
+  
+
+  const requestBody = {
+    name: req.body.name,
+    description: req.body.description,
+    images: req.files.name
+}
+req.body = requestBody;
+
+try{
+    await req.body.save()
+    res.status(201).send()
+
+}catch(e){
+    res.status(400).send(e)
+}
+
+
+
 })
 
-app.get("/upload",(req,res) => {
-  res.render("upload_img")
-})
 
-app.post("/uploadImage", upload.single("image") ,(req,res)=> {
-  console.log(req.body);
-
-  let img = {
-    // data: fs.readFileSync(path.join(__dirname+ "/uploads/" + req.body.url)),
-    contentType: "image/png"
-  }
-
-  imageModel.create(img, (err,item) => {
-    console.log(img)
-    if(err){
-      console.log(err)
-    }
-    else {
-      item.save();
-      res.redirect("/")
-    }
-  })
-
-  // upload(req, res, (err) => {
-  //   if(err){
-  //     console.log(err)
-  //   }
-  //   else{
-  //     const newImage = new imageModel({
-  //       name: req.body.name,
-  //       image: {
-  //         data: req.file.filename,
-  //         contentType: "image/png"
-  //       }
-  //     })
-  //     newImage.save()
-  //     .then(() => {
-  //       res.send("succesfully uploaded")
-  //     })
-  //     .catch((err) => {
-  //       console.log("error");
-  //     })
-  //     }
-  // })
-})
 
 /**
  * Schema for user.
@@ -292,25 +318,33 @@ app.post("/displayUsersToAdmin", function (req, res) {
 
 app.post("/attemptSignup", function (req, res) {
   //adds user to users database
+  console.log("here");
+  console.log(req.body)
+  console.log(req.files);
 
-  userModel.insertMany(
-    {
-      username: req.body.username,
-      password: req.body.password,
-      email: req.body.email,
-      admin: req.body.admin,
-      trips: [],
-    },
-    function (err, users) {
-      if (err) {
-        console.log("Error " + err);
-      } else {
-        console.log("Data " + users);
-        initiateSession(req, users);
-      }
-      res.send(users);
-    }
-  );
+  // let image = req.body.image;
+  // let path = `${__dirname}/uploadss/${req.file.image.name}`
+  // image.mv( )
+
+
+  // userModel.insertMany(
+  //   {
+  //     username: req.body.username,
+  //     password: req.body.password,
+  //     email: req.body.email,
+  //     admin: req.body.admin,
+  //     trips: [],
+  //   },
+  //   function (err, users) {
+  //     if (err) {
+  //       console.log("Error " + err);
+  //     } else {
+  //       console.log("Data " + users);
+  //       initiateSession(req, users);
+  //     }
+  //     res.send(users);
+  //   }
+  // );
 });
 
 app.get("/logout", (req, res) => {
