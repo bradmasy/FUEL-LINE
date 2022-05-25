@@ -157,6 +157,7 @@ function alertVehicleSaved() {
 }
 
 function saveUserVehicle() {
+  // saves user vehicle fuel effiency to database
   $.ajax({
     url: "/saveUserVehicle",
     type: "POST",
