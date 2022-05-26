@@ -1,6 +1,6 @@
 /**
  * Logout Javascript.
- * 
+ *
  * @version 1.0
  * @name: Fuel Line LTD
  */
@@ -10,34 +10,46 @@
  */
 
 function populate_users(data) {
-// this function takes the data and puts it table in the users_table div
+  // this function takes the data and puts it table in the users_table div
   received_data = data;
 
-  result = "<div id='user_table'>";
-
-  for (i = 0; i < data.length; i++) {
-    result += "<table style='overflow-x: auto; display: block;'>";
-    result += "<tr>";
-
-    for (field in data[i]) {
-      result += "<th>";
-      result += field;
-      result += "</th>";
+  result = "<table id='user_table'>";
+  result += "<tr>";
+  for (field in data[0]) {
+    if (field != "trips") {
+      if (field != "_id") {
+        if (field != "password") {
+          if (field != "__v") {
+            result += "<th>";
+            result += field;
+            result += "</th>";
+          }
+        }
+      }
     }
-    result += "</tr>";
-    result += "<tr>";
-    for (field in data[i]) {
-      result += "<td style='overflow: hidden; text-overflow: ellipsis; word-wrap: break-word;'>";
-
-      result += data[i][field];
-
-      result += "</td>";
-    }
-
-    result += "<tr>";
-    result += "</table>";
-    result += "</div>"
   }
+  result += "</tr>";
+  for (i = 0; i < data.length; i++) {
+    result += "<tr>";
+    for (field in data[i]) {
+      if (field != "trips") {
+        if (field != "_id") {
+          if (field != "password") {
+            if (field != "__v") {
+              result += "<td >";
+
+              result += data[i][field];
+
+              result += "</td>";
+            }
+          }
+        }
+      }
+    }
+  }
+
+  result += "<tr>";
+  result += "</table>";
 
   $("#users_table").html(result);
 }
@@ -52,7 +64,6 @@ function displayUsersToAdmin() {
     type: "POST",
     success: populate_users,
   });
-
 }
 
 function setup() {
