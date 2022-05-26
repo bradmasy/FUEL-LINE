@@ -47,6 +47,7 @@ const userSchema = new mongoose.Schema({
   admin: Boolean,
   trips: [Object],
   vehicle_efficiency: Number,
+  vehicle_model: String,
   profile_image: String,
 });
 
@@ -299,6 +300,7 @@ app.post("/saveUserVehicle", function (req, res) {
     },
     {
       vehicle_efficiency: req.body.vehicle,
+      vehicle_model: req.body.vehicle_model,
     },
     (err, data) => {
       if (err) {
