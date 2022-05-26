@@ -110,6 +110,11 @@ function setup()
   $("#submit-button").on("click", attemptLogin);
   showPassword();
 
+  $("#back-button").on("click", () => {
+    window.location.href ="/";
+  })
+
+
   let $topBars = $(".top-bar");
 
   for (let i = 0; i < 4; i++) {

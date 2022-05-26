@@ -8,7 +8,11 @@ const $confirmPassword   = $("#password2");
 const $userPassword      = $("#password1");
 const $showPasswordBox   = $("#show");
 const $showPasswordTitle = $("#pass-title");
+const DELAY              = 4000;
+const CHANGE_BACK_DELAY  = 3000;
+const NO_USER            = 0;
 let passwordVisible      = false; // for revealing the password.
+
 
 /**
  * Turns function handlers on for show password.
@@ -49,7 +53,7 @@ function proceedToHome()
  * @param {Array} data an array of users.
  */
 function checkUserExists(data) {
-  if (data.length === 0) {
+  if (data.length === NO_USER) {
     alert("User not found");
   } else {
     proceedToHome();
@@ -65,8 +69,10 @@ function checkUserExists(data) {
 function resetDiv(element,oldType)
 {
   
-  setTimeout(() => {
-    element.fadeIn("slow", () => {
+  setTimeout(() => 
+  {
+    element.fadeIn("slow", () =>
+     {
       element.css("transition", "3s");
       element.css("background-color", "white");
 
@@ -74,12 +80,13 @@ function resetDiv(element,oldType)
         element.attr("type", "password");
         element.val("")
       }
-      else {
+      else 
+      {
         element.val("")
       }
 
     })
-  }, 3000)
+  }, CHANGE_BACK_DELAY)
 }
 /**
  * Displays error messages and changes the DOM element a red color to display errors have been made in the user input. 
@@ -164,18 +171,22 @@ function emailDisplays(email,valid)
  */
 function passwordDisplays(origPassword,passwordCopy,valid)
 {
-  if (!validatePassword(origPassword)) {
+  if (!validatePassword(origPassword))
+  {
     errorInputs($("#password1"), "Invalid Password");
     errorInputs($("#password2"), "Invalid Password");
      valid = false;
   }
-  else {
+  else 
+  {
     successHighlight($("#password1"));
-    if (!samePassword(origPassword, passwordCopy)) {
+    if (!samePassword(origPassword, passwordCopy)) 
+    {
       errorInputs($("#password2"), "Passwords Do Not Match");
       valid = false;
     }
-    else {
+    else 
+    {
       successHighlight($("#password2"));
       valid = true
     }
@@ -203,6 +214,9 @@ function displayInformativeFeedback(username,email,origPassword,passwordCopy)
   return valid;
 }
 
+/**
+ * Offers the user informative feedback on a successful upload of the profile image.
+ */
 function successfulProfilePictureUpload()
 {
   $("#profile-picture").on("change", () => {
@@ -221,7 +235,8 @@ function attemptSignup() {
   let passwordCopy = $("#password2").val();
   let valid        = displayInformativeFeedback(username,email,origPassword,passwordCopy);
 
-  if (valid) {
+  if (valid) 
+  {
     adminIsChecked = false;
     if ($("#admin-status").is(":checked")) adminIsChecked = true;
 

@@ -233,15 +233,15 @@ app.post("/attemptSignup", function (req, res) {
   );
 });
 
-app.get("/logout", (req, res) => {
-  // logs the user out of session
-  console.log("here in logout")
+app.get("/logout", (req, res) => 
+{
   if (req.session.authenticated) 
   {
     req.session.authenticated = false;
     req.session.destroy();
     res.render("logout")
-  } else {
+  } else 
+  {
     res.redirect("index");
   }
 });

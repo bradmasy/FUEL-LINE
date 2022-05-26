@@ -5,38 +5,25 @@
 @use "../components/page-setup.scss";
 
 html {
-
-
     body {
-
-
-
-        /*------------------------------------SIGNUP-PAGE----------------------------------------------*/
         #signup-page {
             display: flex;
             flex-direction: column;
-            // justify-content: center;
             background-color: white;
             height: 80%;
             width: 100%;
 
             #signup-statement {
-                //20%
                 display: flex;
                 flex-direction: row;
                 justify-content: center;
                 text-align: center;
                 font-size: 2em;
-                // font-weight: bold;
                 height: 15%;
                 margin-top: 10%;
-                // border:solid green 2px;
             }
 
-
-
             #greet {
-                //10%
                 display: flex;
                 justify-content: center;
                 height: 5%;
@@ -44,14 +31,10 @@ html {
             }
 
             #signup-form {
-                // 60%
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
                 height: 60%;
-
-
-
 
                 #signup-form-align {
                     display: flex;
@@ -62,9 +45,7 @@ html {
 
                     #profile-pic-form {
                         display: flex;
-                        // height: 10%;
                         flex-direction: column;
-                        // border:solid black 2px;
 
                         #form-div {
 
@@ -93,23 +74,15 @@ html {
                                 border-radius: 40px;
                                 background-color: colors.$main-color;
                                 width: 30%;
-                                // padding-left: 5%;
-                                // padding-right:5%;
                                 box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4); //, 2px 3px 8px 0 #ffb877;
                                 color: black;
                                 margin-bottom: 2%;
-
                             }
 
                             #profile-picture {
-                                // display: none;
+                                display: none;
                             }
-
                         }
-
-                    
-
-                    
 
                         #submission {
                             display: flex;
@@ -128,12 +101,10 @@ html {
                                 align-items: center;
                                 border: none;
                                 font-family: fonts.$main-font;
-                                // font-weight: bold;
                                 border-radius: 40px;
                                 background-color: colors.$main-color;
                                 width: 20%;
-                                // padding-left: 10%;
-                                // padding-right:10%;
+                            
                                 box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4); //, 2px 3px 8px 0 #ffb877;
                                 color: black;
                             }

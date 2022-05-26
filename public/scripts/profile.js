@@ -1,6 +1,9 @@
 
 const PROFILE_HIGHLIGHT = 2;
 const MAX_BARS          = 4;
+const TOP_BARS          = 4;
+const TWO_DECIMAL       = 2;
+const NO_USER           = 0;
 
 /**
  * Processes the users info and displays it to the screen.
@@ -8,7 +11,7 @@ const MAX_BARS          = 4;
  * @param {Array} data an array of user data representing the information the user has entered on their fuel line application. 
  */
 function process_user_info(data) {
-  if (data.length === 0) 
+  if (data.length === NO_USER) 
   {
     window.location.href = "/login";
   } 
@@ -32,7 +35,7 @@ function process_user_info(data) {
     if (data.hasOwnProperty("vehicle_efficiency")) 
     {
       $("#fuel-efficiency").html(
-        `<p>${data.vehicle_efficiency.toFixed(2)} L/100KM</p>`
+        `<p>${data.vehicle_efficiency.toFixed(TWO_DECIMAL)} L/100KM</p>`
       );
     }
     else 
@@ -82,9 +85,12 @@ function setup() {
     window.location.href = "/";
   });
 
-  for (let i = 0; i < 4; i++) {
+  for (let i = 0; i < TOP_BARS; i++) 
+  {
     let $element = $($topBars[i]);
-    if (i == PROFILE_HIGHLIGHT) {
+
+    if (i == PROFILE_HIGHLIGHT)
+    {
       $element.css("background-color", "#FF912C");
     }
   }
@@ -98,8 +104,8 @@ function setup() {
   $(".close-button").on("click", closeEdit);
 
 
-  $("#info-div").on("click", "#add-vehicle", function () {
-    console.log("car choice button clicked");
+  $("#info-div").on("click", "#add-vehicle", function ()
+  {
     window.location.href = "/car-choice";
   });
 }

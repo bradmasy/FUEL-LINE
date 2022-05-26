@@ -1,4 +1,9 @@
+const TOP_BARS  = 4;
+const STATS_BAR = 2;
 
+/**
+ * Sets the page up.
+ */
 function setup()
 {
     console.log("document ready");
@@ -6,15 +11,13 @@ function setup()
     let $topBars =  $(".top-bar");
 
     
-    for(let i = 0; i < 4; i++)
+    for(let i = 0; i < TOP_BARS; i++)
     {
         let $element = $($topBars[i]);
-        if(i == 2)
+        if(i == STATS_BAR)
         {
             $element.css("background-color","#FF912C");
-
         }
-        console.log($element);
     }
 
     $("#stats-button").on("click", ()=>{

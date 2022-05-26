@@ -1,25 +1,16 @@
-let LOGOUT_CALL=0
-function logout_open(){
-    if (LOGOUT_CALL==0){
-      $(".logout-contain").animate({width:'toggle'},500);
-      LOGOUT_CALL=1
-  
-    }
-    else {
-      $(".logout-contain").animate({width:'toggle'},500);
-      LOGOUT_CALL=0
-    }}
+const LOGOUT_BAR = 3;
+const TOTAL_BARS = 4;
 
-function setup(){
-    $("#header-logo").on("click", logout_open);
-}
-
-
+/**
+ * Sets up the page.
+ */
 function setup()
 {
-  for (let i = 0; i < 4; i++) {
+  for (let i = 0; i < TOTAL_BARS; i++) 
+  {
     let $element = $($topBars[i]);
-    if (i == 3) {
+
+    if (i == LOGOUT_BAR) {
       $element.css("background-color", "#FF912C");
     }
   }

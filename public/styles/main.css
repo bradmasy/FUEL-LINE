@@ -557,6 +557,9 @@ html body #signup-page #signup-form #signup-form-align #profile-pic-form #form-d
   color: black;
   margin-bottom: 2%;
 }
+html body #signup-page #signup-form #signup-form-align #profile-pic-form #form-div #profile-picture {
+  display: none;
+}
 html body #signup-page #signup-form #signup-form-align #profile-pic-form #submission {
   display: flex;
   justify-content: center;

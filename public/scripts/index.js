@@ -8,26 +8,12 @@ let secretAmountOfCLicks = 2;
 let positionIncrement    = 1;
 const soundtrack         = new Audio("../audio/Scooby Doo.mp3");
 const soundtrackStart    = 5.15;
-soundtrack.currentTime = soundtrackStart;
+const NOT_CLICKED        = 0;
+const CLICKED            = 1;
+const SET_VOLUME         = 0.1;
+soundtrack.currentTime   = soundtrackStart;
 
 let animationHandler;
-
-
-// $signupButton.on("click", function(){
-// })
-
-// $homeButton.on("click", function(){
-//     window.location.href = "/index"
-// })
-
-// $("#map-button").on("click", () => {
-//     console.log("map clicked");
-//     window.location.href = "/map";
-// })
-
-// $("#profile-button").on("click", ()=>{
-//     window.location.href = "/profile";
-// })
 
 /**
  * Increments the animation handler recursively until the base case is met.
@@ -36,7 +22,6 @@ let animationHandler;
  */
 function incrementHandler()
 {
-
     if(counter < limit)
     {
         counter += positionIncrement;
@@ -87,48 +72,33 @@ function setup()
     for(let i = 0; i < 4; i++)
     {
         let $element = $($topBars[i]);
+
         if(i == 0)
         {
             $element.css("background-color","#FF912C");
         }
     }
 
-    // $signupButton.on("click", function(){
-    // })
-    
-    // $homeButton.on("click", function(){
-    //     window.location.href = "/index"
-    // })
-    
-    // $("#map-button").on("click", () => {
-    //     window.location.href = "/map";
-    // })
-    
-    // $("#profile-button").on("click", ()=>{
-    //     window.location.href = "/profile";
-    // })
-
-    $("#main-logo").on("click", () => {
-        if(clickCount == 0)
+    $("#main-logo").on("click", () => 
+    {
+        if(clickCount == NOT_CLICKED)
         {
             $("#main-logo").css("transition","0.8s");
             $("#main-logo").css("opacity","70%");
         }
-        else if(clickCount == 1)
+        else if(clickCount == CLICKED)
         { 
             $("#main-logo").css("transition","0.8s");
             $("#main-logo").css("opacity","50%");
-
         }
         if(clickCount == secretAmountOfCLicks)
         {
 
-            soundtrack.volume = 0.1;
+            soundtrack.volume = SET_VOLUME;
             soundtrack.play();
 
             $("#main-logo").fadeOut("slow");
             $("#content").fadeOut("slow");
-
             $("#main-logo").promise().done( animation );
         }
         else
