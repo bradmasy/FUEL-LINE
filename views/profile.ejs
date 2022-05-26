@@ -51,12 +51,12 @@
                     </div>
                     <div id="info-div" style="text-align: center;">
                         <form method="POST" action="/profile-upload-single" enctype="multipart/form-data">
-                            <div>
+                            <div class="profile-upload">
                                 <label>Upload profile picture</label>
-                                <input type="file" name="profile-file" required/>
+                                <input type="file" id="upload-button" style="align-items:center" name="profile-file" required/>
                             </div>
-                            <div>
-                                <input type="submit" value="Upload" />
+                            <div class="profile-submit">
+                                <input type="submit" id="upload-submit" value="Upload" />
                             </div>
                         </form>
                         <div class="info-title" id="name">

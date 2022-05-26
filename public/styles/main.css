@@ -1001,6 +1001,46 @@ html body #profile-page #user-profile-x #user-profile-y #user-div #info-div {
   height: 50%;
   width: 100%;
 }
+html body #profile-page #user-profile-x #user-profile-y #user-div #info-div .profile-upload {
+  align-items: center;
+  margin-top: 2%;
+  justify-content: center;
+}
+html body #profile-page #user-profile-x #user-profile-y #user-div #info-div .profile-upload #upload-button {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  font-family: "jost-variable";
+  font-size: 1.5vh;
+  border-radius: 40px;
+  background-color: #FF912C;
+  width: 30%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+  color: black;
+  margin-bottom: 2%;
+}
+html body #profile-page #user-profile-x #user-profile-y #user-div #info-div .profile-submit {
+  display: flex;
+  margin-top: 2%;
+  justify-content: center;
+}
+html body #profile-page #user-profile-x #user-profile-y #user-div #info-div .profile-submit #upload-submit {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  font-family: "jost-variable";
+  font-size: 1.5vh;
+  border-radius: 40px;
+  background-color: #FF912C;
+  width: 30%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+  color: black;
+  margin-bottom: 2%;
+}
 html body #profile-page #user-profile-x #user-profile-y #user-div #info-div #name {
   font-size: 2em;
   justify-content: center;
