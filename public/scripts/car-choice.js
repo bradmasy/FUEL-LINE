@@ -162,6 +162,7 @@ function saveUserVehicle() {
     url: "/saveUserVehicle",
     type: "POST",
     data: {
+      vehicle_model: model,
       vehicle: converted_L,
     },
     success: alertVehicleSaved,

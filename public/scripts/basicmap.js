@@ -327,8 +327,8 @@ var AutocompleteDirectionsHandler = /** @class */ (function () {
           }
           
 
-          var directionsData = response.routes[0].legs[0];
-          var drivingDistance = directionsData.distance.text;
+          directionsData = response.routes[0].legs[0];
+          drivingDistance = directionsData.distance.text;
           drivingDistanceGlobal = drivingDistance;
 
         } else {
@@ -433,9 +433,9 @@ function calculate_costs() {
       "<br>"
   );
   if (user_login_status == true) {
-    $("#calculation-form").append("<button id='save-trip-button'> Go on route! </button>")
+    $("#calculation-form").append("<button id='save-trip-button'> Go on route! </button>");
     $("#save-trip-button").on("click", () => {
-      createTripObjectForUser(directionsObject, cost_rounded)
+      createTripObjectForUser(directionsObject, cost_rounded);
     });
 
   }
@@ -486,17 +486,17 @@ function setup() {
 
 $("#header-logo").on("click", () => {
   if (LOGOUT_CALL == 0){
-    $(".logout-contain").promise().done( logout_open )
-    $(".logout-contain").fadeIn("slow")
-    $(".logout-button").fadeIn("slow")
-    LOGOUT_CALL = 1
+    $(".logout-contain").promise().done( logout_open );
+    $(".logout-contain").fadeIn("slow");
+    $(".logout-button").fadeIn("slow");
+    LOGOUT_CALL = 1;
   }
   else {
-    $(".logout-contain").promise().done( logout_close )
-    $(".logout-contain").fadeOut("slow")
-    $(".logout-button").fadeOut("slow")
-    LOGOUT_CALL = 0
-  }})
+    $(".logout-contain").promise().done( logout_close );
+    $(".logout-contain").fadeOut("slow");
+    $(".logout-button").fadeOut("slow");
+    LOGOUT_CALL = 0;
+  }});
 
 
 $(document).ready(setup);
