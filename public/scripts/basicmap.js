@@ -278,7 +278,7 @@ var AutocompleteDirectionsHandler = /** @class */ (function () {
             document.getElementById("prev-route-div").style.display = "initial"; 
           }
 
-          // Enable the previous route button at appropriate times
+          // Enable the next route button at appropriate times
           if (whichRoute >= response.routes.length - 1) {
             document.getElementById("next-route-div").style.display = "none";
           } else {
@@ -360,8 +360,7 @@ var AutocompleteDirectionsHandler = /** @class */ (function () {
 
     // Enable the next route button
     document.getElementById("next-route-div").style.display = "initial";
-    // var nextRouteDiv = document.getElementById("next-route-div");
-    // var prevRouteDiv = document.getElementById("prev-route-div");
+
 
     var me = this;
 
@@ -385,6 +384,16 @@ var AutocompleteDirectionsHandler = /** @class */ (function () {
           me.directionsRenderer.setMap(map);
           me.directionsRenderer.setDirections(response);
           me.directionsRenderer.setRouteIndex(whichRoute);
+
+
+          // Enable the previous route button at appropriate times
+          if (response.routes.length - 1 <= 0) {
+            document.getElementById("next-route-div").style.display = "none";
+          } else {
+            document.getElementById("next-route-div").style.display = "initial"; 
+          }
+
+
           // Gets the object from which route information can be extracted
           var directionsData = response.routes[whichRoute].legs[0];
 

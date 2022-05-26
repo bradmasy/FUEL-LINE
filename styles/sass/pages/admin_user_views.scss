@@ -1,0 +1,27 @@
+/**
+ * SASS STYLE-SHEET FOR INDEX.HTML
+ *
+ * @name: Bradley Masciotra.
+ * @version: 1.0
+ */
+
+@use "../typography/fonts.scss";
+@use "../mixins/mixin.scss";
+@use "../colors/colors.scss";
+@use "../components/page-setup.scss";
+
+
+html {
+
+    body {
+        ::-webkit-scrollbar {
+            display: none;
+        }
+
+        #content {
+
+            overflow: scroll;
+        }
+
+    }
+}

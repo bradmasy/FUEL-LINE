@@ -342,6 +342,8 @@ app.post(
       );
       // res.redirect("index");
     } else {
+      console.log("not logged in")
+      console.log(req.file.path)
       staged_photo = req.file.path;
       
       // res.redirect("index");

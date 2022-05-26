@@ -1607,6 +1607,19 @@ html body #privacy-main #privacy-boundary #policy {
   font-size: 2vh;
 }
 
+/**
+ * SASS STYLE-SHEET FOR INDEX.HTML
+ *
+ * @name: Bradley Masciotra.
+ * @version: 1.0
+ */
+html body ::-webkit-scrollbar {
+  display: none;
+}
+html body #content {
+  overflow: scroll;
+}
+
 /* Fuel Line Style Sheet
  *
  * @name: Bradley Masciotra
