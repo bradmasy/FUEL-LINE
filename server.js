@@ -340,10 +340,9 @@ app.post(
 
       return res.render("profile");
     } else {
-      console.log("not logged in")
-      console.log(req.file.path)
+      // console.log("not logged in")
+      // console.log(req.file.path)
       staged_photo = req.file.path;
-      res.end('It worked!');
     }
   }
 );
