@@ -1,3 +1,14 @@
+/**
+ * Success Javascript.
+ * 
+ * @version 1.0
+ * @name: Fuel Line LTD
+ */
+
+/**
+ * Variables.
+ */
+
 const DELAY = 3000;
 
 /**

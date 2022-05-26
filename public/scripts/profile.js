@@ -1,3 +1,13 @@
+/**
+ * Profile Javascript.
+ * 
+ * @version 1.0
+ * @name: Fuel Line LTD
+ */
+
+/**
+ * Variables.
+ */
 
 const PROFILE_HIGHLIGHT = 2;
 const MAX_BARS          = 4;

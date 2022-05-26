@@ -1,6 +1,14 @@
 /**
- * Variables
+ * Signup Javascript.
+ * 
+ * @version 1.0
+ * @name: Fuel Line LTD
  */
+
+/**
+ * Variables.
+ */
+
 
 const $backButton        = $("#back-button");
 const $confirmButton     = $("#confirm-button");

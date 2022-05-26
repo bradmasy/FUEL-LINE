@@ -1,10 +1,18 @@
-const NO_USERNAME      = 0;
-const MIN_USERNAME_LEN = 5;
-
 /**
- * Validation Utility Class
+ * Validations Javascript.
+ * 
+ * @version 1.0
+ * @name: Fuel Line LTD
  */
 
+/**
+ * Variables.
+ */
+
+
+const NO_USERNAME      = 0;
+const MIN_USERNAME_LEN = 5;
+const MIN_LENGTH       = 8;
 
 /**
  * Validates the password.
@@ -25,7 +33,7 @@ function validatePassword(password) {
         let exp2   = expressionNumber.exec(password);
         let exp3   = expressionLower.exec(password);
       
-        if (exp1 != null && exp2 != null && exp3 != null && length >= 8) 
+        if (exp1 != null && exp2 != null && exp3 != null && length >= MIN_LENGTH) 
         {
             valid = true;
         }
@@ -68,7 +76,6 @@ function validateEmail(emailAddress){
 function validateUsername(username) {
     let valid = false;
 
-    console.log(`\"${username}\"`);
     if(username != null)
     {
         if (username.length === NO_USERNAME || username.length < MIN_USERNAME_LEN) {
@@ -88,9 +95,9 @@ function validateUsername(username) {
 /**
  * Checks to see that the password and second password entered are the same.
  * 
- * @param {String} password represents a user password.
+ * @param {String} password           represents a user password.
  * @param {String} comparisonPassword represents a second user password.
- * @returns  a boolean representing if a string has been validated or not.
+ * @returns                           a boolean representing if a string has been validated or not.
  */
 function samePassword(password, comparisonPassword)
 {
@@ -103,15 +110,14 @@ function samePassword(password, comparisonPassword)
     return valid;
 }
 
-
 /**
  * Calls all test functions on all the users data passed.
  * 
- * @param {*} username represents a users username.
- * @param {*} password represents a user password.
+ * @param {*} username     represents a users username.
+ * @param {*} password     represents a user password.
  * @param {*} emailAddress represents an email address.
  * @param {*} passwordCopy represents a second user password.
- * @returns  a boolean representing if a string has been validated or not.
+ * @returns                a boolean representing if a string has been validated or not.
  */
 function passTests(username, password,emailAddress,passwordCopy) 
 {
@@ -126,6 +132,4 @@ function passTests(username, password,emailAddress,passwordCopy)
     }
 
     return valid;
-
 }
-

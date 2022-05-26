@@ -1,3 +1,14 @@
+/**
+ * Success Javascript.
+ * 
+ * @version 1.0
+ * @name: Fuel Line LTD
+ */
+
+/**
+ * Variables.
+ */
+
 const TOP_BARS  = 4;
 const STATS_BAR = 2;
 

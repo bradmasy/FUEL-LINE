@@ -1,3 +1,14 @@
+/**
+ * Logout Javascript.
+ * 
+ * @version 1.0
+ * @name: Fuel Line LTD
+ */
+
+/**
+ * Variables.
+ */
+
 const LOGOUT_BAR = 3;
 const TOTAL_BARS = 4;
 

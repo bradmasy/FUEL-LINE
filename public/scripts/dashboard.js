@@ -1,3 +1,14 @@
+/**
+ * Dashboard Javascript.
+ * 
+ * @version 1.0
+ * @name: Fuel Line LTD
+ */
+
+/**
+ * Variables.
+ */
+
 
 let chartCanvas       = $("#chart");
 let objectTrips       = [];
@@ -28,7 +39,6 @@ const DISTANCE        = 1;
 const AMOUNT_CAD      = 2;
 const TOP_BARS        = 4;
 const DASHBOARD       = 0;
-
 let user;
 let totalDistance;
 let amountSpent;
@@ -353,6 +363,9 @@ function getTimePeriod() {
     drawChart(timePeriod);
 }
 
+/**
+ * Sets up the page.
+ */
 async function setup() {
 
     await getUserData();

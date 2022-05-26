@@ -1,6 +1,14 @@
 /**
- * Constant Variables
+ * Login Javascript.
+ * 
+ * @version 1.0
+ * @name: Fuel Line LTD
  */
+
+/**
+ * Variables.
+ */
+
 const $showPasswordBox   = $("#show-pass-box");
 const $showPasswordTitle = $("#pass-label");
 const $userPassword      = $("#password_log");
@@ -19,9 +27,10 @@ let isAdmin              = false;
 /**
  * Turns function handlers on for show password.
  */
-function showPassword() {
-  $showPasswordBox.on("click", () => {
-
+function showPassword()
+{
+  $showPasswordBox.on("click", () => 
+  {
     if (!passwordVisible) {
       $showPasswordTitle.html("Hide Password");
       $userPassword.attr("type", "text");

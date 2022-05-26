@@ -1,11 +1,17 @@
-//---Displays all users registered for the application---//
+/**
+ * Logout Javascript.
+ * 
+ * @version 1.0
+ * @name: Fuel Line LTD
+ */
 
-//To-Do: put users in table with relevant info(not password)
+/**
+ * Variables.
+ */
 
 function populate_users(data) {
 // this function takes the data and puts it table in the users_table div
   received_data = data;
-  console.log(data);
 
   result = "<div id='user_table'>";
 

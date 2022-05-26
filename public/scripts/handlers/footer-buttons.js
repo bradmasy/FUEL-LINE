@@ -1,3 +1,9 @@
+/**
+ * Handlers Javascript.
+ * 
+ * @version 1.0
+ * @name: Fuel Line LTD
+ */
 
 /**
  * Sets up the page.

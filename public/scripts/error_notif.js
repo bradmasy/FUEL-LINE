@@ -1,5 +1,5 @@
 const closePop = document.querySelectorAll('[data-close-button]')
-const overlay = document.getElementById("overlay")
+const overlaym = document.getElementById("overlay")
 
 closeButton.forEach(button => {
     button.addEventListener('click', () => {

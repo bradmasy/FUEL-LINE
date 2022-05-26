@@ -1,3 +1,14 @@
+/**
+ * Index Javascript.
+ * 
+ * @version 1.0
+ * @name: Fuel Line LTD
+ */
+
+/**
+ * Variables.
+ */
+
 const $profileButton     = $("#profile");
 const $signupButton      = $("#signup");
 const $homeButton        = $("#home-button");
@@ -12,7 +23,6 @@ const NOT_CLICKED        = 0;
 const CLICKED            = 1;
 const SET_VOLUME         = 0.1;
 soundtrack.currentTime   = soundtrackStart;
-
 let animationHandler;
 
 /**

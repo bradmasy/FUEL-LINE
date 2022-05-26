@@ -1,3 +1,14 @@
+/**
+ * Map Javascript.
+ * 
+ * @version 1.0
+ * @name: Fuel Line LTD
+ */
+
+/**
+ * Variables.
+ */
+
 let map;
 let drivingDistanceGlobal;
 let drivingDurationGlobal;

@@ -1,16 +1,30 @@
 /**
- * car-choice for choosing car
+ * Car-Choice Javascript.
+ * 
+ * @version 1.0
+ * @name: Fuel Line LTD
  */
-var year = 2021;
-var converted_L = 0.0;
-var make = "";
-var model = "";
 
-function createMakesMenu(car_makes_list) {
-  console.log("createMakesMenu called");
-  // console.log(car_makes_list);
+/**
+ * Variables.
+ */
+
+var year        = 2021;
+var converted_L = 0.0;
+var make        = "";
+var model       = "";
+
+/**
+ * Creates the Car Make Menu for the user to select their car's make.
+ * 
+ * @param {Array} car_makes_list a list of all the car makes.
+ */
+function createMakesMenu(car_makes_list)
+ {
   select_makes = '<select name="makes" id="makes"> <option></option>';
-  for (i = 0; i < car_makes_list.length; i++) {
+
+  for (i = 0; i < car_makes_list.length; i++) 
+  {
     select_makes += `<option value="${car_makes_list[i]}">${car_makes_list[i]}</option>`;
   }
   select_makes += "</select>";
@@ -18,13 +32,18 @@ function createMakesMenu(car_makes_list) {
   populate_model();
 }
 
-function processCarMakes(data) {
-  console.log("called processCarMakes");
-  // console.log(data);
+/**
+ * 
+ * 
+ * @param {*} data 
+ */
+function processCarMakes(data)
+{
   car_makes_list = [];
-  var car_makes = data.getElementsByTagName("text");
+  var car_makes  = data.getElementsByTagName("text");
 
-  for (var i = 0; i < car_makes.length; i++) {
+  for (var i = 0; i < car_makes.length; i++) 
+  {
     var make = car_makes[i].firstChild.nodeValue;
     car_makes_list.push(make);
   }
