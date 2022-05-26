@@ -332,7 +332,7 @@ var AutocompleteDirectionsHandler = /** @class */ (function () {
           drivingDistanceGlobal = drivingDistance;
 
         } else {
-          window.alert("Directions request failed due to " + status);
+          window.alert("Directions request failed as a directions could not be found between the entered locations");
         }
       }
     );
@@ -391,7 +391,7 @@ var AutocompleteDirectionsHandler = /** @class */ (function () {
          
           $("#calculation-form").show();
         } else {
-          window.alert("Directions request failed due to " + status);
+          window.alert("Directions request failed as a directions could not be found between the entered locations");
         }
       }
     );
