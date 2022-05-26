@@ -12,7 +12,7 @@
 function populate_users(data) {
   // this function takes the data and puts it table in the users_table div
   received_data = data;
-
+  console.log(received_data);
   result = "<table id='user_table'>";
   result += "<tr>";
   for (field in data[0]) {
