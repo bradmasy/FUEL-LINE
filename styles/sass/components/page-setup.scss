@@ -56,7 +56,7 @@ html {
 
                 }
 
-                #name {
+                #co-name {
                     display: flex;
                     flex-direction: column;
                     justify-content: center;
@@ -105,46 +105,6 @@ html {
                 }
 
             }
-
-
-            // .logout-contain{
-            //     display: none;
-            //     width: 30%;
-            //     height: 100%;
-            //     flex-direction: column;
-            //     padding-right: 5%;
-            //     padding-top: 5%;
-            //     margin: auto;
-            //     justify-content: center;
-
-            //     .logout-button:active{
-            //         @include mixin.button-active();
-
-            //     }
-
-            //     .logout-button:hover{
-            //         @include mixin.hover-styles();
-            //     }
-
-            //     .logout-button{
-            //         display: none;
-
-            //         right: -100px;
-            //         transition: 1s;
-            //         flex-direction: column;
-            //         justify-content: center;
-            //         text-align: center;
-            //         @include mixin.button-styles();
-            //         width:90% !important;
-            //         height: 40%;
-            //         color:black;
-            //         background-color: #b1b1b1;
-            //         margin: auto;
-            //         font-size: 2.5vh;
-            //         padding: 10px,20px;
-
-            //     }
-            // }
 
         }
 
