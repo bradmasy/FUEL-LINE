@@ -1,5 +1,6 @@
+<html>
 <head>
-  <title></title>
+  <title>Map</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/styles/main.css">
@@ -54,9 +55,9 @@
 
     .arrow {
       border: solid black;
-      border-width: 0 6px 6px 0;
+      border-width: 0 4px 4px 0;
       display: inline-block;
-      padding: 4px;
+      padding: 3px;
     }
 
   .right {
@@ -68,22 +69,6 @@
     transform: rotate(135deg);
     -webkit-transform: rotate(135deg);
   }
-
-  /* .change-route-button {
-    background-color: #FF912C;
-    border: none;
-    color: white;
-    padding: 16px 32px;
-    text-align: center;
-    width: 180px;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    transition-duration: 0.4s;
-    cursor: pointer;
-    } */
-
 
     #origin-input:focus,
     #destination-input:focus {
@@ -100,17 +85,24 @@
 </head>
 
 <body>
-  <!--Header-->
-  <header>
-    <div id="header-logo-container">
-      <img id="header-logo" src="./images/Untitled design (7).png">
-    </div>
-
-    <div class="logout-contain">
-        <button class="logout-button">Logout</button>
-    </div>
-  </header>
-
+     <!--Header-->
+     <header>
+      <div id="header-logo-container">
+        <img id="header-logo" src="./images/Untitled design (7).png" />
+        <div id="co-name">
+          Fuel Line&trade;
+        </div>
+      </div>
+    
+      <div id="others">
+        <div id="anchor-row">
+          <a href="/privacy">Privacy Policy</a>
+          <a href="/contact">Contact</a>
+        </div>
+     
+      </div>
+    </header>
+  
   <!--Main-->
   <main id="map-page">
 
@@ -164,36 +156,10 @@
             <div id="result"></div>
   
           </div>
-         
-<!-- 
-          <br />
-          <h3>
-            <div id="result"></div>
-            </h2>
-        </div> -->
+        </div>
       </div>
-      <!-- <div id="location">
-        <div class="button-container">
-          <div class="centre">
-            <button class="buttons" id="track-button">Get Location</button>
-          </div>
-        </div>
-        <div class="button-container">
-          <div class="centre">
-            <button class="buttons">Extra </button>
-          </div>
-        </div>
-      </div> -->
-    </div>
-    </div>
-    <!--The div element for the map -->
-    <!-- <div id="map">
-
     </div>
 
-    <button id="track-button">Find Me!</button>
-
-    <p id="coordinates"></p> -->
 
   </main>
   <!--Footer-->
@@ -253,12 +219,6 @@
         </div>
     </div>
   </footer>
-  <!-- <script
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBE5NVWlFtuddGJGJxUiAS7Po3_jQePuts&callback=initMap&v=weekly"
-        defer></script> -->
-  <!--END OF BODY-->
-
-
 </body>
 
 </html>

@@ -84,7 +84,7 @@ html body header #header-logo-container #header-logo {
   padding: 10px;
   cursor: pointer;
 }
-html body header #header-logo-container #name {
+html body header #header-logo-container #co-name {
   display: flex;
   flex-direction: column;
   justify-content: center;
