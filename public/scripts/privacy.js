@@ -30,13 +30,29 @@ function getUserInfo() {
   });
 }
 
+
+function getUserInfo()
+{
+  $.ajax({
+    url: `/getUserInfo`,
+    type: "GET",
+    success: (e) => {
+      if(e.admin)
+      {
+        $("#admin-route").css("display","flex")
+
+      }
+    },
+  });
+}
 /**
  * Sets up the page.
  */
 function setup()
 {
-    let $topBars = $(".top-bar");
 
+  getUserInfo();
+    let $topBars = $(".top-bar");
   
     for (let i = 0; i < TOPS_BARS; i++) 
     {

@@ -8,7 +8,6 @@
 /**
  * Variables.
  */
-
 const $showPasswordBox   = $("#show-pass-box");
 const $showPasswordTitle = $("#pass-label");
 const $userPassword      = $("#password_log");
@@ -21,8 +20,6 @@ const USER               = 0;
 const NO_USER            = 0;
 let passwordVisible      = false;
 let isAdmin              = false; 
-
-
 
 /**
  * Turns function handlers on for show password.
@@ -53,19 +50,13 @@ function checkUserExists(data)
 {
   if (data.length === NO_USER) 
   {
-    $("#username_log").css("transition","2s");
-    $("#username_log").css("background-color", "rgb(248, 106, 106)");
-    $("#username_log").val("Incorrect Username and Password.");
     $("#password_log").css("transition","2s");
     $("#password_log").css("background-color", "rgb(248, 106, 106)");
     $("#password_log").attr("type","text");
-    $("#password_log").val("Please Try Again.");
+    $("#password_log").val("Incorrect Password.");
 
     setTimeout(() => 
     {
-      $("#username_log").css("transition","2s");
-      $("#username_log").css("background-color", "white");
-      $("#username_log").val("");
       $("#password_log").css("transition","2s");
       $("#password_log").css("background-color", "white");
       $("#password_log").attr("type","password");

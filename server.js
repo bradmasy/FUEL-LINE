@@ -93,8 +93,16 @@ app.get("/profile", function (req, res) {
   }
 });
 
-app.get("/admin_user_views", function (req, res) {
-  res.render("admin_user_views");
+app.get("/admin_user_views", function (req, res) 
+{
+  if(req.session.authenticated && req.session.user.admin) 
+  {
+    res.render("admin_user_views");
+  }
+  else
+  {
+    res.redirect("/");
+  }
 });
 
 app.get("/userinput", function (req, res) {
@@ -118,7 +126,7 @@ function initiateSession(req, users) {
   if (checkUserExists(users)) {
     req.session.authenticated = true; // user gets authenticated.
     req.session.user = users[USER];
-    console.log(req.session.user);
+    // console.log(req.session.user);
   } else {
     req.session.authenticated = false;
     console.log(`invalid user`);
@@ -151,7 +159,7 @@ app.post("/create-trip", (req, res) => {
       },
     },
     (err, data) => {
-      console.log(data);
+      // console.log(data);
     }
   );
 });
@@ -188,7 +196,7 @@ app.post("/displayUsersToAdmin", function (req, res) {
     if (err) {
       console.log("Error " + err);
     } else {
-      console.log("Data " + users);
+      // console.log("Data " + users);
     }
     res.send(users);
   });
@@ -210,7 +218,7 @@ app.post("/attemptSignup", function (req, res) {
       if (err) {
         console.log("Error " + err);
       } else {
-        console.log("Data " + users);
+        // console.log("Data " + users);
         initiateSession(req, users);
       }
       res.send(users);
@@ -239,11 +247,7 @@ app.get("/getUserInfo", function (req, res) {
     userModel.find(
       { username: req.session.user["username"] },
       function (err, users) {
-        if (err) {
-          console.log("Error " + err);
-        } else {
-          console.log("Data " + users);
-        }
+      
         res.send(users[0]);
       }
     );
@@ -286,7 +290,7 @@ app.post("/saveUserVehicle", function (req, res) {
       if (err) {
         console.log(err);
       } else {
-        console.log(data);
+        // console.log(data);
       }
     }
   );
@@ -326,7 +330,7 @@ app.post(
           if (err) {
             console.log(err);
           } else {
-            console.log(data);
+            // console.log(data);
           }
         }
       );

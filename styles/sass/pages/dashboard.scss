@@ -130,8 +130,11 @@ html {
                                     border-radius: 40px;
                                     border:none;
                                     outline:none;
+                                    justify-content: center;
+                                    color: black;
                                     font-family: fonts.$main-font;
                                     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+                                    -webkit-appearance: none;
 
                                 }
                             }

@@ -107,7 +107,8 @@ function getTotalSpend()
 
     for (let i = 0; i < objectTrips.length; i++) 
     {
-        if (objectTrips[i].cost != null) 
+       
+        if (objectTrips[i].cost != null && !isNaN(objectTrips[i].cost)) 
         {
             amount += parseFloat(objectTrips[i].cost);
         }
@@ -186,7 +187,6 @@ async function getUserData() {
 
         if(user.admin)
         {
-            console.log("is admin")
             $("#admin-route").css("display","flex")
         }
         for (let i = 0; i < object.trips.length; i++) {
@@ -195,6 +195,7 @@ async function getUserData() {
 
         totalDistance = getTotalDistance();
         amountSpent   = getTotalSpend();
+        console.log(amountSpent);
 
     }).catch((err) => {
         console.log("error");
@@ -285,6 +286,7 @@ function compareTimePeriodToObject (period,object)
                 {
                     objectPeriod =  object.slice(MD_START, M_END);
                     time         =  getMonth();
+                    console.log("here");
                     break;
                 }
                 case "year":
@@ -341,6 +343,7 @@ function aggregations(period)
 function getTimePeriod() {
 
     let timePeriod       = $("#time-period").val()
+    console.log(timePeriod)
     dataSet              = [];
     tripLabels           = [];
     let instances        = 0;
@@ -357,6 +360,7 @@ function getTimePeriod() {
         average = 0;
     }
 
+    console.log(currentAmountCAD)
     $("#trip-average").html(`You Spent: $${average}/Per Trip This Time Period.`)
     $("#distance-driven").html(`Total Distance: ${(distance).toFixed(TWO_PLACES)}KM`);
     $("#amount-spent").html(`Total Spend [CAD]: $${currentAmountCAD.toFixed(TWO_PLACES)}`);
@@ -397,18 +401,5 @@ for (let i = 0; i < TOP_BARS; i++) {
     }
 }
 
-// $("#header-logo").on("click", () => {
-//     if (LOGOUT_CALL == 0){
-//       $(".logout-contain").promise().done( logout_open )
-//       $(".logout-contain").fadeIn("slow")
-//       $(".logout-button").fadeIn("slow")
-//       LOGOUT_CALL = 1
-//     }
-//     else {
-//       $(".logout-contain").promise().done( logout_close )
-//       $(".logout-contain").fadeOut("slow")
-//       $(".logout-button").fadeOut("slow")
-//       LOGOUT_CALL = 0
-//     }})
 
 $(document).ready(setup);

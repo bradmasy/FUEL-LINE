@@ -1245,8 +1245,11 @@ html body #dashboard-page #user-profile-x #user-profile-y #user-div #extra-div #
   border-radius: 40px;
   border: none;
   outline: none;
+  justify-content: center;
+  color: black;
   font-family: "jost-variable";
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+  -webkit-appearance: none;
 }
 
 html {
@@ -1613,6 +1616,13 @@ html body #privacy-main #privacy-boundary #policy {
   display: flex;
   justify-content: center;
   text-align: left;
+  overflow: scroll;
+  font-size: 2vh;
+}
+html body #privacy-main #privacy-boundary #contact {
+  display: flex;
+  justify-content: center;
+  text-align: center;
   overflow: scroll;
   font-size: 2vh;
 }
