@@ -235,13 +235,14 @@ app.post("/attemptSignup", function (req, res) {
 
 app.get("/logout", (req, res) => {
   // logs the user out of session
-
-  if (req.session.authenticated) {
+  console.log("here in logout")
+  if (req.session.authenticated) 
+  {
     req.session.authenticated = false;
     req.session.destroy();
-    res.render("index");
+    res.render("logout")
   } else {
-    res.render("404");
+    res.redirect("index");
   }
 });
 
@@ -258,7 +259,6 @@ app.get("/getUserInfo", function (req, res) {
         } else {
           console.log("Data " + users);
         }
-        // console.log(users);
         res.send(users[0]);
       }
     );
@@ -270,17 +270,12 @@ app.get("/user-data", (req, res) => {
   userModel.find(
     { username: req.session.user["username"] },
     function (err, users) {
-      if (err) {
-        // console.log("Error " + err);
-      } else {
-        // console.log("Data " + users);
-      }
-      console.log(users);
+     
       let data = {
         username: users[0].username,
         trips: users[0].trips,
       };
-      // res.send(users[0]);
+
       res.send(JSON.stringify(data));
     }
   );
@@ -318,19 +313,14 @@ var storage = multer.diskStorage({
 });
 var upload = multer({ storage: storage });
 
+
+app.get("/privacy",(req,res) => {
+  res.render("privacy");
+})
 app.post(
   "/profile-upload-single",
   upload.single("profile-file"),
   function (req, res, next) {
-
-    console.log("here");
-    // uploads file to uploads directory
-    // req.file is the `profile-file` file
-    // req.body will hold the text fields, if there were any
-    // console.log(JSON.stringify(req.file))
-    // console.log(req.file.path)
-    // console.log(typeof req.file.path)
-
     if (req.session.authenticated == true) {
       userModel.findOneAndUpdate(
         {
@@ -358,9 +348,7 @@ app.post(
 
 app.get('/:pageCalled', function(req, res) {
   res.render("404");
-  //... mypage.html
 });
 //----------------------------------------------------Routes for public files -----------------------------------//
-console.log("Server Running");
 app.use(express.static("./public"));
 app.use("/uploads", express.static("uploads"));

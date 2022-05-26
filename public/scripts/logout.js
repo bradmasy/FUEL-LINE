@@ -13,3 +13,17 @@ function logout_open(){
 function setup(){
     $("#header-logo").on("click", logout_open);
 }
+
+
+function setup()
+{
+  for (let i = 0; i < 4; i++) {
+    let $element = $($topBars[i]);
+    if (i == 3) {
+      $element.css("background-color", "#FF912C");
+    }
+  }
+}
+
+
+$(document).ready(setup)

@@ -1,0 +1,50 @@
+@use "../typography/fonts.scss";
+@use "../mixins/mixin.scss";
+@use "../colors/colors.scss";
+@use "../components/page-setup.scss";
+
+
+html{
+    body{
+        ::-webkit-scrollbar{
+            display: none;
+        }
+        #privacy-main{
+            font-family: fonts.$main-font;
+            display: flex;
+            justify-content: center;
+            width:100%;
+            height: 80%;
+
+            #privacy-boundary{
+                display: flex;
+                flex-direction: column;
+                text-align: center;
+                width:80%;
+
+
+                #agreement-title {
+                    display: flex;
+                    justify-content: center;
+                    padding:2%;
+
+                    #agreement{
+
+                        font-size: 4vh;
+                    }
+                }
+
+                #policy {
+                    display: flex;
+                    justify-content: center;
+                    text-align: left;
+                    overflow: scroll;
+                    font-size: 2vh;
+
+                }
+            }
+
+           
+        }
+    }
+}

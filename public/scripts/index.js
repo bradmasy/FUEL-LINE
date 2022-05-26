@@ -13,21 +13,21 @@ soundtrack.currentTime = soundtrackStart;
 let animationHandler;
 
 
-$signupButton.on("click", function(){
-})
+// $signupButton.on("click", function(){
+// })
 
-$homeButton.on("click", function(){
-    window.location.href = "/index"
-})
+// $homeButton.on("click", function(){
+//     window.location.href = "/index"
+// })
 
-$("#map-button").on("click", () => {
-    console.log("map clicked");
-    window.location.href = "/map";
-})
+// $("#map-button").on("click", () => {
+//     console.log("map clicked");
+//     window.location.href = "/map";
+// })
 
-$("#profile-button").on("click", ()=>{
-    window.location.href = "/profile";
-})
+// $("#profile-button").on("click", ()=>{
+//     window.location.href = "/profile";
+// })
 
 /**
  * Increments the animation handler recursively until the base case is met.
@@ -45,12 +45,10 @@ function incrementHandler()
         
         animationHandler = requestAnimationFrame(incrementHandler);
     }
-    else{
-
-        
+    else
+    {
         cancelAnimationFrame(animationHandler);
         $("#easter-egg").fadeOut("fast");
-
         $("#easter-egg").promise().done(()=>{
 
             $("#easter-content").css("display","none");
@@ -76,11 +74,8 @@ function animation()
     $("#easter-egg").fadeIn("slow");
 
     animationHandler = requestAnimationFrame( incrementHandler );
-   
     clickCount       = 0; // reset the counter.
 }
-
-
 
 /**
  * Sets up the page.
@@ -95,25 +90,23 @@ function setup()
         if(i == 0)
         {
             $element.css("background-color","#FF912C");
-
         }
     }
 
-
-    $signupButton.on("click", function(){
-    })
+    // $signupButton.on("click", function(){
+    // })
     
-    $homeButton.on("click", function(){
-        window.location.href = "/index"
-    })
+    // $homeButton.on("click", function(){
+    //     window.location.href = "/index"
+    // })
     
-    $("#map-button").on("click", () => {
-        window.location.href = "/map";
-    })
+    // $("#map-button").on("click", () => {
+    //     window.location.href = "/map";
+    // })
     
-    $("#profile-button").on("click", ()=>{
-        window.location.href = "/profile";
-    })
+    // $("#profile-button").on("click", ()=>{
+    //     window.location.href = "/profile";
+    // })
 
     $("#main-logo").on("click", () => {
         if(clickCount == 0)

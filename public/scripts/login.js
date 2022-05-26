@@ -7,12 +7,13 @@ const $userPassword      = $("#password_log");
 const $profileButton     = $("#profile");
 const $signupButton      = $("#signup");
 const $homeButton        = $("#home-button");
+const DELAY              = 1000;
+const TRANSITION_BACK    = 3000;
+const USER               = 0;
+const NO_USER            = 0;
+let passwordVisible      = false;
+let isAdmin              = false; 
 
-/**
- * Let Variables
- */
-let passwordVisible = false; // for revealing the password.
-let isAdmin         = false; // for enabling admin login
 
 
 /**
@@ -33,47 +34,61 @@ function showPassword() {
     }
   })
 }
-function displayPopup() {
-  $(".error").fadeIn();
 
-  console.log("error popup");
+/**
+ * Checks to see if the user exists and displays the appropriate feedback to the screen based on validations.
+ * 
+ * @param {Array} data the user data sent back from the server, if empty a user does NOT exist.
+ */
+function checkUserExists(data) 
+{
+  if (data.length === NO_USER) 
+  {
+    $("#username_log").css("transition","2s");
+    $("#username_log").css("background-color", "rgb(248, 106, 106)");
+    $("#username_log").val("Incorrect Username and Password.");
+    $("#password_log").css("transition","2s");
+    $("#password_log").css("background-color", "rgb(248, 106, 106)");
+    $("#password_log").attr("type","text");
+    $("#password_log").val("Please Try Again.");
 
-  $(".close-button").on("click", () => {
-    $(".error").css("display","none");
-    $("#username_log").val("");
-    $("#password_log").val("");
-  
-  })
+    setTimeout(() => 
+    {
+      $("#username_log").css("transition","2s");
+      $("#username_log").css("background-color", "white");
+      $("#username_log").val("");
+      $("#password_log").css("transition","2s");
+      $("#password_log").css("background-color", "white");
+      $("#password_log").attr("type","password");
+      $("#password_log").val("");
+    }, TRANSITION_BACK); 
+  }
+  else if (data[USER].admin == true)
+  {
+    window.location.href = "/admin_user_views";
+  }
+  else 
+  {
+    $("#username_log").css("transition","2s");
+    $("#username_log").css("background-color", "lightgreen");
+    $("#username_log").val("Matched Username");
+    $("#password_log").css("transition","2s");
+    $("#password_log").css("background-color", "lightgreen");
+    $("#password_log").attr("type","text");
+    $("#password_log").val("Matched Password");
+
+    setTimeout(() => 
+    {
+      window.location.href = "/success"; // delay the change to success so the user sees the feedback.
+    }, DELAY);
+  }
 }
 
-
-
-function closePopup() {
-  $(".error").fadeOut();
-  console.log("closed");
-}
-
-function checkUserExists(data) {
-  // Checks the response from the server to verify that user exists
-// console.log(data);
-  if (data.length === 0) {
-    console.log("User not found!");
-    displayPopup();
-  }
-  else if (data[0].admin == true) {
-    console.log("admin login")
-    window.location.href = "/admin_user_views"
-  }
-  else {
-    window.location.href = "/success"
-  }
-}
-
-function attemptLogin() {
-  // calls the server to check if the user info matches the database
-  console.log("attemptLogin" + "got called!");
-  console.log($("#username_log").val());
-  console.log($("#password_log").val());
+/**
+ * Attempts to log a user into the application
+ */
+function attemptLogin() 
+{
   $.ajax({
     url: "/attemptLogin",
     type: "POST",
@@ -81,15 +96,17 @@ function attemptLogin() {
       username: $("#username_log").val(),
       password: $("#password_log").val(),
     },
-    error: displayPopup,
+ 
     success: checkUserExists
    
   });
- 
 }
 
-function setup() {
-  console.log("login.js loaded")
+/**
+ * Sets the page up.
+ */
+function setup() 
+{
   $("#submit-button").on("click", attemptLogin);
   showPassword();
 
@@ -101,26 +118,6 @@ function setup() {
       $element.css("background-color", "#FF912C");
     }
   }
-
-  $signupButton.on("click", function () {
-  })
-
-  $homeButton.on("click", function () {
-    window.location.href = "/"
-  })
-
-  $("#back-button").on("click", () => {
-    window.location.href = "/";
-  })
-  $("#map-button").on("click", () => {
-    console.log("map clicked");
-    window.location.href = "/map";
-  })
-
-  $("#profile-button").on("click", () => {
-    window.location.href = "/profile";
-  })
-
 }
 
 $(document).ready(setup);

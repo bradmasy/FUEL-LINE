@@ -64,15 +64,15 @@ html body header {
   width: 100%;
   height: 10%;
   background-color: #FF912C;
-  justify-content: right;
+  justify-content: space-between !important;
   background-color: #FF912C !important;
 }
 html body header #header-logo-container {
   -webkit-appearance: none;
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  width: 100%;
+  justify-content: left !important;
+  width: 40%;
   height: 100%;
   transition: transform 1s;
 }
@@ -81,55 +81,44 @@ html body header #header-logo-container #header-logo {
   -o-object-fit: contain;
      object-fit: contain;
   -webkit-appearance: none;
-  transform: translateX(100%);
   padding: 10px;
   cursor: pointer;
 }
-html body header .logout-contain {
-  display: none;
-  width: 30%;
-  height: 100%;
-  flex-direction: column;
-  padding-right: 5%;
-  padding-top: 5%;
-  margin: auto;
-  justify-content: center;
-}
-html body header .logout-contain .logout-button:active {
-  border: none;
-  outline: none;
-}
-html body header .logout-contain .logout-button:hover {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.9);
-  transition: 0.3s;
-}
-html body header .logout-contain .logout-button {
-  display: none;
-  right: -100px;
-  transition: 1s;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
+html body header #header-logo-container #name {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
-  text-align: center;
-  height: 100%;
-  width: 45%;
-  font-size: 1em;
-  font-family: "jost-variable";
-  outline: none;
-  border-radius: 40px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
-  border: none;
-  outline: none;
-  width: 90% !important;
-  height: 40%;
+  width: 70%;
+  color: white;
+  font-weight: bold;
+}
+html body header #others {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  width: 50%;
+  margin-bottom: 2%;
+  -webkit-justify-content: flex-end;
+  align-items: flex-end;
+  -webkit-align-items: flex-end;
+}
+html body header #others #anchor-row {
+  display: flex;
+  width: 100%;
+  justify-content: right;
+  margin-right: 5%;
+  gap: 10%;
+  -webkit-justify-content: flex-end;
+  align-items: flex-end;
+  -webkit-align-items: flex-end;
+}
+html body header #others #anchor-row a:hover {
+  color: white;
+  cursor: pointer;
+}
+html body header #others #anchor-row a {
   color: black;
-  background-color: #b1b1b1;
-  margin: auto;
-  font-size: 2.5vh;
-  padding: 10px, 20px;
+  text-decoration: none;
 }
 html body footer {
   display: flex;
@@ -567,9 +556,6 @@ html body #signup-page #signup-form #signup-form-align #profile-pic-form #form-d
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
   color: black;
   margin-bottom: 2%;
-}
-html body #signup-page #signup-form #signup-form-align #profile-pic-form #form-div #profile-picture {
-  display: none;
 }
 html body #signup-page #signup-form #signup-form-align #profile-pic-form #submission {
   display: flex;
@@ -1578,6 +1564,38 @@ html body #car-choice .button {
   margin: 4px 2px;
   transition-duration: 0.4s;
   cursor: pointer;
+}
+
+html body ::-webkit-scrollbar {
+  display: none;
+}
+html body #privacy-main {
+  font-family: "jost-variable";
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 80%;
+}
+html body #privacy-main #privacy-boundary {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  width: 80%;
+}
+html body #privacy-main #privacy-boundary #agreement-title {
+  display: flex;
+  justify-content: center;
+  padding: 2%;
+}
+html body #privacy-main #privacy-boundary #agreement-title #agreement {
+  font-size: 4vh;
+}
+html body #privacy-main #privacy-boundary #policy {
+  display: flex;
+  justify-content: center;
+  text-align: left;
+  overflow: scroll;
+  font-size: 2vh;
 }
 
 /* Fuel Line Style Sheet

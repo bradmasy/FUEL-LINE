@@ -1,9 +1,5 @@
 /**
- * signup.JS for the signup page
- */
-
-/**
- * Constant Variables
+ * Variables
  */
 
 const $backButton        = $("#back-button");
@@ -12,12 +8,7 @@ const $confirmPassword   = $("#password2");
 const $userPassword      = $("#password1");
 const $showPasswordBox   = $("#show");
 const $showPasswordTitle = $("#pass-title");
-
-/**
- * Let Variables
- */
-
-let passwordVisible = false; // for revealing the password.
+let passwordVisible      = false; // for revealing the password.
 
 /**
  * Turns function handlers on for show password.
@@ -25,29 +16,40 @@ let passwordVisible = false; // for revealing the password.
 function showPassword() {
   $showPasswordBox.on("click", () => {
 
-    if (!passwordVisible) {
+    if (!passwordVisible) 
+    {
       $showPasswordTitle.html("Hide Password");
       $userPassword.attr("type", "text");
       $confirmPassword.attr("type", "text");
+
       passwordVisible = true;
     }
-    else {
+    else 
+    {
       $showPasswordTitle.html("Show Password");
       $userPassword.attr("type", "password");
       $confirmPassword.attr("type", "password");
+
       passwordVisible = false;
     }
   })
 }
 
-function proceedToHome() {
-  console.log("successful Signup");
+/**
+ * Sends the user to the success page.
+ */
+function proceedToHome()
+{
   window.location.href = "/success";
 }
 
+/**
+ * Checks lenght of user data array, if empty, a user does not exist.
+ * 
+ * @param {Array} data an array of users.
+ */
 function checkUserExists(data) {
   if (data.length === 0) {
-    console.log("User not found!");
     alert("User not found");
   } else {
     proceedToHome();
@@ -182,13 +184,14 @@ function passwordDisplays(origPassword,passwordCopy,valid)
 }
 
 /**
+ * Shows the user informative feedback throughout their signup form as they enter inputs that either valid or invalid
  * 
+ * @param {String} username     the username input value.
+ * @param {String} email        the email input value.
+ * @param {String} origPassword the first password value.
+ * @param {String} passwordCopy the confirmed password value.
  * 
- * @param {String} username 
- * @param {String} email 
- * @param {String} origPassword 
- * @param {String} passwordCopy 
- * @returns 
+ * @returns a boolean representing whether the form data entered has been validated or deemed invalid.
  */
 function displayInformativeFeedback(username,email,origPassword,passwordCopy)
 {
@@ -203,11 +206,8 @@ function displayInformativeFeedback(username,email,origPassword,passwordCopy)
 function successfulProfilePictureUpload()
 {
   $("#profile-picture").on("change", () => {
-    console.log("success")
     $("#input-submit").css("transition","2s");
     $("#input-submit").css("background-color","lightgreen");
-    // $("#input-submit").attr("value","Successful");
-
   })
 }
 
