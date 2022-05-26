@@ -60,7 +60,9 @@ html {
                   }
                 .button {
                     background-color: #FF912C;
-                    border: none;
+                    border-style: solid;
+                    border-color: red;
+                    border-radius: 25px;
                     color: white;
                     padding: 4px 32px;
                     text-align: center;
@@ -73,9 +75,10 @@ html {
                     cursor: pointer;
                 }
                 #save-trip-button {
-                    background-color: #ffb877;
+                    background-color: #FF912C;
+                    border-style: solid;
+                    border-color: red;
                     border-radius: 25px;
-                    border: none;
                     color: white;
                     padding: 4px 32px;
                     text-align: center;
