@@ -486,9 +486,6 @@ html body #statistics-page #main-container-x #main-container-y #content #buttons
   border: none;
 }
 
-html body {
-  /*------------------------------------SIGNUP-PAGE----------------------------------------------*/
-}
 html body #signup-page {
   display: flex;
   flex-direction: column;
@@ -507,9 +504,18 @@ html body #signup-page #signup-statement {
 }
 html body #signup-page #greet {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   height: 5%;
   margin-top: 5%;
+}
+html body #signup-page #greet div {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+html body #signup-page #greet div span {
+  font-size: 1.5vh;
 }
 html body #signup-page #signup-form {
   display: flex;
@@ -569,7 +575,7 @@ html body #signup-page #signup-form #signup-form-align #profile-pic-form #submis
   transition: 0.3s;
 }
 html body #signup-page #signup-form #signup-form-align #profile-pic-form #submission #input-submit {
-  display: flex;
+  display: none;
   flex-direction: column;
   justify-content: center;
   align-items: center;

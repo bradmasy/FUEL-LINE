@@ -228,8 +228,21 @@ function displayInformativeFeedback(username,email,origPassword,passwordCopy)
 function successfulProfilePictureUpload()
 {
   $("#profile-picture").on("change", () => {
-    $("#input-submit").css("transition","2s");
-    $("#input-submit").css("background-color","lightgreen");
+    $("#choose-button").css("transition","2s");
+    $("#choose-button").html("Please Upload Picture");
+    $("#choose-button").css("background-color","lightgreen");
+    $("#input-submit").fadeIn("slow");
+    $("#input-submit").css("display","flex");
+
+
+    $("#input-submit").one("click",(e) => {
+     
+      $("#input-submit").css("background-color","lightgreen");
+
+    })
+
+
+    // $("#input-submit").css("background-color","lightgreen");
   })
 }
 
@@ -243,6 +256,7 @@ function attemptSignup() {
   let passwordCopy = $("#password2").val();
   let valid        = displayInformativeFeedback(username,email,origPassword,passwordCopy);
 
+  
   if (valid) 
   {
     adminIsChecked = false;
@@ -287,6 +301,8 @@ function setup() {
   $backButton.on("click", () => {
     window.location.href = "/";
   });
+
+  $("#profile-pic-form")
   
 }
 
