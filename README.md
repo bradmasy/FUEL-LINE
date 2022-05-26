@@ -187,7 +187,7 @@ npm install mongoose
 npm install cors
 ```
 
-### API key required to access mongoDB server and Google Maps API
+### API key provided to access mongoDB server and Google Maps API
 
 ### [Testing Documentation](https://docs.google.com/spreadsheets/d/1u1xZyjaZBaWo4F4zx8hTgFSpGwj84Kp8d9aSc5NrYUw/edit?usp=sharing)
 ## Usage
