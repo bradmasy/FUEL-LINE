@@ -31,8 +31,6 @@ function process_user_info(data) {
     {
       $("#profile-pic").attr("src",`${data.profile_image}`)
     }
-   
-
 
     $("#name").html(`<p>${data.username}</p>`);
     $("#email").html(`<p>${data.email}</p>`);

@@ -10,7 +10,6 @@ const https = require("https");
 const session = require("express-session");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
-const { stringify } = require("querystring");
 const USER = 0;
 
 app.use(cors());
@@ -281,6 +280,10 @@ app.get("/user-data", (req, res) => {
   );
 });
 
+
+app.get("/contact",(req,res) => {
+  res.render("contact");
+})
 app.post("/saveUserVehicle", function (req, res) {
   let user_id = req.session.user._id;
 
