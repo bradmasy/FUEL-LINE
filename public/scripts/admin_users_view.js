@@ -46,9 +46,10 @@ function populate_users(data) {
         }
       }
     }
+    result += "</tr>";
   }
 
-  result += "<tr>";
+  
   result += "</table>";
 
   $("#users_table").html(result);
@@ -59,7 +60,6 @@ function displayUsersToAdmin() {
   console.log("displayUsersToAdmin got called");
   url = "http://localhost:5000/displayUsersToAdmin";
   $.ajax({
-    // url: "http://localhost:5000/findUnicornByWeight",
     url: "http://localhost:5000/displayUsersToAdmin",
     type: "POST",
     success: populate_users,
