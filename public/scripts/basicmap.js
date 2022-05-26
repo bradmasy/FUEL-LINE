@@ -6,9 +6,8 @@
  */
 
 /**
- * Variables.
+ * Global variables.
  */
-
 let map;
 let drivingDistanceGlobal;
 let drivingDurationGlobal;
@@ -59,6 +58,7 @@ function createTripObjectForUser(distanceOB, cost_rounded) {
   let timeStamp = getTimeStamp();
   let cost = cost_rounded;
 
+  // Creates a data object to store the trip
   let data = {
     origin: origin,
     destination: destination,
@@ -68,6 +68,7 @@ function createTripObjectForUser(distanceOB, cost_rounded) {
     cost: cost,
   };
 
+  // Posts the trip data
   let options = {
     method: "POST",
     body: JSON.stringify(data),
@@ -79,12 +80,11 @@ function createTripObjectForUser(distanceOB, cost_rounded) {
 }
 
 // Lets the the map get exported in
-
 Object.defineProperty(exports, "__esModule", { value: true });
 
-    /**
-     * initiates the map at set coordinates over Vancouver then creates/calls the AutocompleteDirectionsHandler.
-     */
+/**
+*Iinitiates the map at set coordinates over Vancouver then creates/calls the AutocompleteDirectionsHandler.
+*/
 function initMap() {
   map = new google.maps.Map(document.getElementById("map-section"), {
     center: { lat: 49.2835025, lng: -123.1154588 },
@@ -104,11 +104,11 @@ function initMap() {
  */
 var AutocompleteDirectionsHandler = /** @class */ (function () {
 
-      /**
-     * Constructs the autocompleting directions fields and pins them to the map.
-     *
-     * @param map a Google Maps Object to pin the fields to and insert the route onto
-     */
+  /**
+  * Constructs the autocompleting directions fields and pins them to the map.
+  *
+  * @param map a Google Maps Object to pin the fields to and insert the route onto
+  */
   function AutocompleteDirectionsHandler(map) {
     this.map = map;
     this.originPlaceId = "";
@@ -183,6 +183,7 @@ var AutocompleteDirectionsHandler = /** @class */ (function () {
   ) {
     var _this = this;
     autocomplete.bindTo("bounds", this.map);
+
     // Listens for the user to chose an autocomplete option, then calls route()
     autocomplete.addListener("place_changed", function () {
       var place = autocomplete.getPlace();
@@ -337,7 +338,7 @@ var AutocompleteDirectionsHandler = /** @class */ (function () {
             calculate_costs();
           }
           
-
+          // Sets variables from the response recieved from the Directions API
           directionsData = response.routes[0].legs[0];
           drivingDistance = directionsData.distance.text;
           drivingDistanceGlobal = drivingDistance;
@@ -361,10 +362,7 @@ var AutocompleteDirectionsHandler = /** @class */ (function () {
     // Enable the next route button
     document.getElementById("next-route-div").style.display = "initial";
 
-
     var me = this;
-
-
 
     // Creates the route
     this.directionsService.route(
@@ -407,8 +405,7 @@ var AutocompleteDirectionsHandler = /** @class */ (function () {
             calculate_costs();
           }
 
-          //creating the trip object here...
-         
+          // Show the calculator
           $("#calculation-form").show();
         } else {
           window.alert("Directions request failed as a directions could not be found between the entered locations");
@@ -419,10 +416,15 @@ var AutocompleteDirectionsHandler = /** @class */ (function () {
   return AutocompleteDirectionsHandler;
 })();
 
+// Loads the map onto the screen
 window.initMap = initMap;
 
+/**
+ *  Shows the calculator and calculates the cost of a trip on the selected route
+ */
 function calculate_costs() {
 
+  // Validation of the input
   if (gas_price == null) {
     gas_price = parseFloat($("#gas-price").val());
     if (isNaN(gas_price)) {
@@ -437,8 +439,10 @@ function calculate_costs() {
   var cost = (distance / fuel_efficiency) * gas_price;
   cost_rounded = cost.toFixed(2);
 
+  // Empties the form
   jQuery("#calculation-form").empty();
 
+  // Shows the results
   jQuery("#calculation-form").append(
     "<span class='result'> Total cost of trip: $" +
       cost_rounded +
@@ -452,6 +456,8 @@ function calculate_costs() {
       "</span>" +
       "<br>"
   );
+
+  // If the user is logged in, let them add the route
   if (user_login_status == true) {
     $("#calculation-form").append("<button id='save-trip-button'> Go on route! </button>");
     $("#save-trip-button").on("click", () => {
@@ -461,6 +467,7 @@ function calculate_costs() {
   }
 }
 
+// Sets fuel efficiency if the user has a vehicle logged
 function process_user_info(data) {
   if (data.hasOwnProperty("vehicle_efficiency")) {
     fuel_efficiency = data.vehicle_efficiency;
@@ -473,8 +480,11 @@ function process_user_info(data) {
   }
 }
 
+/**
+ * Gets the current logged in users info.
+ */ 
 function getUserInfo() {
-  // Gets the current logged in users info
+  
   $.ajax({
     url: `/getUserInfo`,
     type: "GET",
@@ -487,7 +497,9 @@ function getUserInfo() {
   });
 }
 
-
+/**
+ * Sets up the page once it is loaded, calling all necessary functions
+ */
 function setup() {
   getUserInfo();
   initMap();
