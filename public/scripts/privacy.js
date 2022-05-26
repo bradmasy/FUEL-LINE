@@ -12,6 +12,24 @@
 const TOPS_BARS   = 4
 const PRIVACY_BAR = 0
 
+
+function getUserInfo() {
+  // Gets the current logged in users info
+  $.ajax({
+    url: `/getUserInfo`,
+    type: "GET",
+    success: function (data) {
+      if(data.admin)
+      {
+        $("#admin-route").css("display","flex");
+      }
+    },
+    error: function (textStatus, errorThrown) {
+      process_user_info("data not found");
+    },
+  });
+}
+
 /**
  * Sets up the page.
  */

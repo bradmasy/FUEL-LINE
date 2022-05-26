@@ -52,9 +52,6 @@ const userSchema = new mongoose.Schema({
 
 const userModel = mongoose.model("users", userSchema);
 //---------------------------------------------------------route rendering-------------------------------------------------//
-app.get("/statistics", (req, res) => {
-  res.render("statistics");
-});
 
 app.get("/", function (req, res) {
   if (req.session.authenticated == true) {
@@ -167,17 +164,6 @@ function checkUserExists(data) {
   }
 }
 
-function checkUserExists(data) {
-  if (data.length === 0) {
-    console.log("User not found!");
-    return false;
-  } else {
-    currentUser = data;
-    return true;
-    //proceedToHome();
-  }
-}
-
 app.post("/attemptLogin", function (req, res) {
   //checks if entered information matches an existing user in database
 
@@ -272,6 +258,7 @@ app.get("/user-data", (req, res) => {
      
       let data = {
         username: users[0].username,
+        admin: users[0].admin,
         trips: users[0].trips,
       };
 

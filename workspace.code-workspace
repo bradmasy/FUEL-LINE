@@ -5,6 +5,7 @@
 		}
 	],
 	"settings": {
-		"liveServer.settings.multiRootWorkspaceName": "BCIT-SPRING-TERM"
+		"liveServer.settings.multiRootWorkspaceName": "BCIT-SPRING-TERM",
+		"liveServer.settings.port": 5501
 	}
 }

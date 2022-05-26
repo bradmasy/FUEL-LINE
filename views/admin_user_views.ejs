@@ -1,14 +1,12 @@
 <!DOCTYPE html>
   <head>
-    <title></title>
+    <title>Admin Dahsboard</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!--Sets the width of the page is the devices widtth-->
     <link rel="stylesheet" href="styles/main.css" />
-
+    <link rel="icon" type="image/x-icon" href="/images/logo/favicon.ico">
     <script src="/scripts/jquery-3.6.0.min.js" defer></script>
     <script src="/scripts/admin_users_view.js" defer></script>
-    <script src="/scripts/index.js" defer></script>
     <script src="/scripts/handlers/footer-buttons.js" defer></script>
     <style>
       #user_table {
@@ -50,20 +48,20 @@
             Fuel Line&trade;
           </div>
         </div>
-      
         <div id="others">
           <div id="anchor-row">
+            <a href="/admin_user_views">Admin</a>
             <a href="/privacy">Privacy Policy</a>
             <a href="/contact">Contact</a>
           </div>
-       
         </div>
       </header>
-    
     <!--Main-->
-    <main id="content">
+    <main id="admin-content">
       <!--Needs to call server.js to get content-->
-      <div id="users_table"></div>
+      <div id="users_table">
+    
+      </div>
     </main>
 
     <!--Footer-->

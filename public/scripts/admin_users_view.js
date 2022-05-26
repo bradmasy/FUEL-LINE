@@ -12,6 +12,15 @@
 function populate_users(data) {
   // this function takes the data and puts it table in the users_table div
   received_data = data;
+  
+  for(let i = 0; i < data.length; i++)
+  {
+    let container = `<div>
+                        ${data[i].username}
+                    </div>`
+    
+    $("#users_table").append(container)
+  }
   console.log(received_data);
   result = "<table id='user_table'>";
   result += "<tr>";
@@ -58,9 +67,9 @@ function populate_users(data) {
 function displayUsersToAdmin() {
   // this function calls server.js to get the users in the database, then passes off data to populate_users
   console.log("displayUsersToAdmin got called");
-  url = "http://localhost:5000/displayUsersToAdmin";
+  url = "/displayUsersToAdmin";
   $.ajax({
-    url: "http://localhost:5000/displayUsersToAdmin",
+    url: "/displayUsersToAdmin",
     type: "POST",
     success: populate_users,
   });

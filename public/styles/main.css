@@ -117,8 +117,12 @@ html body header #others #anchor-row a:hover {
   cursor: pointer;
 }
 html body header #others #anchor-row a {
+  font-size: 1.5vh;
   color: black;
   text-decoration: none;
+}
+html body header #others #anchor-row #admin-route {
+  display: none;
 }
 html body footer {
   display: flex;
@@ -1295,11 +1299,11 @@ html body #map-page #info input[type=text] {
   border: none;
   background-color: #ffb877;
   color: white;
+  outline: none;
 }
 html body #map-page #info .button {
   background-color: #FF912C;
   border-style: solid;
-  border-color: red;
   border-radius: 25px;
   color: white;
   padding: 4px 32px;
@@ -1309,13 +1313,14 @@ html body #map-page #info .button {
   display: inline-block;
   font-size: 16px;
   margin: 4px 2px;
+  outline: none;
+  border: none;
   transition-duration: 0.4s;
   cursor: pointer;
 }
 html body #map-page #info #save-trip-button {
   background-color: #FF912C;
   border-style: solid;
-  border-color: red;
   border-radius: 25px;
   color: white;
   padding: 4px 32px;
@@ -1326,6 +1331,8 @@ html body #map-page #info #save-trip-button {
   font-size: 16px;
   margin: 4px 2px;
   transition-duration: 0.4s;
+  outline: none;
+  border: none;
   cursor: pointer;
 }
 html body #map-page #info .result {
@@ -1619,7 +1626,15 @@ html body #privacy-main #privacy-boundary #policy {
 html body ::-webkit-scrollbar {
   display: none;
 }
-html body #content {
+html body #admin-content {
+  display: flex;
+  width: 100%;
+  height: 80%;
+}
+html body #admin-content #users_table {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
   overflow: scroll;
 }
 

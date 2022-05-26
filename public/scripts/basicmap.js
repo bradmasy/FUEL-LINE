@@ -456,12 +456,24 @@ function calculate_costs() {
     $("#calculation-form").append("<button id='save-trip-button'> Go on route! </button>");
     $("#save-trip-button").on("click", () => {
       createTripObjectForUser(directionsObject, cost_rounded);
+
+      $("#save-trip-button").fadeIn("slow",() => {
+        $("#save-trip-button").css("background-color","lightgreen");
+        $("#save-trip-button").html("Success!");
+
+      })
     });
 
   }
 }
 
 function process_user_info(data) {
+  console.log(data);
+  if(data.admin)
+  {
+      console.log("is admin")
+      $("#admin-route").css("display","flex")
+  }
   if (data.hasOwnProperty("vehicle_efficiency")) {
     fuel_efficiency = data.vehicle_efficiency;
     user_login_status = true;
@@ -504,19 +516,6 @@ function setup() {
   $("#calculation-form").on("click", "#calculate", calculate_costs);
 }
 
-$("#header-logo").on("click", () => {
-  if (LOGOUT_CALL == 0){
-    $(".logout-contain").promise().done( logout_open );
-    $(".logout-contain").fadeIn("slow");
-    $(".logout-button").fadeIn("slow");
-    LOGOUT_CALL = 1;
-  }
-  else {
-    $(".logout-contain").promise().done( logout_close );
-    $(".logout-contain").fadeOut("slow");
-    $(".logout-button").fadeOut("slow");
-    LOGOUT_CALL = 0;
-  }});
 
 
 $(document).ready(setup);

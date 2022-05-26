@@ -32,6 +32,11 @@ function process_user_info(data) {
       $("#profile-pic").attr("src",`${data.profile_image}`)
     }
 
+    if(data.admin)
+    {
+        $("#admin-route").css("display","flex")
+    }
+
     $("#name").html(`<p>${data.username}</p>`);
     $("#email").html(`<p>${data.email}</p>`);
 

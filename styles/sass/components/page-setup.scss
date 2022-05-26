@@ -30,30 +30,22 @@ html {
             @include mixin.header_footer_styles();
             justify-content: space-between !important;
             background-color: #FF912C !important;
-            // border:solid black 2px;
-
 
             #header-logo-container {
                 -webkit-appearance: none;
                 display: flex;
                 flex-direction: row;
                 justify-content: left !important;
-                // border:solid black 2px;
                 width: 40%;
                 height: 100%;
                 transition: transform 1s;
-
 
                 #header-logo {
                     width: 30%;
                     object-fit: contain;
                     -webkit-appearance: none;
-                    // transform: translateX(100%);
-
                     padding: 10px;
                     cursor: pointer;
-                    // border:solid black 2px;
-
                 }
 
                 #co-name {
@@ -63,9 +55,7 @@ html {
                     width: 70%;
                     color: white;
                     font-weight: bold;
-
                 }
-
             }
 
             #others 
@@ -83,7 +73,7 @@ html {
                     display: flex;
                     width: 100%;
                     justify-content: right;
-                   margin-right: 5%;
+                    margin-right: 5%;
                     gap: 10%;
                     -webkit-justify-content: flex-end;
                     align-items: flex-end;
@@ -97,9 +87,13 @@ html {
                     }
 
                     a {
-
+                        font-size: 1.5vh;
                         color: black;
                         text-decoration: none;
+                    }
+                    
+                    #admin-route {
+                        display: none;
                     }
 
                 }
@@ -110,7 +104,6 @@ html {
 
 
         footer {
-            // @include mixin.header_footer_styles();
             display: flex;
             flex-direction: row;
             width: 100%;

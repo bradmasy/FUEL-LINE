@@ -57,11 +57,11 @@ html {
                     border: none;
                     background-color: #ffb877;
                     color: white;
+                    outline:none;
                   }
                 .button {
                     background-color: #FF912C;
                     border-style: solid;
-                    border-color: red;
                     border-radius: 25px;
                     color: white;
                     padding: 4px 32px;
@@ -71,13 +71,14 @@ html {
                     display: inline-block;
                     font-size: 16px;
                     margin: 4px 2px;
+                    outline:none;
+                    border:none;
                     transition-duration: 0.4s;
                     cursor: pointer;
                 }
                 #save-trip-button {
                     background-color: #FF912C;
                     border-style: solid;
-                    border-color: red;
                     border-radius: 25px;
                     color: white;
                     padding: 4px 32px;
@@ -88,6 +89,8 @@ html {
                     font-size: 16px;
                     margin: 4px 2px;
                     transition-duration: 0.4s;
+                    outline:none;
+                    border:none;
                     cursor: pointer;
                 }
                 .result {
@@ -109,6 +112,8 @@ html {
                         display: flex;
                     
                         #calculation-form {
+
+                           
 
                         }
 

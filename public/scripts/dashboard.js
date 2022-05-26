@@ -88,13 +88,11 @@ function getTotalDistance() {
         if(objectTrips[i].distance != null)
         {
             distance += objectTrips[i].distance;
-            console.log("original: " + objectTrips[i].distance);
 
         }
     }
 
     distance = (distance / CONVERT_TO_KM).toFixed(TWO_PLACES);
-    console.log("distance before: " + distance)
     return distance;
 }
 
@@ -112,7 +110,6 @@ function getTotalSpend()
         if (objectTrips[i].cost != null) 
         {
             amount += parseFloat(objectTrips[i].cost);
-            console.log(objectTrips[i].cost);
         }
     }
 
@@ -187,6 +184,11 @@ async function getUserData() {
 
         user = object; // setting the global user.
 
+        if(user.admin)
+        {
+            console.log("is admin")
+            $("#admin-route").css("display","flex")
+        }
         for (let i = 0; i < object.trips.length; i++) {
             objectTrips.push(object.trips[i]);
         }
