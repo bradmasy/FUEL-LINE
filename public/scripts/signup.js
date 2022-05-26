@@ -6,31 +6,18 @@
  * Constant Variables
  */
 
-const $backButton = $("#back-button");
-const $confirmButton = $("#confirm-button");
-const $confirmPassword = $("#password2");
-const $userPassword = $("#password1");
-const $showPasswordBox = $("#show");
+const $backButton        = $("#back-button");
+const $confirmButton     = $("#confirm-button");
+const $confirmPassword   = $("#password2");
+const $userPassword      = $("#password1");
+const $showPasswordBox   = $("#show");
 const $showPasswordTitle = $("#pass-title");
-
 
 /**
  * Let Variables
  */
 
 let passwordVisible = false; // for revealing the password.
-
-/**
- * Functions
- */
-
-/**
- * Event Handlers
- */
-
-$backButton.on("click", () => {
-  window.location.href = "/";
-});
 
 /**
  * Turns function handlers on for show password.
@@ -81,7 +68,6 @@ function resetDiv(element,oldType)
       element.css("transition", "3s");
       element.css("background-color", "white");
 
-
       if (oldType == "password") {
         element.attr("type", "password");
         element.val("")
@@ -114,7 +100,6 @@ function errorInputs(element, message) {
   }
 
   resetDiv(element,oldType);
-
 }
 
 /**
@@ -159,7 +144,6 @@ function emailDisplays(email,valid)
   if (!validateEmail(email)) {
     errorInputs($("#email"), "Invalid Email Address");
     valid = false;
-
   }
   else {
     successHighlight($("#email"));
@@ -178,19 +162,16 @@ function emailDisplays(email,valid)
  */
 function passwordDisplays(origPassword,passwordCopy,valid)
 {
-  
   if (!validatePassword(origPassword)) {
     errorInputs($("#password1"), "Invalid Password");
     errorInputs($("#password2"), "Invalid Password");
      valid = false;
-
   }
   else {
     successHighlight($("#password1"));
     if (!samePassword(origPassword, passwordCopy)) {
       errorInputs($("#password2"), "Passwords Do Not Match");
       valid = false;
-
     }
     else {
       successHighlight($("#password2"));
@@ -201,6 +182,7 @@ function passwordDisplays(origPassword,passwordCopy,valid)
 }
 
 /**
+ * 
  * 
  * @param {String} username 
  * @param {String} email 
@@ -220,7 +202,6 @@ function displayInformativeFeedback(username,email,origPassword,passwordCopy)
 
 function successfulProfilePictureUpload()
 {
-
   $("#profile-picture").on("change", () => {
     console.log("success")
     $("#input-submit").css("transition","2s");
@@ -263,7 +244,6 @@ function attemptSignup() {
  */
 function setup() {
 
-
   let $topBars = $(".top-bar");
 
   for (let i = 0; i < 4; i++) {
@@ -280,7 +260,11 @@ function setup() {
     $("#profile-picture").trigger("click");
     successfulProfilePictureUpload();
   })
-}
 
+  $backButton.on("click", () => {
+    window.location.href = "/";
+  });
+  
+}
 
 $(document).ready(setup);

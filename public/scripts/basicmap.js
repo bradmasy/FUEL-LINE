@@ -6,8 +6,9 @@ let directionsObject;
 let whichRoute = 0;
 let cost_rounded;
 var gas_price = null;
-let LOGOUT_CALL= 0
-var user_login_status = false
+let LOGOUT_CALL= 0;
+var user_login_status = false;
+
 /**
  * Gets a timestamp of when the directions were requested.
  *
@@ -476,7 +477,7 @@ function setup() {
 
   for (let i = 0; i < 4; i++) {
     let $element = $($topBars[i]);
-    if (i == 3) {
+    if (i == 1) {
       $element.css("background-color", "#FF912C");
     }
   }

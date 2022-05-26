@@ -75,8 +75,8 @@ function setup() {
     if (i == 2) {
       $element.css("background-color", "#FF912C");
     }
-    console.log($element);
   }
+
 
   $("#stats-button").on("click", () => {
     window.location.href = "/statistics";
@@ -85,32 +85,6 @@ function setup() {
   $(".edit-button").on("click", displayEdit);
 
   $(".close-button").on("click", closeEdit)
-
-  $(document).on("touchstart",(event) => {
-    console.log("touched");
-    console.log(event.changedTouches)
-    touchXAxisStart = event.changedTouches[0].screenX;
-    
-  })
-
-// swipe event
-
-  // $(document).on("touchend",(event) => {
-  //   console.log("end");
-  //   touchXAxisEnd = event.changedTouches[0].screenX;
-
-  //   console.log(`start ${touchXAxisStart} end: ${touchXAxisEnd}`);
-
-  //   if(touchXAxisStart > touchXAxisEnd) // signifies a swipe right.
-  //   {
-  //     window.location.href = "/car-choice";
-  //   }
-  //   else if(touchXAxisStart < touchXAxisEnd) // signifies a swipe right.
-  //   {
-  //     window.location.href = "/map";
-  //   }
-  
-  // })
 
   $('.logout-button').on('click', function(){
     window.location.href ="/logout";
@@ -129,8 +103,6 @@ function setup() {
       $(".logout-button").fadeOut("slow")
       LOGOUT_CALL = 0
     }})
-
-
 
   $("#info-div").on("click", "#add-vehicle", function () {
     console.log("car choice button clicked")

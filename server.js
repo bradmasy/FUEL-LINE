@@ -286,12 +286,7 @@ app.get("/user-data", (req, res) => {
 });
 
 app.post("/saveUserVehicle", function (req, res) {
-  //adds user to users database
-  console.log("req. has been received");
-  console.log("saveUserVehicle called in server");
-
   let user_id = req.session.user._id;
-  // console.log(user_id)
 
   userModel.findOneAndUpdate(
     {
@@ -354,9 +349,15 @@ app.post(
       return res.render("profile");
     } else {
       staged_photo = req.file.path;
+      res.end();
     }
   }
 );
+
+app.get('/:pageCalled', function(req, res) {
+  res.render("404");
+  //... mypage.html
+});
 //----------------------------------------------------Routes for public files -----------------------------------//
 console.log("Server Running");
 app.use(express.static("./public"));
