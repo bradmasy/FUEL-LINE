@@ -15,48 +15,51 @@
 </head>
 
 <body>
-  <!--Header-->
-  <header>
-
-    <div id="header-logo-container">
-      <!-- <img id="header-logo" src="./images/Untitled design (7).png"> -->
-    </div>
-
-  </header>
-  <!--Navigation-->
-  <nav>
-
-  </nav>
+    <!--Header-->
+    <header>
+      <div id="header-logo-container">
+        <img id="header-logo" src="./images/Untitled design (7).png" />
+        <div id="name">
+          Fuel Line&trade;
+        </div>
+      </div>
+    
+      <div id="others">
+        <div id="anchor-row">
+          <a href="/privacy">Privacy Policy</a>
+          <a href="/contact">Contact</a>
+        </div>
+     
+      </div>
+    </header>
 
   <!--Main-->
   <main id="signup-page">
     <div id="signup-statement">
       Create Your Fuel Line <br>Account
     </div>
-
-    <!-- <div id="img-container">
-            <div id="main-img">
-                <img id="signup-logo" src="./images/logo/hdlogo1.png">
-            </div>
-        </div> -->
-
     <div id="greet">
-      Please Enter Your Information Below...
+      <div>
+        Please Enter Your Information Below...
+      </div>
+      <div>
+        <span>* indicates all fields are mandatory</span>
+      </div>
     </div>
 
     <div id="signup-form">
       <div id="signup-form-align">
         <div class="input-buttons">
-          <input class="input-fields" placeholder="Username" id="username">
+          <input class="input-fields" placeholder="Username*" id="username">
         </div>
         <div class="input-buttons">
-          <input class="input-fields" id="email" placeholder="Email">
+          <input class="input-fields" id="email" placeholder="Email Address*">
         </div>
         <div class="input-buttons">
-          <input id="password1" class="input-fields" placeholder="Password" type="password">
+          <input id="password1" class="input-fields" placeholder="Password*" type="password">
         </div>
         <div class="input-buttons">
-          <input id="password2" class="input-fields" placeholder="Confirm Password" type="password">
+          <input id="password2" class="input-fields" placeholder="Confirm Password*" type="password">
         </div>
 
         <form id="profile-pic-form" method="POST" action="/profile-upload-single" enctype="multipart/form-data">

@@ -27,9 +27,12 @@ function process_user_info(data) {
   } 
   else 
   {
-    $("#img-container").html(
-      `<img src="${data.profile_image}" alt="profile picture">`
-    );
+    if(!data.profile_image =="")
+    {
+      $("#profile-pic").attr("src",`${data.profile_image}`)
+    }
+   
+
 
     $("#name").html(`<p>${data.username}</p>`);
     $("#email").html(`<p>${data.email}</p>`);

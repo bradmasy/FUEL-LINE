@@ -317,10 +317,13 @@ var upload = multer({ storage: storage });
 app.get("/privacy",(req,res) => {
   res.render("privacy");
 })
+
 app.post(
   "/profile-upload-single",
   upload.single("profile-file"),
   function (req, res, next) {
+
+    console.log("request was made")
     if (req.session.authenticated == true) {
       userModel.findOneAndUpdate(
         {
@@ -337,8 +340,7 @@ app.post(
           }
         }
       );
-
-      return res.render("profile");
+      // res.redirect("index");
     } else {
       // console.log("not logged in")
       // console.log(req.file.path)
