@@ -1,6 +1,6 @@
 /**
  * Profile Javascript.
- * 
+ *
  * @version 1.0
  * @name: Fuel Line LTD
  */
@@ -10,52 +10,41 @@
  */
 
 const PROFILE_HIGHLIGHT = 2;
-const MAX_BARS          = 4;
-const TOP_BARS          = 4;
-const TWO_DECIMAL       = 2;
-const NO_USER           = 0;
+const MAX_BARS = 4;
+const TOP_BARS = 4;
+const TWO_DECIMAL = 2;
+const NO_USER = 0;
 
 /**
  * Processes the users info and displays it to the screen.
- * 
- * @param {Array} data an array of user data representing the information the user has entered on their fuel line application. 
+ *
+ * @param {Array} data an array of user data representing the information the user has entered on their fuel line application.
  */
 function process_user_info(data) {
-  if (data.length === NO_USER) 
-  {
+  if (data.length === NO_USER) {
     window.location.href = "/login";
-  } 
-  else 
-  {
-    if(!data.profile_image =="")
-    {
-      $("#profile-pic").attr("src",`${data.profile_image}`)
+  } else {
+    if (!data.profile_image == "") {
+      $("#profile-pic").attr("src", `${data.profile_image}`);
     }
 
-    if(data.admin)
-    {
-        $("#admin-route").css("display","flex")
+    if (data.admin) {
+      $("#admin-route").css("display", "flex");
     }
 
     $("#name").html(`<p>${data.username}</p>`);
     $("#email").html(`<p>${data.email}</p>`);
 
-    if (data.hasOwnProperty("vehicle_model")) 
-    {
+    if (data.hasOwnProperty("vehicle_model")) {
       $("#vehicle-model").html(`<p>${data.vehicle_model}</p>`);
-    } 
-    else 
-    {
+    } else {
       $("#vehicle-model").html(`<p></p>`);
     }
-    if (data.hasOwnProperty("vehicle_efficiency")) 
-    {
+    if (data.hasOwnProperty("vehicle_efficiency")) {
       $("#fuel-efficiency").html(
         `<p>${data.vehicle_efficiency.toFixed(TWO_DECIMAL)} L/100KM</p>`
       );
-    }
-    else 
-    {
+    } else {
       $("#fuel-efficiency").html(
         `<p><button id='add-vehicle'>Add Vehicle!</button></p>`
       );
@@ -66,8 +55,7 @@ function process_user_info(data) {
 /**
  * Gets the users information wih a GET request to the server.
  */
-function getUserInfo() 
-{
+function getUserInfo() {
   $.ajax({
     url: `/getUserInfo`,
     type: "GET",
@@ -101,12 +89,10 @@ function setup() {
     window.location.href = "/";
   });
 
-  for (let i = 0; i < TOP_BARS; i++) 
-  {
+  for (let i = 0; i < TOP_BARS; i++) {
     let $element = $($topBars[i]);
 
-    if (i == PROFILE_HIGHLIGHT)
-    {
+    if (i == PROFILE_HIGHLIGHT) {
       $element.css("background-color", "#FF912C");
     }
   }
@@ -115,32 +101,29 @@ function setup() {
     window.location.href = "/statistics";
   });
 
-  $(".edit-button").on("click", displayEdit);
+  $(".edit-button").on("click", function () {
+    window.location.href = "/car-choice";
+  });
 
   $(".close-button").on("click", closeEdit);
 
-
-  $("#info-div").on("click", "#add-vehicle", function ()
-  {
+  $("#info-div").on("click", "#add-vehicle", function () {
     window.location.href = "/car-choice";
   });
 
   $("#upload-button-mask").on("click", () => {
     $("#upload-button").trigger("click");
-    
-    $("#upload-button").on("change",()=>{
 
+    $("#upload-button").on("change", () => {
       $("#upload-button-mask").fadeIn("slow", () => {
-
-      $("#upload-button-mask").promise().done(()=>{
-        $("#upload-submit").trigger("click");
-
-        })
-      })
-    })  
-  })
-
-
+        $("#upload-button-mask")
+          .promise()
+          .done(() => {
+            $("#upload-submit").trigger("click");
+          });
+      });
+    });
+  });
 }
 
 $(document).ready(setup);
