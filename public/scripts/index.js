@@ -26,9 +26,6 @@ soundtrack.currentTime   = 5.15;
 let animationHandler;
 
 
-
-
-
 /**
  * Increments the animation handler recursively until the base case is met.
  * 

@@ -317,7 +317,6 @@ app.post(
   upload.single("profile-file"),
   function (req, res, next) {
 
-    console.log("request was made")
     if (req.session.authenticated == true) {
       userModel.findOneAndUpdate(
         {
@@ -336,8 +335,6 @@ app.post(
       );
       res.redirect("/profile");
     } else {
-      // console.log("not logged in")
-      // console.log(req.file.path)
       staged_photo = req.file.path;
     }
   }
