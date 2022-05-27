@@ -26,13 +26,11 @@ html {
                 display: flex;
                 height: 30%;
                 width:100%;
-                // border:solid black 2px;
-
 
                 #easter-egg {
                 display: flex;
                 height: 25%;
-                position: absolute;    
+                position: absolute !important;    
 
                 }
     

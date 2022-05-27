@@ -79,13 +79,11 @@ function validateUsername(username) {
     if(username != null)
     {
         if (username.length === NO_USERNAME || username.length < MIN_USERNAME_LEN) {
-            console.log("bad username");
             valid = false;
         }
         else
         {
             valid = true;
-            console.log("good username");
         }
     }
    

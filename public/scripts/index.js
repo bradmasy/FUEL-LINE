@@ -35,7 +35,8 @@ function incrementHandler()
     if(counter < limit)
     {
         counter += positionIncrement;
-      
+        console.log(counter);
+
         $("#easter-egg").css("left",`${counter}`);
         
         animationHandler = requestAnimationFrame(incrementHandler);
@@ -52,7 +53,7 @@ function incrementHandler()
 
             counter = 0;
             soundtrack.pause();
-            soundtrack.currentTime = soundtrackStart;
+            soundtrack.currentTime = 5.15;
         })
     }
 
@@ -89,32 +90,37 @@ function setup()
         }
     }
 
-    $("#main-logo").on("click", () => 
-    {
-        if(clickCount == NOT_CLICKED)
+    $("#main-logo").on("click", () => {
+        if(clickCount == 0)
         {
             $("#main-logo").css("transition","0.8s");
             $("#main-logo").css("opacity","70%");
         }
-        else if(clickCount == CLICKED)
+        else if(clickCount == 1)
         { 
             $("#main-logo").css("transition","0.8s");
             $("#main-logo").css("opacity","50%");
+
         }
         if(clickCount == secretAmountOfCLicks)
         {
 
-            soundtrack.volume = SET_VOLUME;
+            soundtrack.volume = 0.1;
             soundtrack.play();
 
             $("#main-logo").fadeOut("slow");
             $("#content").fadeOut("slow");
+            // $("#easter-egg").css("left","100px");
+
             $("#main-logo").promise().done( animation );
+
+
         }
         else
         {
             clickCount++; // increment the counter.
         }
+            
     })
 }
 

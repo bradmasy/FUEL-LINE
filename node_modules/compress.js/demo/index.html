@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Compress Demo</title>
+    <style type="text/css">
+      body {
+        font-family: Helvetica, Arial;
+      }
+      .container {
+        max-width: 640px;
+        width: 100%;
+        margin: auto;
+      }
+      #preview {
+        width: 100%;
+        height: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Compress.js</h1>
+
+      <h3>Usage</h3>
+
+      <p>
+        Compress your images before uploading to your database. Get it from
+        <a href="https://www.npmjs.com/package/compress.js">here</a>.
+      </p>
+
+      <script src="https://gist.github.com/alextanhongpin/0f4ca5d0098a3410e0960b3ee2420bbb.js"></script>
+
+      <h3>Demo</h3>
+
+      <p>Upload an image and watch the file size before and after.</p>
+
+      <div>
+        <input type="file" name="" id="upload" accept="image/*" multiple />
+      </div>
+      <div>
+        <img src="" alt="" id="preview" />
+
+        <p id="output"></p>
+      </div>
+    </div>
+
+    <!--Include a custom modernizr that only checks the exif-orientation.-->
+    <script type="text/javascript" src="./modernizr.js"></script>
+    <script type="text/javascript" src="./compress.js"></script>
+    <script type="text/javascript" src="./index.js"></script>
+  </body>
+</html>

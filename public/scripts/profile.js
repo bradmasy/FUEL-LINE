@@ -15,6 +15,7 @@ const TOP_BARS          = 4;
 const TWO_DECIMAL       = 2;
 const NO_USER           = 0;
 
+
 /**
  * Processes the users info and displays it to the screen.
  * 
@@ -140,6 +141,16 @@ function setup() {
     })  
   })
 
+  // $(".save-button").on("click", () => {
+    
+  //   $.ajax({
+  //     url: `/change-user-data`,
+  //     type: "POST",
+  //     success: (e) ,
+  //   });
+
+    
+  // })
 
 }
 

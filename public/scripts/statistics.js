@@ -17,7 +17,6 @@ const STATS_BAR = 2;
  */
 function setup()
 {
-    console.log("document ready");
     
     let $topBars =  $(".top-bar");
 

@@ -216,7 +216,7 @@ html body #easter-content #position-center {
 html body #easter-content #position-center #easter-egg {
   display: flex;
   height: 25%;
-  position: absolute;
+  position: absolute !important;
 }
 html body #content {
   display: flex;
@@ -514,7 +514,7 @@ html body #signup-page {
   display: flex;
   flex-direction: column;
   background-color: white;
-  height: 80%;
+  height: 100%;
   width: 100%;
 }
 html body #signup-page #signup-statement {
@@ -524,13 +524,14 @@ html body #signup-page #signup-statement {
   text-align: center;
   font-size: 2em;
   height: 15%;
+  margin-top: 5%;
 }
 html body #signup-page #greet {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 5%;
-  margin-top: 5%;
+  height: 15%;
+  margin-top: 3%;
 }
 html body #signup-page #greet div {
   display: flex;
@@ -544,7 +545,7 @@ html body #signup-page #signup-form {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 60%;
+  height: 70%;
 }
 html body #signup-page #signup-form #signup-form-align {
   display: flex;
@@ -553,70 +554,13 @@ html body #signup-page #signup-form #signup-form-align {
   height: 90%;
   width: 100%;
 }
-html body #signup-page #signup-form #signup-form-align #profile-pic-form {
-  display: flex;
-  flex-direction: column;
-}
-html body #signup-page #signup-form #signup-form-align #profile-pic-form #form-div {
-  display: flex;
-  margin-top: 2%;
-  justify-content: center;
-}
-html body #signup-page #signup-form #signup-form-align #profile-pic-form #form-div #choose-button:hover {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.9);
-  transition: 0.3s;
-}
-html body #signup-page #signup-form #signup-form-align #profile-pic-form #form-div #choose-button:focus {
-  border: none;
-  outline: none;
-  -webkit-appearance: none;
-}
-html body #signup-page #signup-form #signup-form-align #profile-pic-form #form-div #choose-button {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border: none;
-  font-family: "jost-variable";
-  font-size: 1.5vh;
-  border-radius: 40px;
-  background-color: #FF912C;
-  width: 30%;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
-  color: black;
-  margin-bottom: 2%;
-}
-html body #signup-page #signup-form #signup-form-align #profile-pic-form #form-div #profile-picture {
-  display: none;
-}
-html body #signup-page #signup-form #signup-form-align #profile-pic-form #submission {
-  display: flex;
-  justify-content: center;
-}
-html body #signup-page #signup-form #signup-form-align #profile-pic-form #submission #input-submit:hover {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.9);
-  transition: 0.3s;
-}
-html body #signup-page #signup-form #signup-form-align #profile-pic-form #submission #input-submit {
-  display: none;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border: none;
-  font-family: "jost-variable";
-  border-radius: 40px;
-  background-color: #FF912C;
-  width: 20%;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
-  color: black;
-}
 html body #signup-page #signup-form #signup-form-align .input-buttons {
   display: flex;
   justify-content: center;
   height: 20%;
   width: 100%;
   outline: none;
-  margin-top: 3%;
+  margin-top: 2%;
   -webkit-appearance: none;
   font-family: "jost-variable";
 }
@@ -641,6 +585,7 @@ html body #signup-page #signup-form #signup-form-align .input-buttons #show-me {
   justify-content: center;
   height: 100%;
   width: 100%;
+  margin-top: 3%;
 }
 html body #signup-page #signup-form #signup-form-align .input-buttons #show-me #center {
   display: flex;
@@ -1385,6 +1330,7 @@ html body #dashboard-page {
   display: flex;
   width: 100%;
   height: 80%;
+  -webkit-appearance: none !important;
 }
 html body #dashboard-page #user-profile-x {
   display: flex;
@@ -1481,14 +1427,18 @@ html body #dashboard-page #user-profile-x #user-profile-y #user-div #extra-div {
 html body #dashboard-page #user-profile-x #user-profile-y #user-div #extra-div #select-x {
   display: flex;
   justify-content: center;
+  text-align: center;
+  align-items: center;
   height: 30%;
   width: 100%;
   font-family: "jost-variable";
 }
-html body #dashboard-page #user-profile-x #user-profile-y #user-div #extra-div #select-x select {
+html body #dashboard-page #user-profile-x #user-profile-y #user-div #extra-div #select-x #time-period {
   display: flex;
   text-align: center;
-  width: 30%;
+  flex-direction: row;
+  align-items: center;
+  width: 17%;
   height: 100%;
   border-radius: 40px;
   border: none;
@@ -1498,6 +1448,14 @@ html body #dashboard-page #user-profile-x #user-profile-y #user-div #extra-div #
   font-family: "jost-variable";
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
   -webkit-appearance: none;
+}
+html body #dashboard-page #user-profile-x #user-profile-y #user-div #extra-div #select-x #time-period .choice {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  text-align: -moz-center;
+  text-align: -webkit-center;
 }
 
 html {

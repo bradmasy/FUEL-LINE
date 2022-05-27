@@ -21,7 +21,6 @@ function populate_users(data) {
     
     $("#users_table").append(container)
   }
-  console.log(received_data);
   result = "<table id='user_table'>";
   result += "<tr>";
   for (field in data[0]) {
@@ -66,7 +65,6 @@ function populate_users(data) {
 
 function displayUsersToAdmin() {
   // this function calls server.js to get the users in the database, then passes off data to populate_users
-  console.log("displayUsersToAdmin got called");
   url = "/displayUsersToAdmin";
   $.ajax({
     url: "/displayUsersToAdmin",
@@ -76,7 +74,6 @@ function displayUsersToAdmin() {
 }
 
 function setup() {
-  console.log("document ready");
   displayUsersToAdmin();
 }
 
