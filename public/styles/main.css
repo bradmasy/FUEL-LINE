@@ -524,7 +524,6 @@ html body #signup-page #signup-statement {
   text-align: center;
   font-size: 2em;
   height: 15%;
-  margin-top: 10%;
 }
 html body #signup-page #greet {
   display: flex;
@@ -701,17 +700,55 @@ html body #login-page #statement {
   text-align: center;
   font-size: 2em;
   height: 20%;
-  margin-top: 20%;
+}
+@media only screen and (min-width: 300px) {
+  html body #login-page #statement {
+    margin-top: 18%;
+  }
+}
+@media only screen and (min-width: 550px) {
+  html body #login-page #statement {
+    margin-top: 8%;
+  }
+}
+@media only screen and (min-width: 1100px) {
+  html body #login-page #statement {
+    margin-top: 4%;
+  }
+}
+@media only screen and (min-width: 1500px) {
+  html body #login-page #statement {
+    margin-top: 2%;
+  }
 }
 html body #login-page #greet-container {
   display: flex;
   justify-content: center;
   height: 10%;
-  margin-top: 5%;
 }
 html body #login-page #greet-container #greet {
   display: flex;
   justify-content: center;
+}
+@media only screen and (min-width: 300px) {
+  html body #login-page #greet-container {
+    margin-top: 5%;
+  }
+}
+@media only screen and (min-width: 550px) {
+  html body #login-page #greet-container {
+    margin-top: 0%;
+  }
+}
+@media only screen and (min-width: 1100px) {
+  html body #login-page #greet-container {
+    margin-top: 1%;
+  }
+}
+@media only screen and (min-width: 1500px) {
+  html body #login-page #greet-container {
+    margin-top: 0%;
+  }
 }
 html body #login-page #form {
   display: flex;
@@ -726,6 +763,26 @@ html body #login-page #form #user-container {
   width: 100%;
   height: 15%;
   margin-bottom: 2%;
+}
+@media only screen and (min-width: 300px) {
+  html body #login-page #form #user-container {
+    margin-top: 2%;
+  }
+}
+@media only screen and (min-width: 550px) {
+  html body #login-page #form #user-container {
+    margin-top: 0%;
+  }
+}
+@media only screen and (min-width: 1100px) {
+  html body #login-page #form #user-container {
+    margin-top: 1%;
+  }
+}
+@media only screen and (min-width: 1500px) {
+  html body #login-page #form #user-container {
+    margin-top: 5%;
+  }
 }
 html body #login-page #form #user-container .input-fields:focus {
   border: none;
@@ -747,6 +804,30 @@ html body #login-page #form #user-container .input-fields {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8), 2px 3px 8px 0 #ffb877;
   -webkit-appearance: none;
   font-family: "jost-variable";
+}
+@media only screen and (min-width: 550px) {
+  html body #login-page #form #user-container .input-fields {
+    width: 30%;
+    height: 100%;
+  }
+}
+@media only screen and (min-width: 800px) {
+  html body #login-page #form #user-container .input-fields {
+    width: 20%;
+    height: 100%;
+  }
+}
+@media only screen and (min-width: 1100px) {
+  html body #login-page #form #user-container .input-fields {
+    width: 18%;
+    height: 100%;
+  }
+}
+@media only screen and (min-width: 1500px) {
+  html body #login-page #form #user-container .input-fields {
+    width: 15%;
+    height: 100%;
+  }
 }
 html body #login-page #form #pass-container {
   display: flex;
@@ -775,6 +856,30 @@ html body #login-page #form #pass-container .input-fields {
   -webkit-appearance: none;
   font-family: "jost-variable";
 }
+@media only screen and (min-width: 550px) {
+  html body #login-page #form #pass-container .input-fields {
+    width: 30%;
+    height: 100%;
+  }
+}
+@media only screen and (min-width: 800px) {
+  html body #login-page #form #pass-container .input-fields {
+    width: 20%;
+    height: 100%;
+  }
+}
+@media only screen and (min-width: 1100px) {
+  html body #login-page #form #pass-container .input-fields {
+    width: 18%;
+    height: 100%;
+  }
+}
+@media only screen and (min-width: 1500px) {
+  html body #login-page #form #pass-container .input-fields {
+    width: 15%;
+    height: 100%;
+  }
+}
 html body #login-page #form #check-boxes {
   display: flex;
   flex-direction: row;
@@ -784,25 +889,34 @@ html body #login-page #form #check-boxes {
   margin-bottom: 5%;
   justify-content: center;
 }
-html body #login-page #form #check-boxes #make-admin {
-  display: flex;
-  width: 50%;
-  justify-content: space-around;
-}
-html body #login-page #form #check-boxes #make-admin div {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-html body #login-page #form #check-boxes #make-admin label {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
 html body #login-page #form #check-boxes #show-pass {
   display: flex;
   width: 40%;
   justify-content: space-around;
+}
+@media only screen and (min-width: 550px) {
+  html body #login-page #form #check-boxes #show-pass {
+    justify-content: center;
+    gap: 10%;
+  }
+}
+@media only screen and (min-width: 800px) {
+  html body #login-page #form #check-boxes #show-pass {
+    width: 20%;
+    gap: 5%;
+  }
+}
+@media only screen and (min-width: 1100px) {
+  html body #login-page #form #check-boxes #show-pass {
+    width: 18%;
+    height: 100%;
+  }
+}
+@media only screen and (min-width: 1500px) {
+  html body #login-page #form #check-boxes #show-pass {
+    width: 15%;
+    height: 100%;
+  }
 }
 html body #login-page #form #check-boxes #show-pass div input:hover {
   cursor: pointer;
@@ -824,10 +938,32 @@ html body #login-page #form #buttons {
   height: 50%;
   gap: 10%;
 }
+@media only screen and (min-width: 550px) {
+  html body #login-page #form #buttons {
+    height: 50%;
+    gap: 10%;
+  }
+}
+@media only screen and (min-width: 800px) {
+  html body #login-page #form #buttons {
+    height: 90%;
+    gap: 10%;
+  }
+}
 html body #login-page #form #buttons #submit {
   display: flex;
   justify-content: center;
   height: 45%;
+}
+@media only screen and (min-width: 550px) {
+  html body #login-page #form #buttons #submit {
+    height: 55%;
+  }
+}
+@media only screen and (min-width: 800px) {
+  html body #login-page #form #buttons #submit {
+    height: 80%;
+  }
 }
 html body #login-page #form #buttons #submit #submit-button:hover {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.9);
@@ -850,10 +986,32 @@ html body #login-page #form #buttons #submit #submit-button {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   border: none;
 }
+@media only screen and (min-width: 800px) {
+  html body #login-page #form #buttons #submit #submit-button {
+    padding-right: 4%;
+    padding-left: 4%;
+  }
+}
+@media only screen and (min-width: 1100px) {
+  html body #login-page #form #buttons #submit #submit-button {
+    padding-right: 2%;
+    padding-left: 2%;
+  }
+}
 html body #login-page #form #buttons #back {
   display: flex;
   justify-content: center;
   height: 45%;
+}
+@media only screen and (min-width: 550px) {
+  html body #login-page #form #buttons #back {
+    height: 55%;
+  }
+}
+@media only screen and (min-width: 800px) {
+  html body #login-page #form #buttons #back {
+    height: 80%;
+  }
 }
 html body #login-page #form #buttons #back #back-button:hover {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.9);
@@ -875,6 +1033,18 @@ html body #login-page #form #buttons #back #back-button {
   font-size: 2vh;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   border: none;
+}
+@media only screen and (min-width: 800px) {
+  html body #login-page #form #buttons #back #back-button {
+    padding-right: 4%;
+    padding-left: 4%;
+  }
+}
+@media only screen and (min-width: 1100px) {
+  html body #login-page #form #buttons #back #back-button {
+    padding-right: 2%;
+    padding-left: 2%;
+  }
 }
 html body .error {
   display: none;
