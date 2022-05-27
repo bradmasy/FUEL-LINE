@@ -216,7 +216,8 @@ html body #easter-content #position-center {
 html body #easter-content #position-center #easter-egg {
   display: flex;
   height: 25%;
-  position: absolute !important;
+  position: absolute;
+  left: 0;
 }
 html body #content {
   display: flex;
@@ -255,6 +256,16 @@ html body #content .row-container {
 @media only screen and (max-width: 400px) {
   html body #content .row-container {
     margin-top: 20%;
+  }
+}
+@media only screen and (max-width: 700px) {
+  html body #content .row-container {
+    margin-top: 0%;
+  }
+}
+@media only screen and (max-width: 1000px) {
+  html body #content .row-container {
+    margin-top: 0%;
   }
 }
 @media only screen and (max-width: 1800px) {
