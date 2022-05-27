@@ -1,34 +1,67 @@
-<html>
+<!DOCTYPE html>
   <head>
-    <title></title>
+    <title>Admin Dahsboard</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!--Sets the width of the page is the devices widtth-->
     <link rel="stylesheet" href="styles/main.css" />
-    
+    <link rel="icon" type="image/x-icon" href="/images/logo/favicon.ico">
     <script src="/scripts/jquery-3.6.0.min.js" defer></script>
     <script src="/scripts/admin_users_view.js" defer></script>
-    <script src="./scripts/index.js" defer></script>
+    <script src="/scripts/handlers/footer-buttons.js" defer></script>
+    <style>
+      #user_table {
+        font-family: Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+      }
+
+      #user_table td,
+      #user_table th {
+        border: 1px solid #ddd;
+        padding: 8px;
+      }
+
+      #user_table tr:nth-child(even) {
+        background-color: #f2f2f2;
+      }
+
+      #user_table tr:hover {
+        background-color: #ddd;
+      }
+
+      #user_table th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        background-color: rgb(202, 84, 63);
+        color: white;
+      }
+    </style>
   </head>
 
   <body>
-    <!--Header-->
-    <header>
-      <div id="space"></div>
-      <div id="header-logo-container">
-        <img id="header-logo" src="images/Untitled design (7).png" />
-      </div>
-      <div id="hamburger">
-        <img id="ham-menu" src="images/hamburger-menu.png" />
-      </div>
-    </header>
-    <!--Navigation-->
-    <nav></nav>
-
+       <!--Header-->
+       <header>
+        <div id="header-logo-container">
+          <img id="header-logo" src="./images/Untitled design (7).png" />
+          <div id="co-name">
+            Fuel Line&trade;
+          </div>
+        </div>
+        <div id="others">
+          <div id="anchor-row">
+            <a href="/admin_user_views">Admin</a>
+            <a href="/privacy">Privacy Policy</a>
+            <a href="/contact">Contact</a>
+          </div>
+        </div>
+      </header>
     <!--Main-->
-    <main id="content">
+    <main id="admin-content">
       <!--Needs to call server.js to get content-->
-      <div id="users_table"></div>
+      <div id="users_table">
+    
+      </div>
     </main>
 
     <!--Footer-->
@@ -39,34 +72,10 @@
           <div class="top-bar"></div>
           <div class="hover-button" id="home-button">
             <div class="button-img">
-              <img src="images/buttons/home-button.png" />
+              <img src="./images/buttons/house-logo.png" />
             </div>
             <div class="button-title">
               <p>Home</p>
-            </div>
-          </div>
-        </div>
-        <!--Favorites Button-->
-        <div class="nav-buttons">
-          <div class="top-bar"></div>
-          <div class="hover-button">
-            <div class="button-img">
-              <img src="images/buttons/favorites-button.png" />
-            </div>
-            <div class="button-title">
-              <p>Favorites</p>
-            </div>
-          </div>
-        </div>
-        <!--User Button-->
-        <div class="nav-buttons" id="profile-button">
-          <div class="top-bar"></div>
-          <div class="hover-button">
-            <div class="button-img">
-              <img src="images/buttons/user-button.png" />
-            </div>
-            <div class="button-title" id="profile">
-              <p>Your Profile</p>
             </div>
           </div>
         </div>
@@ -75,10 +84,34 @@
           <div class="top-bar"></div>
           <div class="hover-button">
             <div class="button-img">
-              <img src="images/buttons/map.png" />
+              <img src="./images/buttons/map.png" />
             </div>
             <div class="button-title">
               <p>Map</p>
+            </div>
+          </div>
+        </div>
+        <!--User Button-->
+        <div class="nav-buttons" id="profile-button">
+          <div class="top-bar"></div>
+          <div class="hover-button">
+            <div class="button-img">
+              <img src="./images/buttons/user-button.png" />
+            </div>
+            <div class="button-title">
+              <p>Profile</p>
+            </div>
+          </div>
+        </div>
+        <!--Favorites Button-->
+        <div class="nav-buttons" id="logout-button">
+          <div class="top-bar"></div>
+          <div class="hover-button">
+            <div class="button-img">
+              <img src="./images/buttons/logout.png" />
+            </div>
+            <div class="button-title">
+              <p>Logout</p>
             </div>
           </div>
         </div>

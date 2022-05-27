@@ -1,15 +1,31 @@
-let LOGOUT_CALL=0
-function logout_open(){
-    if (LOGOUT_CALL==0){
-      $(".logout-contain").animate({width:'toggle'},500);
-      LOGOUT_CALL=1
-  
-    }
-    else {
-      $(".logout-contain").animate({width:'toggle'},500);
-      LOGOUT_CALL=0
-    }}
+/**
+ * Logout Javascript.
+ * 
+ * @version 1.0
+ * @name: Fuel Line LTD
+ */
 
-function setup(){
-    $("#header-logo").on("click", logout_open);
+/**
+ * Variables.
+ */
+
+const LOGOUT_BAR = 3;
+const TOTAL_BARS = 4;
+
+/**
+ * Sets up the page.
+ */
+function setup()
+{
+  for (let i = 0; i < TOTAL_BARS; i++) 
+  {
+    let $element = $($topBars[i]);
+
+    if (i == LOGOUT_BAR) {
+      $element.css("background-color", "#FF912C");
+    }
+  }
 }
+
+
+$(document).ready(setup)

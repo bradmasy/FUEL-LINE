@@ -1,67 +1,83 @@
-<html>
+<!DOCTYPE html>
 
 <head>
-  <title></title>
+  <title>Signup</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!--Sets the width of the page is the devices widtth-->
   <link rel="stylesheet" href="/styles/main.css">
+  <link rel="icon" type="image/x-icon" href="/images/logo/favicon.ico">
   <script src="/scripts/jquery-3.6.0.min.js" defer></script>
-  <!-- <script src="./scripts/index.js" defer></script> -->
   <script src="/scripts/validations.js" defer></script>
   <script src="/scripts/signup.js" defer></script>
+  <script src="/scripts/handlers/footer-buttons.js" defer></script>
 
 </head>
 
 <body>
-  <!--Header-->
-  <header>
-
-    <div id="header-logo-container">
-      <!-- <img id="header-logo" src="./images/Untitled design (7).png"> -->
-    </div>
-
-  </header>
-  <!--Navigation-->
-  <nav>
-
-  </nav>
+     <!--Header-->
+     <header>
+      <div id="header-logo-container">
+        <img id="header-logo" src="./images/Untitled design (7).png" />
+        <div id="co-name">
+          Fuel Line&trade;
+        </div>
+      </div>
+      <div id="others">
+        <div id="anchor-row">
+          <a href="/privacy">Privacy Policy</a>
+          <a href="/contact">Contact</a>
+        </div>
+      </div>
+    </header>
+  
 
   <!--Main-->
   <main id="signup-page">
     <div id="signup-statement">
       Create Your Fuel Line <br>Account
     </div>
-
-    <!-- <div id="img-container">
-            <div id="main-img">
-                <img id="signup-logo" src="./images/logo/hdlogo1.png">
-            </div>
-        </div> -->
-
     <div id="greet">
-      Please Enter Your Information Below...
+      <div>
+        Please Enter Your Information Below...
+      </div>
+      <div>
+        <span>* indicates all fields are mandatory</span>
+
+      </div>
+      <div>
+        <span style="text-align:center;">* passwords must contain 1 number, 1 uppercase and <br>lowercase character and be of length 8</span>
+
+      </div>
     </div>
 
     <div id="signup-form">
       <div id="signup-form-align">
         <div class="input-buttons">
-          <input class="input-fields" placeholder="Username" id="username">
+          <input class="input-fields" placeholder="Username*" id="username">
         </div>
         <div class="input-buttons">
-          <input class="input-fields" id="email" placeholder="Email">
+          <input class="input-fields" id="email" placeholder="Email Address*">
         </div>
         <div class="input-buttons">
-          <input id="password1" class="input-fields" placeholder="Password" type="password">
+          <input id="password1" class="input-fields" placeholder="Password*" type="password">
         </div>
         <div class="input-buttons">
-          <input id="password2" class="input-fields" placeholder="Confirm Password" type="password">
+          <input id="password2" class="input-fields" placeholder="Confirm Password*" type="password">
         </div>
+
+        <!-- <form id="profile-pic-form" method="POST" action="/profile-upload-single" enctype="multipart/form-data">
+          <div id="form-div" style="text-align: center">
+            <button id="choose-button">Choose Profile Picture</button>
+            <input id="profile-picture" type="file" name="profile-file" required />
+          </div>
+          <div id="submission"style="text-align: center">
+            <input id="input-submit" type="submit" value="Upload">
+          </div>
+        </form> -->
 
         <div class="input-buttons">
           <div id="show-me">
             <div id="center">
-
               <div class="container-div">
                 <div id="show-pass">
                   <div>
@@ -87,32 +103,6 @@
         </div>
       </div>
     </div>
-
-
-    <!--POPUP-->
-    <div class="error">
-      <div class="error-container">
-
-        <div class="error-title">
-          <div class="title">
-            Error
-          </div>
-          <button data-close-button class="close-button">&times;</button>
-        </div>
-
-        <div class="error-content">
-          Your password does not meet our requirements.
-          <br><br>
-          REQUIREMENTS HERE
-          <br><br>
-          Please try again.
-        </div>
-
-      </div>
-    </div>
-    <div id="overlay"></div>
-  </main>
-
   <!--Footer-->
   <footer>
     <div id="navigation-buttons">
@@ -129,19 +119,19 @@
           </div>
         </div>
       </div>
-      <!--Favorites Button-->
-      <div class="nav-buttons">
-        <div class="top-bar">
+    <!--Map Button-->
+    <div class="nav-buttons" id="map-button" >
+      <div class="top-bar">
+      </div>
+      <div class="hover-button">
+        <div class="button-img">
+          <img src="./images/buttons/map.png" />
         </div>
-        <div class="hover-button">
-          <div class="button-img">
-            <img src="./images/buttons/favorites-button.png" />
-          </div>
-          <div class="button-title">
-            <p>Favorites</p>
-          </div>
+        <div class="button-title">
+          <p>Map</p>
         </div>
       </div>
+    </div>
       <!--User Button-->
       <div class="nav-buttons" id="profile-button">
         <div class="top-bar">
@@ -155,22 +145,21 @@
           </div>
         </div>
       </div>
-      <!--Map Button-->
-      <div class="nav-buttons" id="map-button">
-        <div class="top-bar">
-        </div>
-        <div class="hover-button">
-          <div class="button-img">
-            <img src="./images/buttons/map.png" />
+         <!--Favorites Button-->
+         <div class="nav-buttons">
+          <div class="top-bar">
           </div>
-          <div class="button-title">
-            <p>Map</p>
+          <div class="hover-button">
+            <div class="button-img">
+              <img src="./images/buttons/logout.png" />
+            </div>
+            <div class="button-title">
+              <p>Logout</p>
+            </div>
           </div>
         </div>
-      </div>
     </div>
   </footer>
-
   <!--END OF BODY-->
 </body>
 

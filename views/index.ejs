@@ -1,26 +1,32 @@
-<html>
+<!DOCTYPE html>
   <head>
-    <title></title>
+    <title>Fuel Line: Welcome</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!--Sets the width of the page is the devices widtth-->
     <link rel="stylesheet" href="./styles/main.css" />
+    <link rel="icon" type="image/x-icon" href="/images/logo/favicon.ico">
     <script src="./scripts/jquery-3.6.0.min.js"></script>
     <script src="./scripts/index.js"></script>
     <script src="/scripts/handlers/footer-buttons.js"></script>
   </head>
 
-
-
 <body>
-  <!--Header-->
-  <header>
-    <div id="header-logo-container">
-      <!-- <img id="header-logo" src="./images/Untitled design (7).png" /> -->
-    </div>
-  </header>
-  <!--Navigation-->
-
+    <!--Header-->
+    <header>
+      <div id="header-logo-container">
+        <img id="header-logo" src="./images/Untitled design (7).png" />
+        <div id="co-name">
+          Fuel Line&trade;
+        </div>
+      </div>
+      <div id="others">
+        <div id="anchor-row">
+          <a href="/privacy">Privacy Policy</a>
+          <a href="/contact">Contact</a>
+        </div>
+      </div>
+    </header>
   <!--Main-->
 
   <!--Easter Egg-->
@@ -67,7 +73,6 @@
       </div>
     </div>
   </main>
-
   <!--Footer-->
   <footer>
     <div id="navigation-buttons">
@@ -84,19 +89,19 @@
           </div>
         </div>
       </div>
-      <!--Favorites Button-->
-      <div class="nav-buttons">
-        <div class="top-bar">
+    <!--Map Button-->
+    <div class="nav-buttons" id="map-button" >
+      <div class="top-bar">
+      </div>
+      <div class="hover-button">
+        <div class="button-img">
+          <img src="./images/buttons/map.png" />
         </div>
-        <div class="hover-button">
-          <div class="button-img">
-            <img src="./images/buttons/favorites-button.png" />
-          </div>
-          <div class="button-title">
-            <p>Favorites</p>
-          </div>
+        <div class="button-title">
+          <p>Map</p>
         </div>
       </div>
+    </div>
       <!--User Button-->
       <div class="nav-buttons" id="profile-button">
         <div class="top-bar">
@@ -110,19 +115,19 @@
           </div>
         </div>
       </div>
-      <!--Map Button-->
-      <div class="nav-buttons" id="map-button" >
-        <div class="top-bar">
-        </div>
-        <div class="hover-button">
-          <div class="button-img">
-            <img src="./images/buttons/map.png" />
+         <!--Favorites Button-->
+         <div class="nav-buttons" id="logout-button">
+          <div class="top-bar">
           </div>
-          <div class="button-title">
-            <p>Map</p>
+          <div class="hover-button">
+            <div class="button-img">
+              <img src="./images/buttons/logout.png" />
+            </div>
+            <div class="button-title">
+              <p>Logout</p>
+            </div>
           </div>
         </div>
-      </div>
     </div>
   </footer>
 

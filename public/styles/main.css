@@ -64,15 +64,15 @@ html body header {
   width: 100%;
   height: 10%;
   background-color: #FF912C;
-  justify-content: right;
+  justify-content: space-between !important;
   background-color: #FF912C !important;
 }
 html body header #header-logo-container {
   -webkit-appearance: none;
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  width: 100%;
+  justify-content: left !important;
+  width: 40%;
   height: 100%;
   transition: transform 1s;
 }
@@ -81,55 +81,48 @@ html body header #header-logo-container #header-logo {
   -o-object-fit: contain;
      object-fit: contain;
   -webkit-appearance: none;
-  transform: translateX(100%);
   padding: 10px;
   cursor: pointer;
 }
-html body header .logout-contain {
-  display: none;
-  width: 30%;
-  height: 100%;
-  flex-direction: column;
-  padding-right: 5%;
-  padding-top: 5%;
-  margin: auto;
-  justify-content: center;
-}
-html body header .logout-contain .logout-button:active {
-  border: none;
-  outline: none;
-}
-html body header .logout-contain .logout-button:hover {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.9);
-  transition: 0.3s;
-}
-html body header .logout-contain .logout-button {
-  display: none;
-  right: -100px;
-  transition: 1s;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
+html body header #header-logo-container #co-name {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
-  text-align: center;
-  height: 100%;
-  width: 45%;
-  font-size: 1em;
-  font-family: "jost-variable";
-  outline: none;
-  border-radius: 40px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
-  border: none;
-  outline: none;
-  width: 90% !important;
-  height: 40%;
+  width: 70%;
+  color: white;
+  font-weight: bold;
+}
+html body header #others {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  width: 50%;
+  margin-bottom: 2%;
+  -webkit-justify-content: flex-end;
+  align-items: flex-end;
+  -webkit-align-items: flex-end;
+}
+html body header #others #anchor-row {
+  display: flex;
+  width: 100%;
+  justify-content: right;
+  margin-right: 5%;
+  gap: 10%;
+  -webkit-justify-content: flex-end;
+  align-items: flex-end;
+  -webkit-align-items: flex-end;
+}
+html body header #others #anchor-row a:hover {
+  color: white;
+  cursor: pointer;
+}
+html body header #others #anchor-row a {
+  font-size: 1.5vh;
   color: black;
-  background-color: #b1b1b1;
-  margin: auto;
-  font-size: 2.5vh;
-  padding: 10px, 20px;
+  text-decoration: none;
+}
+html body header #others #anchor-row #admin-route {
+  display: none;
 }
 html body footer {
   display: flex;
@@ -224,6 +217,7 @@ html body #easter-content #position-center #easter-egg {
   display: flex;
   height: 25%;
   position: absolute;
+  left: 0;
 }
 html body #content {
   display: flex;
@@ -232,7 +226,22 @@ html body #content {
   height: 80%;
   width: 100%;
 }
-@media only screen and (max-height: 400px) {
+@media only screen and (max-width: 700px) {
+  html body #content {
+    justify-content: center;
+  }
+}
+@media only screen and (max-height: 700px) {
+  html body #content {
+    justify-content: center;
+  }
+}
+@media only screen and (max-width: 1000px) {
+  html body #content {
+    justify-content: center;
+  }
+}
+@media only screen and (max-height: 1000px) {
   html body #content {
     justify-content: center;
   }
@@ -244,7 +253,22 @@ html body #content .row-container {
   height: 20%;
   margin-top: 20%;
 }
-@media only screen and (max-height: 400px) {
+@media only screen and (max-width: 400px) {
+  html body #content .row-container {
+    margin-top: 20%;
+  }
+}
+@media only screen and (max-width: 700px) {
+  html body #content .row-container {
+    margin-top: 0%;
+  }
+}
+@media only screen and (max-width: 1000px) {
+  html body #content .row-container {
+    margin-top: 0%;
+  }
+}
+@media only screen and (max-width: 1800px) {
   html body #content .row-container {
     margin-top: 0%;
   }
@@ -497,14 +521,11 @@ html body #statistics-page #main-container-x #main-container-y #content #buttons
   border: none;
 }
 
-html body {
-  /*------------------------------------SIGNUP-PAGE----------------------------------------------*/
-}
 html body #signup-page {
   display: flex;
   flex-direction: column;
   background-color: white;
-  height: 80%;
+  height: 100%;
   width: 100%;
 }
 html body #signup-page #signup-statement {
@@ -514,23 +535,33 @@ html body #signup-page #signup-statement {
   text-align: center;
   font-size: 2em;
   height: 15%;
-  margin-top: 10%;
+  margin-top: 5%;
 }
 html body #signup-page #greet {
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  height: 5%;
-  margin-top: 5%;
+  height: 15%;
+  margin-top: 3%;
+}
+html body #signup-page #greet div {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+html body #signup-page #greet div span {
+  font-size: 1.5vh;
 }
 html body #signup-page #signup-form {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 60%;
+  height: 70%;
 }
 html body #signup-page #signup-form #signup-form-align {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   height: 90%;
   width: 100%;
 }
@@ -540,8 +571,9 @@ html body #signup-page #signup-form #signup-form-align .input-buttons {
   height: 20%;
   width: 100%;
   outline: none;
-  margin-top: 3%;
+  margin-top: 2%;
   -webkit-appearance: none;
+  font-family: "jost-variable";
 }
 html body #signup-page #signup-form #signup-form-align .input-buttons .input-fields:focus {
   border: none;
@@ -564,6 +596,7 @@ html body #signup-page #signup-form #signup-form-align .input-buttons #show-me {
   justify-content: center;
   height: 100%;
   width: 100%;
+  margin-top: 3%;
 }
 html body #signup-page #signup-form #signup-form-align .input-buttons #show-me #center {
   display: flex;
@@ -623,17 +656,55 @@ html body #login-page #statement {
   text-align: center;
   font-size: 2em;
   height: 20%;
-  margin-top: 20%;
+}
+@media only screen and (min-width: 300px) {
+  html body #login-page #statement {
+    margin-top: 18%;
+  }
+}
+@media only screen and (min-width: 550px) {
+  html body #login-page #statement {
+    margin-top: 8%;
+  }
+}
+@media only screen and (min-width: 1100px) {
+  html body #login-page #statement {
+    margin-top: 4%;
+  }
+}
+@media only screen and (min-width: 1500px) {
+  html body #login-page #statement {
+    margin-top: 2%;
+  }
 }
 html body #login-page #greet-container {
   display: flex;
   justify-content: center;
   height: 10%;
-  margin-top: 5%;
 }
 html body #login-page #greet-container #greet {
   display: flex;
   justify-content: center;
+}
+@media only screen and (min-width: 300px) {
+  html body #login-page #greet-container {
+    margin-top: 5%;
+  }
+}
+@media only screen and (min-width: 550px) {
+  html body #login-page #greet-container {
+    margin-top: 0%;
+  }
+}
+@media only screen and (min-width: 1100px) {
+  html body #login-page #greet-container {
+    margin-top: 1%;
+  }
+}
+@media only screen and (min-width: 1500px) {
+  html body #login-page #greet-container {
+    margin-top: 0%;
+  }
 }
 html body #login-page #form {
   display: flex;
@@ -648,6 +719,26 @@ html body #login-page #form #user-container {
   width: 100%;
   height: 15%;
   margin-bottom: 2%;
+}
+@media only screen and (min-width: 300px) {
+  html body #login-page #form #user-container {
+    margin-top: 2%;
+  }
+}
+@media only screen and (min-width: 550px) {
+  html body #login-page #form #user-container {
+    margin-top: 0%;
+  }
+}
+@media only screen and (min-width: 1100px) {
+  html body #login-page #form #user-container {
+    margin-top: 1%;
+  }
+}
+@media only screen and (min-width: 1500px) {
+  html body #login-page #form #user-container {
+    margin-top: 5%;
+  }
 }
 html body #login-page #form #user-container .input-fields:focus {
   border: none;
@@ -669,6 +760,30 @@ html body #login-page #form #user-container .input-fields {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8), 2px 3px 8px 0 #ffb877;
   -webkit-appearance: none;
   font-family: "jost-variable";
+}
+@media only screen and (min-width: 550px) {
+  html body #login-page #form #user-container .input-fields {
+    width: 30%;
+    height: 100%;
+  }
+}
+@media only screen and (min-width: 800px) {
+  html body #login-page #form #user-container .input-fields {
+    width: 20%;
+    height: 100%;
+  }
+}
+@media only screen and (min-width: 1100px) {
+  html body #login-page #form #user-container .input-fields {
+    width: 18%;
+    height: 100%;
+  }
+}
+@media only screen and (min-width: 1500px) {
+  html body #login-page #form #user-container .input-fields {
+    width: 15%;
+    height: 100%;
+  }
 }
 html body #login-page #form #pass-container {
   display: flex;
@@ -697,6 +812,30 @@ html body #login-page #form #pass-container .input-fields {
   -webkit-appearance: none;
   font-family: "jost-variable";
 }
+@media only screen and (min-width: 550px) {
+  html body #login-page #form #pass-container .input-fields {
+    width: 30%;
+    height: 100%;
+  }
+}
+@media only screen and (min-width: 800px) {
+  html body #login-page #form #pass-container .input-fields {
+    width: 20%;
+    height: 100%;
+  }
+}
+@media only screen and (min-width: 1100px) {
+  html body #login-page #form #pass-container .input-fields {
+    width: 18%;
+    height: 100%;
+  }
+}
+@media only screen and (min-width: 1500px) {
+  html body #login-page #form #pass-container .input-fields {
+    width: 15%;
+    height: 100%;
+  }
+}
 html body #login-page #form #check-boxes {
   display: flex;
   flex-direction: row;
@@ -706,25 +845,34 @@ html body #login-page #form #check-boxes {
   margin-bottom: 5%;
   justify-content: center;
 }
-html body #login-page #form #check-boxes #make-admin {
-  display: flex;
-  width: 50%;
-  justify-content: space-around;
-}
-html body #login-page #form #check-boxes #make-admin div {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-html body #login-page #form #check-boxes #make-admin label {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
 html body #login-page #form #check-boxes #show-pass {
   display: flex;
   width: 40%;
   justify-content: space-around;
+}
+@media only screen and (min-width: 550px) {
+  html body #login-page #form #check-boxes #show-pass {
+    justify-content: center;
+    gap: 10%;
+  }
+}
+@media only screen and (min-width: 800px) {
+  html body #login-page #form #check-boxes #show-pass {
+    width: 20%;
+    gap: 5%;
+  }
+}
+@media only screen and (min-width: 1100px) {
+  html body #login-page #form #check-boxes #show-pass {
+    width: 18%;
+    height: 100%;
+  }
+}
+@media only screen and (min-width: 1500px) {
+  html body #login-page #form #check-boxes #show-pass {
+    width: 15%;
+    height: 100%;
+  }
 }
 html body #login-page #form #check-boxes #show-pass div input:hover {
   cursor: pointer;
@@ -746,10 +894,32 @@ html body #login-page #form #buttons {
   height: 50%;
   gap: 10%;
 }
+@media only screen and (min-width: 550px) {
+  html body #login-page #form #buttons {
+    height: 50%;
+    gap: 10%;
+  }
+}
+@media only screen and (min-width: 800px) {
+  html body #login-page #form #buttons {
+    height: 90%;
+    gap: 10%;
+  }
+}
 html body #login-page #form #buttons #submit {
   display: flex;
   justify-content: center;
   height: 45%;
+}
+@media only screen and (min-width: 550px) {
+  html body #login-page #form #buttons #submit {
+    height: 55%;
+  }
+}
+@media only screen and (min-width: 800px) {
+  html body #login-page #form #buttons #submit {
+    height: 80%;
+  }
 }
 html body #login-page #form #buttons #submit #submit-button:hover {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.9);
@@ -772,10 +942,32 @@ html body #login-page #form #buttons #submit #submit-button {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   border: none;
 }
+@media only screen and (min-width: 800px) {
+  html body #login-page #form #buttons #submit #submit-button {
+    padding-right: 4%;
+    padding-left: 4%;
+  }
+}
+@media only screen and (min-width: 1100px) {
+  html body #login-page #form #buttons #submit #submit-button {
+    padding-right: 2%;
+    padding-left: 2%;
+  }
+}
 html body #login-page #form #buttons #back {
   display: flex;
   justify-content: center;
   height: 45%;
+}
+@media only screen and (min-width: 550px) {
+  html body #login-page #form #buttons #back {
+    height: 55%;
+  }
+}
+@media only screen and (min-width: 800px) {
+  html body #login-page #form #buttons #back {
+    height: 80%;
+  }
 }
 html body #login-page #form #buttons #back #back-button:hover {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.9);
@@ -797,6 +989,18 @@ html body #login-page #form #buttons #back #back-button {
   font-size: 2vh;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   border: none;
+}
+@media only screen and (min-width: 800px) {
+  html body #login-page #form #buttons #back #back-button {
+    padding-right: 4%;
+    padding-left: 4%;
+  }
+}
+@media only screen and (min-width: 1100px) {
+  html body #login-page #form #buttons #back #back-button {
+    padding-right: 2%;
+    padding-left: 2%;
+  }
 }
 html body .error {
   display: none;
@@ -943,6 +1147,63 @@ html body #profile-page #user-profile-x #user-profile-y #user-div #info-div {
   height: 50%;
   width: 100%;
 }
+html body #profile-page #user-profile-x #user-profile-y #user-div #info-div .profile-upload {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin-top: 2%;
+  justify-content: center;
+}
+html body #profile-page #user-profile-x #user-profile-y #user-div #info-div .profile-upload #upload-button {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  font-family: "jost-variable";
+  font-size: 1.5vh;
+  border-radius: 40px;
+  background-color: #FF912C;
+  width: 30%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+  color: black;
+  margin-bottom: 2%;
+}
+html body #profile-page #user-profile-x #user-profile-y #user-div #info-div .profile-upload #upload-button-mask {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  font-family: "jost-variable";
+  font-size: 1.5vh;
+  border-radius: 40px;
+  background-color: #FF912C;
+  width: 30%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+  color: black;
+  margin-bottom: 2%;
+}
+html body #profile-page #user-profile-x #user-profile-y #user-div #info-div .profile-submit {
+  display: flex;
+  margin-top: 2%;
+  justify-content: center;
+}
+html body #profile-page #user-profile-x #user-profile-y #user-div #info-div .profile-submit #upload-submit {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  font-family: "jost-variable";
+  font-size: 1.5vh;
+  border-radius: 40px;
+  background-color: #FF912C;
+  width: 30%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+  color: black;
+  margin-bottom: 2%;
+}
 html body #profile-page #user-profile-x #user-profile-y #user-div #info-div #name {
   font-size: 2em;
   justify-content: center;
@@ -1080,6 +1341,7 @@ html body #dashboard-page {
   display: flex;
   width: 100%;
   height: 80%;
+  -webkit-appearance: none !important;
 }
 html body #dashboard-page #user-profile-x {
   display: flex;
@@ -1146,6 +1408,7 @@ html body #dashboard-page #user-profile-x #user-profile-y #user-div #info-div .i
   font-size: 1em;
   font-weight: bold;
   height: 10%;
+  margin-bottom: 3%;
 }
 html body #dashboard-page #user-profile-x #user-profile-y #user-div #info-div .info-items {
   display: flex;
@@ -1175,20 +1438,35 @@ html body #dashboard-page #user-profile-x #user-profile-y #user-div #extra-div {
 html body #dashboard-page #user-profile-x #user-profile-y #user-div #extra-div #select-x {
   display: flex;
   justify-content: center;
+  text-align: center;
+  align-items: center;
   height: 30%;
   width: 100%;
   font-family: "jost-variable";
 }
-html body #dashboard-page #user-profile-x #user-profile-y #user-div #extra-div #select-x select {
+html body #dashboard-page #user-profile-x #user-profile-y #user-div #extra-div #select-x #time-period {
   display: flex;
   text-align: center;
-  width: 30%;
+  flex-direction: row;
+  align-items: center;
+  width: 17%;
   height: 100%;
   border-radius: 40px;
   border: none;
   outline: none;
+  justify-content: center;
+  color: black;
   font-family: "jost-variable";
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+  -webkit-appearance: none;
+}
+html body #dashboard-page #user-profile-x #user-profile-y #user-div #extra-div #select-x #time-period .choice {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  text-align: -moz-center;
+  text-align: -webkit-center;
 }
 
 html {
@@ -1241,10 +1519,12 @@ html body #map-page #info input[type=text] {
   border: none;
   background-color: #ffb877;
   color: white;
+  outline: none;
 }
 html body #map-page #info .button {
   background-color: #FF912C;
-  border: none;
+  border-style: solid;
+  border-radius: 25px;
   color: white;
   padding: 4px 32px;
   text-align: center;
@@ -1253,13 +1533,15 @@ html body #map-page #info .button {
   display: inline-block;
   font-size: 16px;
   margin: 4px 2px;
+  outline: none;
+  border: none;
   transition-duration: 0.4s;
   cursor: pointer;
 }
 html body #map-page #info #save-trip-button {
-  background-color: #ffb877;
+  background-color: #FF912C;
+  border-style: solid;
   border-radius: 25px;
-  border: none;
   color: white;
   padding: 4px 32px;
   text-align: center;
@@ -1269,6 +1551,8 @@ html body #map-page #info #save-trip-button {
   font-size: 16px;
   margin: 4px 2px;
   transition-duration: 0.4s;
+  outline: none;
+  border: none;
   cursor: pointer;
 }
 html body #map-page #info .result {
@@ -1519,6 +1803,74 @@ html body #car-choice .button {
   margin: 4px 2px;
   transition-duration: 0.4s;
   cursor: pointer;
+}
+
+html body ::-webkit-scrollbar {
+  display: none;
+}
+html body #privacy-main {
+  font-family: "jost-variable";
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 80%;
+}
+html body #privacy-main #privacy-boundary {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  width: 80%;
+  gap: 8%;
+}
+html body #privacy-main #privacy-boundary #agreement-title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2%;
+}
+html body #privacy-main #privacy-boundary #agreement-title #agreement {
+  font-size: 4vh;
+}
+html body #privacy-main #privacy-boundary #policy {
+  display: flex;
+  justify-content: center;
+  text-align: left;
+  overflow: scroll;
+  font-size: 2vh;
+}
+html body #privacy-main #privacy-boundary #contact {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  overflow: scroll;
+  font-size: 2vh;
+}
+html body #privacy-main #privacy-boundary #contact div {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+/**
+ * SASS STYLE-SHEET FOR INDEX.HTML
+ *
+ * @name: Bradley Masciotra.
+ * @version: 1.0
+ */
+html body ::-webkit-scrollbar {
+  display: none;
+}
+html body #admin-content {
+  display: flex;
+  width: 100%;
+  height: 80%;
+}
+html body #admin-content #users_table {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  overflow: scroll;
 }
 
 /* Fuel Line Style Sheet

@@ -1,29 +1,62 @@
-// let touchXAxis = 0;
-// let touchXAxisEnd = 0;
-// let touchYAxis = 0;
-let LOGOUT_CALL=0
+/**
+ * Profile Javascript.
+ *
+ * @version 1.0
+ * @name: Fuel Line LTD
+ */
 
+/**
+ * Variables.
+ */
+
+const PROFILE_HIGHLIGHT = 2;
+const MAX_BARS = 4;
+const TOP_BARS = 4;
+const TWO_DECIMAL = 2;
+const NO_USER = 0;
+
+
+/**
+ * Processes the users info and displays it to the screen.
+ *
+ * @param {Array} data an array of user data representing the information the user has entered on their fuel line application.
+ */
 function process_user_info(data) {
-    //if user is logged in, populates the profile page. if not, redirects to login page
-  if (data.length === 0) {
+  if (data.length === NO_USER) {
     window.location.href = "/login";
   } else {
-    console.log(data)
+    if (!data.profile_image == "") {
+      $("#profile-pic").attr("src", `${data.profile_image}`);
+    }
+
+    if (data.admin) {
+      $("#admin-route").css("display", "flex");
+    }
+
     $("#name").html(`<p>${data.username}</p>`);
     $("#email").html(`<p>${data.email}</p>`);
-    if (data.hasOwnProperty('vehicle_efficiency')){
-      $("#fuel-efficiency").html(`<p>${(data.vehicle_efficiency).toFixed(2)} L/100KM</p>`);
+
+    if (data.hasOwnProperty("vehicle_model")) {
+      $("#vehicle-model").html(`<p>${data.vehicle_model}</p>`);
+    } else {
+      $("#vehicle-model").html(`<p></p>`);
     }
-    else {
-      $("#fuel-efficiency").html(`<p><button id='add-vehicle'>Add Vehicle!</button></p>`);
+    if (data.hasOwnProperty("vehicle_efficiency")) {
+      $("#fuel-efficiency").html(
+        `<p>${data.vehicle_efficiency.toFixed(TWO_DECIMAL)} L/100KM</p>`
+      );
+    } else {
+      $("#fuel-efficiency").html(
+        `<p><button id='add-vehicle'>Add Vehicle!</button></p>`
+      );
     }
-    
   }
 }
 
+/**
+ * Gets the users information wih a GET request to the server.
+ */
 function getUserInfo() {
-    // gets the current logged in users info
-  console.log("called getUserInfo");
   $.ajax({
     url: `/getUserInfo`,
     type: "GET",
@@ -31,108 +64,66 @@ function getUserInfo() {
   });
 }
 
-function displayEdit()
-{
- $(".edit").fadeIn();
-
+/**
+ * Displays the edit screen.
+ */
+function displayEdit() {
+  $(".edit").fadeIn();
 }
 
-function closeEdit(){
- $(".edit").fadeOut();
-
+/**
+ * Closes the edit screen.
+ */
+function closeEdit() {
+  $(".edit").fadeOut();
 }
-
-function logout_open(){
-    $(".logout-contain").animate({width:'toggle'},500);
-}
-
-function logout_close(){
-    $(".logout-contain").animate({width:'toggle'},500);
-}
-
- 
-
-
 
 /**
  * Sets up the page
  */
 function setup() {
-  console.log("document ready");
   getUserInfo();
 
   let $topBars = $(".top-bar");
-
 
   $("#home-button").on("click", () => {
     window.location.href = "/";
   });
 
-  for (let i = 0; i < 4; i++) {
+  for (let i = 0; i < TOP_BARS; i++) {
     let $element = $($topBars[i]);
-    if (i == 2) {
+
+    if (i == PROFILE_HIGHLIGHT) {
       $element.css("background-color", "#FF912C");
     }
-    console.log($element);
   }
 
   $("#stats-button").on("click", () => {
     window.location.href = "/statistics";
   });
 
-  $(".edit-button").on("click", displayEdit);
+  $(".edit-button").on("click", function () {
+    window.location.href = "/car-choice";
+  });
 
-  $(".close-button").on("click", closeEdit)
-
-  $(document).on("touchstart",(event) => {
-    console.log("touched");
-    console.log(event.changedTouches)
-    touchXAxisStart = event.changedTouches[0].screenX;
-    
-  })
-
-// swipe event
-
-  // $(document).on("touchend",(event) => {
-  //   console.log("end");
-  //   touchXAxisEnd = event.changedTouches[0].screenX;
-
-  //   console.log(`start ${touchXAxisStart} end: ${touchXAxisEnd}`);
-
-  //   if(touchXAxisStart > touchXAxisEnd) // signifies a swipe right.
-  //   {
-  //     window.location.href = "/car-choice";
-  //   }
-  //   else if(touchXAxisStart < touchXAxisEnd) // signifies a swipe right.
-  //   {
-  //     window.location.href = "/map";
-  //   }
-  
-  // })
-
-  $('.logout-button').on('click', function(){
-    window.location.href ="/logout";
-  })
-
-  $("#header-logo").on("click", () => {
-    if (LOGOUT_CALL == 0){
-      $(".logout-contain").promise().done( logout_open )
-      $(".logout-contain").fadeIn("slow")
-      $(".logout-button").fadeIn("slow")
-      LOGOUT_CALL = 1
-    }
-    else {
-      $(".logout-contain").promise().done( logout_close )
-      $(".logout-contain").fadeOut("slow")
-      $(".logout-button").fadeOut("slow")
-      LOGOUT_CALL = 0
-    }})
-
-
+  $(".close-button").on("click", closeEdit);
 
   $("#info-div").on("click", "#add-vehicle", function () {
-    console.log("car choice button clicked")
     window.location.href = "/car-choice";
+  });
+
+  $("#upload-button-mask").on("click", () => {
+    $("#upload-button").trigger("click");
+
+    $("#upload-button").on("change", () => {
+      $("#upload-button-mask").fadeIn("slow", () => {
+        $("#upload-button-mask")
+          .promise()
+          .done(() => {
+            $("#upload-submit").trigger("click");
+          });
+      });
+    });
   });
 }
 

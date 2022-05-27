@@ -1,8 +1,10 @@
+<!DOCTYPE html>
 <head>
-  <title></title>
+  <title>Map</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/styles/main.css">
+  <link rel="icon" type="image/x-icon" href="/images/logo/favicon.ico">
   <script src="https://polyfill.io/v3/polyfill.min.js?features=default" defer></script>
   <script> var exports = {}; </script>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBE5NVWlFtuddGJGJxUiAS7Po3_jQePuts&callback=initMap&libraries=places&v=weekly"> </script>
@@ -47,11 +49,27 @@
       
 
     }
-
     #input-locations {
       display: flex;
       justify-content: space-between;
     }
+
+    .arrow {
+      border: solid black;
+      border-width: 0 4px 4px 0;
+      display: inline-block;
+      padding: 3px;
+    }
+
+  .right {
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+  }
+
+  .left {
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+  }
 
     #origin-input:focus,
     #destination-input:focus {
@@ -68,17 +86,23 @@
 </head>
 
 <body>
-  <!--Header-->
-  <header>
-    <div id="header-logo-container">
-      <img id="header-logo" src="./images/Untitled design (7).png">
-    </div>
-
-    <div class="logout-contain">
-        <button class="logout-button">Logout</button>
-    </div>
-  </header>
-
+     <!--Header-->
+     <header>
+      <div id="header-logo-container">
+        <img id="header-logo" src="./images/Untitled design (7).png" />
+        <div id="co-name">
+          Fuel Line&trade;
+        </div>
+      </div>
+      <div id="others">
+        <div id="anchor-row">
+          <a id="admin-route" href="/admin_user_views">Admin</a>
+          <a href="/privacy">Privacy Policy</a>
+          <a href="/contact">Contact</a>
+        </div>
+      </div>
+    </header>
+  
   <!--Main-->
   <main id="map-page">
 
@@ -89,8 +113,14 @@
       <input id="destination-input" class="controls" type="text" placeholder="Destination" />
     </div>
 
-      <button id="prev-route">Previous Route</button>
-      <button id="next-route">Next Route</button>
+    <div id="prev-route-div">
+      <i class="arrow left"></i>
+      <button class="change-route-button" id="prev-route">Previous Route</button>
+    </div>
+    <div id="next-route-div">
+      <button class="change-route-button" id="next-route">Next Route</button>
+      <i class="arrow right"></i>
+    </div>
       
     </div>
 
@@ -126,36 +156,10 @@
             <div id="result"></div>
   
           </div>
-         
-<!-- 
-          <br />
-          <h3>
-            <div id="result"></div>
-            </h2>
-        </div> -->
+        </div>
       </div>
-      <!-- <div id="location">
-        <div class="button-container">
-          <div class="centre">
-            <button class="buttons" id="track-button">Get Location</button>
-          </div>
-        </div>
-        <div class="button-container">
-          <div class="centre">
-            <button class="buttons">Extra </button>
-          </div>
-        </div>
-      </div> -->
-    </div>
-    </div>
-    <!--The div element for the map -->
-    <!-- <div id="map">
-
     </div>
 
-    <button id="track-button">Find Me!</button>
-
-    <p id="coordinates"></p> -->
 
   </main>
   <!--Footer-->
@@ -167,60 +171,54 @@
         </div>
         <div class="hover-button" id="home-button">
           <div class="button-img">
-            <img src="images/buttons/home-button.png">
+            <img src="./images/buttons/house-logo.png" />
           </div>
           <div class="button-title">
             <p>Home</p>
           </div>
         </div>
       </div>
-      <!--Favorites Button-->
-      <div class="nav-buttons">
-        <div class="top-bar">
+    <!--Map Button-->
+    <div class="nav-buttons" id="map-button" >
+      <div class="top-bar">
+      </div>
+      <div class="hover-button">
+        <div class="button-img">
+          <img src="./images/buttons/map.png" />
         </div>
-        <div class="hover-button">
-          <div class="button-img">
-            <img src="images/buttons/favorites-button.png">
-          </div>
-          <div class="button-title">
-            <p>Favorites</p>
-          </div>
+        <div class="button-title">
+          <p>Map</p>
         </div>
       </div>
+    </div>
       <!--User Button-->
       <div class="nav-buttons" id="profile-button">
         <div class="top-bar">
         </div>
         <div class="hover-button">
           <div class="button-img">
-            <img src="images/buttons/user-button.png">
-          </div>
-          <div class="button-title" id="profile">
-            <p>Your Profile</p>
-          </div>
-        </div>
-      </div>
-      <!--Map Button-->
-      <div class="nav-buttons" id="map-button">
-        <div class="top-bar">
-        </div>
-        <div class="hover-button">
-          <div class="button-img">
-            <img src="images/buttons/map.png">
+            <img src="./images/buttons/user-button.png" />
           </div>
           <div class="button-title">
-            <p>Map</p>
+            <p>Profile</p>
           </div>
         </div>
       </div>
+         <!--Favorites Button-->
+         <div class="nav-buttons" id="logout-button">
+          <div class="top-bar">
+          </div>
+          <div class="hover-button">
+            <div class="button-img">
+              <img src="./images/buttons/logout.png" />
+            </div>
+            <div class="button-title">
+              <p>Logout</p>
+            </div>
+          </div>
+        </div>
     </div>
   </footer>
-  <!-- <script
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBE5NVWlFtuddGJGJxUiAS7Po3_jQePuts&callback=initMap&v=weekly"
-        defer></script> -->
-  <!--END OF BODY-->
-
-
 </body>
 
 </html>

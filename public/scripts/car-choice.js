@@ -1,15 +1,27 @@
 /**
- * car-choice for choosing car
+ * Car-Choice Javascript.
+ *
+ * @version 1.0
+ * @name: Fuel Line LTD
  */
+
+/**
+ * Variables.
+ */
+
 var year = 2021;
 var converted_L = 0.0;
 var make = "";
 var model = "";
 
+/**
+ * Creates the Car Make Menu for the user to select their car's make.
+ *
+ * @param {Array} car_makes_list a list of all the car makes.
+ */
 function createMakesMenu(car_makes_list) {
-  console.log("createMakesMenu called");
-  // console.log(car_makes_list);
   select_makes = '<select name="makes" id="makes"> <option></option>';
+
   for (i = 0; i < car_makes_list.length; i++) {
     select_makes += `<option value="${car_makes_list[i]}">${car_makes_list[i]}</option>`;
   }
@@ -18,9 +30,12 @@ function createMakesMenu(car_makes_list) {
   populate_model();
 }
 
+/**
+ *
+ *
+ * @param {*} data
+ */
 function processCarMakes(data) {
-  console.log("called processCarMakes");
-  // console.log(data);
   car_makes_list = [];
   var car_makes = data.getElementsByTagName("text");
 
@@ -32,11 +47,10 @@ function processCarMakes(data) {
 }
 
 function populate_make() {
-  console.log("populate make function got called");
+  // gets all the car makes in the desired year by get request from fuel economy API
   to_add = "";
   year = $("#year").val();
   year = $("#year").find(":selected").text();
-  console.log(year);
 
   $.ajax({
     type: "get",
@@ -46,8 +60,7 @@ function populate_make() {
 }
 
 function createModelsMenu(car_models_list) {
-  console.log("createModelsMenu called");
-  // console.log(car_models_list);
+  // Uses the car models list to create a select menu
   select_models = '<select name="models" id="models"> <option></option>';
   for (i = 0; i < car_models_list.length; i++) {
     select_models += `<option value="${car_models_list[i]}">${car_models_list[i]}</option>`;
@@ -57,8 +70,7 @@ function createModelsMenu(car_models_list) {
 }
 
 function processCarModels(data) {
-  console.log("called processCarMakes");
-  // console.log(data);
+  // Adds all the car makes in the selected model to a list and calls createModelsMenu function
   car_models_list = [];
   var car_models = data.getElementsByTagName("text");
 
@@ -70,10 +82,9 @@ function processCarModels(data) {
 }
 
 function populate_model() {
+  // gets all the car models in the desired year and make by get request from fuel economy API
   $("#model-choice").empty();
-  console.log("populate model function got called");
   make = $("#makes").find(":selected").text();
-  // console.log(make);
 
   $.ajax({
     type: "get",
@@ -83,7 +94,7 @@ function populate_model() {
 }
 
 function displayFuelEfficiency(converted_L) {
-  console.log("displayFuel efficiency was called");
+  // empties the result div and shows the fuel efficiency of the vehicle to the user
   $("#result").empty();
   $("#result").html(
     `Fuel Efficiency of ${model} is: ${converted_L.toFixed(2)} L/100KM`
@@ -92,37 +103,26 @@ function displayFuelEfficiency(converted_L) {
 }
 
 function processVehicleID(data) {
+  // gets the average Miles per Gallon of the selected vehicle and converts it to Liters / 100 KM
   var i = data.getElementsByTagName("avgMpg")[0];
   let $i = $("#avgMpg");
-  console.log($i);
 
   var average_mpg = i.childNodes[0];
 
   average_mpg = average_mpg.nodeValue;
 
-  // $("#result").empty();
-  // $("#result").html(`Fuel Efficiency of ${model} could not be found`);
-
-  // console.log(average_mpg);
-
-  // console.log(typeof average_mpg);
   var mpg = parseFloat(average_mpg);
-  // console.log(mpg);
   converted_L = 235.215 / mpg;
-  // console.log(converted_L);
 
   displayFuelEfficiency(converted_L);
 }
 
 function processCarEfficiency(data) {
-  console.log("ProcessCarEfficiency called");
-  // console.log(data)
-  // get the value of the fuel efficiency from XML data
+  // get the value of the fuel efficiency from the specific vehicle page from the fuel economy API
+
   var i = data.getElementsByTagName("id")[0];
   let $i = $("#id");
-  // console.log(i);
   if (i == null) {
-    console.log("i is undefined");
     $("#result").empty();
     $("#result").html(`Fuel Efficiency of ${make} ${model} could not be found`);
     return;
@@ -139,10 +139,8 @@ function processCarEfficiency(data) {
 }
 
 function getFuelEfficiency() {
-  // gets the average fuel efficiency from the US database for the chosen make and
-  console.log("get fuel efficiency");
+  // gets the ID of the chosen vehicle and sends it to the processCarEfficiency function
   make = $("#makes").find(":selected").text();
-  // console.log(make);
 
   $.ajax({
     type: "get",
@@ -152,15 +150,16 @@ function getFuelEfficiency() {
 }
 
 function alertVehicleSaved() {
-  console.log("Vehicle Saved");
   alert("Vehicle Saved");
 }
 
 function saveUserVehicle() {
+  // saves user vehicle information to database
   $.ajax({
     url: "/saveUserVehicle",
     type: "POST",
     data: {
+      vehicle_model: model,
       vehicle: converted_L,
     },
     success: alertVehicleSaved,
@@ -175,18 +174,14 @@ function setup() {
   populate_make();
   // changes the make drop down menu to correspond to that year:
   $("#year").on("change", function () {
-    console.log("year changed");
     populate_make(this.value);
   });
   // creates car models drop down on change to makes:
   $("#make-choice").on("change", "#makes", function () {
-    console.log("makes value changed");
     populate_model(this.value);
   });
   // gets the car efficiency once a model is selected
   $("#model-choice").on("change", "#models", function () {
-    console.log("models value changed");
-    console.log(this.value);
     model = this.value;
     getFuelEfficiency();
   });
@@ -194,24 +189,18 @@ function setup() {
   $("#confirm-button").on("click", saveUserVehicle);
   // shows the submit manual efficiency button:
   $("#number-field").on("change", function () {
-    console.log("input populated");
     $("#confirm-manual-button").show();
   });
   // Gets the data from input field and calls saveUserVehicle
   $("#confirm-manual-button").on("click", function () {
-    console.log("manual input button clicked");
     converted_L = $("#number-field").val();
-    console.log(converted_L)
-    console.log(typeof converted_L)
 
-    converted_L = parseFloat(converted_L)
-    console.log(converted_L)
-    console.log(typeof converted_L)
-    if (isNaN(converted_L)){
-      console.log("not a number")
-      alert("Fuel Efficiency must be a number measured in L/100KM")
-      $("#number-field").val('');
-      return
+    converted_L = parseFloat(converted_L);
+   
+    if (isNaN(converted_L)) {
+      alert("Fuel Efficiency must be a number measured in L/100KM");
+      $("#number-field").val("");
+      return;
     }
     saveUserVehicle();
   });

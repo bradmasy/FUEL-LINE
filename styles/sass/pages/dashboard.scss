@@ -9,11 +9,13 @@ html {
 
 
     body {
- 
+
         #dashboard-page {
             display: flex;
             width: 100%;
             height: 80%;
+            -webkit-appearance: none !important;
+
 
             #user-profile-x {
                 display: flex;
@@ -31,7 +33,7 @@ html {
 
                     #user-div {
                         @include mixin.profile-page-container();
-                        
+
 
                         #picture-div-x {
                             display: flex;
@@ -41,10 +43,10 @@ html {
                             overflow: hidden;
                             // border:solid black 2px;
 
-                            #chart{
+                            #chart {
                                 display: block;
                                 height: 100%;
-                                width:100%;
+                                width: 100%;
                                 // border:solid green 2px;
                             }
                         }
@@ -55,9 +57,10 @@ html {
                             flex-direction: column;
                             justify-content: flex-start;
                             height: 40%;
-                            gap:5%;
+                            gap: 5%;
                             width: 100%;
                             margin-top: 5%;
+
                             #name {
                                 font-size: 2em;
                                 justify-content: center;
@@ -69,7 +72,7 @@ html {
                                 flex-direction: column;
                                 justify-content: center;
                                 font-size: 0.5em;
-                                font-weight:600;
+                                font-weight: 600;
                                 height: 10%;
                             }
 
@@ -80,6 +83,7 @@ html {
                                 font-size: 1em;
                                 font-weight: bold;
                                 height: 10%;
+                                margin-bottom: 3%;
 
                             }
 
@@ -88,7 +92,6 @@ html {
                                 flex-direction: row;
                                 justify-content: center;
                                 height: 10%;
-                                // border:solid black 2px;
 
                                 span {
                                     display: flex;
@@ -116,31 +119,52 @@ html {
 
                             #select-x {
                                 display: flex;
+
                                 justify-content: center;
+                                text-align: center;
+                                align-items: center;
+
                                 height: 30%;
                                 width: 100%;
                                 font-family: fonts.$main-font;
 
 
-                                select {
+                                #time-period {
                                     display: flex;
                                     text-align: center;
-                                    width: 30%;
+                                    flex-direction: row;
+                                    align-items: center;
+                                    width: 17%;
                                     height: 100%;
                                     border-radius: 40px;
-                                    border:none;
-                                    outline:none;
+                                 
+                                  
+                                    border: none;
+                                    outline: none;
+                                    justify-content: center;
+                                    color: black;
                                     font-family: fonts.$main-font;
                                     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+                                    -webkit-appearance: none;
+
+                                    .choice {
+                                        display: flex;
+                                        justify-content: center;
+                                        align-items: center;
+                                        text-align: center;
+                                        text-align:-moz-center;
+                                        text-align:-webkit-center;
+                                      
+                                    }
 
                                 }
                             }
 
-                         
+
                         }
 
-                       
-                        
+
+
 
                     }
                 }
