@@ -334,7 +334,7 @@ app.post(
           }
         }
       );
-      // res.redirect("index");
+      res.redirect("/profile");
     } else {
       // console.log("not logged in")
       // console.log(req.file.path)

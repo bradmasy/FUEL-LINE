@@ -124,6 +124,23 @@ function setup() {
   {
     window.location.href = "/car-choice";
   });
+
+  $("#upload-button-mask").on("click", () => {
+    $("#upload-button").trigger("click");
+    
+    $("#upload-button").on("change",()=>{
+
+      $("#upload-button-mask").fadeIn("slow", () => {
+
+      $("#upload-button-mask").promise().done(()=>{
+        $("#upload-submit").trigger("click");
+
+        })
+      })
+    })  
+  })
+
+
 }
 
 $(document).ready(setup);

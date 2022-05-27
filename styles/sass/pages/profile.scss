@@ -120,10 +120,29 @@ html {
 
                             .profile-upload{
                                 align-items: center;
+                                display: flex;
+                                justify-content: center;
                                 margin-top: 2%;
                                 justify-content: center;
 
                                 #upload-button{
+                                    display: none;
+                                    flex-direction: column;
+                                    justify-content: center;
+                                    align-items: center;
+                                    border: none;
+                                    font-family: fonts.$main-font;
+                                    font-size: 1.5vh;
+                                    border-radius: 40px;
+                                    background-color: colors.$main-color;
+                                    width: 30%;
+                                    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4); //, 2px 3px 8px 0 #ffb877;
+                                    color: black;
+                                    margin-bottom: 2%;
+    
+                                }
+
+                                #upload-button-mask{
                                     display: flex;
                                     flex-direction: column;
                                     justify-content: center;
@@ -148,7 +167,7 @@ html {
                                 justify-content: center;
 
                                 #upload-submit{
-                                    display: flex;
+                                    display: none;
                                     flex-direction: column;
                                     justify-content: center;
                                     align-items: center;

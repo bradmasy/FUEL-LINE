@@ -1,206 +1,205 @@
 <!DOCTYPE html>
 
 <head>
-    <title>Your Profile</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/styles/main.css">
-    <link rel="icon" type="image/x-icon" href="/images/logo/favicon.ico">
-    <script src="/scripts/jquery-3.6.0.min.js" defer></script>
-    <script src="/scripts/handlers/footer-buttons.js" defer></script>
-    <script src="/scripts/profile.js" defer></script>
+  <title>Your Profile</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/styles/main.css">
+  <link rel="icon" type="image/x-icon" href="/images/logo/favicon.ico">
+  <script src="/scripts/jquery-3.6.0.min.js" defer></script>
+  <script src="/scripts/handlers/footer-buttons.js" defer></script>
+  <script src="/scripts/profile.js" defer></script>
 </head>
 
 <body>
-    <!--Header-->
-    <header>
-        <div id="header-logo-container">
-          <img id="header-logo" src="./images/Untitled design (7).png" />
-          <div id="co-name">
-            Fuel Line&trade;
-          </div>
-        </div>
-      
-        <div id="others">
-          <div id="anchor-row">
-            <a id="admin-route" href="/admin_user_views">Admin</a>
-            <a href="/privacy">Privacy Policy</a>
-            <a href="/contact">Contact</a>
-          </div>
-       
-        </div>
-      </header>
-    
-    
-    <!--Main-->
-    <main id="profile-page">
-        <div id="user-profile-x">
-            <div id="user-profile-y">
-                <div id="user-div">
-                    <!--User Profile Box-->
-                    <div id="picture-div-x">
-                        <div id="semi-circle">
-                            <div id="picture-div-y">
-                                <div id="img-container">
-                                    <div>
-                                        <img id="profile-pic" src="./images/user.png">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="info-div" style="text-align: center;">
-                        <form method="POST" action="/profile-upload-single" enctype="multipart/form-data">
-                            <div class="profile-upload">
-                                <label>Upload profile picture</label>
-                                <input type="file" id="upload-button" style="align-items:center" name="profile-file" required/>
-                            </div>
-                            <div class="profile-submit">
-                                <input type="submit" id="upload-submit" value="Upload" />
-                            </div>
-                        </form>
-                        <div class="info-title" id="name">
-                            
-                        </div>
-                        <div class="info-items" id="efficiency">
-                            <p class="label">Email:</p>
-                            <p class="info" id="email"></p>
-                        </div>
+  <!--Header-->
+  <header>
+    <div id="header-logo-container">
+      <img id="header-logo" src="./images/Untitled design (7).png" />
+      <div id="co-name">
+        Fuel Line&trade;
+      </div>
+    </div>
 
-                        <div class="info-items" id="vehicle">
-                            <p class="label">Vehicle:</p>
-                            <p class="info" id="vehicle-model"></p>
-                        </div>
-                        <div class="info-items" id="efficiency">
-                            <p class="label">Fuel Efficiency:</p>
-                            <p class="info" id="fuel-efficiency"></p>
-                        </div>
+    <div id="others">
+      <div id="anchor-row">
+        <a id="admin-route" href="/admin_user_views">Admin</a>
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/contact">Contact</a>
+      </div>
+
+    </div>
+  </header>
 
 
-
-                    </div>
-
-                    <div id="extra-div">
-                        <div id="button-x-axis">
-                            <div id="button-y-axis">
-                                <button class="edit-button"  id="edit-button">Edit</button>
-                                <br>
-                                <button class="input-buttons" type="stats-link" id="stats-button">Statistics</button>
-                            </div>
-
-                        </div>
-                    </div>
-
-                    
-
-                    <!-- edit popup -->
-                    <div class="edit">
-                        <div class="edit-container">
-                        
-                            <div class="edit-title">
-                                <div class="title">
-                                    Edit Profile
-                                </div>
-                                <button data-close-button class="close-button">&times;</button>
-                            </div>
-                
-                            <div class="edit-content">
-                                <div class="edit-form">
-                                    <div class="field">
-                                        Change Name
-                                        <input class="edit-name">
-                                     </div>
-                                    <div class="field">
-                                        Change Email
-                                        <input class="edit-name">
-                                    </div>
-                                    <div class="field">
-                                        Change Budget
-                                        <input class="edit-name">
-                                    </div>
-                                    <br>
-                                    <div class="field">
-                                        
-                                        <a href="/car-choice">Change Vehicle</a>
-                                    </div>
-                                    <br>
-                                    <div class="save">
-                                        <button class="save-button">Save</button>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                        </div>
-                    </div>
-                    <div id="overlay"></div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </main>
-
-    <!--Footer-->
-    <footer>
-        <div id="navigation-buttons">
-          <!--Home Button-->
-          <div class="nav-buttons">
-            <div class="top-bar">
-            </div>
-            <div class="hover-button" id="home-button">
-              <div class="button-img">
-                <img src="./images/buttons/house-logo.png" />
-              </div>
-              <div class="button-title">
-                <p>Home</p>
-              </div>
-            </div>
-          </div>
-        <!--Map Button-->
-        <div class="nav-buttons" id="map-button" >
-          <div class="top-bar">
-          </div>
-          <div class="hover-button">
-            <div class="button-img">
-              <img src="./images/buttons/map.png" />
-            </div>
-            <div class="button-title">
-              <p>Map</p>
-            </div>
-          </div>
-        </div>
-          <!--User Button-->
-          <div class="nav-buttons" id="profile-button">
-            <div class="top-bar">
-            </div>
-            <div class="hover-button">
-              <div class="button-img">
-                <img src="./images/buttons/user-button.png" />
-              </div>
-              <div class="button-title">
-                <p>Profile</p>
-              </div>
-            </div>
-          </div>
-             <!--Favorites Button-->
-             <div class="nav-buttons" id="logout-button">
-              <div class="top-bar">
-              </div>
-              <div class="hover-button">
-                <div class="button-img">
-                  <img src="./images/buttons/logout.png" />
-                </div>
-                <div class="button-title">
-                  <p>Logout</p>
+  <!--Main-->
+  <main id="profile-page">
+    <div id="user-profile-x">
+      <div id="user-profile-y">
+        <div id="user-div">
+          <!--User Profile Box-->
+          <div id="picture-div-x">
+            <div id="semi-circle">
+              <div id="picture-div-y">
+                <div id="img-container">
+                  <div>
+                    <img id="profile-pic" src="./images/user.png">
+                  </div>
                 </div>
               </div>
             </div>
+          </div>
+          <div id="info-div" style="text-align: center;">
+            <form method="POST" action="/profile-upload-single" enctype="multipart/form-data">
+              <div class="profile-upload">
+                <button id="upload-button-mask">Choose New Profile Picture</button>
+                <input type="file" id="upload-button" style="align-items:center" name="profile-file" required />
+              </div>
+
+              <div class="profile-submit">
+                <input type="submit" id="upload-submit" value="Upload" />
+              </div>
+            </form>
+            <div class="info-title" id="name">
+
+            </div>
+            <div class="info-items" id="efficiency">
+              <p class="label">Email:</p>
+              <p class="info" id="email"></p>
+            </div>
+
+            <div class="info-items" id="vehicle">
+              <p class="label">Vehicle:</p>
+              <p class="info" id="vehicle-model"></p>
+            </div>
+            <div class="info-items" id="efficiency">
+              <p class="label">Fuel Efficiency:</p>
+              <p class="info" id="fuel-efficiency"></p>
+            </div>
+
+
+
+          </div>
+
+          <div id="extra-div">
+            <div id="button-x-axis">
+              <div id="button-y-axis">
+                <button class="edit-button" id="edit-button">Edit</button>
+              </div>
+
+            </div>
+          </div>
+
+
+
+          <!-- edit popup -->
+          <div class="edit">
+            <div class="edit-container">
+
+              <div class="edit-title">
+                <div class="title">
+                  Edit Profile
+                </div>
+                <button data-close-button class="close-button">&times;</button>
+              </div>
+
+              <div class="edit-content">
+                <div class="edit-form">
+                  <div class="field">
+                    Change Name
+                    <input class="edit-name">
+                  </div>
+                  <div class="field">
+                    Change Email
+                    <input class="edit-name">
+                  </div>
+                  <div class="field">
+                    Change Budget
+                    <input class="edit-name">
+                  </div>
+                  <br>
+                  <div class="field">
+
+                    <a href="/car-choice">Change Vehicle</a>
+                  </div>
+                  <br>
+                  <div class="save">
+                    <button class="save-button">Save</button>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <div id="overlay"></div>
+
         </div>
-      </footer>
-    
-    <!--END OF BODY-->
+
+      </div>
+
+    </div>
+
+  </main>
+
+  <!--Footer-->
+  <footer>
+    <div id="navigation-buttons">
+      <!--Home Button-->
+      <div class="nav-buttons">
+        <div class="top-bar">
+        </div>
+        <div class="hover-button" id="home-button">
+          <div class="button-img">
+            <img src="./images/buttons/house-logo.png" />
+          </div>
+          <div class="button-title">
+            <p>Home</p>
+          </div>
+        </div>
+      </div>
+      <!--Map Button-->
+      <div class="nav-buttons" id="map-button">
+        <div class="top-bar">
+        </div>
+        <div class="hover-button">
+          <div class="button-img">
+            <img src="./images/buttons/map.png" />
+          </div>
+          <div class="button-title">
+            <p>Map</p>
+          </div>
+        </div>
+      </div>
+      <!--User Button-->
+      <div class="nav-buttons" id="profile-button">
+        <div class="top-bar">
+        </div>
+        <div class="hover-button">
+          <div class="button-img">
+            <img src="./images/buttons/user-button.png" />
+          </div>
+          <div class="button-title">
+            <p>Profile</p>
+          </div>
+        </div>
+      </div>
+      <!--Favorites Button-->
+      <div class="nav-buttons" id="logout-button">
+        <div class="top-bar">
+        </div>
+        <div class="hover-button">
+          <div class="button-img">
+            <img src="./images/buttons/logout.png" />
+          </div>
+          <div class="button-title">
+            <p>Logout</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!--END OF BODY-->
 </body>
 
 </html>

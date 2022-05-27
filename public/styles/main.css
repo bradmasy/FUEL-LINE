@@ -225,7 +225,22 @@ html body #content {
   height: 80%;
   width: 100%;
 }
-@media only screen and (max-height: 400px) {
+@media only screen and (max-width: 700px) {
+  html body #content {
+    justify-content: center;
+  }
+}
+@media only screen and (max-height: 700px) {
+  html body #content {
+    justify-content: center;
+  }
+}
+@media only screen and (max-width: 1000px) {
+  html body #content {
+    justify-content: center;
+  }
+}
+@media only screen and (max-height: 1000px) {
   html body #content {
     justify-content: center;
   }
@@ -237,7 +252,12 @@ html body #content .row-container {
   height: 20%;
   margin-top: 20%;
 }
-@media only screen and (max-height: 400px) {
+@media only screen and (max-width: 400px) {
+  html body #content .row-container {
+    margin-top: 20%;
+  }
+}
+@media only screen and (max-width: 1800px) {
   html body #content .row-container {
     margin-top: 0%;
   }
@@ -1003,10 +1023,27 @@ html body #profile-page #user-profile-x #user-profile-y #user-div #info-div {
 }
 html body #profile-page #user-profile-x #user-profile-y #user-div #info-div .profile-upload {
   align-items: center;
+  display: flex;
+  justify-content: center;
   margin-top: 2%;
   justify-content: center;
 }
 html body #profile-page #user-profile-x #user-profile-y #user-div #info-div .profile-upload #upload-button {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  font-family: "jost-variable";
+  font-size: 1.5vh;
+  border-radius: 40px;
+  background-color: #FF912C;
+  width: 30%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+  color: black;
+  margin-bottom: 2%;
+}
+html body #profile-page #user-profile-x #user-profile-y #user-div #info-div .profile-upload #upload-button-mask {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -1027,7 +1064,7 @@ html body #profile-page #user-profile-x #user-profile-y #user-div #info-div .pro
   justify-content: center;
 }
 html body #profile-page #user-profile-x #user-profile-y #user-div #info-div .profile-submit #upload-submit {
-  display: flex;
+  display: none;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -1244,6 +1281,7 @@ html body #dashboard-page #user-profile-x #user-profile-y #user-div #info-div .i
   font-size: 1em;
   font-weight: bold;
   height: 10%;
+  margin-bottom: 3%;
 }
 html body #dashboard-page #user-profile-x #user-profile-y #user-div #info-div .info-items {
   display: flex;
@@ -1643,9 +1681,11 @@ html body #privacy-main #privacy-boundary {
   flex-direction: column;
   text-align: center;
   width: 80%;
+  gap: 8%;
 }
 html body #privacy-main #privacy-boundary #agreement-title {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   padding: 2%;
 }
@@ -1661,10 +1701,16 @@ html body #privacy-main #privacy-boundary #policy {
 }
 html body #privacy-main #privacy-boundary #contact {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   text-align: center;
   overflow: scroll;
   font-size: 2vh;
+}
+html body #privacy-main #privacy-boundary #contact div {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
 
 /**
