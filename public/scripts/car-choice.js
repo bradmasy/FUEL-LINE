@@ -106,7 +106,7 @@ function displayFuelEfficiency(converted_L) {
   console.log("displayFuel efficiency was called");
   $("#result").empty();
   $("#result").html(
-    `Fuel Efficiency of ${model} is: ${converted_L.toFixed(2)} L/100KM`
+    `Fuel Efficiency of ${model} is: ${converted_L.toFixed(2)} KM/L`
   );
   $("#confirm-button").show();
 }
@@ -123,7 +123,7 @@ function processVehicleID(data) {
 
   var mpg = parseFloat(average_mpg);
   // console.log(mpg);
-  converted_L = 235.215 / mpg;
+  converted_L = mpg / 2.352;
   // console.log(converted_L);
 
   displayFuelEfficiency(converted_L);
@@ -227,7 +227,7 @@ function setup() {
     console.log(typeof converted_L);
     if (isNaN(converted_L)) {
       console.log("not a number");
-      alert("Fuel Efficiency must be a number measured in L/100KM");
+      alert("Fuel Efficiency must be a number measured in KM/L");
       $("#number-field").val("");
       return;
     }

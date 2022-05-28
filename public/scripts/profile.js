@@ -42,7 +42,7 @@ function process_user_info(data) {
     }
     if (data.hasOwnProperty("vehicle_efficiency")) {
       $("#fuel-efficiency").html(
-        `<p>${data.vehicle_efficiency.toFixed(TWO_DECIMAL)} L/100KM</p>`
+        `<p>${data.vehicle_efficiency.toFixed(TWO_DECIMAL)} KM/L</p>`
       );
     } else {
       $("#fuel-efficiency").html(
