@@ -16,8 +16,9 @@ const $confirmPassword   = $("#password2");
 const $userPassword      = $("#password1");
 const $showPasswordBox   = $("#show");
 const $showPasswordTitle = $("#pass-title");
-const DELAY              = 4000;
-const CHANGE_BACK_DELAY  = 3000;
+const DELAY              = 4000; // milliseconds.
+const CHANGE_BACK_DELAY  = 3000; // milliseconds.
+const SUBMIT_DELAY       = 5000; // milliseconds.
 const NO_USER            = 0;
 let passwordVisible      = false; // for revealing the password.
 
@@ -214,10 +215,30 @@ function passwordDisplays(origPassword,passwordCopy,valid)
  */
 function displayInformativeFeedback(username,email,origPassword,passwordCopy)
 {
-  let valid = false;
-  valid     = usernameDisplays(username,valid);
-  valid     = emailDisplays(email,valid);
-  valid     = passwordDisplays(origPassword,passwordCopy,valid)
+  let valid         = false;
+  let usernameValid = usernameDisplays(username,valid);
+  let emailValid    = emailDisplays(email,valid);
+  let passwordValid = passwordDisplays(origPassword,passwordCopy,valid)
+
+  // check to see if any throw an error.
+  if(!usernameValid||emailValid||passwordValid)
+  {
+    $("#confirm-button").off("click");
+      console.log("off")
+      setTimeout(()=>{
+        $("#confirm-button").on("click",attemptSignup);
+    
+      }, SUBMIT_DELAY);
+
+  }
+
+  // if all are valid return true.
+  if(usernameValid && emailValid && passwordValid)
+  {
+    valid = true;
+  }
+
+  
 
   return valid;
 }
@@ -273,6 +294,12 @@ function attemptSignup() {
       },
       success: checkUserExists,
     });
+  }
+  else
+  {
+
+      
+     
   }
 }
 

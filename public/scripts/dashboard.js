@@ -195,7 +195,6 @@ async function getUserData() {
 
         totalDistance = getTotalDistance();
         amountSpent   = getTotalSpend();
-        console.log(amountSpent);
 
     }).catch((err) => {
         console.log("error");
@@ -260,6 +259,9 @@ async function drawChart(timePeriod)
             }
         }
     });
+    
+    myChart.defaults.elements.line.borderWidth = 5;
+
 }
 
 /**
@@ -286,7 +288,6 @@ function compareTimePeriodToObject (period,object)
                 {
                     objectPeriod =  object.slice(MD_START, M_END);
                     time         =  getMonth();
-                    console.log("here");
                     break;
                 }
                 case "year":
@@ -343,7 +344,6 @@ function aggregations(period)
 function getTimePeriod() {
 
     let timePeriod       = $("#time-period").val()
-    console.log(timePeriod)
     dataSet              = [];
     tripLabels           = [];
     let instances        = 0;
@@ -360,7 +360,6 @@ function getTimePeriod() {
         average = 0;
     }
 
-    console.log(currentAmountCAD)
     $("#trip-average").html(`You Spent: $${average}/Per Trip This Time Period.`)
     $("#distance-driven").html(`Total Distance: ${(distance).toFixed(TWO_PLACES)}KM`);
     $("#amount-spent").html(`Total Spend [CAD]: $${currentAmountCAD.toFixed(TWO_PLACES)}`);

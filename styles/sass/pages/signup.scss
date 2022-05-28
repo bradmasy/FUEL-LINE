@@ -10,10 +10,10 @@ html {
             display: flex;
             flex-direction: column;
             background-color: white;
-            height: 80%;
+            height: 100%;
             width: 100%;
 
-            #signup-statement {
+            #signup-statement { //15
                 display: flex;
                 flex-direction: row;
                 justify-content: center;
@@ -21,22 +21,36 @@ html {
                 font-size: 2em;
                 height: 15%;
 
-                @media only screen and (max-width: 400px) {
-                    // margin-top: 10%;
+                margin-top: 5%;
+
+
+                @media only screen and (min-width: 300px) {}
+
+                @media only screen and (min-width: 550px) {
+                    
+
                 }
 
-                @media only screen and (max-width: 700px) {
-                    // margin-top: 0%;
+                @media only screen and (min-width: 800px) {
+                
                 }
-    
+
+                @media only screen and (min-width: 1100px) {
+                  
+                }
+
+                @media only screen and (min-width: 1500px) {
+               
+                }
+        
             }
 
-            #greet {
-                display: flex;
+            #greet { //5
+                display: flex; 
                 flex-direction: column;
                 justify-content: center;
-                height: 5%;
-                margin-top: 5%;
+                height: 15%;
+                margin-top: 3%;
 
                 div{
                     display: flex;
@@ -49,11 +63,11 @@ html {
                 }
             }
 
-            #signup-form {
+            #signup-form { //60
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
-                height: 60%;
+                height: 70%;
 
                 #signup-form-align {
                     display: flex;
@@ -62,73 +76,73 @@ html {
                     height: 90%;
                     width: 100%;
 
-                    #profile-pic-form {
-                        display: flex;
-                        flex-direction: column;
+                    // #profile-pic-form {
+                    //     display: flex;
+                    //     flex-direction: column;
 
-                        #form-div {
+                    //     #form-div {
 
-                            display: flex;
-                            margin-top: 2%;
-                            justify-content: center;
+                    //         display: flex;
+                    //         margin-top: 2%;
+                    //         justify-content: center;
 
-                            #choose-button:hover {
-                                @include mixin.hover-styles();
-                            }
+                    //         #choose-button:hover {
+                    //             @include mixin.hover-styles();
+                    //         }
 
-                            #choose-button:focus {
-                                border: none;
-                                outline: none;
-                                -webkit-appearance: none;
-                            }
+                    //         #choose-button:focus {
+                    //             border: none;
+                    //             outline: none;
+                    //             -webkit-appearance: none;
+                    //         }
 
-                            #choose-button {
-                                display: flex;
-                                flex-direction: column;
-                                justify-content: center;
-                                align-items: center;
-                                border: none;
-                                font-family: fonts.$main-font;
-                                font-size: 1.5vh;
-                                border-radius: 40px;
-                                background-color: colors.$main-color;
-                                width: 30%;
-                                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4); //, 2px 3px 8px 0 #ffb877;
-                                color: black;
-                                margin-bottom: 2%;
-                            }
+                    //         #choose-button {
+                    //             display: flex;
+                    //             flex-direction: column;
+                    //             justify-content: center;
+                    //             align-items: center;
+                    //             border: none;
+                    //             font-family: fonts.$main-font;
+                    //             font-size: 1.5vh;
+                    //             border-radius: 40px;
+                    //             background-color: colors.$main-color;
+                    //             width: 30%;
+                    //             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4); //, 2px 3px 8px 0 #ffb877;
+                    //             color: black;
+                    //             margin-bottom: 2%;
+                    //         }
 
-                            #profile-picture {
-                                display: none;
-                            }
-                        }
+                    //         #profile-picture {
+                    //             display: none;
+                    //         }
+                    //     }
 
-                        #submission {
-                            display: flex;
-                            justify-content: center;
+                    //     #submission {
+                    //         display: flex;
+                    //         justify-content: center;
 
-                            #input-submit:hover {
-                                @include mixin.hover-styles();
-                                // box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4); //, 2px 3px 8px 0 #ffb877;
+                    //         #input-submit:hover {
+                    //             @include mixin.hover-styles();
+                    //             // box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4); //, 2px 3px 8px 0 #ffb877;
 
-                            }
+                    //         }
 
-                            #input-submit {
-                                display: none;
-                                flex-direction: column;
-                                justify-content: center;
-                                align-items: center;
-                                border: none;
-                                font-family: fonts.$main-font;
-                                border-radius: 40px;
-                                background-color: colors.$main-color;
-                                width: 20%;
+                    //         #input-submit {
+                    //             display: none;
+                    //             flex-direction: column;
+                    //             justify-content: center;
+                    //             align-items: center;
+                    //             border: none;
+                    //             font-family: fonts.$main-font;
+                    //             border-radius: 40px;
+                    //             background-color: colors.$main-color;
+                    //             width: 20%;
                             
-                                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4); //, 2px 3px 8px 0 #ffb877;
-                                color: black;
-                            }
-                        }
-                    }
+                    //             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4); //, 2px 3px 8px 0 #ffb877;
+                    //             color: black;
+                    //         }
+                    //     }
+                    // }
 
 
                     .input-buttons {
@@ -137,7 +151,7 @@ html {
                         height: 20%;
                         width: 100%;
                         outline: none;
-                        margin-top: 3%;
+                        margin-top: 2%;
                         -webkit-appearance: none;
                         font-family: fonts.$main-font;
 
@@ -166,6 +180,7 @@ html {
                             justify-content: center;
                             height: 100%;
                             width: 100%;
+                            margin-top: 3%;
 
                             #center {
                                 display: flex;

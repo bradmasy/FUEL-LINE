@@ -22,42 +22,76 @@ const soundtrackStart    = 5.15;
 const NOT_CLICKED        = 0;
 const CLICKED            = 1;
 const SET_VOLUME         = 0.1;
-soundtrack.currentTime   = soundtrackStart;
+soundtrack.currentTime   = 5.15;
 let animationHandler;
+
 
 /**
  * Increments the animation handler recursively until the base case is met.
  * 
  * @returns a reference to the animation handler. 
  */
-function incrementHandler()
-{
-    if(counter < limit)
-    {
-        counter += positionIncrement;
-      
-        $("#easter-egg").css("left",`${counter}`);
+ function incrementHandler()
+ {
+     if(counter < limit)
+     {
+         counter += positionIncrement;
+         $("#easter-egg").css("left",`${counter}px`);
+         console.log($("#easter-egg").css("left"));
+         animationHandler = requestAnimationFrame( incrementHandler );
+     }
+     else
+     {
+         cancelAnimationFrame(animationHandler);
+         $("#easter-egg").fadeOut("fast");
+         $("#easter-egg").promise().done(()=>{
+             $("#easter-content").css("display","none");
+             $("#main-logo").fadeIn("slow");
+             $("#content").fadeIn("slow");
+             counter = 0;
+             soundtrack.pause();
+             soundtrack.currentTime = soundtrackStart;
+         })
+     }
+     return animationHandler;
+ }
+
+
+
+// /**
+//  * Increments the animation handler recursively until the base case is met.
+//  * 
+//  * @returns a reference to the animation handler. 
+//  */
+// function incrementHandler()
+// {
+//     if(counter < limit)
+//     {
+//         counter += positionIncrement;
+//         console.log(counter);
+
+//         $("#easter-egg").css("left",`${counter}`);
         
-        animationHandler = requestAnimationFrame(incrementHandler);
-    }
-    else
-    {
-        cancelAnimationFrame(animationHandler);
-        $("#easter-egg").fadeOut("fast");
-        $("#easter-egg").promise().done(()=>{
+//         animationHandler = requestAnimationFrame(incrementHandler);
+//     }
+//     else
+//     {
+//         cancelAnimationFrame(animationHandler);
+//         $("#easter-egg").fadeOut("fast");
+//         $("#easter-egg").promise().done(()=>{
 
-            $("#easter-content").css("display","none");
-            $("#main-logo").fadeIn("slow");
-            $("#content").fadeIn("slow");
+//             $("#easter-content").css("display","none");
+//             $("#main-logo").fadeIn("slow");
+//             $("#content").fadeIn("slow");
 
-            counter = 0;
-            soundtrack.pause();
-            soundtrack.currentTime = soundtrackStart;
-        })
-    }
+//             counter = 0;
+//             soundtrack.pause();
+//             soundtrack.currentTime = 5.15;
+//         })
+//     }
 
-    return animationHandler;
-}
+//     return animationHandler;
+// }
 
 /**
  * Runs the animation when three clicks have been made to the image.
@@ -89,32 +123,38 @@ function setup()
         }
     }
 
-    $("#main-logo").on("click", () => 
-    {
-        if(clickCount == NOT_CLICKED)
+    $("#main-logo").on("click", () => {
+        if(clickCount == 0)
         {
             $("#main-logo").css("transition","0.8s");
             $("#main-logo").css("opacity","70%");
         }
-        else if(clickCount == CLICKED)
+        else if(clickCount == 1)
         { 
             $("#main-logo").css("transition","0.8s");
             $("#main-logo").css("opacity","50%");
+
         }
         if(clickCount == secretAmountOfCLicks)
         {
 
-            soundtrack.volume = SET_VOLUME;
+            soundtrack.volume        = 0.1;
+            soundtrack.currentTime   = 5.15;
             soundtrack.play();
 
             $("#main-logo").fadeOut("slow");
             $("#content").fadeOut("slow");
+            // $("#easter-egg").css("left","100px");
+
             $("#main-logo").promise().done( animation );
+
+
         }
         else
         {
             clickCount++; // increment the counter.
         }
+            
     })
 }
 
