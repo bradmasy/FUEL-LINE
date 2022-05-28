@@ -433,7 +433,7 @@ function calculate_costs() {
     gas_price = parseFloat($("#gas-price").val());
   }
   var distance = parseFloat(drivingDistanceGlobal.replace(/[^0-9.]/g, ""));
-  var cost = (distance / fuel_efficiency) * gas_price;
+  var cost = (gas_price / fuel_efficiency) * distance;
   cost_rounded = cost.toFixed(2);
 
   jQuery("#calculation-form").empty();
